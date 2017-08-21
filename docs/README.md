@@ -27,7 +27,7 @@ MockDoc is a web application inspired by ZocDoc built using Ruby on Rails and Re
 * [DB schema][schema]
 * [Sample State][sample-state]
 
-[wireframes]: docs/wireframes
+[wireframes]: wireframes
 [components]: component-hierarchy.md
 [sample-state]: sample-state.md
 [api-endpoints]: api-endpoints.md

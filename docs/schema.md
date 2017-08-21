@@ -10,7 +10,7 @@ birthday        | date      | not null
 sex             | string    | not null
 address         | string    |
 phone number    | integer   | indexed, unique
-doctor_stats_id | integer   | foreign key (references doctor profile stats), indexed, unique
+doctor_stats_id | integer   | foreign key (references doctor-stats), indexed, unique
 
 ## doctor-stats
 column name            | data type | details
@@ -23,32 +23,43 @@ memberships            | string    | not null
 in_network_insurances  | text      | not null
 specialties            | string    | not null
 professional_statement | text      | not null
-practice_id            | integer   | not null, foreign key (references practices), indexed
 
-
+## doctors-and-practices
+column name  | data type | details
+-------------|-----------|-----------------
+id           | integer   | not null, primary key
+doctor_id    | integer   | not null, foreign key (references doctor-stats), indexed
+practice_id  | integer   | not null, foreign key (references practices), indexed
 
 ## practices
-column name           | data type | details
-----------------------|-----------|-----------------------
-id                    | integer   | not null, primary key
-name                  | string    | not null, indexed, unique
-location              | string    | not null, indexed, unique
-doctor_id             | integer   | not null, foreign key (references doctors), indexed
+column name  | data type | details
+-------------|-----------|-----------------------
+id           | integer   | not null, primary key
+name         | string    | not null, indexed
+location     | string    | not null, indexed, unique
 
 ## appointments
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users), indexed
-title       | string    | not null
-description | string    |
+column name         | data type | details
+--------------------|-----------|-----------------------
+id                  | integer   | not null, primary key
+patient_id          | integer   | not null, foreign key (references users), indexed
+doctor_id           | integer   | not null, foreign key (references doctor-stats), indexed
+time                | timestamp | not null
+visitor_name        | string    | not null
+insurance           | string    | not null
+appointment_reason  | string    | not null
+seen_before         | boolean   | not null, default: false
+phone_number        | integer   | not null
+insurance_member_id | integer   |
+notes               | text      |
 
-## Reviews
+## reviews
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 body        | string    | not null
-author_id   | text      | not null, foreign key (references patients), indexed
+author_id   | text      | not null, foreign key (references users), indexed
+doctor_id   | integer   | not null, foreign key (references doctor-stats), indexed
 
 ## Ratings
 column name    | data type | details
@@ -57,5 +68,6 @@ id             | integer   | not null, primary key
 overall_rating | integer   | not null
 bedside_manner | integer   | not null
 wait_time      | integer   | not null
-author_id        | integer   | not null, foreign key (references notes), indexed, unique [tag_id]
+author_id      | integer   | not null, foreign key (references users), indexed
+doctor_id      | integer   | not null, foreign key (references doctor-stats), indexed
 tag_id         | integer   | not null, foreign key (references tags), indexed

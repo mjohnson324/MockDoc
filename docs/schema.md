@@ -15,7 +15,6 @@ column name            | data type | details
 -----------------------|-----------|-----------------
 id                     | integer   | not null, primary key
 education              | text      | not null
-languages              | string    | not null
 professional_statement | text      |
 
 

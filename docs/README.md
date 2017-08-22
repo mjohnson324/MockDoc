@@ -13,11 +13,10 @@ MockDoc is a web application inspired by ZocDoc built using Ruby on Rails and Re
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
-- [ ] Doctor/Practice Profiles
+- [ ] Doctor Profiles
 - [ ] Search/Filters
 - [ ] Book Appointments
 - [ ] Reviews/ratings
-- [ ] Map
 - [ ] Production README
 
 ## Design Docs
@@ -41,29 +40,23 @@ MockDoc is a web application inspired by ZocDoc built using Ruby on Rails and Re
 
 ### Phase 2: Patient/Doctor Profiles  (1 day)
 
-**Objective:** Patients and doctors can view and edit their profiles.
+**Objective:** Patients can view doctor profiles. Profiles can be read by patients.
 
-### Phase 3: Practice Profiles (1 days)
+### Phase 3: Search/filters (2 days)
 
-**Objective:** Practices can view and edit their profiles independent of doctors. Patients can view doctor and practice profiles.
+**Objective:** Patients can search for doctors. Patients can search for doctors by specialty, location, and gender.
 
-### Phase 4: Search/filters (2 days)
+### Phase 4: Book Appointments (2 days)
 
-**Objective:** Patients can search for doctors through google's api based on multiple parameters including specialty, procedure, illness, location, gender, and insurance information. Other parameters may apply. Patients can search for doctors and view profiles before signing in.
+**Objective:** Patients can book appointments with doctors. Appointments can be created, read, updated and destroyed. Appointments belong to the doctor and patient.
 
-### Phase 5: Book Appointments (2 days)
+### Phase 5: Reviews/ratings (1 day)
 
-**Objective:** Patients can book appointments with multiple doctors. Appointments can be created, viewed, updated or destroyed. Appointments belong to a patient and a doctor. Appointments which have taken place can no longer be destroyed.
-
-### Phase 6: Reviews/ratings (1 day)
-
-**Objective:** After an appointment patients can review and rate a doctor. Reviews belong to a patient and a doctor. Ratings consist of three metrics: Overall Rating, Bedside Manner, and Wait Time, each which can be set between one to five stars. A doctor's reviews are displayed on their profile page.
-
-### Phase 7: Map (1 day)
-
-**Objective:** Add visible google maps displaying doctor locations. Maps are viewable from the search page and from doctor and practice profile pages.
+**Objective:** After an appointment patients can review doctors. Reviews can be created, read, and updated. Reviews belong to a patient and a doctor.
 
 ### Bonus Features (TBD)
+- [ ] Search for doctors by accepted insurance
+- [ ] Practices
 - [ ] Insurance card photos
 - [ ] Wellness Guides
 - [ ] Online check-in

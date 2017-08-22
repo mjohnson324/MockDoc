@@ -16,6 +16,11 @@
     1: {
       id: 1,
       name: Nick Riviera,
+      gender: male,
+      location: {
+                lat: -90,
+                lng: -90
+              },
       education: Hollywood Upstairs Medical College,
       professional_statement: Hi everybody!,
       specialties: general surgeon,
@@ -27,6 +32,11 @@
     2: {
       id: 2,
       name: Julius Hibbert,
+      gender: male,
+      location: {
+                lat: 0,
+                lng: 0
+              },
       education: Johns Hopkins University School of Medicine,
       professional_statement: null,
       specialties: family medicine,

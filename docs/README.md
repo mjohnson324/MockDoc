@@ -44,15 +44,15 @@ MockDoc is a web application inspired by ZocDoc built using Ruby on Rails and Re
 
 ### Phase 3: Search/filters (2 days)
 
-**Objective:** Patients can search for doctors. Patients can search for doctors by specialty, location, and gender.
+**Objective:** Patients can search for doctors by specialty, location, and gender.
 
 ### Phase 4: Book Appointments (2 days)
 
-**Objective:** Patients can book appointments with doctors. Appointments can be created, read, updated and destroyed. Appointments belong to the doctor and patient.
+**Objective:** Patients can book appointments with doctors. Appointments can read and updated. Appointments belong to the doctor and patient.
 
 ### Phase 5: Reviews/ratings (1 day)
 
-**Objective:** After an appointment patients can review doctors. Reviews can be created, read, and updated. Reviews belong to a patient and a doctor.
+**Objective:** After an appointment patients can review doctors. Reviews can be created and read. Reviews belong to a patient and a doctor.
 
 ### Bonus Features (TBD)
 - [ ] Search for doctors by accepted insurance

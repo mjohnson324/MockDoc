@@ -6,16 +6,16 @@ email           | string    | not null, indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 name            | string    | not null
-birthday        | date      | not null
-sex             | string    | not null
-phone number    | integer   | not null, indexed, unique
 
 ## doctors
-column name            | data type | details
------------------------|-----------|-----------------
-id                     | integer   | not null, primary key
-education              | text      | not null
-professional_statement | text      |
+column name            | data type  | details
+-----------------------|------------|-----------------
+id                     | integer    | not null, primary key
+gender                 | string     | not null
+education              | text       | not null
+lat                    | float      | not null
+lng                    | float      | not null
+professional_statement | text       |
 
 
 ## doctor-specialties
@@ -24,6 +24,7 @@ column name      | data type | details
 id               | integer   | not null, primary key
 doctor_id        | integer   | not null
 specialty_id     | integer   | not null
+- [doctor_id, specialty_id], indexed, unique
 
 ## specialties
 column name  | data type | details
@@ -37,6 +38,7 @@ column name      | data type | details
 id               | integer   | not null, primary key
 doctor_id        | integer   | not null
 certification_id | integer   | not null
+- [doctor_id, certification_id], indexed, unique
 
 ## board-certifications
 column name | data type | details
@@ -52,8 +54,6 @@ patient_id          | integer   | not null, foreign key (references patients), i
 doctor_id           | integer   | not null, foreign key (references doctors), indexed
 start_time          | timestamp | not null
 reason              | text      | not null
-seen_before         | boolean   | not null, default: false
-phone_number        | integer   | not null
 
 ## reviews
 column name    | data type | details

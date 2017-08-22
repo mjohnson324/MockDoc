@@ -6,7 +6,7 @@
 
 - 'GET /' - loads React web app
 
-### Patients
+### Users
 
 - 'POST /api/patients'
 - 'PATCH /api/patients/id'

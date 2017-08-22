@@ -45,8 +45,8 @@
 | "/"                          | "Search"                         |
 | "/createUser"                | "AuthFormContainer"              |
 | "/signIn"                    | "AuthFormContainer"              |
-| "/patient/editProfile"       | "PatientProfileContainer"        |
-| "/patient/pastAppointments"  | "PatientAppointmentsContainer"   |
+| "/user/editProfile"          | "PatientProfileContainer"        |
+| "/user/pastAppointments"     | "PatientAppointmentsContainer"   |
 | "/doctor/:id"                | "DoctorProfileContainer"         |
 | "/search/results"            | "SearchResultsContainer"         |
 | "/booking/:id"               | "BookingFormContainer"           |

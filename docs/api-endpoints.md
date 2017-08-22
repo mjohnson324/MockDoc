@@ -8,8 +8,9 @@
 
 ### Users
 
-- 'POST /api/patients'
-- 'PATCH /api/patients/id'
+- 'POST /api/users'
+- 'GET /api/users/id'
+- 'PATCH /api/users/id'
 
 ### Session
 

@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import { logIn, logOut, signUp } from '../../actions/session_actions';
 import sessionForm from './session_form';
+import { withRouter } from 'react-router-dom';
 
 const mapStatetoProps = ({ session }) => {
   return {
     loggedIn: Boolean(session.currentUser),
-    errors: session.errors
+    errors: session.errors,
   };
 };
 
@@ -18,4 +19,4 @@ const mapDispatchToProps = dispatch => {
  };
 };
 
-export default connect(mapStatetoProps, mapDispatchToProps)(sessionForm);
+export default withRouter(connect(mapStatetoProps, mapDispatchToProps)(sessionForm));

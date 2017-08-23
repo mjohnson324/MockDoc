@@ -4,22 +4,12 @@ import {
   Switch,
   Link } from 'react-router-dom';
 
-import AuthFormContainer from './session/session_form_container';
-import { AuthRoute } from '../util/route_util.js';
+import HeaderContainer from './header_container';
 
 const App = () => {
 return (
   <div>
-    <header>
-      <Link to="/">
-        <h1>MockDoc</h1>
-      </Link>
-    </header>
-
-    <Switch>
-      <AuthRoute path="/signup" component={ AuthFormContainer } />
-      <AuthRoute path="/login" component ={ AuthFormContainer } />
-    </Switch>
+    {HeaderContainer}
   </div>
 );
 

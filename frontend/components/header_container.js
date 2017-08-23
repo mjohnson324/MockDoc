@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import Header from './header';
+import { withRouter } from 'react-router-dom';
 
-const mapStatetoProps = (state) => {
+const mapStatetoProps = ({ session }) => {
   return {
-    currentUser: state.session.currentUser,
+    currentUser: session.currentUser,
   };
 };
 
-export default connect(mapStatetoProps, null)(Header);
+export default withRouter(connect(mapStatetoProps, null)(Header));

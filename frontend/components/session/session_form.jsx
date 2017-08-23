@@ -64,7 +64,7 @@ class SessionForm extends React.Component {
           <input type="submit" value="Sign in" />
         </form>
 
-        <Link to="/signup">Create an account</Link>
+        <Link to="/createuser">Create an account</Link>
       </div>
     );
   }

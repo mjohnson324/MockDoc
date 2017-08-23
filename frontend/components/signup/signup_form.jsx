@@ -7,8 +7,8 @@ class SignupForm extends React.Component {
     this.state = {
       email: '',
       password: '',
-      firstName: '',
-      lastName: ''
+      first_name: '',
+      last_name: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,8 +23,8 @@ class SignupForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.signUp({user})
-    .then(currentUser => this.props.history.push('/'));
+    debugger
+    this.props.signUp(user).then(currentUser => this.props.history.push('/'));
   }
 
   renderErrors() {
@@ -60,7 +60,7 @@ class SignupForm extends React.Component {
           <h4>Create a password</h4>
           <input type="password"
             placeholder="At least 12 characters long"
-            value={this.state.firstName}
+            value={this.state.password}
             onChange={this.update('password')}
           />
           <br/>
@@ -68,13 +68,13 @@ class SignupForm extends React.Component {
           <h4>Your name</h4>
           <input type="text"
             placeholder="First"
-            value={this.state.lastName}
-            onChange={this.update('firstName')}
+            value={this.state.first_name}
+            onChange={this.update('first_name')}
           />
           <input type="text"
             placeholder="Last"
-            value={this.state.password}
-            onChange={this.update('lastName')}
+            value={this.state.last_name}
+            onChange={this.update('last_name')}
           />
           <br/>
 

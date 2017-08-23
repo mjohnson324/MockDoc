@@ -18,7 +18,7 @@ export const receiveErrors = errors => {
 };
 
 export const logIn = user => dispatch => (
-  APIUtil.login(user).then(currentUser => (
+  APIUtil.logIn(user).then(currentUser => (
     dispatch(receiveCurrentUser(currentUser))
   ), err => (
     dispatch(receiveErrors(err.responseJSON))
@@ -26,7 +26,7 @@ export const logIn = user => dispatch => (
 );
 
 export const logOut = () => dispatch => {
-  APIUtil.logout().then(user => {
+  APIUtil.logOut().then(user => {
       dispatch(receiveCurrentUser(null));
     });
 };

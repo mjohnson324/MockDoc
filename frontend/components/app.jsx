@@ -5,11 +5,14 @@ import {
   Link } from 'react-router-dom';
 
 import HeaderContainer from './header_container';
+import SessionFormContainer from './session/session_form_container';
 
 const App = () => {
 return (
   <div>
-    {HeaderContainer}
+    <HeaderContainer />
+    <Route path="/signin" component={SessionFormContainer}/>
+    <Route />
   </div>
 );
 

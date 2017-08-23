@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { logIn, logOut } from '../../actions/session_actions';
+import { logIn } from '../../actions/session_actions';
 import sessionForm from './session_form';
 import { withRouter } from 'react-router-dom';
 
@@ -12,7 +12,6 @@ const mapStatetoProps = ({ session }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    logOut: () => dispatch(logOut()),
     logIn: user => dispatch(logIn(user)),
  };
 };

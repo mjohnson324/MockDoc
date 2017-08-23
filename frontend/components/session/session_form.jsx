@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -13,12 +13,6 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.loggedIn) {
-      this.props.history.push('/');
-    }
-  }
-
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -28,15 +22,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.processForm({user});
-  }
-
-  navLink() {
-    if (this.props.formType === 'logIn') {
-      return <Link to="/signup">Create an account</Link>;
-    } else {
-      return <Link to="/login">Sign in</Link>;
-    }
+    this.props.logIn({user});
   }
 
   renderErrors() {
@@ -52,17 +38,17 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const submitText = this.props.formType === 'logIn' ?
-      "Sign in" : "Create Account";
     return(
       <div>
-        "Sign in or create an account"
+        <h3>"Sign in or create an account"</h3>
+
         <form onSubmit={this.handleSubmit}>
-          "Sign in to your MockDoc account"
+          <h4>"Sign in to your MockDoc account"</h4>
+
           {this.renderErrors()}
           <br/>
           <input type="text"
-            placeholder="email"
+            placeholder="Email address"
             value={this.state.email}
             onChange={this.update('email')}
           />
@@ -75,8 +61,10 @@ class SessionForm extends React.Component {
           />
           <br/>
 
-          <input type="submit" value={`${submitText}`} />
+          <input type="submit" value="Sign in" />
         </form>
+
+        <Link to="/signup">Create an account</Link>
       </div>
     );
   }

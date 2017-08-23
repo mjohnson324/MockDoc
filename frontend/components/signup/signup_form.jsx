@@ -48,6 +48,7 @@ class SignupForm extends React.Component {
           {this.renderErrors()}
           <br/>
 
+          <h4>Enter your email</h4>
           <input type="text"
             placeholder="Email address"
             value={this.state.email}
@@ -55,17 +56,24 @@ class SignupForm extends React.Component {
           />
           <br/>
 
+          <h4>Create a password</h4>
           <input type="password"
-            placeholder="password"
-            value={this.state.password}
+            placeholder="At least 12 characters long"
+            value={this.state.firstName}
             onChange={this.update('password')}
           />
           <br/>
 
+          <h4>Your name</h4>
           <input type="text"
             placeholder="First"
+            value={this.state.lastName}
+            onChange={this.update('firstName')}
+          />
+          <input type="text"
+            placeholder="Last"
             value={this.state.password}
-            onChange={this.update('password')}
+            onChange={this.update('lastName')}
           />
           <br/>
 
@@ -76,4 +84,4 @@ class SignupForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default SignupForm;

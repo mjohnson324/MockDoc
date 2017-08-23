@@ -22,7 +22,8 @@
 - ReviewsIndex
   + ReviewsIndexItem
 
-**Search**
+**SearchContainer**
+- Search
 
 **SearchResultsContainer**
 - Search

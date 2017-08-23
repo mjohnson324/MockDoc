@@ -6,27 +6,80 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# American Board of Allergy and Immunology
-# American Board of Anesthesiology
-# American Board of Colon and Rectal Surgery
-# American Board of Dermatology
-# American Board of Emergency Medicine
-# American Board of Family Medicine
-# American Board of Internal Medicine
-# American Board of Medical Genetics and Genomics
-# American Board of Neurological Surgery
-# American Board of Nuclear Medicine
-# American Board of Obstetrics and Gynecology
-# American Board of Opthalmology
-# American Board of Orthopaedic Surgery
-# American Board of Otolaryngology
-# American Board of Pathology
-# American Board of Pediatrics
-# American Board of Physical Medicine and Rehabilitation
-# American Board of Plastic Surgery
-# American Board of Preventive Medicine
-# American Board of Psychiatry and Neurology
-# American Board of Radiology
-# American Board of Surgery
-# American Board of Thoracic Surgery
-# American Board of Urology
+User.destroy_all
+
+User.create(name: "Homer Simpson", email: Faker::Internet.free_email("homer"), password: "long_password")
+User.create(name: "Marge Simpson", email: Faker::Internet.free_email("marge"), password: "bouvier12345")
+User.create(name: "Ned Flanders", email: Faker::Internet.free_email("ned"), password: "hi_diddly_ho")
+User.create(name: "Clancy Wiggum", email: Faker::Internet.free_email("wiggum"), password: "passpasspass")
+User.create(name: "Waylon Smithers", email: Faker::Internet.free_email("smithers"), password: "monty_burns_is_great")
+
+Certification.destroy_all
+
+Certification.create(name: "American Board of Allergy and Immunology")
+Certification.create(name: "American Board of Anesthesiology")
+Certification.create(name: "American Board of Colon and Rectal Surgery")
+Certification.create(name: "American Board of Dermatology")
+Certification.create(name: "American Board of Emergency Medicine")
+Certification.create(name: "American Board of Family Medicine")
+Certification.create(name: "American Board of Internal Medicine")
+Certification.create(name: "American Board of Medical Genetics and Genomics")
+Certification.create(name: "American Board of Neurological Surgery")
+Certification.create(name: "American Board of Nuclear Medicine")
+Certification.create(name: "American Board of Obstetrics and Gynecology")
+Certification.create(name: "American Board of Opthalmology")
+Certification.create(name: "American Board of Orthopaedic Surgery")
+Certification.create(name: "American Board of Otolaryngology")
+Certification.create(name: "American Board of Pathology")
+Certification.create(name: "American Board of Pediatrics")
+Certification.create(name: "American Board of Physical Medicine and Rehabilitation")
+Certification.create(name: "American Board of Plastic Surgery")
+Certification.create(name: "American Board of Preventive Medicine")
+Certification.create(name: "American Board of Psychiatry and Neurology")
+Certification.create(name: "American Board of Radiology")
+Certification.create(name: "American Board of Surgery")
+Certification.create(name: "American Board of Thoracic Surgery")
+Certification.create(name: "American Board of Urology")
+
+Specialty.destroy_all
+
+Specialty.create(name: "Allergist")
+Specialty.create(name: "Audiologist")
+Specialty.create(name: "Cardiologist")
+Specialty.create(name: "Chiropractor")
+Specialty.create(name: "Dentist")
+Specialty.create(name: "Dermatologist")
+Specialty.create(name: "Dietitian")
+Specialty.create(name: "Emergency Medicine Physician")
+Specialty.create(name: "Endocrinologist")
+Specialty.create(name: "Opthalmologist")
+Specialty.create(name: "Family Physician")
+Specialty.create(name: "Gastroenterologist")
+Specialty.create(name: "Hematologist")
+Specialty.create(name: "Internist")
+Specialty.create(name: "Naturopathic Doctor")
+Specialty.create(name: "Nephrologist")
+Specialty.create(name: "Neurologist")
+Specialty.create(name: "Neurosurgeon")
+Specialty.create(name: "Obstetrist-Gynecologist")
+Specialty.create(name: "Oncologist")
+Specialty.create(name: "Ophthalmologist")
+Specialty.create(name: "Optometrist")
+Specialty.create(name: "Oral Surgeon")
+Specialty.create(name: "Orthodontist")
+Specialty.create(name: "Orthopedic Surgeon")
+Specialty.create(name: "Pediatrician")
+Specialty.create(name: "Periodontist")
+Specialty.create(name: "Plastic Surgeon")
+Specialty.create(name: "Podiatrist")
+Specialty.create(name: "Prosthodontist")
+Specialty.create(name: "Psychiatrist")
+Specialty.create(name: "Psychologist")
+Specialty.create(name: "Pulmonologist")
+Specialty.create(name: "Radiologist")
+Specialty.create(name: "Rheumatologist")
+Specialty.create(name: "Sleep Medicine Specialist")
+Specialty.create(name: "Sports Medicine Specialist")
+Specialty.create(name: "Surgeon")
+Specialty.create(name: "Urgent Care Specialist")
+Specialty.create(name: "Urologist")

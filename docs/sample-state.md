@@ -2,16 +2,15 @@
   currentUser: {
     id: 1,
     email: "123fake_email@notreal.com",
+    name: "Joe Schmoe",
     appointment_ids: []
   },
-
   forms: {
     signUp: { errors: [] },
     signIn: { errors: [] },
     bookAppointment: { errors: [] },
     writeReview: { errors: [] },
   },
-
   doctors: {
     1: {
       id: 1,
@@ -28,7 +27,6 @@
       appointment_ids: [1],
       review_ids: [1]
       },
-
     2: {
       id: 2,
       name: Julius Hibbert,
@@ -45,7 +43,6 @@
       review_ids: [4]
       }
   },
-
   appointments: {
     1: {
       id: 1,
@@ -53,7 +50,6 @@
       patient_id: 1,
       doctor_id: 1
     },
-
     4: {
       id: 1,
       time: 4:00,
@@ -61,7 +57,6 @@
       doctor_id: 2
     }
   }
-
   reviews: {
     1: {
       author_id: 1,
@@ -71,7 +66,6 @@
       wait_time: 3,
       body: "He's an excellent and professional doctor."
     },
-
     2: {
       author_id: 1,
       doctor_id: 1,

@@ -4,13 +4,11 @@ import { Link } from 'react-router-dom';
 class Header extends React.Component {
   constructor(props){
     super(props);
-
-    this.handleRoute = this.handleRoute.bind(this);
   }
 
   navLink() {
     if (this.props.currentUser) {
-      return <button >Sign Out</button>;
+      return <button onClick={this.props.logOut}>Sign Out</button>;
     } else {
       return <Link to="/login">Sign In</Link>;
     }

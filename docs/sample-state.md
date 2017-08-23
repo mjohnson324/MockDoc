@@ -2,7 +2,8 @@
   currentUser: {
     id: 1,
     email: "123fake_email@notreal.com",
-    name: "Joe Schmoe",
+    firstName: "Joe",
+    lastName: "Schmoe",
     appointment_ids: []
   },
   forms: {

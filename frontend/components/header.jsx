@@ -8,10 +8,6 @@ class Header extends React.Component {
     this.handleRoute = this.handleRoute.bind(this);
   }
 
-  componentWillMount() {
-
-  }
-
   navLink() {
     if (this.props.currentUser) {
       return <button >Sign Out</button>;
@@ -20,17 +16,12 @@ class Header extends React.Component {
     }
   }
 
-  handleRoute(e) {
-
-  }
-
   render() {
-    debugger
     return(
       <header>
         <Link to="/"><h1>MockDoc</h1></Link>
 
-        <span onClick={this.handleRoute}>
+        <span>
           {this.navLink()}
         </span>
       </header>

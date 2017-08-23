@@ -8,11 +8,11 @@
 
 User.destroy_all
 
-User.create(name: "Homer Simpson", email: Faker::Internet.free_email("homer"), password: "long_password")
-User.create(name: "Marge Simpson", email: Faker::Internet.free_email("marge"), password: "bouvier12345")
-User.create(name: "Ned Flanders", email: Faker::Internet.free_email("ned"), password: "hi_diddly_ho")
-User.create(name: "Clancy Wiggum", email: Faker::Internet.free_email("wiggum"), password: "passpasspass")
-User.create(name: "Waylon Smithers", email: Faker::Internet.free_email("smithers"), password: "monty_burns_is_great")
+User.create(first_name: "Homer", last_name: "Simpson", email: Faker::Internet.free_email("homer"), password: "long_password")
+User.create(first_name: "Marge", last_name: "Simpson", email: Faker::Internet.free_email("marge"), password: "bouvier12345")
+User.create(first_name: "Ned", last_name: "Flanders", email: Faker::Internet.free_email("ned"), password: "hi_diddly_ho")
+User.create(first_name: "Clancy", last_name: "Wiggum", email: Faker::Internet.free_email("wiggum"), password: "passpasspass")
+User.create(first_name: "Waylon", last_name: "Smithers", email: Faker::Internet.free_email("smithers"), password: "monty_burns_is_great")
 
 Certification.destroy_all
 

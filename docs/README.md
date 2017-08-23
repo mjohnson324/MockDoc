@@ -4,7 +4,7 @@
 
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://mockdoc.herokuapp.com/
 [trello]: https://trello.com/b/fHRjMOxC/zocdoc-clone
 
 ## Minimum Viable Product

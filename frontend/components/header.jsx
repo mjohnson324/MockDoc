@@ -4,17 +4,6 @@ import { Link } from 'react-router-dom';
 class Header extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      currentRoute: "/"
-    };
-  }
-
-  componentWillReceiveProps(newProps) {
-    const oldRoute = this.state.currentRoute;
-    const newRoute = newProps.location.pathname;
-    if (oldRoute !== newRoute) {
-      this.setState({ currentRoute: newRoute });
-    }
   }
 
   navLink() {
@@ -26,7 +15,7 @@ class Header extends React.Component {
   }
 
   isHomePage() {
-    if (this.state.currentRoute === "/") {
+    if (this.props.location.pathname === "/") {
       return "head-home";
     } else {
       return "head";

@@ -7,12 +7,24 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  a h1 {
+    font-size: 36px;
+    text-decoration: none;
+  }
+
+  button {
+    font-size: 16px;
+    background-color: transparent;
+  }
+
+  button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    cursor: hand;
+  }
 }
 
-a h1 {
-  font-size: 36px;
-  text-decoration: none;
-}
 
 .head {
   height: 66px;
@@ -22,11 +34,12 @@ a h1 {
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  a h1 {
+    font-size: 24px;
+  }
 }
 
-a h1 {
-  font-size: 24;
-}
 a {
   font-size: 16px;
 }

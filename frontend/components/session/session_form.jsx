@@ -12,6 +12,10 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -27,7 +31,7 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
+      <ul className="error">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -39,14 +43,13 @@ class SessionForm extends React.Component {
 
   render() {
     return(
-      <div>
-        <h3>"Sign in or create an account"</h3>
+      <div className="session">
+        <h3>Sign in or create an account</h3>
+        <br/>
 
         <form onSubmit={this.handleSubmit}>
-          <h4>"Sign in to your MockDoc account"</h4>
+          <h4>Sign in to your MockDoc account</h4>
 
-          {this.renderErrors()}
-          <br/>
           <input type="text"
             placeholder="Email address"
             value={this.state.email}
@@ -61,9 +64,11 @@ class SessionForm extends React.Component {
           />
           <br/>
 
-          <input type="submit" value="Sign in" />
-        </form>
+          {this.renderErrors()}
 
+          <input type="submit" value="Sign in" />
+          <h4>New to MockDoc?</h4>
+        </form>
         <Link to="/createuser">Create an account</Link>
       </div>
     );

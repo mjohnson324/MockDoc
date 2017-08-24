@@ -14,6 +14,10 @@ class SignupForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -28,7 +32,7 @@ class SignupForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
+      <ul className="error">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -40,12 +44,11 @@ class SignupForm extends React.Component {
 
   render() {
     return(
-      <div>
-        <h3>"Create an account"</h3>
+      <div className="sign-up">
+        <h3>Create an account</h3>
         <Link to="/signin">Already have one? Sign in.</Link>
 
         <form onSubmit={this.handleSubmit}>
-          {this.renderErrors()}
           <br/>
 
           <h4>Enter your email</h4>
@@ -65,17 +68,22 @@ class SignupForm extends React.Component {
           <br/>
 
           <h4>Your name</h4>
-          <input type="text"
-            placeholder="First"
-            value={this.state.first_name}
-            onChange={this.update('first_name')}
-          />
-          <input type="text"
-            placeholder="Last"
-            value={this.state.last_name}
-            onChange={this.update('last_name')}
-          />
+
+          <span>
+            <input type="text"
+              placeholder="First"
+              value={this.state.first_name}
+              onChange={this.update('first_name')}
+              />
+            <input type="text"
+              placeholder="Last"
+              value={this.state.last_name}
+              onChange={this.update('last_name')}
+              />
+          </span>
+
           <br/>
+          {this.renderErrors()}
 
           <input type="submit" value="Sign Up" />
         </form>

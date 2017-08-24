@@ -1,0 +1,71 @@
+.session {
+  color: $link-header-text-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+
+  h3 {
+    font-size: 24px;
+  }
+
+
+  a {
+    background-color: $link-header-background-color;
+  }
+
+  a:hover, form input[type="submit"]:hover {
+    background-color: $link-hover-background-color;
+    color: $link-hover-text-color;
+    text-decoration: none;
+    cursor: pointer;
+    cursor: hand;
+  }
+
+  a, form input {
+    padding-left: 10px;
+    width: 502px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    height: 50px;
+    border: solid $input-border-color 1px;
+    font-size: 16px;
+  }
+
+  a {
+    text-align: center;
+    background-color: $link-header-background-color;
+    line-height: 50px;
+  }
+
+  form input[type="submit"] {
+    text-align: center;
+    background-color: $link-header-background-color;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  form h4 {
+    text-align:left;
+    margin-top: 30px;
+  }
+}
+
+.sign-up {
+  @extend .session;
+  margin-top: 50px;
+
+  a {
+    width: auto;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  form input {
+    width: 630px;
+  }
+
+  form span input {
+    width: 300px;
+  }
+}

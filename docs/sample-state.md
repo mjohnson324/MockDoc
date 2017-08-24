@@ -17,6 +17,7 @@
       id: 1,
       name: Nick Riviera,
       gender: male,
+      degree: DO,
       location: {
                 lat: -90,
                 lng: -90
@@ -32,6 +33,7 @@
       id: 2,
       name: Julius Hibbert,
       gender: male,
+      Degree: MD,
       location: {
                 lat: 0,
                 lng: 0

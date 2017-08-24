@@ -12,6 +12,9 @@ last_name       | string    | not null
 column name            | data type  | details
 -----------------------|------------|-----------------
 id                     | integer    | not null, primary key
+first_name             | string     | not null
+last_name              | string     | not null
+degree                 | string     | not null
 gender                 | string     | not null
 education              | text       | not null
 lat                    | float      | not null

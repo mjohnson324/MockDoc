@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170824205912) do
+ActiveRecord::Schema.define(version: 20170824215142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.integer "patient_id", null: false
+    t.integer "doctor_id", null: false
+    t.text "reason", null: false
+    t.datetime "start_time", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
+    t.index ["patient_id"], name: "index_appointments_on_patient_id"
+  end
 
   create_table "certifications", force: :cascade do |t|
     t.string "name", null: false
@@ -48,6 +59,9 @@ ActiveRecord::Schema.define(version: 20170824205912) do
     t.text "professional_statement"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "degree", null: false
   end
 
   create_table "patient_doctor_relationships", force: :cascade do |t|
@@ -57,6 +71,19 @@ ActiveRecord::Schema.define(version: 20170824205912) do
     t.datetime "updated_at", null: false
     t.index ["doctor_id", "patient_id"], name: "index_patient_doctor_relationships_on_doctor_id_and_patient_id", unique: true
     t.index ["patient_id"], name: "index_patient_doctor_relationships_on_patient_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "doctor_id", null: false
+    t.integer "patient_id", null: false
+    t.integer "overall_rating", null: false
+    t.integer "bedside_manner", null: false
+    t.integer "wait_time", null: false
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["doctor_id"], name: "index_reviews_on_doctor_id"
+    t.index ["patient_id"], name: "index_reviews_on_patient_id"
   end
 
   create_table "specialties", force: :cascade do |t|

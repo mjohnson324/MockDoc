@@ -18,13 +18,19 @@ lat                    | float      | not null
 lng                    | float      | not null
 professional_statement | text       |
 
+## patient_doctor_relationship
+column name  | data type | details
+-------------|-----------|------------------
+id           | integer   | not null, primary key
+patient_id   | integer   | not null, foreign key (references users)
+doctor_id    | integer   | not null, foreign key (references doctors)
 
-## doctor-specialties
+## doctor_specialties
 column name      | data type | details
 -----------------|-----------|------------------
 id               | integer   | not null, primary key
-doctor_id        | integer   | not null
-specialty_id     | integer   | not null
+doctor_id        | integer   | not null, foreign key (references doctors)
+specialty_id     | integer   | not null, foreign key (references specialties)
 - [doctor_id, specialty_id], indexed, unique
 
 ## specialties
@@ -33,15 +39,15 @@ column name  | data type | details
 id           | integer   | not null, primary key
 name         | string    | not null, indexed, unique
 
-## doctor-certifications
+## doctor_certifications
 column name      | data type | details
 -----------------|-----------|------------------
 id               | integer   | not null, primary key
-doctor_id        | integer   | not null
-certification_id | integer   | not null
+doctor_id        | integer   | not null, foreign key (references doctors)
+certification_id | integer   | not null, foreign key (references board_certifications)
 - [doctor_id, certification_id], indexed, unique
 
-## board-certifications
+## board_certifications
 column name | data type | details
 ------------|-----------|------------------
 id          | integer   | not null, primary key

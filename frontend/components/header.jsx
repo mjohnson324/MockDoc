@@ -16,7 +16,7 @@ class Header extends React.Component {
 
   navLink() {
     if (this.props.currentUser) {
-      return <button onClick={this.returnHome}>Sign Out</button>;
+      return <button onClick={this.props.logOut}>Sign Out</button>;
     } else {
       return <Link to="/signin">Sign In</Link>;
     }

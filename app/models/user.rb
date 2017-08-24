@@ -7,8 +7,8 @@ class User < ApplicationRecord
   attr_reader :password
 
   def self.find_by_credentials(email, password)
-    User.find_by(email: email)
-    return nil unless user && user.valid_password?(password)
+    user = User.find_by(email: email)
+    return user if user && user.valid_password?(password)
   end
 
   def password=(password)

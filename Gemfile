@@ -47,6 +47,10 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  gem 'guard', ">= 2.2.2", require: false
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
+  gem 'rb-fsevent', require: false
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'pry-rails'

@@ -1,0 +1,2 @@
+class DoctorCertification < ApplicationRecord
+end

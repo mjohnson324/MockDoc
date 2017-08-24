@@ -18,12 +18,13 @@ lat                    | float      | not null
 lng                    | float      | not null
 professional_statement | text       |
 
-## patient_doctor_relationship
+## patient_doctor_relationships
 column name  | data type | details
 -------------|-----------|------------------
 id           | integer   | not null, primary key
 patient_id   | integer   | not null, foreign key (references users)
 doctor_id    | integer   | not null, foreign key (references doctors)
+- [doctor_id, patient_id], indexed, unique
 
 ## doctor_specialties
 column name      | data type | details

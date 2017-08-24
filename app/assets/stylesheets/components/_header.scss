@@ -1,0 +1,36 @@
+.head-home {
+  width: 1280px;
+  height: 108px;
+  background-color: transparent;
+  color: $link-header-text-color;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+a h1 {
+  font-size: 36px;
+  text-decoration: none;
+}
+
+.head {
+  height: 66px;
+  background-color: $link-header-background-color;
+  color: $link-header-text-color;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+a h1 {
+  font-size: 24;
+}
+a {
+  font-size: 16px;
+}
+
+a:hover {
+  text-decoration: underline;
+}

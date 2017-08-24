@@ -4,14 +4,17 @@ import { Link } from 'react-router-dom';
 class Header extends React.Component {
   constructor(props){
     super(props);
-
-    this.returnHome = this.returnHome.bind(this);
+    this.state = {
+      currentRoute: "/"
+    };
   }
 
-  returnHome(e) {
-    e.preventDefault();
-    this.props.logOut()
-      .then(currentUser => this.props.history.push('/'));
+  componentWillReceiveProps(newProps) {
+    const oldRoute = this.state.currentRoute;
+    const newRoute = newProps.location.pathname;
+    if (oldRoute !== newRoute) {
+      this.setState({ currentRoute: newRoute });
+    }
   }
 
   navLink() {
@@ -22,9 +25,17 @@ class Header extends React.Component {
     }
   }
 
+  isHomePage() {
+    if (this.state.currentRoute === "/") {
+      return "head-home";
+    } else {
+      return "head";
+    }
+  }
+
   render() {
     return(
-      <header>
+      <header className={this.isHomePage()}>
         <Link to="/"><h1>MockDoc</h1></Link>
 
         <span>

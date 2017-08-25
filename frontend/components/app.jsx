@@ -4,7 +4,7 @@ import {
   Switch,
   Link } from 'react-router-dom';
 
-import HeaderContainer from './header_container';
+import HeaderContainer from './header/header_container';
 import SessionFormContainer from './session/session_form_container';
 import SignupFormContainer from './signup/signup_form_container';
 

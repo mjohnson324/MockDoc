@@ -20,6 +20,13 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   attr_reader :password
 
+  has_many :appointments,
+    class_name: :Appointment,
+    primary_key: :id,
+    foreign_key: :patient_id
+
+  has_many :doctors, through: :appointments, source: :doctor
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return user if user && user.valid_password?(password)

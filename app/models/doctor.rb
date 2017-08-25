@@ -16,14 +16,15 @@
 #
 
 class Doctor < ApplicationRecord
-  validates :first_name, :last_name, presence: true
+  validates :first_name, :last_name, :education, presence: true
+  validates :gender, inclusion: { in: %w(male female) }
+  validates :lat, numericality: { greater_than_or_equal_to: -90, less_than_or_equal_to: 90 }
+  validates :lng, numericality: { greater_than_or_equal_to: -180, less_than_or_equal_to: 180 }
+  validates :degree, inclusion: { in: %w(MD DMD DO DDS) }
 
+  has_many :appointments, dependent: :destroy
 
-  has_many :reviews
-
-  has_many :appointments
-
-  has_many :patients
+  has_many :patients, through: :appointments, source: :patient
 
   has_many :specialties
 

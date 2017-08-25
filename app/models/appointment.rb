@@ -12,4 +12,12 @@
 #
 
 class Appointment < ApplicationRecord
+  validates :patient_id, :doctor_id, :reason, :start_time, presence: true
+
+  belongs_to :doctor
+
+  belongs_to :patient,
+    class_name: :User,
+    primary_key: :id,
+    foreign_key: :patient_id
 end

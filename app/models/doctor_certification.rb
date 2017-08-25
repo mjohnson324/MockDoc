@@ -10,4 +10,10 @@
 #
 
 class DoctorCertification < ApplicationRecord
+  validates :doctor_id, :certification_id, presence: true
+  validates :doctor_id, uniqueness: { scope: :certification_id }
+
+  belongs_to :doctor
+
+  belongs_to :certification
 end

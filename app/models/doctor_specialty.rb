@@ -10,4 +10,10 @@
 #
 
 class DoctorSpecialty < ApplicationRecord
+  validates :specialty_id, :doctor_id, presence: true
+  validates :doctor_id, uniqueness: { scope: :specialty_id }
+
+  belongs_to :doctor
+
+  belongs_to :specialty
 end

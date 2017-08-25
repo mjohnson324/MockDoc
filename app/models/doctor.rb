@@ -23,10 +23,19 @@ class Doctor < ApplicationRecord
   validates :degree, inclusion: { in: %w(MD DMD DO DDS) }
 
   has_many :appointments, dependent: :destroy
-
   has_many :patients, through: :appointments, source: :patient
 
-  has_many :specialties
+  has_many :reviews
 
-  has_many :certifications
+  has_many :doctor_specialties
+
+  has_many :specialties,
+    through: :doctor_specialties, 
+    source: :specialty
+
+  has_many :doctor_certifications
+
+  has_many :certifications,
+    through: :doctor_certifications,
+    source: :certifications
 end

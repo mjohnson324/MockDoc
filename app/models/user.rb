@@ -25,6 +25,12 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :patient_id
 
+  has_many :reviews,
+    class_name: :Review,
+    primary_key: :id,
+    foreign_key: :patient_id,
+    dependent: :destroy
+
   has_many :doctors, through: :appointments, source: :doctor
 
   def self.find_by_credentials(email, password)

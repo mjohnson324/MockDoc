@@ -14,4 +14,14 @@
 #
 
 class Review < ApplicationRecord
+  validates :doctor_id, :patient_id, presence: true
+  validates :overall_rating, :bedside_manner, :wait_time, presence: true
+  validates :overall_rating, :bedside_manner, :wait_time, numericality: true
+
+  belongs_to :doctor
+
+  belongs_to :patient,
+    class_name: :User,
+    foreign_key: :patient_id,
+    primary_key: :id
 end

@@ -10,4 +10,7 @@
 
 class Certification < ApplicationRecord
   validates :name, presence: true, uniqueness: true
+
+  has_many :doctor_certifications
+  has_many :doctors, through: :doctor_certifications, source: :doctor
 end

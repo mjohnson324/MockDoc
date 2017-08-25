@@ -1,0 +1,62 @@
+.docTitle {
+  height: 200px;
+  color: $link-header-text-color;
+  padding-left: 500px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h1 {
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  div {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.docMap {
+  height: 150px;
+  color: $link-header-text-color;
+  border: solid 1px $input-border-color;
+  text-align: center;
+  line-height: 140px;
+}
+
+.docProfile {
+  color: $link-header-text-color;
+  width: 820px;
+  height: 900px;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    margin-left: 130px;
+  }
+
+
+  ol {
+    margin-left: 130px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: solid 1px $input-border-color;
+    text-align: top;
+
+    label, ul {
+      display: inline-block;
+    }
+
+    li {margin-top: 10px;}
+
+    label {
+      width: 210px;
+      font-weight: bold;
+    }
+  }
+}

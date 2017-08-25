@@ -6,9 +6,8 @@ const doctorsReducer = (state = {}, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_DOCTOR:
-    debugger
       const newDoc = action.doctor;
-      newState = { newDoc };
+      newState = { [newDoc.id]: newDoc };
       return merge({}, state, newState);
     default:
       return state;

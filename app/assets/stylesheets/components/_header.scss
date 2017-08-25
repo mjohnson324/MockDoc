@@ -1,20 +1,22 @@
 .head-home {
   width: 1280px;
   height: 108px;
+  margin-left: 130px;
   background-color: transparent;
   color: $link-header-text-color;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 
   a h1 {
-    font-size: 36px;
+    font-size: 44px;
     text-decoration: none;
+    font-weight: bold;
   }
 
   button {
-    font-size: 16px;
+    font-size: 20px;
     background-color: transparent;
   }
 
@@ -32,16 +34,19 @@
   color: $link-header-text-color;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 
   a h1 {
-    font-size: 24px;
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 130px;
   }
 }
 
 a {
-  font-size: 16px;
+  font-size: 18px;
+  margin-right: 130px
 }
 
 a:hover {

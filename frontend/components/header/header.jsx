@@ -27,9 +27,9 @@ class Header extends React.Component {
       <header className={this.isHomePage()}>
         <Link to="/"><h1>MockDoc</h1></Link>
 
-        <span>
+        <nav>
           {this.navLink()}
-        </span>
+        </nav>
       </header>
     );
   }

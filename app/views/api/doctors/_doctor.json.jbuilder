@@ -1,4 +1,13 @@
-json.extract! doctor, :gender, :degree, :lat, :lng, :education,
-                      :first_name, :last_name, :professional_statement,
+json.extract! doctor, :first_name, :last_name, :degree, :gender, :lat, :lng
 
-:specialties, :certifications :appointments, :reviews
+json.certification do
+  json.array! doctor.certifications, :id
+end
+
+json.specialties do
+  json.array! doctor.specialties, :id
+end
+
+json.appointments do
+  json.array! doctor.appointments, :id
+end

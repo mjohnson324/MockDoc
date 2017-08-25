@@ -52,11 +52,12 @@
       display: inline-block;
     }
 
-    li {margin-top: 10px;}
+    li {margin-bottom: 10px;}
 
     label {
       width: 210px;
       font-weight: bold;
+      vertical-align: top;
     }
   }
 }

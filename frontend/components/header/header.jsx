@@ -16,22 +16,36 @@ class Header extends React.Component {
 
   isHomePage() {
     if (this.props.location.pathname === "/") {
-      return "head-home";
+      return true;
     } else {
-      return "head";
+      return false;
     }
   }
 
   render() {
-    return(
-      <header className={this.isHomePage()}>
-        <Link to="/"><h1>MockDoc</h1></Link>
+    if (this.isHomePage()) {
+      return(
+        <div>
+          <header className="head-home">
+            <Link to="/"><h2>MockDoc</h2></Link>
 
-        <nav>
-          {this.navLink()}
-        </nav>
-      </header>
-    );
+            <nav>{this.navLink()}</nav>
+          </header>
+
+          <h1 className="home">Need a doctor? You're in the right place! </h1>
+        </div>
+      );
+    } else {
+      return(
+        <header className="head">
+          <Link to="/"><h1>MockDoc</h1></Link>
+
+          <nav>
+            {this.navLink()}
+          </nav>
+        </header>
+      );
+    }
   }
 }
 

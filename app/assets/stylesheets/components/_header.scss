@@ -9,7 +9,7 @@
   justify-content: space-between;
   align-items: center;
 
-  a h1 {
+  a h2 {
     font-size: 44px;
     text-decoration: none;
     font-weight: bold;
@@ -18,6 +18,11 @@
   button {
     font-size: 20px;
     background-color: transparent;
+    margin-right: 130px;
+  }
+
+  a {
+    margin-right: 130px
   }
 
   button:hover {
@@ -25,6 +30,15 @@
     cursor: pointer;
     cursor: hand;
   }
+}
+
+.home {
+  font-size: 60px;
+  font-weight: bold;
+  position: absolute;
+  top: 210px;
+  left: 10%;
+  color: $link-header-text-color
 }
 
 
@@ -37,6 +51,10 @@
   justify-content: space-between;
   align-items: center;
 
+  a {
+    margin-right: 130px
+  }
+
   a h1 {
     font-size: 28px;
     font-weight: bold;
@@ -46,7 +64,6 @@
 
 a {
   font-size: 18px;
-  margin-right: 130px
 }
 
 a:hover {

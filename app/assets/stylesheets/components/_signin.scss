@@ -39,6 +39,7 @@
   }
 
   form input[type="submit"] {
+    width: 512px;
     text-align: center;
     background-color: $link-header-background-color;
     margin-top: 20px;
@@ -65,7 +66,11 @@
     width: 630px;
   }
 
+  form input[type="submit"] {
+    width: 640px;
+  }
+
   form span input {
-    width: 300px;
+    width: 310px;
   }
 }

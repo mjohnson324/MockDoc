@@ -141,7 +141,3 @@ DoctorCertification.create(certification_id: cert6.id, doctor_id: doc6.id)
 DoctorCertification.create(certification_id: cert20.id, doctor_id: doc8.id)
 DoctorCertification.create(certification_id: cert25.id, doctor_id: doc9.id)
 DoctorCertification.create(certification_id: cert10.id, doctor_id: doc10.id)
-
-Review.destroy_all
-
-Appointment.destroy_all

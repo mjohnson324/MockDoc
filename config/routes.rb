@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     resources :specialties, only: [:index]
     resources :certifications, only: [:index]
 
-    resources :appointments, only: [:show, :index, :update]
-    resources :reviews, only: [:index, :create]
+    resources :appointments, only: [:update]
+    resources :reviews, only: [:update, :create]
   end
 
 end

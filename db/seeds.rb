@@ -142,20 +142,6 @@ DoctorCertification.create(certification_id: cert20.id, doctor_id: doc8.id)
 DoctorCertification.create(certification_id: cert25.id, doctor_id: doc9.id)
 DoctorCertification.create(certification_id: cert10.id, doctor_id: doc10.id)
 
-PatientDoctorRelationship.destroy_all
-PatientDoctorRelationship.create(patient_id: u1.id, doctor_id: doc1.id)
-PatientDoctorRelationship.create(patient_id: u1.id, doctor_id: doc2.id)
-PatientDoctorRelationship.create(patient_id: u2.id, doctor_id: doc1.id)
-PatientDoctorRelationship.create(patient_id: u2.id, doctor_id: doc2.id)
-PatientDoctorRelationship.create(patient_id: u4.id, doctor_id: doc2.id)
-
-PatientDoctorRelationship.create(patient_id: u4.id, doctor_id: doc5.id)
-PatientDoctorRelationship.create(patient_id: u3.id, doctor_id: doc4.id)
-PatientDoctorRelationship.create(patient_id: u3.id, doctor_id: doc6.id)
-PatientDoctorRelationship.create(patient_id: u5.id, doctor_id: doc8.id)
-PatientDoctorRelationship.create(patient_id: u5.id, doctor_id: doc9.id)
-
 Review.destroy_all
-
 
 Appointment.destroy_all

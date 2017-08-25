@@ -30,12 +30,12 @@ class Doctor < ApplicationRecord
   has_many :doctor_specialties
 
   has_many :specialties,
-    through: :doctor_specialties, 
+    through: :doctor_specialties,
     source: :specialty
 
   has_many :doctor_certifications
 
   has_many :certifications,
     through: :doctor_certifications,
-    source: :certifications
+    source: :certification
 end

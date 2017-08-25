@@ -6,6 +6,7 @@ const doctorsReducer = (state = {}, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_DOCTOR:
+    debugger
       const newDoc = action.doctor;
       newState = { newDoc };
       return merge({}, state, newState);

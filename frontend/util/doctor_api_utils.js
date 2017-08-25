@@ -1,6 +1,6 @@
-export const getDoc = doctor => {
+export const getDoc = doctorId => {
   return $.ajax({
     method: 'GET',
-    url: `api/doctors/${doctor.id}`,
+    url: `api/doctors/${doctorId}`,
   });
 };

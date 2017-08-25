@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Header from './header';
 import { withRouter } from 'react-router-dom';
-import { logOut } from '../actions/session_actions';
+import { logOut } from '../../actions/session_actions';
 
 const mapStatetoProps = ({ session }) => {
   return {

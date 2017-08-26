@@ -21,6 +21,7 @@ class Doctor < ApplicationRecord
   validates :lat, numericality: { greater_than_or_equal_to: -90, less_than_or_equal_to: 90 }
   validates :lng, numericality: { greater_than_or_equal_to: -180, less_than_or_equal_to: 180 }
   validates :degree, inclusion: { in: %w(MD DMD DO DDS) }
+  # validates :specialties, specialties.length > 0
 
   has_many :appointments, dependent: :destroy
   has_many :patients, through: :appointments, source: :patient
@@ -38,4 +39,15 @@ class Doctor < ApplicationRecord
   has_many :certifications,
     through: :doctor_certifications,
     source: :certification
+
+  def self.in_bounds(bounds)
+    self.where("lat < ?", bounds[:northEast][:lat])
+      .where("lat > ?", bounds[:southWest][:lat])
+      .where("lng > ?", bounds[:southWest][:lng])
+      .where("lng < ?", bounds[:northEast][:lng])
+  end
+
+  # def average_rating
+  #   reviews.average(:rating)
+  # end
 end

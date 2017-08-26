@@ -1,55 +1,8 @@
-<script src="http://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
-<script type="text/javascript">
-  window.CLOUDINARY_OPTIONS = {
-    cloud_name: "<%= ENV['CLOUD_NAME'] %>",
-    upload_preset: "<%= ENV['UPLOAD_PRESET'] %>"
-  }
-</script>
-
-def self.in_bounds(bounds)
-self.where("lat < ?", bounds[:northEast][:lat])
-  .where("lat > ?", bounds[:southWest][:lat])
-  .where("lng > ?", bounds[:southWest][:lng])
-  .where("lng < ?", bounds[:northEast][:lng])
-end
-def average_rating
-reviews.average(:rating)
-end
-
-before_action :require_logged_in, only: [:create]
-def index
-benches = bounds ? Bench.in_bounds(bounds) : Bench.all
-if params[:minSeating] && params[:maxSeating]
-  benches = benches.where(seating: seating_range)
-end
-@benches = benches.includes(:reviews, :favorite_users)
-render :index
-end
-def show
-@bench = Bench.find(params[:id])
-end
-def create
-@bench = Bench.create!(bench_params)
-render :show
-end
-private
-def seating_range
-(params[:minSeating]..params[:maxSeating])
-end
-def bench_params
-params.require(:bench).permit(
-  :lat,
-  :lng,
-  :description,
-  :seating,
-  :picture_url
-)
-end
-
-def bounds
-params[:bounds]
-end
+s
 const mapStateToProps = (state, { location }) => ({
 lat: new URLSearchParams(location.search).get('lat'),
 lng: new URLSearchParams(location.search).get('lng')
 });
+
+
+notes: filter action provides arguments to a doctors index action which calls an api.

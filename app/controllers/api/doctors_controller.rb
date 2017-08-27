@@ -7,7 +7,7 @@ class Api::DoctorsController < ApplicationController
     doctors = Doctor.all
     @doctors = doctors.select do |doctor|
       doc_specs = doctor.specialties.pluck(:name)
-      doc_specs.includes?(params[:specialty])
+      doc_specs.include?(params[:specialty])
     end
   end
 

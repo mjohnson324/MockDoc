@@ -5,7 +5,7 @@ class Search extends React.Component {
     super(props);
 
     this.state = {
-      specialty: '',
+      specialty: 'Family Physician',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,7 +26,7 @@ class Search extends React.Component {
 
   render () {
     return(
-      <form onChange="handleSubmit">
+      <form className="search-bar" onSubmit={this.handleSubmit}>
         <input type="text"
           placeholder="Specialty"
           value={this.state.specialty}

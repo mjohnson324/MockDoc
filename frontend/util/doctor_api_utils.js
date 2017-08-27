@@ -4,3 +4,10 @@ export const getDoc = doctorId => {
     url: `api/doctors/${doctorId}`,
   });
 };
+
+export const getDocs = () => {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/doctors',
+  });
+};

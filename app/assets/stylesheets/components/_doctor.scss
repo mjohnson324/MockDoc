@@ -61,3 +61,44 @@
     }
   }
 }
+
+.doc-pic {
+  width: 120px;
+  flex: auto;
+  background-color:  $page-link-color;
+  line-height:110px;
+  text-align: center;
+}
+
+.doc-info {
+  width: 240px;
+  flex: auto;
+  color: $link-header-text-color;
+  margin-left: 10px;
+
+  a {
+    display: block;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  div {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  section div {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+}
+
+.doc-schedule {
+  width: 420px;
+  flex: none;
+  background-color: $link-header-background-color;
+  line-height:110px;
+  text-align: center;
+}

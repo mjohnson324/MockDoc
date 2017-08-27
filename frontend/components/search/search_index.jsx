@@ -27,9 +27,11 @@ class SearchIndex extends React.Component {
           </div>
 
           <div className="appointment-scroll">
+            <button>left-arrow</button>
             <div>Day 1</div>
             <div>Day 2</div>
             <div>Day 3</div>
+            <button>right-arrow</button>
           </div>
 
           <ul>

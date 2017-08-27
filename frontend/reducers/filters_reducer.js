@@ -9,7 +9,11 @@ const filtersReducer = (state = defaultFilters, action) => {
   Object.freeze(state);
   switch(action.type) {
     case UPDATE_FILTER:
-      return merge({}, state, action.filter);
+      let newFilter = action.filter;
+      if (newFilter.specialty === '') {
+        newFilter.specialty = "Family Physician";
+      }
+      return merge({}, state, newFilter);
     default:
       return state;
   }

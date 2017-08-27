@@ -26,7 +26,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.logIn({user})
-      .then(currentUser => this.props.history.push('/'));
+      .then(() => this.props.history.push('/'));
   }
 
   renderErrors() {

@@ -5,7 +5,7 @@ class Search extends React.Component {
     super(props);
 
     this.state = {
-      specialty: 'Family Physician',
+      specialty: '',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,12 +21,23 @@ class Search extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const filter = this.state;
-    this.props.updateFilter(filter);
+    this.props.updateFilter(filter)
+      .then(() => this.props.history.push('/search'));
+  }
+
+  isHomePage() {
+    if (this.props.location.pathname === "/") {
+      return "search-home";
+    } else {
+      return "search-bar";
+    }
   }
 
   render () {
+    const searchClass = this.isHomePage();
+
     return(
-      <form className="search-bar" onSubmit={this.handleSubmit}>
+      <form className={searchClass} onSubmit={this.handleSubmit}>
         <input type="text"
           placeholder="Specialty"
           value={this.state.specialty}

@@ -1,4 +1,4 @@
-.search-bar {
+.search-home {
   font-size: 20px;
   position: absolute;
   top: 350px;
@@ -24,4 +24,38 @@
     background-color: $link-hover-background-color;
     color: $link-hover-text-color;
   }
+}
+
+.search-bar {
+  @extend .search-home;
+  height: 75px;
+  background-color: $link-header-background-color;
+  position: sticky;
+  top: 0px;
+  white-space: nowrap;
+
+  input {
+    margin-top: 12px;
+  }
+
+  input[placeholder="Specialty"] {
+    margin-left: 130px;
+  }
+
+  input[type="submit"] {
+    background-color: $link-hover-background-color;
+    color: $link-hover-text-color;
+  }
+}
+
+.search-results {
+  margin-left: 70px;
+  min-width: 750px;
+  max-width: 940px;
+}
+
+.index-item {
+  height: 210px;
+  margin: 10px;
+  background-color: white;
 }

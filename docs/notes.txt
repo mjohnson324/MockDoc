@@ -9,3 +9,6 @@ notes: filter action provides arguments to a doctors index action which calls an
 
 NY: 40.712784,-74.005941 (center)
 NY Bounds: 40.917577,-73.700272 (NE) to 40.477399,-74.25909 (SW)
+
+search index minimum width: 770px;
+item height: 210px, margins: 10px;

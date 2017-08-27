@@ -13,7 +13,7 @@ NY Bounds: 40.917577,-73.700272 (NE) to 40.477399,-74.25909 (SW)
 search index minimum width: 770px;
 item height: 210px, margins: 10px;
 
-Persist State:
+Persist State
 store.subscribe( ()=> {
   localStorage.setItem('reduxState', JSON.stringify(store.getState()));
 });

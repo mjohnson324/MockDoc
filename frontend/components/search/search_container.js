@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { updateFilter } from '../../actions/filter_actions';
 import  Search from './search';
 
 const mapStateToProps = state => {
   return {
-    filters: null,
+    specialty: state.filter.specialty,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    filter: null,
+    updateFilter: (filter) => dispatch(updateFilter(filter))
   };
 };
 

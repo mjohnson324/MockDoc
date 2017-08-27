@@ -5,9 +5,10 @@ export const getDoc = doctorId => {
   });
 };
 
-export const getDocs = () => {
+export const getDocs = data => {
   return $.ajax({
     method: 'GET',
     url: 'api/doctors',
+    data
   });
 };

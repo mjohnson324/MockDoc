@@ -17,6 +17,12 @@ export const receiveDoctor = doctor => {
   };
 };
 
+export const getDoctors = filters => dispatch => {
+  return APIUtil.getDocs(filters).then(docs => (
+    dispatch(receiveDoctors(docs))
+  ));
+};
+
 export const getADoctor = doctor => dispatch => {
   return APIUtil.getDoc(doctor).then(doc => (
     dispatch(receiveDoctor(doc))

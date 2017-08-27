@@ -14,7 +14,7 @@ const App = () => {
 return (
   <div>
     <HeaderContainer />
-    <SearchContainer />
+    <Route exact path="/" component={SearchContainer} />
     <Route path="/signin" component={SessionFormContainer}/>
     <Route path="/createuser" component={SignupFormContainer} />
     <Route path="/doctor/:id" component={DoctorContainer} />

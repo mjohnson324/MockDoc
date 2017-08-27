@@ -1,3 +1,27 @@
 .search-bar {
-  height: 40px;
+  font-size: 20px;
+  position: absolute;
+  top: 350px;
+  left: 10%;
+  color: $link-header-text-color;
+
+  input {
+    height: 50px;
+    line-height: 40px;
+    margin-left: 10px;
+  }
+
+  input[placeholder="Specialty"] {
+    width: 560px;
+    padding-left: 30px;
+  }
+
+  input[type="submit"] {
+    background-color: $link-header-background-color;
+  }
+
+  input[type="submit"]:hover {
+    background-color: $link-hover-background-color;
+    color: $link-hover-text-color;
+  }
 }

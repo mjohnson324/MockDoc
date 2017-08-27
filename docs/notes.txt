@@ -6,3 +6,6 @@ lng: new URLSearchParams(location.search).get('lng')
 
 
 notes: filter action provides arguments to a doctors index action which calls an api.
+
+NY: 40.712784,-74.005941 (center)
+NY Bounds: 40.917577,-73.700272 (NE) to 40.477399,-74.25909 (SW)

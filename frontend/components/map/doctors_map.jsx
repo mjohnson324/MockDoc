@@ -3,25 +3,39 @@ import { withRouter } from 'react-router-dom';
 
 import MarkerManager from '../../util/marker_manager';
 
-const mapOptions = {
-  center: { // NY default; inherit from search filter results
-    lat: 40.712784,
-    lng: -74.005941
-  },
-  zoom: 13
-};
-
 class DoctorsMap extends React.Component {
+  constructor(props) {
+    super(props);
+    this.geocoder = new google.maps.Geocoder();
+
+    this.handleMarkerClick = this.handleMarkerClick.bind(this);
+    this.setTheCenter = this.setTheCenter.bind(this);
+  }
+
   componentDidMount () {
     const map = this.refs.map;
-    this.map = new google.maps.Map(map, mapOptions);
-    this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
+    this.map = new google.maps.Map(map);
+    this.setTheCenter();
+
+    this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick);
     this.MarkerManager.updateMarkers(this.props.doctors);
     // this.registerListeners();
   }
 
   componentDidUpdate () {
     this.markerManager.updateMarkers(this.props.doctors);
+  }
+
+  setTheCenter() {
+    this.geocoder.geocode({address: `${this.props.address}`}, (results, status) => {
+      if (status === google.maps.GeocoderStatus.OK) {
+        const coordinates = results[0].geometry.location;
+        this.map.setCenter(coordinates);
+        this.map.setZoom(11);
+      } else {
+        alert("Geocode failed: " + status);
+      }
+    });
   }
 
   handleMarkerClick(doctor) {

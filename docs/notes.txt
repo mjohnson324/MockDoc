@@ -1,22 +1,22 @@
-s
-const mapStateToProps = (state, { location }) => ({
-lat: new URLSearchParams(location.search).get('lat'),
-lng: new URLSearchParams(location.search).get('lng')
-});
-
-
-notes: filter action provides arguments to a doctors index action which calls an api.
-
-NY: 40.712784,-74.005941 (center)
-NY Bounds: 40.917577,-73.700272 (NE) to 40.477399,-74.25909 (SW)
-
-search index minimum width: 770px;
-item height: 210px, margins: 10px;
-
-Persist State
-store.subscribe( ()=> {
-  localStorage.setItem('reduxState', JSON.stringify(store.getState()));
-});
-
-const persistedState = localStorage.getItem('reduxState') ?
-    JSON.parse(localStorage.getItem('reduxState')) : {}
+// var geocoder = new google.maps.Geocoder;
+//   var infowindow = new google.maps.InfoWindow;
+//
+//   document.getElementById('submit').addEventListener('click', function() {
+//     geocodeLatLng(geocoder, map, infowindow);
+//   });
+// }
+//
+// function geocodeLatLng(geocoder, map, infowindow) {
+//   var input = document.getElementById('latlng').value;
+//   var latlngStr = input.split(',', 2);
+//   var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
+//   geocoder.geocode({'location': latlng}, function(results, status) {
+//     if (status === 'OK') {
+//       if (results[0]) {
+//         map.setZoom(11);
+//         var marker = new google.maps.Marker({
+//           position: latlng,
+//           map: map
+//         });
+//         infowindow.setContent(results[0].formatted_address);
+//         infowindow.open(map, marker);

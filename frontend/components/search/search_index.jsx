@@ -4,6 +4,7 @@ import { isEmpty } from 'lodash';
 
 import SearchIndexItem from './search_index_item';
 import SearchContainer from './search_container';
+import DoctorsMap from '../map/doctors_map';
 
 class SearchIndex extends React.Component {
   constructor(props) {
@@ -43,6 +44,11 @@ class SearchIndex extends React.Component {
               {doctors.map(doctor => <SearchIndexItem key={doctor.id} doc={doctor} />)}
             </ul>
           </section>
+
+          <DoctorsMap
+            doctors={this.props.doctors}
+            address={this.props.address}
+          />
         </div>
       );
     }

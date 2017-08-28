@@ -7,6 +7,7 @@ import SearchIndex from './search_index';
 const mapStateToProps = (state) => {
   return {
     doctors: selectDoctors(state),
+    address: state.filter.address,
   };
 };
 

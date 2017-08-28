@@ -12,7 +12,6 @@ class Search extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -21,9 +20,34 @@ class Search extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const filter = this.state;
+    const filter = this.checkParams(this.state);
+    const queryURL = this.toQueryString(filter);
     this.props.updateFilter(filter)
-      .then(() => this.props.history.push('/search'));
+      .then(() => this.props.history.push(`/search/?${queryURL}`));
+  }
+
+  checkParams(filter) {
+    if (filter.specialty === '') {
+      filter.specialty = "Family Physician";
+    }
+
+    if (filter.address === '') {
+      filter.address = 'New York';
+    }
+
+    return filter;
+  }
+
+  toQueryString(filter) {
+    let parts = [];
+    for (let param in filter) {
+      if (filter.hasOwnProperty(param)) {
+          parts.push(
+            `${encodeURIComponent(param)}=${encodeURIComponent(filter[param])}`
+          );
+      }
+    }
+    return parts.join('&');
   }
 
   isHomePage() {

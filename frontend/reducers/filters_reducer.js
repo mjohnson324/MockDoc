@@ -6,24 +6,11 @@ const defaultFilters = Object.freeze({
   address: "New York",
 });
 
-function checkDefaults(filter) {
-  if (filter.specialty === '') {
-    filter.specialty = defaultFilters.specialty;
-  }
-
-  if (filter.address === '') {
-    filter.address = defaultFilters.address;
-  }
-
-  return filter;
-}
-
 const filtersReducer = (state = defaultFilters, action) => {
   Object.freeze(state);
   switch(action.type) {
     case UPDATE_FILTER:
-      let newFilter = checkDefaults(action.filter);
-      return merge({}, state, newFilter);
+      return merge({}, state, action.filter);
     default:
       return state;
   }

@@ -46,7 +46,9 @@ class DoctorsMap extends React.Component {
 
   render () {
     return(
-      <div id="map-canvas" ref="map"></div>
+      <div id="map-container">
+        <div id="map-canvas" ref="map"></div>
+      </div>
     );
   }
 }

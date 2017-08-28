@@ -48,10 +48,14 @@
   }
 }
 
+.search-master {
+  white-space: nowrap;
+}
+
 .search-results {
   margin-left: 70px;
-  min-width: 750px;
-  max-width: 940px;
+  width: 960px;
+  display: inline-block;
 }
 
 .index-item {

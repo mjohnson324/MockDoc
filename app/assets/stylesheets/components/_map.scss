@@ -3,7 +3,11 @@
   padding: 0;
   height: 630px;
   width: 320px;
+}
+
+#map-container {
   position: sticky;
-  top: 0;
-  right: 0;
+  display: inline-block;
+  top: 75px;
+  margin-left: 20px;
 }

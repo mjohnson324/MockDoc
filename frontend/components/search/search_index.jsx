@@ -17,17 +17,18 @@ class SearchIndex extends React.Component {
 
   render() {
     const { doctors } = this.props;
+
     return(
-      <div>
+      <div className="search-master">
         <SearchContainer />
 
         <section className="search-results">
           <div className="appointment-scroll">
-            <button>left-arrow</button>
+            <button>L</button>
             <div>Day 1</div>
             <div>Day 2</div>
             <div>Day 3</div>
-            <button>right-arrow</button>
+            <button>R</button>
           </div>
 
           <ul>
@@ -36,8 +37,8 @@ class SearchIndex extends React.Component {
         </section>
 
         <DoctorsMap
-          doctors={this.props.doctors}
-          address={this.props.address}
+          doctors={doctors}
+          address={this.props.filter.address}
         />
       </div>
     );

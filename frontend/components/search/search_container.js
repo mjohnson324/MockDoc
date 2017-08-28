@@ -6,6 +6,7 @@ import  Search from './search';
 const mapStateToProps = state => {
   return {
     specialty: state.filter.specialty,
+    address: state.filter.address,
   };
 };
 

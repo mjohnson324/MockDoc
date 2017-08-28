@@ -1,24 +1,53 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+
+import MarkerManager from '../../util/marker_manager';
+
+const getCoordsObj = latLng => ({
+  lat: latLng.lat(),
+  lng: latLng.lng()
+});
+
+const mapOptions = {
+  center: { // NY default; inherit from search filter results
+    lat: 40.712784,
+    lng: -74.005941
+  },
+  zoom: 13
+};
 
 class DoctorsMap extends React.Component {
-  constructor(props) {
-    super(props);
-
+  componentDidMount () {
+    const map = this.refs.map;
+    this.map = new google.maps.Map(map, mapOptions);
+    this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
+    this.MarkerManager.updateMarkers(this.props.doctors);
+    // this.registerListeners();
   }
+
+  componentDidUpdate () {
+    this.markerManager.updateMarkers(this.props.doctors);
+  }
+
+  handleMarkerClick(doctor) {
+    this.props.history.push(`doctors/${doctor.id}`);
+  }
+
+ //  registerListeners() {
+ //   google.maps.event.addListener(this.map, 'idle', () => {
+ //     const { north, south, east, west } = this.map.getBounds().toJSON();
+ //     const bounds = {
+ //       northEast: { lat:north, lng: east }, // calculate using map center
+ //       southWest: { lat: south, lng: west } }; // calculate using map center
+ //     this.props.updateFilter('bounds', bounds);
+ //   });
+ // }
 
   render () {
     return(
-      <div id="map-canvas"></div>
+      <div id="map-canvas" ref="map"></div>
     );
   }
 }
 
-
-// Goals: doctors have a lat and lng
-// This can be translated to an address with reverse geocoding.
-// I want to specify and address that's translated into a geocode.
-// Then I want to specify a search radius around this geocode.
-// All doctors in radius will be retrieved.
-// Then their coordinates will be translated to readable addresses for viewing.
-// On the map I will place markers corresponding to their coordinates.
-// NY: lat: 40.712784 lng: -74.005941
+export default withRouter(DoctorsMap);

@@ -19,7 +19,12 @@ class SearchIndex extends React.Component {
     const { doctors } = this.props;
 
     if (isEmpty(doctors)) {
-      return(<h1>Sorry, no matches found.</h1>);
+      return(
+        <div>
+          <SearchContainer />
+          <h1>Sorry, no matches found.</h1>
+        </div>
+      );
     } else {
       return(
         <div>

@@ -6,6 +6,7 @@ class Search extends React.Component {
 
     this.state = {
       specialty: '',
+      address: '',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);

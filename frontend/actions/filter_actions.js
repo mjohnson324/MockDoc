@@ -8,8 +8,3 @@ export const changeFilter = (filter) => {
     filter
   };
 };
-
-export const updateFilter = (filter) => (dispatch, getState) => {
-  dispatch(changeFilter(filter));
-  return getDoctors(getState().filter)(dispatch);
-};

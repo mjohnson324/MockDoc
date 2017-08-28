@@ -11,46 +11,36 @@ class SearchIndex extends React.Component {
     super(props);
   }
 
-  componentWillUpdate(nextProps, NextState) {
-    debugger
+  componentDidMount() {
+    this.props.getDoctors(this.props.filter);
   }
-  
+
   render() {
     const { doctors } = this.props;
+    return(
+      <div>
+        <SearchContainer />
 
-    if (isEmpty(doctors)) {
-      return(
-        <div>
-          <SearchContainer />
-          <h1>Sorry, no matches found.</h1>
-        </div>
-      );
-    } else {
-      return(
-        <div>
-          <SearchContainer />
+        <section className="search-results">
+          <div className="appointment-scroll">
+            <button>left-arrow</button>
+            <div>Day 1</div>
+            <div>Day 2</div>
+            <div>Day 3</div>
+            <button>right-arrow</button>
+          </div>
 
-          <section className="search-results">
-            <div className="appointment-scroll">
-              <button>left-arrow</button>
-              <div>Day 1</div>
-              <div>Day 2</div>
-              <div>Day 3</div>
-              <button>right-arrow</button>
-            </div>
+          <ul>
+            {doctors.map(doctor => <SearchIndexItem key={doctor.id} doc={doctor} />)}
+          </ul>
+        </section>
 
-            <ul>
-              {doctors.map(doctor => <SearchIndexItem key={doctor.id} doc={doctor} />)}
-            </ul>
-          </section>
-
-          <DoctorsMap
-            doctors={this.props.doctors}
-            address={this.props.address}
-          />
-        </div>
-      );
-    }
+        <DoctorsMap
+          doctors={this.props.doctors}
+          address={this.props.address}
+        />
+      </div>
+    );
   }
 }
 

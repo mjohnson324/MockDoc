@@ -19,11 +19,12 @@ class Search extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger
     e.preventDefault();
     const filter = this.checkParams(this.state);
     const queryURL = this.toQueryString(filter);
-    this.props.updateFilter(filter)
-      .then(() => this.props.history.push(`/search/?${queryURL}`));
+    this.props.changeFilter(filter)
+    this.props.history.push(`/search/?${queryURL}`);
   }
 
   checkParams(filter) {

@@ -17,13 +17,13 @@ class DoctorsMap extends React.Component {
     this.map = new google.maps.Map(map);
     this.setTheCenter();
 
-    this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick);
-    this.MarkerManager.updateMarkers(this.props.doctors);
-    // this.registerListeners();
+    this.markerManager = new MarkerManager(this.map, this.handleMarkerClick);
+    this.markerManager.updateMarkers(this.props.doctors);
+
   }
 
   componentDidUpdate () {
-    this.markerManager.updateMarkers(this.props.doctors);
+    return this.markerManager.updateMarkers(this.props.doctors);
   }
 
   setTheCenter() {
@@ -39,18 +39,10 @@ class DoctorsMap extends React.Component {
   }
 
   handleMarkerClick(doctor) {
-    this.props.history.push(`doctors/${doctor.id}`);
+    return this.props.history.push(`doctor/${doctor.id}`);
   }
 
- //  registerListeners() {
- //   google.maps.event.addListener(this.map, 'idle', () => {
- //     const { north, south, east, west } = this.map.getBounds().toJSON();
- //     const bounds = {
- //       northEast: { lat:north, lng: east }, // calculate using map center
- //       southWest: { lat: south, lng: west } }; // calculate using map center
- //     this.props.updateFilter('bounds', bounds);
- //   });
- // }
+
 
   render () {
     return(

@@ -20,3 +20,16 @@
 //         });
 //         infowindow.setContent(results[0].formatted_address);
 //         infowindow.open(map, marker);
+
+
+//  registerListeners() {
+//   google.maps.event.addListener(this.map, 'idle', () => {
+//     const { north, south, east, west } = this.map.getBounds().toJSON();
+//     const bounds = {
+//       northEast: { lat:north, lng: east }, // calculate using map center
+//       southWest: { lat: south, lng: west } }; // calculate using map center
+//     this.props.updateFilter('bounds', bounds);
+//   });
+// }
+
+// this.registerListeners();

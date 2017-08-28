@@ -18,7 +18,7 @@ class MarkerManager {
       .forEach((doctorId) => this.removeMarker(this.markers[doctorId]));
   }
 
-  createMarkerFromBench(doctor) {
+  createMarkerFromDoctor(doctor) {
     const position = new google.maps.LatLng(doctor.lat, doctor.lng);
     const marker = new google.maps.Marker({
       position,

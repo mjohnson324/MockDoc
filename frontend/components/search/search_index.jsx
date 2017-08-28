@@ -9,11 +9,6 @@ import DoctorsMap from '../map/doctors_map';
 class SearchIndex extends React.Component {
   constructor(props) {
     super(props);
-
-  }
-
-  componentDidMount () {
-
   }
 
   render() {
@@ -27,6 +22,7 @@ class SearchIndex extends React.Component {
         </div>
       );
     } else {
+      debugger
       return(
         <div>
           <SearchContainer />

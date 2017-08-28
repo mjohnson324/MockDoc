@@ -14,7 +14,7 @@ const SearchIndexItem = ({ doc }) => {
           {`${doc.specialties[0]}`}
         </div>
         <section>
-          <div>{`${doc.lat}, ${doc.lng}`}</div>
+          <div>{`${doc.address}`}</div>
           <div>(Distance from location)</div>
         </section>
       </div>

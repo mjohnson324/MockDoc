@@ -16,34 +16,34 @@ u5 = User.create(first_name: "Waylon", last_name: "Smithers", email: "smithers@n
 Doctor.destroy_all
 doc1 = Doctor.create(first_name: "Julius", last_name: "Hibbert", gender: "male",
               education: "Johns Hopkins University School of Medicine",
-              lat: -40, lng: -40, degree: "MD")
+              address: "51 W 51st St, New York, NY", degree: "MD")
 doc2 = Doctor.create(first_name: "Nick", last_name: "Riviera", gender: "male",
               education: "Hollywood Upstairs Medical College",
-              lat: -35, lng: -35, degree: "DO")
+              address: "51 W 42nd St, New York, NY", degree: "DO")
 doc3 = Doctor.create(first_name: "Jane", last_name: "Doe", gender: "female",
               education: "Harvard Medical School",
-              lat: -30, lng: -30, degree: "MD")
+              address: "51 W 37th St, New York, NY", degree: "MD")
 doc4 = Doctor.create(first_name: "Carl", last_name: "Johnson", gender: "male",
               education: "Harvard Medical School",
-              lat: -25, lng: -25, degree: "DMD")
+              address: "51 W 32nd St, New York, NY", degree: "DMD")
 doc5 = Doctor.create(first_name: "Donna", last_name: "Edwards", gender: "female",
               education: "Duke University School of Medicine",
-              lat: -20, lng: -20, degree: "MD")
+              address: "51 W 27th St, New York, NY", degree: "MD")
 doc6 = Doctor.create(first_name: "Matt", last_name: "Miller", gender: "male",
               education: "Washington University School of Medicine",
-              lat: -15, lng: -15, degree: "MD")
+              address: "51 W 47th St, New York, NY", degree: "MD")
 doc7 = Doctor.create(first_name: "Edith", last_name: "Spencer", gender: "female",
               education: "Mayo Medical School",
-              lat: -10, lng: -10, degree: "DMD")
+              address: "51 W 56th St, New York, NY", degree: "DMD")
 doc8 = Doctor.create(first_name: "Eric", last_name: "Baez", gender: "male",
               education: "Vanderbilt University School of Medicine",
-              lat: -5, lng: -5, degree: "MD")
+              address: "51 W 61st St, New York, NY", degree: "MD")
 doc9 = Doctor.create(first_name: "Michelle", last_name: "Rodriguez", gender: "female",
               education: "Yale University School of Medicine",
-              lat: 0, lng: 0, degree: "DPM")
+              address: "51 W 63st St, New York, NY", degree: "DPM")
 doc10 = Doctor.create(first_name: "Joe", last_name: "Schmoe", gender: "male",
               education: "Johns Hopkins University School of Medicine",
-              lat: -40, lng: -40, degree: "MD")
+              address: "51 W 22nd St, New York, NY", degree: "MD")
 
 
 Certification.destroy_all

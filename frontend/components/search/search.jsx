@@ -45,7 +45,7 @@ class Search extends React.Component {
           onChange={this.update('specialty')} />
 
         <input type="text"
-          placeholder="Adress"
+          placeholder="Address"
           value={this.state.address}
           onChange={this.update('address')} />
 

@@ -4,8 +4,7 @@ class Api::DoctorsController < ApplicationController
   end
 
   def index
-    # doctors = Doctor.in_bounds(bounds)
-    doctors = Doctor.all
+    doctors = Doctor.near(params[:address], 30)
 
     @doctors = doctors.select do |doctor|
       doc_specs = doctor.specialties.pluck(:name)

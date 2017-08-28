@@ -44,6 +44,11 @@ class Search extends React.Component {
           value={this.state.specialty}
           onChange={this.update('specialty')} />
 
+        <input type="text"
+          placeholder="Adress"
+          value={this.state.address}
+          onChange={this.update('address')} />
+
         <input type="submit" value="Search"/>
       </form>
     );

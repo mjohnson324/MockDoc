@@ -3,11 +3,6 @@ import { withRouter } from 'react-router-dom';
 
 import MarkerManager from '../../util/marker_manager';
 
-const getCoordsObj = latLng => ({
-  lat: latLng.lat(),
-  lng: latLng.lng()
-});
-
 const mapOptions = {
   center: { // NY default; inherit from search filter results
     lat: 40.712784,

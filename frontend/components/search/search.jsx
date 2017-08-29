@@ -22,8 +22,14 @@ class Search extends React.Component {
     e.preventDefault();
     const filter = this.checkParams(this.state);
     const queryURL = this.toQueryString(filter);
-    this.props.changeFilter(filter)
-    this.props.history.push(`/search/?${queryURL}`);
+    this.props.changeFilter(filter);
+
+    if (this.props.match.path !== "/") {
+      this.props.getDoctors(filter)
+        .then(() => this.props.history.push(`/search/?${queryURL}`));
+    } else {
+      this.props.history.push(`/search/?${queryURL}`);
+    }
   }
 
   checkParams(filter) {

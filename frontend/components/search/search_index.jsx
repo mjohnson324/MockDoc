@@ -12,7 +12,14 @@ class SearchIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getDoctors(this.props.filter);
+    const queryString = "?".concat(window.location.href.split('?')[1]);
+    const searchParams = new URLSearchParams(queryString);
+    const filter = {
+      specialty: searchParams.get('specialty'),
+      address: searchParams.get('address'),
+    };
+
+    this.props.getDoctors(filter);
   }
 
   render() {

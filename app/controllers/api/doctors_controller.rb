@@ -11,10 +11,4 @@ class Api::DoctorsController < ApplicationController
       doc_specs.include?(params[:specialty])
     end
   end
-
-  private
-
-  def bounds
-    params[:bounds]
-  end
 end

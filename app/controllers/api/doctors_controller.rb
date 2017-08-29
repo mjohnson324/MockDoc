@@ -1,14 +1,13 @@
 class Api::DoctorsController < ApplicationController
   def show
-    @doctor = Doctor.find(params[:id])
+    @doctor = Doctor.find(params[:id]).includes(:specialties)
   end
 
   def index
-    doctors = Doctor.near(params[:address], 30)
+    doctors = Doctor.near(params[:address], 30).includes(:specialties)
 
     @doctors = doctors.select do |doctor|
-      doc_specs = doctor.specialties.pluck(:name)
-      doc_specs.include?(params[:specialty])
+      doctor.specialties.pluck(:name).include?(params[:specialty])
     end
   end
 end

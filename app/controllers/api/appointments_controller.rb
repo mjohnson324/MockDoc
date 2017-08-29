@@ -2,8 +2,12 @@ class Api::AppointmentsController < ApplicationController
   before_action :require_logged_in, only: [:update]
 
   def index
-    doctors = Doctor.near(params[:address], 30)
-    doc_ids = doctors.pluck(:id)
+    doctors = Doctor.near(params[:address], 30).includes(:specialties)
+    
+    doc_ids = doctors.select do |doctor|
+      doctor.specialties.pluck(:name).include?("Family Physician")
+    end.pluck(:id)
+
     @appointments = Appointment.where(id: doc_ids, patient_id: nil)
   end
 

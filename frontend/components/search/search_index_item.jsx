@@ -21,13 +21,10 @@ const SearchIndexItem = (docInfo) => {
           <div>(Distance from location)</div>
         </section>
       </div>
-
-      <ul className="doc-schedule">
-        {apps.map(app => (
-          <AppointmentsTable
-            key={app.id}
-            app={app} />))}
-      </ul>
+      
+      <div>
+        <AppointmentsTable apps={apps} />
+      </div>
     </li>
   );
 };

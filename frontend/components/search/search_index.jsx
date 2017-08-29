@@ -31,6 +31,8 @@ class SearchIndex extends React.Component {
     const filters = {
       specialty: searchParams.get('specialty'),
       address: searchParams.get('address'),
+      startTime: this.state.today,
+      endTime: this.state.dayAfter
     };
 
     this.props.getDoctors(filters);

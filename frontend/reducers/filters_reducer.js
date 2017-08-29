@@ -4,6 +4,7 @@ import { UPDATE_FILTER } from '../actions/filter_actions';
 const defaultFilters = Object.freeze({
   specialty: "Family Physician",
   address: "New York",
+  date: new Date(),
 });
 
 const filtersReducer = (state = defaultFilters, action) => {

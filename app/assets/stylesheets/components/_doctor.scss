@@ -97,8 +97,6 @@
 
 .doc-schedule {
   width: 420px;
-  flex: none;
+  display: block;
   background-color: $link-header-background-color;
-  line-height:110px;
-  text-align: center;
 }

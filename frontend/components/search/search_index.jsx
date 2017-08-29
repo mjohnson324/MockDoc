@@ -9,6 +9,20 @@ import DoctorsMap from '../map/doctors_map';
 class SearchIndex extends React.Component {
   constructor(props) {
     super(props);
+
+    const today = new Date();
+
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    const dayAfter = new Date();
+    dayAfter.setDate(dayAfter.getDate() + 2);
+
+    this.state = {
+    today: today,
+    tomorrow: tomorrow,
+    dayAfter: dayAfter,
+    };
   }
 
   componentDidMount() {
@@ -44,9 +58,11 @@ class SearchIndex extends React.Component {
         <section className="search-results">
           <div className="appointment-scroll">
             <button>L</button>
-            <div>Day 1</div>
-            <div>Day 2</div>
-            <div>Day 3</div>
+            <div>{`${this.state.today}`.slice(0, 10)}</div>
+
+            <div>{`${this.state.tomorrow}`.slice(0, 10)}</div>
+
+            <div>{`${this.state.dayAfter}`.slice(0, 10)}</div>
             <button>R</button>
           </div>
 

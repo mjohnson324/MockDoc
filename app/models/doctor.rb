@@ -20,7 +20,7 @@ class Doctor < ApplicationRecord
   validates :gender, inclusion: { in: %w(male female) }
   validates :lat, numericality: { greater_than_or_equal_to: -90, less_than_or_equal_to: 90 }
   validates :lng, numericality: { greater_than_or_equal_to: -180, less_than_or_equal_to: 180 }
-  validates :degree, inclusion: { in: %w(MD DMD DO DDS) }
+  validates :degree, inclusion: { in: %w(MD DMD DO DDS DPM) }
   # validates :specialties, specialties.length > 0
   geocoded_by :address, latitude: :lat, longitude: :lng
   before_validation :geocode

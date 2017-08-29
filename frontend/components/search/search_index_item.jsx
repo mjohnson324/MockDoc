@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AppointmentsTable from '../appointments/appointments_table';
 
-const SearchIndexItem = ({ doc }) => {
-  return (
+const SearchIndexItem = (docInfo) => {
+    const doc = docInfo.doc;
+    const apps = docInfo.apps;
+    return (
     <li className="index-item">
       <div className="doc-pic">Profile photo (coming soon)</div>
 
@@ -19,7 +22,12 @@ const SearchIndexItem = ({ doc }) => {
         </section>
       </div>
 
-      <div className="doc-schedule">Appointments (comming soon)</div>
+      <ul className="doc-schedule">
+        {apps.map(app => (
+          <AppointmentsTable
+            key={app.id}
+            app={app} />))}
+      </ul>
     </li>
   );
 };

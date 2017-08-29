@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { isEmpty, sortBy } from 'lodash';
+import { filter } from 'lodash';
 
 import SearchIndexItem from './search_index_item';
 import SearchContainer from './search_container';
@@ -14,16 +14,28 @@ class SearchIndex extends React.Component {
   componentDidMount() {
     const queryString = "?".concat(window.location.href.split('?')[1]);
     const searchParams = new URLSearchParams(queryString);
-    const filter = {
+    const filters = {
       specialty: searchParams.get('specialty'),
       address: searchParams.get('address'),
     };
 
-    this.props.getDoctors(filter);
+    this.props.getDoctors(filters);
+    this.props.getAppointments(filters);
+  }
+
+  sortAppointments (doctors) {
+    const appointments = this.props.appointments;
+    const sortedAppointments = {};
+    doctors.forEach(doctor => {
+      sortedAppointments[doctor.id] = filter(appointments, ['doctor_id', doctor.id]);
+    });
+
+    return sortedAppointments;
   }
 
   render() {
     const { doctors } = this.props;
+    const appointments = this.sortAppointments(doctors);
 
     return(
       <div className="search-master">
@@ -39,13 +51,17 @@ class SearchIndex extends React.Component {
           </div>
 
           <ul>
-            {doctors.map(doctor => <SearchIndexItem key={doctor.id} doc={doctor} />)}
+            {doctors.map(doctor => (
+              <SearchIndexItem
+                key={doctor.id}
+                doc={doctor}
+                apps={appointments[doctor.id]} />))}
           </ul>
         </section>
 
         <DoctorsMap
           doctors={doctors}
-          address={this.props.filter.address}
+          address={this.props.filters.address}
         />
       </div>
     );

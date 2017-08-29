@@ -5,6 +5,8 @@ import {
   CLEAR_ERRORS
 } from '../actions/session_actions';
 
+import { SCHEDULE_APPOINTMENT } from '../actions/appointment_actions';
+
 const nullUser = Object.freeze({
   currentUser: null,
   errors: []

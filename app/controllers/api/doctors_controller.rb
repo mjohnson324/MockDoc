@@ -4,10 +4,11 @@ class Api::DoctorsController < ApplicationController
   end
 
   def index
+    processed_specialty = params[:specialty].downcase
     doctors = Doctor.near(params[:address], 30).includes(:specialties)
 
     @doctors = doctors.select do |doctor|
-      doctor.specialties.pluck(:name).include?(params[:specialty])
+      doctor.specialties.pluck(:name).include?(processed_specialty)
     end
   end
 end

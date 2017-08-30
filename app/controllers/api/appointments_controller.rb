@@ -5,11 +5,12 @@ class Api::AppointmentsController < ApplicationController
     range_start = params[:startTime].to_datetime
     range_end = params[:endTime].to_datetime
     time_range = range_start..range_end
+    processed_specialty = params[:specialty].downcase
 
     doctors = Doctor.near(params[:address], 30).includes(:specialties)
 
     doc_ids = doctors.select do |doctor|
-      doctor.specialties.pluck(:name).include?(params[:specialty])
+      doctor.specialties.pluck(:name).include?(processed_specialty)
     end.pluck(:id)
 
     @appointments = Appointment.where(

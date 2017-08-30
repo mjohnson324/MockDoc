@@ -23,7 +23,7 @@ const SearchIndexItem = (docInfo) => {
         </div>
         <section>
           <div>{`${doc.address}`}</div>
-          <div>(Distance from location)</div>
+          <div></div>
         </section>
       </div>
 

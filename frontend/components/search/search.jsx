@@ -42,7 +42,7 @@ class Search extends React.Component {
 
   checkParams(filter) {
     if (filter.specialty === '') {
-      filter.specialty = "Family Physician";
+      filter.specialty = "primary care physician";
     }
 
     if (filter.address === '') {

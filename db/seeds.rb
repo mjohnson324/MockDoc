@@ -125,19 +125,6 @@ end
                             address: random_dental_address.shuffle[0])
 end
 
-Appointment.destroy_all
-doctors.each do |doctor|
-  start_day = Time.new(2017, 8, 29, 8)
-
-  300.times do
-    Appointment.create!(doctor_id: doctor.id,
-                        start_time: start_day.to_datetime)
-
-    start_day += 30 * 60
-    start_day += 14 * 60 * 60 if start_day.hour == 18
-  end
-end
-
 Certification.destroy_all
 certification_names = ["American Board of Allergy and Immunology",
                        "American Board of Anesthesiology",
@@ -244,16 +231,29 @@ DoctorSpecialty.create!(specialty_id: specialties[16].id, doctor_id: doctors[8].
 DoctorSpecialty.create!(specialty_id: specialties[7].id, doctor_id: doctors[9].id) # Cancer
 
 doctors[10..49].each do |doctor|
-  DoctorSpecialty.create!(specialty_id: specialty_names[0..3].shuffle,
+  DoctorSpecialty.create!(specialty_id: specialties[0..3].shuffle[0].id,
                           doctor_id: doctor.id)
 end
 
 doctors[50..99].each do |doctor|
-  DoctorSpecialty.create!(specialty_id: specialty_names[5..33].shuffle,
+  DoctorSpecialty.create!(specialty_id: specialties[5..33].shuffle[0].id,
                           doctor_id: doctor.id)
 end
 
 doctors[100..109].each do |doctor|
-  DoctorSpecialty.create!(specialty_id: specialty_names[34..38].shuffle,
+  DoctorSpecialty.create!(specialty_id: specialties[34..38].shuffle[0].id,
                           doctor_id: doctor.id)
+end
+
+Appointment.destroy_all
+doctors.each do |doctor|
+  start_day = Time.new(2017, 8, 29, 8)
+
+  300.times do
+    Appointment.create!(doctor_id: doctor.id,
+                        start_time: start_day.to_datetime)
+
+    start_day += 30 * 60
+    start_day += 14 * 60 * 60 if start_day.hour == 18
+  end
 end

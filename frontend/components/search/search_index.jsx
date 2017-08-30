@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { filter } from 'lodash';
+import moment from 'moment';
 
 import SearchIndexItem from './search_index_item';
 import SearchContainer from './search_container';
@@ -10,19 +11,25 @@ class SearchIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    const today = new Date();
-
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-
-    const dayAfter = new Date();
-    dayAfter.setDate(dayAfter.getDate() + 2);
+    const days = this.getThreeDayRange();
 
     this.state = {
-      today: today,
-      tomorrow: tomorrow,
-      dayAfter: dayAfter,
+      today: days[0],
+      tomorrow: days[1],
+      dayAfter: days[2],
     };
+  }
+
+  getThreeDayRange() {
+    const cY = moment().get('year');
+    const cM = moment().get('month');
+    const cD = moment().get('date');
+    const cH = moment().get('hour');
+    const today = moment().year(cY).month(cM).date(cD).hour(cH);
+    const tomorrow = moment().year(cY).month(cM).date(cD + 1).hour(23);
+    const dayAfter = moment().year(cY).month(cM).date(cD + 2).hour(23);
+
+    return [today._d, tomorrow._d, dayAfter._d];
   }
 
   componentDidMount() {

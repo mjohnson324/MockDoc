@@ -1,13 +1,23 @@
-#map-canvas {
+#map-search-canvas {
   margin: 0;
   padding: 0;
   height: 630px;
   width: 320px;
 }
 
-#map-container {
+#map-search-container {
   position: sticky;
   display: inline-block;
   top: 75px;
   margin-left: 20px;
+}
+
+#map-doc-container {
+
+}
+
+#map-doc-canvas {
+  @extend #map-search-canvas;
+  height: 150px;
+  width: 100%;
 }

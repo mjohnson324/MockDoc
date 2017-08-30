@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import MarkerManager from '../../util/marker_manager';
 
@@ -39,15 +40,21 @@ class DoctorsMap extends React.Component {
   }
 
   handleMarkerClick(doctor) {
-    return this.props.history.push(`doctor/${doctor.id}`);
+    return this.props.history.push(`/doctor/${doctor.id}`);
   }
 
-
+  docSearchToggle() {
+    if (this.props.location.pathname.includes("/doctor/")) {
+      return ["map-doc-canvas", "map-doc-container"];
+    } else {
+      return ["map-search-canvas", "map-search-container"];
+    }
+  }
 
   render () {
     return(
-      <div id="map-container">
-        <div id="map-canvas" ref="map"></div>
+      <div id={this.docSearchToggle()[1]}>
+        <div id={this.docSearchToggle()[0]} ref="map"></div>
       </div>
     );
   }

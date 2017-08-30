@@ -23,8 +23,6 @@
   height: 150px;
   color: $link-header-text-color;
   border: solid 1px $input-border-color;
-  text-align: center;
-  line-height: 140px;
 }
 
 .docProfile {
@@ -99,20 +97,24 @@
   width: 420px;
   display: flex;
   justify-content:center;
-  overflow: scroll;
-  background-color: $link-header-background-color;
+  overflow-y: scroll;
   height: 210px;
+  background-color: $link-header-background-color;
+
   ul {
     width: 100px;
     margin: 10px;
 
     li {
+      background-color: $link-hover-background-color;
+      color: $link-hover-text-color;
       height: 40px;
       border: solid black 1px;
       text-align: center;
       line-height: 40px;
       margin-top: 5px;
       margin-bottom: 5px;
+      font-size: 18px;
     }
   }
 }

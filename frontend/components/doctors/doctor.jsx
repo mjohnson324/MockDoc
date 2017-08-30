@@ -1,4 +1,5 @@
 import React from 'react';
+import DoctorsMap from '../map/doctors_map';
 
 class Doctor extends React.Component {
   constructor(props) {
@@ -39,8 +40,10 @@ class Doctor extends React.Component {
           </div>
 
           <div className="docMap">
-            <label>GPS Coordinates (map coming soon!): </label>
-            {`${doctor.lat}, ${doctor.lng}`}
+            <DoctorsMap
+              doctors={[doctor]}
+              address={doctor.address}
+            />
           </div>
 
           <section className="docProfile">
@@ -57,6 +60,10 @@ class Doctor extends React.Component {
               <ol>
                 <label>Specialties:</label>
                 <ul>{this.specList(doctor.specialties)}</ul>
+              </ol>
+              <ol>
+                <label>Address:</label>
+                <ul><li>{`${doctor.address}`}</li></ul>
               </ol>
             </div>
             <p>

@@ -6,7 +6,7 @@ import Doctor from './doctor';
 
 const mapStatetoProps = ({ doctors }) => {
   return {
-    doctors,
+    doctors
   };
 };
 

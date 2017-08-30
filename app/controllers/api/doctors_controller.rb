@@ -1,6 +1,6 @@
 class Api::DoctorsController < ApplicationController
   def show
-    @doctor = Doctor.find(params[:id]).includes(:specialties)
+    @doctor = Doctor.find(params[:id])
   end
 
   def index

@@ -48,13 +48,20 @@
   height: 66px;
   background-color: $link-header-background-color;
   color: $link-header-text-color;
-
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 
   a {
     margin-right: 130px
+  }
+
+  button {
+    cursor: pointer;
+    cursor: hand;
+    padding: 10px;
+    background-color: $link-hover-background-color;
+    color: $link-hover-text-color;
   }
 
   a h1 {

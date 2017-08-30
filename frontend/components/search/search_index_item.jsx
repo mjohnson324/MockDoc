@@ -1,14 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AppointmentsTable from '../appointments/appointments_table';
-import { filter } from 'lodash';
-import moment from 'moment';
+import { sortAppointmentsByDay } from '../appointments/appointment_helpers';
 
 const SearchIndexItem = (docInfo) => {
-    const doc = docInfo.doc;
-    const apps = docInfo.apps;
-    const dates = docInfo.dates;
-    const daySortedApps = sortByDay(apps, dates);
+    const { doc, apps, dates } = docInfo;
+    const daySortedApps = sortAppointmentsByDay(apps, dates);
 
     return (
     <li className="index-item">
@@ -23,27 +20,14 @@ const SearchIndexItem = (docInfo) => {
         </div>
         <section>
           <div>{`${doc.address}`}</div>
-          <div></div>
         </section>
       </div>
 
       <div>
-        <AppointmentsTable apps={daySortedApps} />
+        <AppointmentsTable appsByDays={daySortedApps} />
       </div>
     </li>
   );
 };
-
-const sortByDay = (apps, dates) => {
-  const appsByDays = [];
-  dates.forEach(day => {
-    appsByDays.push(filter(apps, (app) => { return(
-      moment(app.start_time).format("D") === day.getDate().toString()); }
-    ));
-  });
-  return appsByDays;
-};
-
-
 
 export default SearchIndexItem;

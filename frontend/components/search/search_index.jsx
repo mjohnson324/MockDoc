@@ -19,15 +19,17 @@ class SearchIndex extends React.Component {
     dayAfter.setDate(dayAfter.getDate() + 2);
 
     this.state = {
-    today: today,
-    tomorrow: tomorrow,
-    dayAfter: dayAfter,
+      today: today,
+      tomorrow: tomorrow,
+      dayAfter: dayAfter,
     };
   }
 
   componentDidMount() {
     const queryString = "?".concat(window.location.href.split('?')[1]);
     const searchParams = new URLSearchParams(queryString);
+    // this.state.today.toString().split(" G")[0]
+
     const filters = {
       specialty: searchParams.get('specialty'),
       address: searchParams.get('address'),
@@ -39,7 +41,7 @@ class SearchIndex extends React.Component {
     this.props.getAppointments(filters);
   }
 
-  sortAppointments (doctors) {
+  sortAppointmentsByDoctor (doctors) {
     const appointments = this.props.appointments;
     const sortedAppointments = {};
     doctors.forEach(doctor => {
@@ -51,7 +53,10 @@ class SearchIndex extends React.Component {
 
   render() {
     const { doctors } = this.props;
-    const appointments = this.sortAppointments(doctors);
+    const appointments = this.sortAppointmentsByDoctor(doctors);
+    const today = this.state.today;
+    const tomorrow = this.state.tomorrow;
+    const dayAfter = this.state.dayAfter;
 
     return(
       <div className="search-master">
@@ -60,11 +65,11 @@ class SearchIndex extends React.Component {
         <section className="search-results">
           <div className="appointment-scroll">
             <button>L</button>
-            <div>{`${this.state.today}`.slice(0, 10)}</div>
+            <div>{`${today}`.slice(0, 10)}</div>
 
-            <div>{`${this.state.tomorrow}`.slice(0, 10)}</div>
+            <div>{`${tomorrow}`.slice(0, 10)}</div>
 
-            <div>{`${this.state.dayAfter}`.slice(0, 10)}</div>
+            <div>{`${dayAfter}`.slice(0, 10)}</div>
             <button>R</button>
           </div>
 
@@ -73,7 +78,8 @@ class SearchIndex extends React.Component {
               <SearchIndexItem
                 key={doctor.id}
                 doc={doctor}
-                apps={appointments[doctor.id]} />))}
+                apps={appointments[doctor.id]}
+                dates = {[today, tomorrow, dayAfter]} />))}
           </ul>
         </section>
 

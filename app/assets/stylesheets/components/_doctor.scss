@@ -97,6 +97,17 @@
 
 .doc-schedule {
   width: 420px;
-  display: block;
+  display: flex;
+  justify-content:space-around;
+  overflow: scroll;
   background-color: $link-header-background-color;
+  max-height: 100%;
+  ul {
+    width: 100px;
+    margin: 10px;
+
+    li {
+      height: 40px;
+    }
+  }
 }

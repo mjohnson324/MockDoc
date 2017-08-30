@@ -149,7 +149,7 @@ Appointment.destroy_all
   100.times do
     Appointment.create!(
     doctor_id: doctor.id,
-    start_time: start_day)
+    start_time: start_day.to_datetime)
 
     start_day += 30 * 60
     start_day += 14 * 60 * 60 if start_day.hour == 18

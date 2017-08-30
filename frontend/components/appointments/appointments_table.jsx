@@ -2,23 +2,30 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
-const AppointmentsTable = ({ app }) => {
+const AppointmentsTable = ({ apps }) => {
 
   return(
     <section className="doc-schedule">
-      <div>
-        <li>
+      <ul>
+        {apps[0].map(app => (
+        <li key={app.id}>
           {`${moment(app.start_time).format("h:mm a")}`}
-        </li>
-      </div>
+        </li>))}
+      </ul>
 
-      <div>
+      <ul>
+        {apps[1].map(app => (
+        <li key={app.id}>
+          {`${moment(app.start_time).format("h:mm a")}`}
+        </li>))}
+      </ul>
 
-      </div>
-      
-      <div>
-
-      </div>
+      <ul>
+        {apps[2].map(app => (
+        <li key={app.id}>
+          {`${moment(app.start_time).format("h:mm a")}`}
+        </li>))}
+      </ul>
     </section>
   );
 };

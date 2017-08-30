@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import Profile from './profile_form';
+import Profile from './profile';
 
 const mapStatetoProps = ({ session }) => {
   return {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class Header extends React.Component {
   constructor(props){
@@ -8,12 +8,20 @@ class Header extends React.Component {
 
   navLink() {
     if (this.props.currentUser) {
-      return(
-        <nav>
-          <Link className="header-profile" to="/patient">Profile</Link>
-          <button onClick={this.props.logOut}>Sign Out</button>
-        </nav>
-      );
+      if (this.props.location.pathname === '/patient') {
+        return(
+          <nav>
+            <button onClick={this.props.logOut}>Sign Out</button>
+          </nav>
+        );
+      } else {
+        return(
+          <nav>
+            <Link className="header-profile" to="/patient">Profile</Link>
+            <button onClick={this.props.logOut}>Sign Out</button>
+          </nav>
+        );
+      }
     } else {
       if (this.props.location.pathname === '/signin' ||
           this.props.location.pathname === '/createuser') {

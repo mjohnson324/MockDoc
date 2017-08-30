@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Profile extends React.Component {
+class PatientProfile extends React.Component {
   constructor(props) {
     super(props);
 
@@ -13,4 +13,4 @@ class Profile extends React.Component {
   }
 }
 
-export default Profile;
+export default PatientProfile;

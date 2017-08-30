@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import Profile from './profile';
+import PatientProfile from './patient_profile';
 
 const mapStatetoProps = ({ session }) => {
   return {
@@ -9,4 +9,4 @@ const mapStatetoProps = ({ session }) => {
   };
 };
 
-export default withRouter(connect(mapStatetoProps, null)(Profile));
+export default withRouter(connect(mapStatetoProps, null)(PatientProfile));

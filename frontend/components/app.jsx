@@ -10,7 +10,7 @@ import SignupFormContainer from './signup/signup_form_container';
 import DoctorContainer from './doctors/doctor_container';
 import SearchContainer from './search/search_container';
 import SearchIndexContainer from './search/search_index_container';
-import ProfileContainer from './profile/profile_container';
+import PatientProfileContainer from './patient/patient_profile_container';
 import BookingFormContainer from './appointments/booking_form_container';
 
 const App = () => {
@@ -23,7 +23,7 @@ return (
     <Route path="/createuser" component={SignupFormContainer} />
     <Route path="/doctor/:id" component={DoctorContainer} />
     <Route path="/booking/:id" component={BookingFormContainer} />
-    <Route path="/patient" component={ProfileContainer} />
+    <Route path="/patient" component={PatientProfileContainer} />
   </div>
 );
 

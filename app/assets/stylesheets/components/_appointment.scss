@@ -18,6 +18,13 @@
   }
 
   button {
-    width: 40px
+    width: 40px;
+    background-color: $link-hover-background-color;
+    color: $link-hover-text-color;
   }
+
+}
+
+.right-button {
+  margin-right: 50px;
 }

@@ -10,6 +10,8 @@ import SignupFormContainer from './signup/signup_form_container';
 import DoctorContainer from './doctors/doctor_container';
 import SearchContainer from './search/search_container';
 import SearchIndexContainer from './search/search_index_container';
+import ProfileContainer from './profile/profile_container';
+import BookingFormContainer from './appointments/booking_form_container';
 
 const App = () => {
 return (
@@ -20,6 +22,8 @@ return (
     <Route path="/signin" component={SessionFormContainer}/>
     <Route path="/createuser" component={SignupFormContainer} />
     <Route path="/doctor/:id" component={DoctorContainer} />
+    <Route path="/booking/:id" component={BookingFormContainer} />
+    <Route path="/patient" component={ProfileContainer} />
   </div>
 );
 

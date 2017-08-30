@@ -1,15 +1,16 @@
 import React from 'react';
 
-class BookingForm extends React.Component {
+class Profile extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   render() {
     return(
-      <div>Book your appointment!</div>
+      <div>Welcome, user!</div>
     );
   }
 }
 
-export default BookingForm;
+export default Profile;

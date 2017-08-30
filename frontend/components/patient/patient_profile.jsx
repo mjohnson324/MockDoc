@@ -8,7 +8,7 @@ class PatientProfile extends React.Component {
 
   render() {
     return(
-      <div>Welcome, user!</div>
+      <h1 className="profile-welcome">Welcome, {this.props.user.first_name}!</h1>
     );
   }
 }

@@ -5,7 +5,7 @@ import PatientProfile from './patient_profile';
 
 const mapStatetoProps = ({ session }) => {
   return {
-    session
+    user: session.currentUser
   };
 };
 

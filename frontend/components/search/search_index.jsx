@@ -70,7 +70,7 @@ class SearchIndex extends React.Component {
             <div>{`${tomorrow}`.slice(0, 10)}</div>
 
             <div>{`${dayAfter}`.slice(0, 10)}</div>
-            <button>R</button>
+            <button className="right-button">R</button>
           </div>
 
           <ul>

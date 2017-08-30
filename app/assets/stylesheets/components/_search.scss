@@ -12,12 +12,20 @@
   }
 
   input[placeholder="Specialty"] {
-    width: 560px;
+    width: 450px;
     padding-left: 30px;
+  }
+
+  input[placeholder="Address"] {
+    padding-left: 30px;
+    width: 360px;
   }
 
   input[type="submit"] {
     background-color: $link-header-background-color;
+    padding: 5px;
+    cursor: pointer;
+    cursor: hand;
   }
 
   input[type="submit"]:hover {
@@ -46,6 +54,8 @@
   input[type="submit"] {
     background-color: $link-hover-background-color;
     color: $link-hover-text-color;
+    cursor: pointer;
+    cursor: hand;
   }
 }
 

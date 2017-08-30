@@ -4,9 +4,16 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
 
+    const today = new Date();
+
+    const dayAfter = new Date();
+    dayAfter.setDate(dayAfter.getDate() + 2);
+
     this.state = {
       specialty: '',
       address: '',
+      startTime: today,
+      endTime: dayAfter
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);

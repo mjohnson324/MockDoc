@@ -7,9 +7,14 @@
   top: 75px;
 
   div {
-    height: 40px;
-    width: 100px;
-    margin: 10px;
+    height: 60px;
+    width: 98px;
+    margin-right: 10px;
+    margin-left:10px;
+    border-left: solid black 1px;
+    border-right: solid black 1px;
+    line-height: 60px;
+    font-weight: bold;
   }
 
   button {

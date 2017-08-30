@@ -12,7 +12,7 @@ const SearchIndexItem = (docInfo) => {
 
     return (
     <li className="index-item">
-      <div className="doc-pic">Profile photo (coming soon)</div>
+      <div className="doc-pic"></div>
 
       <div className="doc-info">
         <Link to={`/doctor/${doc.id}`}>

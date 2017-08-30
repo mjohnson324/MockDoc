@@ -9,25 +9,24 @@
   justify-content: space-between;
   align-items: center;
 
-  a h2 {
+  h2 {
     font-size: 44px;
     text-decoration: none;
     font-weight: bold;
   }
 
-  button {
+  button, a {
     font-size: 20px;
-    background-color: transparent;
+    background-color: $link-header-background-color;
+    color: $link-header-text-color;
     margin-right: 130px;
+    padding: 10px;
   }
 
-  a {
-    margin-right: 130px;
-    font-size: 20px;
-  }
-
-  button:hover {
+  button:hover, a:hover {
     text-decoration: underline;
+    color: $link-hover-text-color;
+    background-color: $link-hover-background-color;
     cursor: pointer;
     cursor: hand;
   }
@@ -40,7 +39,7 @@
   width: 1150px;
   top: 210px;
   left: 10%;
-  color: $link-header-text-color
+  color: $link-header-text-color;
 }
 
 
@@ -52,22 +51,23 @@
   justify-content: space-around;
   align-items: center;
 
-  a {
-    margin-right: 130px
-  }
-
   button {
     cursor: pointer;
     cursor: hand;
     padding: 10px;
     background-color: $link-hover-background-color;
     color: $link-hover-text-color;
+    margin-left: 100px;
   }
 
   a h1 {
     font-size: 28px;
-    font-weight: bold;
     margin-left: 130px;
+    background-color: $link-hover-background-color;
+    color: $link-hover-text-color;
+    padding: 10px;
+    cursor: pointer;
+    cursor: hand;
   }
 }
 
@@ -77,4 +77,10 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+.header-profile {
+  background-color: $link-hover-background-color;
+  color: $link-hover-text-color;
+  padding: 10px;
 }

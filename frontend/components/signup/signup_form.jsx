@@ -45,13 +45,13 @@ class SignupForm extends React.Component {
   render() {
     return(
       <div className="sign-up">
-        <h3>Create an account</h3>
+        <h3>Create an Account</h3>
         <Link to="/signin">Already have one? Sign in.</Link>
 
         <form onSubmit={this.handleSubmit}>
           <br/>
 
-          <h4>Enter your email</h4>
+          <h4>Enter your email Address:</h4>
           <input type="text"
             placeholder="Email address"
             value={this.state.email}
@@ -59,7 +59,7 @@ class SignupForm extends React.Component {
           />
           <br/>
 
-          <h4>Create a password</h4>
+          <h4>Create a Password:</h4>
           <input type="password"
             placeholder="At least 12 characters long"
             value={this.state.password}
@@ -67,7 +67,7 @@ class SignupForm extends React.Component {
           />
           <br/>
 
-          <h4>Your name</h4>
+          <h4>Enter your Name:</h4>
 
           <span>
             <input type="text"

@@ -10,12 +10,17 @@ class Header extends React.Component {
     if (this.props.currentUser) {
       return(
         <nav>
-          <Link to="/patient">Profile</Link>
+          <Link className="header-profile" to="/patient">Profile</Link>
           <button onClick={this.props.logOut}>Sign Out</button>
         </nav>
       );
     } else {
-      return <Link to="/signin">Sign In</Link>;
+      if (this.props.location.pathname === '/signin' ||
+          this.props.location.pathname === '/createuser') {
+            return <div></div>;
+          } else {
+            return <Link to="/signin">Sign In</Link>;
+          }
     }
   }
 
@@ -32,18 +37,21 @@ class Header extends React.Component {
       return(
         <div>
           <header className="head-home">
-            <Link to="/"><h2>MockDoc</h2></Link>
+            <h2>MockDoc</h2>
 
             <nav>{this.navLink()}</nav>
           </header>
 
-          <h1 className="home">Need a doctor? You're in the right place! </h1>
+          <h1 className="home">
+            Need a doctor? Start your search here!
+          </h1>
+
         </div>
       );
     } else {
       return(
         <header className="head">
-          <Link to="/"><h1>MockDoc</h1></Link>
+          <Link to="/"><h1>MockDoc: Home</h1></Link>
 
           <nav>
             {this.navLink()}

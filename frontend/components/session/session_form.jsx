@@ -44,11 +44,10 @@ class SessionForm extends React.Component {
   render() {
     return(
       <div className="session">
-        <h3>Sign in or create an account</h3>
+        <h3>Sign In</h3>
         <br/>
 
         <form onSubmit={this.handleSubmit}>
-          <h4>Sign in to your MockDoc account</h4>
 
           <input type="text"
             placeholder="Email address"

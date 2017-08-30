@@ -6,7 +6,7 @@
   margin-top: 100px;
 
   h3 {
-    font-size: 24px;
+    font-size: 36px;
   }
 
 
@@ -32,6 +32,10 @@
     font-size: 16px;
   }
 
+  form input {
+    border: solid black 1px;
+  }
+
   a {
     text-align: center;
     background-color: $link-header-background-color;
@@ -44,11 +48,13 @@
     background-color: $link-header-background-color;
     margin-top: 20px;
     margin-bottom: 20px;
+    border: solid $input-border-color 1px;
   }
 
   form h4 {
     text-align:left;
     margin-top: 30px;
+    font-size: 24px,
   }
 }
 
@@ -60,6 +66,7 @@
     width: auto;
     padding-right: 5px;
     padding-left: 5px;
+    font-size: 18px;
   }
 
   form input {

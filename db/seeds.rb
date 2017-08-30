@@ -7,151 +7,176 @@
 #   Character.create!(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-u1 = User.create!(first_name: "Homer", last_name: "Simpson", email: "homer@gmail.com", password: "long_password")
-u2 = User.create!(first_name: "Marge", last_name: "Simpson", email: "marge@yahoo.com", password: "bouvier12345")
-u3 = User.create!(first_name: "Ned", last_name: "Flanders", email: "ned@biblethumpers.com", password: "hi_diddly_ho")
-u4 = User.create!(first_name: "Clancy", last_name: "Wiggum", email: "clancy@police.gov", password: "passpasspass")
-u5 = User.create!(first_name: "Waylon", last_name: "Smithers", email: "smithers@nuclear.io", password: "monty_burns_is_great")
+first_names = ["Homer", "Marge", "Ned", "Clancy", "Waylon"]
+last_names = ["Simpson", "Simpson", "Flanders", "Wiggum", "Smithers"]
+emails = ["homer@gmail.com", "marge@yahoo.com", "ned@biblethumpers.com",
+          "clancy@springfield.gov", "smithers@nuclear.io"]
+passwords = ["long_password", "bouvier12345", "hi_diddly_ho",
+             "passpasspass", "monty_burns_is_great"]
+
+users = []
+
+5.times do |i|
+  users << User.create!(first_name: first_names[i],
+                        last_name: last_names[i],
+                        email: emails[i],
+                        password: passwords[i])
+end
 
 Doctor.destroy_all
-doc1 = Doctor.create!(first_name: "Julius", last_name: "Hibbert", gender: "male",
-              education: "Johns Hopkins University School of Medicine",
-              address: "51 W 51st St, New York, NY", degree: "MD")
-doc2 = Doctor.create!(first_name: "Nick", last_name: "Riviera", gender: "male",
-              education: "Hollywood Upstairs Medical College",
-              address: "51 W 42nd St, New York, NY", degree: "DO")
-doc3 = Doctor.create!(first_name: "Jane", last_name: "Doe", gender: "female",
-              education: "Harvard Medical School",
-              address: "51 W 37th St, New York, NY", degree: "MD")
-doc4 = Doctor.create!(first_name: "Carl", last_name: "Johnson", gender: "male",
-              education: "Harvard Medical School",
-              address: "51 W 32nd St, New York, NY", degree: "DMD")
-doc5 = Doctor.create!(first_name: "Donna", last_name: "Edwards", gender: "female",
-              education: "Duke University School of Medicine",
-              address: "51 W 27th St, New York, NY", degree: "MD")
-doc6 = Doctor.create!(first_name: "Matt", last_name: "Miller", gender: "male",
-              education: "Washington University School of Medicine",
-              address: "51 W 47th St, New York, NY", degree: "MD")
-doc7 = Doctor.create!(first_name: "Edith", last_name: "Spencer", gender: "female",
-              education: "Mayo Medical School",
-              address: "51 W 56th St, New York, NY", degree: "DMD")
-doc8 = Doctor.create!(first_name: "Eric", last_name: "Baez", gender: "male",
-              education: "Vanderbilt University School of Medicine",
-              address: "51 W 61st St, New York, NY", degree: "MD")
-doc9 = Doctor.create!(first_name: "Michelle", last_name: "Rodriguez", gender: "female",
-              education: "Yale University School of Medicine",
-              address: "51 W 63st St, New York, NY", degree: "DPM")
-doc10 = Doctor.create!(first_name: "Joe", last_name: "Schmoe", gender: "male",
-              education: "Johns Hopkins University School of Medicine",
-              address: "51 W 22nd St, New York, NY", degree: "MD")
+doc_first_names = ["Julius", "Nick", "Jane", "Carl", "Donna",
+                   "Matt", "Edith", "Eric", "Michelle", "Joe"]
 
+doc_last_names = ["Hibbert", "Riviera", "Doe", "Johnson", "Edwards",
+                  "Miller", "Spencer", "Baez", "Rodriguez", "Schmoe"]
 
-Certification.destroy_all
-cert1 = Certification.create!(name: "American Board of Allergy and Immunology")
-cert2 = Certification.create!(name: "American Board of Anesthesiology")
-cert3 = Certification.create!(name: "American Board of Colon and Rectal Surgery")
-cert4 = Certification.create!(name: "American Board of Dermatology")
-cert5 = Certification.create!(name: "American Board of Emergency Medicine")
-cert6 = Certification.create!(name: "American Board of Family Medicine")
-cert7 = Certification.create!(name: "American Board of Internal Medicine")
-cert8 = Certification.create!(name: "American Board of Medical Genetics and Genomics")
-cert9 = Certification.create!(name: "American Board of Neurological Surgery")
-cert10 = Certification.create!(name: "American Board of Nuclear Medicine")
-cert11 = Certification.create!(name: "American Board of Obstetrics and Gynecology")
-cert12 = Certification.create!(name: "American Board of Opthalmology")
-cert13 = Certification.create!(name: "American Board of Orthopaedic Surgery")
-cert14 = Certification.create!(name: "American Board of Otolaryngology")
-cert15 = Certification.create!(name: "American Board of Pathology")
-cert16 = Certification.create!(name: "American Board of Pediatrics")
-cert17 = Certification.create!(name: "American Board of Physical Medicine and Rehabilitation")
-cert18 = Certification.create!(name: "American Board of Plastic Surgery")
-cert19 = Certification.create!(name: "American Board of Preventive Medicine")
-cert20 = Certification.create!(name: "American Board of Psychiatry and Neurology")
-cert21 = Certification.create!(name: "American Board of Radiology")
-cert22 = Certification.create!(name: "American Board of Surgery")
-cert23 = Certification.create!(name: "American Board of Thoracic Surgery")
-cert24 = Certification.create!(name: "American Board of Urology")
-cert25 = Certification.create!(name: "American Board of Podiatric Medicine")
+education = ["Johns Hopkins University School of Medicine",
+             "Hollywood Upstairs Medical College",
+             "Harvard Medical School",
+             "Harvard Medical School",
+             "Duke University School of Medicine",
+             "Washington University School of Medicine",
+             "Mayo Medical School",
+             "Vanderbilt University School of Medicine",
+             "Yale University School of Medicine",
+             "Johns Hopkins University School of Medicine"]
 
-Specialty.destroy_all
-spec1 = Specialty.create!(name: "Allergist")
-spec2 = Specialty.create!(name: "Audiologist")
-spec3 = Specialty.create!(name: "Cardiologist")
-spec4 = Specialty.create!(name: "Chiropractor")
-spec5 = Specialty.create!(name: "Dentist")
-spec6 = Specialty.create!(name: "Dermatologist")
-spec7 = Specialty.create!(name: "Dietitian")
-spec8 = Specialty.create!(name: "Emergency Medicine Physician")
-spec9 = Specialty.create!(name: "Endocrinologist")
-spec10 = Specialty.create!(name: "Opthalmologist")
-spec11 = Specialty.create!(name: "Family Physician")
-spec12 = Specialty.create!(name: "Gastroenterologist")
-spec13 = Specialty.create!(name: "Hematologist")
-spec14 = Specialty.create!(name: "Internist")
-spec15 = Specialty.create!(name: "Naturopathic Doctor")
-spec16 = Specialty.create!(name: "Nephrologist")
-spec17 = Specialty.create!(name: "Neurologist")
-spec18 = Specialty.create!(name: "Neurosurgeon")
-spec19 = Specialty.create!(name: "Obstetrist-Gynecologist")
-spec20 = Specialty.create!(name: "Oncologist")
-spec21 = Specialty.create!(name: "Ophthalmologist")
-spec22 = Specialty.create!(name: "Optometrist")
-spec23 = Specialty.create!(name: "Oral Surgeon")
-spec24 = Specialty.create!(name: "Orthodontist")
-spec25 = Specialty.create!(name: "Orthopedic Surgeon")
-spec26 = Specialty.create!(name: "Pediatrician")
-spec27 = Specialty.create!(name: "Periodontist")
-spec28 = Specialty.create!(name: "Plastic Surgeon")
-spec29 = Specialty.create!(name: "Podiatrist")
-spec30 = Specialty.create!(name: "Prosthodontist")
-spec31 = Specialty.create!(name: "Psychiatrist")
-spec32 = Specialty.create!(name: "Psychologist")
-spec33 = Specialty.create!(name: "Pulmonologist")
-spec34 = Specialty.create!(name: "Radiologist")
-spec35 = Specialty.create!(name: "Rheumatologist")
-spec36 = Specialty.create!(name: "Sleep Medicine Specialist")
-spec37 = Specialty.create!(name: "Sports Medicine Specialist")
-spec38 = Specialty.create!(name: "Surgeon")
-spec39 = Specialty.create!(name: "Urgent Care Specialist")
-spec40 = Specialty.create!(name: "Urologist")
+degrees = ["MD", "DO", "MD", "DMD", "MD",
+           "MD", "DMD", "MD", "DPM", "MD"]
 
-DoctorSpecialty.destroy_all
-DoctorSpecialty.create!(specialty_id: spec31.id, doctor_id: doc8.id) # Psych
-DoctorSpecialty.create!(specialty_id: spec20.id, doctor_id: doc10.id) # Cancer
-DoctorSpecialty.create!(specialty_id: spec28.id, doctor_id: doc2.id) # Plastic
-DoctorSpecialty.create!(specialty_id: spec18.id, doctor_id: doc2.id) # Neuro
-DoctorSpecialty.create!(specialty_id: spec3.id, doctor_id: doc2.id) # Cardio
+genders = ["male", "male", "female", "male", "female",
+           "male", "female", "male", "female", "male"]
 
-DoctorSpecialty.create!(specialty_id: spec11.id, doctor_id: doc1.id)
-DoctorSpecialty.create!(specialty_id: spec11.id, doctor_id: doc5.id) # Family
-DoctorSpecialty.create!(specialty_id: spec11.id, doctor_id: doc6.id)
-DoctorSpecialty.create!(specialty_id: spec38.id, doctor_id: doc3.id) # Surgeon
-DoctorSpecialty.create!(specialty_id: spec5.id, doctor_id: doc4.id) # Dentist
+addresses = ["51 W 51st St, New York, NY", "51 W 42nd St, New York, NY",
+             "51 W 37th St, New York, NY", "51 W 32nd St, New York, NY",
+             "51 W 27th St, New York, NY", "51 W 47th St, New York, NY",
+             "51 W 56th St, New York, NY", "51 W 61st St, New York, NY",
+             "51 W 63st St, New York, NY", "51 W 22nd St, New York, NY"]
+doctors = []
 
-DoctorSpecialty.create!(specialty_id: spec5.id, doctor_id: doc7.id) # Dentist
-DoctorSpecialty.create!(specialty_id: spec29.id, doctor_id: doc9.id) # Podiatry
-
-DoctorCertification.destroy_all
-DoctorCertification.create!(certification_id: cert6.id, doctor_id: doc1.id)
-DoctorCertification.create!(certification_id: cert16.id, doctor_id: doc1.id)
-DoctorCertification.create!(certification_id: cert22.id, doctor_id: doc3.id)
-DoctorCertification.create!(certification_id: cert6.id, doctor_id: doc5.id)
-
-DoctorCertification.create!(certification_id: cert6.id, doctor_id: doc6.id)
-DoctorCertification.create!(certification_id: cert20.id, doctor_id: doc8.id)
-DoctorCertification.create!(certification_id: cert25.id, doctor_id: doc9.id)
-DoctorCertification.create!(certification_id: cert10.id, doctor_id: doc10.id)
+10.times do |i|
+  doctors << Doctor.create!(first_name: doc_first_names[i],
+                            last_name: doc_last_names[i],
+                            education: education[i],
+                            degree: degrees[i],
+                            gender: genders[i],
+                            address: addresses[i])
+end
 
 Appointment.destroy_all
-[doc1, doc2, doc3, doc4, doc5, doc6, doc7, doc8, doc9, doc10].each do |doctor|
-  start_day = Time.new(2017, 8, 27, 8)
+doctors.each do |doctor|
+  start_day = Time.new(2017, 8, 29, 8)
 
   100.times do
-    Appointment.create!(
-    doctor_id: doctor.id,
-    start_time: start_day.to_datetime)
+    Appointment.create!(doctor_id: doctor.id,
+                        start_time: start_day.to_datetime)
 
     start_day += 30 * 60
     start_day += 14 * 60 * 60 if start_day.hour == 18
   end
 end
+
+Certification.destroy_all
+certification_names = ["American Board of Allergy and Immunology",
+                       "American Board of Anesthesiology",
+                       "American Board of Colon and Rectal Surgery",
+                       "American Board of Dermatology",
+                       "American Board of Emergency Medicine",
+                       "American Board of Family Medicine",
+                       "American Board of Internal Medicine",
+                       "American Board of Medical Genetics and Genomics",
+                       "American Board of Neurological Surgery",
+                       "American Board of Nuclear Medicine",
+                       "American Board of Obstetrics and Gynecology",
+                       "American Board of Opthalmology",
+                       "American Board of Orthopaedic Surgery",
+                       "American Board of Otolaryngology",
+                       "American Board of Pathology",
+                       "American Board of Pediatrics",
+                       "American Board of Physical Medicine and Rehabilitation",
+                       "American Board of Plastic Surgery",
+                       "American Board of Preventive Medicine",
+                       "American Board of Psychiatry and Neurology",
+                       "American Board of Radiology",
+                       "American Board of Surgery",
+                       "American Board of Thoracic Surgery",
+                       "American Board of Urology",
+                       "American Board of Podiatric Medicine"]
+certifications = []
+
+certification_names.each do |name|
+  certifications << Certification.create!(name: name)
+end
+
+DoctorCertification.destroy_all
+DoctorCertification.create!(certification_id: certifications[5].id, doctor_id: doctors[0].id)
+DoctorCertification.create!(certification_id: certifications[15].id, doctor_id: doctors[0].id)
+
+DoctorCertification.create!(certification_id: certifications[21].id, doctor_id: doctors[2].id)
+
+DoctorCertification.create!(certification_id: certifications[5].id, doctor_id: doctors[4].id)
+
+DoctorCertification.create!(certification_id: certifications[5].id, doctor_id: doctors[5].id)
+
+DoctorCertification.create!(certification_id: certifications[19].id, doctor_id: doctors[7].id)
+DoctorCertification.create!(certification_id: certifications[24].id, doctor_id: doctors[8].id)
+DoctorCertification.create!(certification_id: certifications[9].id, doctor_id: doctors[9].id)
+
+Specialty.destroy_all
+# generalist, then specialist, then surgery/emergency care, then mental health,
+# then oral care
+specialty_names = ["primary care physician", "family physician",
+                   "internist", "pediatrician",
+                   "naturopathic doctor", "chiropractor", # 6
+
+                   "obstetrician/gynecologist", "oncologist",
+                   "cardiologist", "allergist",
+                   "dermatologist", "endocrinologist",
+                   "gastroenterologist", "hematologist",
+                   "nephrologist", "neurologist",
+                   "podiatrist", "pulmonologist", # 18
+                   "radiologist", "rheumatologist",
+                   "sleep medicine specialist", "urologist",
+                   "opthalmologist/optometrist", "audiologist",
+                   "dietitian", "sports medicine specialist", # 26
+
+                   "orthopedic surgeon", "surgeon",
+                   "emergency medicine physician", "urgent care specialist",
+                   "neurosurgeon", "plastic surgeon", # 32
+
+                   "psychiatrist", "psychologist", # 34
+
+                   "dentist", "oral surgeon",
+                   "orthodontist", "periodontist",
+                   "prosthodontist"]
+
+specialties = []
+
+specialty_names.each do |name|
+  specialties << Specialty.create!(name: name)
+end
+
+DoctorSpecialty.destroy_all
+DoctorSpecialty.create!(specialty_id: specialties[1].id, doctor_id: doctors[0].id) # family
+DoctorSpecialty.create!(specialty_id: specialties[0].id, doctor_id: doctors[0].id) # primary
+
+DoctorSpecialty.create!(specialty_id: specialties[8].id, doctor_id: doctors[1].id) # Cardio
+DoctorSpecialty.create!(specialty_id: specialties[31].id, doctor_id: doctors[1].id) # Plastic
+DoctorSpecialty.create!(specialty_id: specialties[30].id, doctor_id: doctors[1].id) # Neuro
+
+DoctorSpecialty.create!(specialty_id: specialties[27].id, doctor_id: doctors[2].id) # Surgeon
+
+DoctorSpecialty.create!(specialty_id: specialties[34].id, doctor_id: doctors[3].id) # Dentist
+
+DoctorSpecialty.create!(specialty_id: specialties[1].id, doctor_id: doctors[4].id) # Family
+DoctorSpecialty.create!(specialty_id: specialties[0].id, doctor_id: doctors[4].id) # Family
+
+DoctorSpecialty.create!(specialty_id: specialties[3].id, doctor_id: doctors[5].id) # Pediatric
+
+DoctorSpecialty.create!(specialty_id: specialties[34].id, doctor_id: doctors[6].id) # Dentist
+
+DoctorSpecialty.create!(specialty_id: specialties[33].id, doctor_id: doctors[7].id) # Psych
+
+DoctorSpecialty.create!(specialty_id: specialties[16].id, doctor_id: doctors[8].id) # Podiatry
+
+DoctorSpecialty.create!(specialty_id: specialties[7].id, doctor_id: doctors[9].id) # Cancer

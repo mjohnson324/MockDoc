@@ -31,7 +31,7 @@ class Doctor extends React.Component {
   render () {
     const docId = this.props.match.params.id;
     const doctor = this.props.doctors[docId];
-    
+
     if (doctor) {
       if (typeof doctor.appointments[0] === 'object') {
         const thisDocApps = doctor.appointments;
@@ -51,33 +51,36 @@ class Doctor extends React.Component {
                 />
             </div>
 
-            <section className="docProfile">
-              <h2>Qualifications and Experience</h2>
-              <div>
-                <ol>
-                  <label>Education:</label>
-                  <ul>{`${doctor.education}`}</ul>
-                </ol>
-                <ol>
-                  <label>Board Certifications:</label>
-                  <ul>{this.certList(doctor.certifications)}</ul>
-                </ol>
-                <ol>
-                  <label>Specialties:</label>
-                  <ul>{this.specList(doctor.specialties)}</ul>
-                </ol>
-                <ol>
-                  <label>Address:</label>
-                  <ul><li>{`${doctor.address}`}</li></ul>
-                </ol>
-              </div>
-              <p>
-              </p>
-            </section>
+            <div className="doc-inline">
+              <section className="docProfile">
+                <h2>Qualifications and Experience</h2>
+                <div>
+                  <ol>
+                    <label>Education:</label>
+                    <ul>{`${doctor.education}`}</ul>
+                  </ol>
+                  <ol>
+                    <label>Board Certifications:</label>
+                    <ul>{this.certList(doctor.certifications)}</ul>
+                  </ol>
+                  <ol>
+                    <label>Specialties:</label>
+                    <ul>{this.specList(doctor.specialties)}</ul>
+                  </ol>
+                  <ol>
+                    <label>Address:</label>
+                    <ul><li>{`${doctor.address}`}</li></ul>
+                  </ol>
+                </div>
+                <p>
+                </p>
+              </section>
 
-            <DoctorAppointments
-              apps={thisDocApps}
-              address={`${doctor.address}`} />
+              <DoctorAppointments
+                apps={thisDocApps}
+                address={`${doctor.address}`} />
+            </div>
+
           </section>
         );
       } else {

@@ -23,7 +23,7 @@ const SearchIndexItem = (docInfo) => {
         </section>
       </div>
 
-      <div>
+      <div className="doc-search-schedule">
         <AppointmentsTable appsByDays={daySortedApps} />
       </div>
     </li>

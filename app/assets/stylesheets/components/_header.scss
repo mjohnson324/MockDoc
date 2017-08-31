@@ -3,7 +3,7 @@
   height: 108px;
   margin-left: 130px;
   background-color: transparent;
-  color: $link-header-text-color;
+  color: $navy-blue;
 
   display: flex;
   justify-content: space-between;
@@ -17,16 +17,16 @@
 
   button, a {
     font-size: 20px;
-    background-color: $link-header-background-color;
-    color: $link-header-text-color;
+    background-color: $zoc-yellow;
+    color: $navy-blue;
     margin-right: 130px;
     padding: 10px;
   }
 
   button:hover, a:hover {
     text-decoration: underline;
-    color: $link-hover-text-color;
-    background-color: $link-hover-background-color;
+    color: white;
+    background-color: $navy-blue;
     cursor: pointer;
     cursor: hand;
   }
@@ -39,35 +39,39 @@
   width: 1150px;
   top: 210px;
   left: 10%;
-  color: $link-header-text-color;
+  color: $navy-blue;
 }
 
 
 .head {
   height: 66px;
-  background-color: $link-header-background-color;
-  color: $link-header-text-color;
+  background-color: $zoc-yellow;
+  color: $navy-blue;
   display: flex;
   justify-content: space-around;
   align-items: center;
 
-  button {
+  button, a {
     cursor: pointer;
     cursor: hand;
     padding: 10px;
-    background-color: $link-hover-background-color;
-    color: $link-hover-text-color;
+    background-color: $navy-blue;
+    color: white;
     margin-left: 100px;
   }
 
   a h1 {
     font-size: 28px;
     margin-left: 130px;
-    background-color: $link-hover-background-color;
-    color: $link-hover-text-color;
+    background-color: $navy-blue;
+    color: white;
     padding: 10px;
     cursor: pointer;
     cursor: hand;
+  }
+  
+  .no-extra-blue {
+    background-color: transparent;
   }
 }
 
@@ -80,7 +84,7 @@ a:hover {
 }
 
 .header-profile {
-  background-color: $link-hover-background-color;
-  color: $link-hover-text-color;
+  background-color: $navy-blue;
+  color: white;
   padding: 10px;
 }

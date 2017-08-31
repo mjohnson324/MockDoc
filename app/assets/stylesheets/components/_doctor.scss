@@ -1,6 +1,6 @@
 .docTitle {
   height: 200px;
-  color: $link-header-text-color;
+  color: $navy-blue;
   padding-left: 500px;
   background-color: white;
   display: flex;
@@ -21,12 +21,12 @@
 
 .docMap {
   height: 150px;
-  color: $link-header-text-color;
-  border: solid 1px $input-border-color;
+  color: $navy-blue;
+  border: solid 1px $input-border-gray;
 }
 
 .docProfile {
-  color: $link-header-text-color;
+  color: $navy-blue;
   width: 820px;
   height: 900px;
   display: inline-block;
@@ -44,7 +44,7 @@
     margin-left: 130px;
     padding-top: 30px;
     padding-bottom: 30px;
-    border-top: solid 1px $input-border-color;
+    border-top: solid 1px $input-border-gray;
     text-align: top;
 
     label, ul {
@@ -64,7 +64,7 @@
 .doc-pic {
   width: 120px;
   flex: auto;
-  background-color:  $page-link-color;
+  background-color:  $sky-blue;
   line-height:110px;
   text-align: center;
 }
@@ -72,7 +72,7 @@
 .doc-info {
   width: 240px;
   flex: auto;
-  color: $link-header-text-color;
+  color: $navy-blue;
   margin-left: 10px;
 
   a {
@@ -95,20 +95,19 @@
 }
 
 .doc-schedule {
-  width: 420px;
   display: flex;
   justify-content:center;
   overflow-y: scroll;
-  height: 210px;
-  background-color: $link-header-background-color;
+
+  background-color: $zoc-yellow;
 
   ul {
     width: 100px;
     margin: 10px;
 
     li {
-      background-color: $link-hover-background-color;
-      color: $link-hover-text-color;
+      background-color: $navy-blue;
+      color: white;
       height: 40px;
       border: solid black 1px;
       text-align: center;

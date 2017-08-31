@@ -59,7 +59,7 @@ class Header extends React.Component {
     } else {
       return(
         <header className="head">
-          <Link to="/"><h1>MockDoc: Home</h1></Link>
+          <Link className="no-extra-blue" to="/"><h1>MockDoc: Home</h1></Link>
 
           <nav>
             {this.navLink()}

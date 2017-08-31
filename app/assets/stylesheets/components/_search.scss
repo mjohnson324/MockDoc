@@ -3,7 +3,7 @@
   position: absolute;
   top: 350px;
   left: 10%;
-  color: $link-header-text-color;
+  color: $navy-blue;
 
   input {
     height: 50px;
@@ -23,22 +23,22 @@
   }
 
   input[type="submit"] {
-    background-color: $link-header-background-color;
+    background-color: $zoc-yellow;
     padding: 5px;
     cursor: pointer;
     cursor: hand;
   }
 
   input[type="submit"]:hover {
-    background-color: $link-hover-background-color;
-    color: $link-hover-text-color;
+    background-color: $navy-blue;
+    color: white;
   }
 }
 
 .search-bar {
   @extend .search-home;
   height: 75px;
-  background-color: $link-header-background-color;
+  background-color: $zoc-yellow;
   position: sticky;
   top: 0px;
   white-space: nowrap;
@@ -53,8 +53,8 @@
   }
 
   input[type="submit"] {
-    background-color: $link-hover-background-color;
-    color: $link-hover-text-color;
+    background-color: $navy-blue;
+    color: white;
     cursor: pointer;
     cursor: hand;
   }
@@ -77,4 +77,12 @@
   background-color: white;
   display: flex;
   justify-content: flex-end;
+}
+
+.doc-search-schedule {
+  width: 420px;
+
+  section {
+    height: 210px;
+  }
 }

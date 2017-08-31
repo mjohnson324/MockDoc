@@ -19,8 +19,8 @@
 
   button {
     width: 40px;
-    background-color: $link-hover-background-color;
-    color: $link-hover-text-color;
+    background-color: $navy-blue;
+    color: white;
   }
 
 }
@@ -34,7 +34,46 @@
   top: 0;
   display: inline-block;
   margin-left: 20px;
-  height: 560px;
   width: 480px;
   vertical-align: top;
+  background-color: white;
+  border: solid black 2px;
+
+  h3 {
+    font-size: 30px;
+    font-weight: bold;
+    color: $navy-blue;
+    padding: 10px;
+  }
+
+  p {
+    margin: 10px;
+    font-size: 20px;
+
+  }
+
+  .doc-scroll-bar {
+    border-top: solid black 1px;
+    display: flex;
+    height: 40px;
+    justify-content: space-around;
+  }
+
+  section div {
+    width: 98px;
+    margin-right: 10px;
+    margin-left:10px;
+    line-height: 40px;
+    font-weight: bold;
+  }
+
+  div section {
+    height: 360px;
+  }
+
+  button {
+    background-color: $navy-blue;
+    color: white;
+    padding: 10px;
+  }
 }

@@ -1,5 +1,5 @@
 .session {
-  color: $link-header-text-color;
+  color: $navy-blue;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,12 +11,12 @@
 
 
   a {
-    background-color: $link-header-background-color;
+    background-color: $zoc-yellow;
   }
 
   a:hover, form input[type="submit"]:hover {
-    background-color: $link-hover-background-color;
-    color: $link-hover-text-color;
+    background-color: $navy-blue;
+    color: white;
     text-decoration: none;
     cursor: pointer;
     cursor: hand;
@@ -28,7 +28,7 @@
     margin-top: 6px;
     margin-bottom: 6px;
     height: 50px;
-    border: solid $input-border-color 1px;
+    border: solid $input-border-gray 1px;
     font-size: 16px;
   }
 
@@ -38,17 +38,17 @@
 
   a {
     text-align: center;
-    background-color: $link-header-background-color;
+    background-color: $zoc-yellow;
     line-height: 50px;
   }
 
   form input[type="submit"] {
     width: 512px;
     text-align: center;
-    background-color: $link-header-background-color;
+    background-color: $zoc-yellow;
     margin-top: 20px;
     margin-bottom: 20px;
-    border: solid $input-border-color 1px;
+    border: solid $input-border-gray 1px;
   }
 
   form h4 {

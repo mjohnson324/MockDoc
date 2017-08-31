@@ -6,4 +6,4 @@ json.specialties doctor.specialties.pluck(:name)
 
 json.certifications doctor.certifications.pluck(:name)
 
-json.appointments doctor.appointments.pluck(:id)
+json.appointments doctor.appointments.where("start_time > ?", DateTime.now).pluck(:id)

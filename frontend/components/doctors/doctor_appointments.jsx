@@ -27,18 +27,20 @@ class DoctorAppointments extends React.Component {
       <section className="doc-appointments">
         <h3>Book an Appointment</h3>
 
-        <div>{`${this.props.address}`}</div>
+        <p>Address: {`${this.props.address}`}</p>
 
-        <div>
+        <section className="doc-scroll-bar">
           <button>L</button>
           <div>{`${today}`.slice(0, 10)}</div>
           <div>{`${tomorrow}`.slice(0, 10)}</div>
           <div>{`${dayAfter}`.slice(0, 10)}</div>
           <div>{`${dayFour}`.slice(0,10)}</div>
           <button>R</button>
-        </div>
+        </section>
 
-        <AppointmentsTable appsByDays={displayedApps}/>
+        <div>
+          <AppointmentsTable appsByDays={displayedApps}/>
+        </div>
       </section>
     );
   }

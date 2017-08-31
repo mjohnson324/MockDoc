@@ -5,8 +5,8 @@ import { DisplayDayAppointments } from './appointment_helpers';
 const AppointmentsTable = ({ appsByDays }) => {
   return(
     <section className="doc-schedule">
-      appsByDays.map(day => (
-        <DisplayDayAppointments day={day} />; );
+      {appsByDays.map((thisDay, idx) => (
+        <DisplayDayAppointments key={idx} day={thisDay} /> ))}
     </section>
   );
 };

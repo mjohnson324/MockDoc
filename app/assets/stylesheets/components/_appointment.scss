@@ -25,6 +25,16 @@
 
 }
 
+.right-button {
+    margin-right: 7px;
+}
+
 .doc-appointments {
-  
+  position: sticky;
+  top: 0;
+  display: inline-block;
+  margin-left: 20px;
+  height: 560px;
+  width: 480px;
+  vertical-align: top;
 }

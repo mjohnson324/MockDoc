@@ -15,6 +15,7 @@ class Doctor extends React.Component {
   componentWillMount () {
     const doctor = this.props.match.params.id;
     this.props.getADoctor(doctor);
+    this.props.
   }
 
   certList(certifications) {
@@ -34,7 +35,6 @@ class Doctor extends React.Component {
     const docId = this.props.match.params.id;
     const doctor = this.props.doctors[docId];
     const docApps = sortAppointmentsByDoctor([doctor], apps);
-
     if (doctor) {
       return(
         <section>
@@ -76,7 +76,9 @@ class Doctor extends React.Component {
             </p>
           </section>
 
-          <DoctorAppointments apps={docApps} />
+          <DoctorAppointments
+            apps={docApps[doctor.id]}
+            address={`${doctor.address}`} />
         </section>
       );
     } else {

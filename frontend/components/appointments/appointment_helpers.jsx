@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { filter } from 'lodash';
+import { Link } from 'react-router-dom';
 
 export const getDayRange = () => {
   const cY = moment().get('year');
@@ -38,7 +39,9 @@ export const DisplayDayAppointments = ({ day }) => {
     <ul>
       {day.map(app => (
         <li key={app.id}>
-          {`${moment(app.start_time).format("h:mm a")}`}
+          <Link to={`/booking/${app.id}`}>
+            {`${moment(app.start_time).format("h:mm a")}`}
+          </Link>
         </li>))}
     </ul>
   );

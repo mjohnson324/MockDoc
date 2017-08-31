@@ -12,7 +12,7 @@ import SearchContainer from './search/search_container';
 import SearchIndexContainer from './search/search_index_container';
 import PatientProfileContainer from './patient/patient_profile_container';
 import BookingFormContainer from './appointments/booking_form_container';
-import { ProtectedRoute } from '../util/auth_util';
+import { ProtectedRoute, AuthRoute } from '../util/auth_util';
 
 const App = () => {
 return (
@@ -23,7 +23,7 @@ return (
     <Route path="/signin" component={SessionFormContainer}/>
     <Route path="/createuser" component={SignupFormContainer} />
     <Route path="/doctor/:id" component={DoctorContainer} />
-    <Route path="/booking/:id" component={BookingFormContainer} />
+    <AuthRoute path="/booking/:id" component={BookingFormContainer} />
     <ProtectedRoute path="/patient" component={PatientProfileContainer} />
   </div>
 );

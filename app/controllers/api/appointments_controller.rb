@@ -1,5 +1,5 @@
 class Api::AppointmentsController < ApplicationController
-  before_action :require_logged_in, only: [:update]
+  before_action :require_logged_in, only: [:update, :show]
 
   def index
     range_start = params[:startTime].to_datetime
@@ -26,6 +26,14 @@ class Api::AppointmentsController < ApplicationController
       render :show
     else
       render json: @appointment.errors.full_messages, status: 422
+    end
+  end
+
+  def show
+    @appointment = Appointment.find(params[:id])
+
+    unless @appointment.patient == nil
+      render json: ["This appointment is already booked"], status: 403 
     end
   end
 

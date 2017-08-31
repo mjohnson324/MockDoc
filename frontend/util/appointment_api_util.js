@@ -13,3 +13,10 @@ export const getApps = data => {
     data
   });
 };
+
+export const getApp = appId => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/appointments/${appId}`,
+  });
+};

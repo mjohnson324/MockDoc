@@ -4,9 +4,10 @@ import { withRouter } from 'react-router-dom';
 import { getADoctor } from '../../actions/doctor_actions';
 import Doctor from './doctor';
 
-const mapStatetoProps = ({ doctors }) => {
+const mapStatetoProps = (state) => {
   return {
-    doctors
+    doctors: state.doctors,
+    appointments: state.appointments,
   };
 };
 

@@ -1,6 +1,9 @@
 import React from 'react';
 import DoctorsMap from '../map/doctors_map';
 
+import { sortAppointmentsByDoctor } from '../appointments/appointment_helpers';
+import DoctorAppointments from './doctor_appointments';
+
 class Doctor extends React.Component {
   constructor(props) {
     super(props);
@@ -27,8 +30,11 @@ class Doctor extends React.Component {
   }
 
   render () {
+    const apps = this.props.appointments;
     const docId = this.props.match.params.id;
     const doctor = this.props.doctors[docId];
+    const docApps = sortAppointmentsByDoctor([doctor], apps);
+
     if (doctor) {
       return(
         <section>
@@ -69,6 +75,8 @@ class Doctor extends React.Component {
             <p>
             </p>
           </section>
+
+          <DoctorAppointments apps={docApps} />
         </section>
       );
     } else {

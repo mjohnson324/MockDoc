@@ -1,8 +1,7 @@
 import React from 'react';
 import DoctorsMap from '../map/doctors_map';
-
-import { sortAppointmentsByDoctor } from '../appointments/appointment_helpers';
 import DoctorAppointments from './doctor_appointments';
+// import { isMap } from 'lodash';
 
 class Doctor extends React.Component {
   constructor(props) {
@@ -15,7 +14,6 @@ class Doctor extends React.Component {
   componentWillMount () {
     const doctor = this.props.match.params.id;
     this.props.getADoctor(doctor);
-    this.props.
   }
 
   certList(certifications) {
@@ -31,58 +29,62 @@ class Doctor extends React.Component {
   }
 
   render () {
-    const apps = this.props.appointments;
     const docId = this.props.match.params.id;
     const doctor = this.props.doctors[docId];
-    const docApps = sortAppointmentsByDoctor([doctor], apps);
+    
     if (doctor) {
-      return(
-        <section>
-          <div className="docTitle">
-            <h1>
-              {`Dr. ${doctor.first_name} ${doctor.last_name}, ${doctor.degree}`}
-            </h1>
-            <div>{`${doctor.specialties[0]}`}</div>
-          </div>
-
-          <div className="docMap">
-            <DoctorsMap
-              doctors={[doctor]}
-              address={doctor.address}
-            />
-          </div>
-
-          <section className="docProfile">
-            <h2>Qualifications and Experience</h2>
-            <div>
-              <ol>
-                <label>Education:</label>
-                <ul>{`${doctor.education}`}</ul>
-              </ol>
-              <ol>
-                <label>Board Certifications:</label>
-                <ul>{this.certList(doctor.certifications)}</ul>
-              </ol>
-              <ol>
-                <label>Specialties:</label>
-                <ul>{this.specList(doctor.specialties)}</ul>
-              </ol>
-              <ol>
-                <label>Address:</label>
-                <ul><li>{`${doctor.address}`}</li></ul>
-              </ol>
+      if (typeof doctor.appointments[0] === 'object') {
+        const thisDocApps = doctor.appointments;
+        return(
+          <section>
+            <div className="docTitle">
+              <h1>
+                {`Dr. ${doctor.first_name} ${doctor.last_name}, ${doctor.degree}`}
+              </h1>
+              <div>{`${doctor.specialties[0]}`}</div>
             </div>
-            <p>
-            </p>
-          </section>
 
-          <DoctorAppointments
-            apps={docApps[doctor.id]}
-            address={`${doctor.address}`} />
-        </section>
-      );
-    } else {
+            <div className="docMap">
+              <DoctorsMap
+                doctors={[doctor]}
+                address={doctor.address}
+                />
+            </div>
+
+            <section className="docProfile">
+              <h2>Qualifications and Experience</h2>
+              <div>
+                <ol>
+                  <label>Education:</label>
+                  <ul>{`${doctor.education}`}</ul>
+                </ol>
+                <ol>
+                  <label>Board Certifications:</label>
+                  <ul>{this.certList(doctor.certifications)}</ul>
+                </ol>
+                <ol>
+                  <label>Specialties:</label>
+                  <ul>{this.specList(doctor.specialties)}</ul>
+                </ol>
+                <ol>
+                  <label>Address:</label>
+                  <ul><li>{`${doctor.address}`}</li></ul>
+                </ol>
+              </div>
+              <p>
+              </p>
+            </section>
+
+            <DoctorAppointments
+              apps={thisDocApps}
+              address={`${doctor.address}`} />
+          </section>
+        );
+      } else {
         return <section/>;
+      }
+    } else {
+      return <section/>;
     }
   }
 }

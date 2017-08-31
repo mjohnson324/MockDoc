@@ -7,7 +7,6 @@ import Doctor from './doctor';
 const mapStatetoProps = (state) => {
   return {
     doctors: state.doctors,
-    appointments: state.appointments,
   };
 };
 

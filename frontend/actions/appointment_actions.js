@@ -16,7 +16,7 @@ export const receiveAppointment = appointment => {
     type: RECEIVE_APPOINTMENT,
     appointment,
   };
-}
+};
 
 export const scheduleAppointment = appointment => {
   return {

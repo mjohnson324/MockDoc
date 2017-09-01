@@ -115,7 +115,7 @@ random_dental_address = ["49 W 23rd St, 12th Floor, New York, NY",
                             address: addresses[i])
 end
 
-90.times do |i|
+50.times do |i|
   doctors << Doctor.create!(first_name: random_first_name.shuffle[0],
                             last_name: random_last_name.shuffle[0],
                             education: random_school.shuffle[0],
@@ -238,30 +238,35 @@ DoctorSpecialty.create!(specialty_id: specialties[16].id, doctor_id: doctors[8].
 
 DoctorSpecialty.create!(specialty_id: specialties[7].id, doctor_id: doctors[9].id) # Cancer
 
-doctors[10..49].each do |doctor|
+doctors[10..34].each do |doctor|
   DoctorSpecialty.create!(specialty_id: specialties[0..3].shuffle[0].id,
                           doctor_id: doctor.id)
 end
 
-doctors[50..99].each do |doctor|
+doctors[35..59].each do |doctor|
   DoctorSpecialty.create!(specialty_id: specialties[5..33].shuffle[0].id,
                           doctor_id: doctor.id)
 end
 
-doctors[100..109].each do |doctor|
+doctors[60..69].each do |doctor|
   DoctorSpecialty.create!(specialty_id: specialties[34..38].shuffle[0].id,
                           doctor_id: doctor.id)
 end
 
 
 doctors.each do |doctor|
-  start_day = Time.new(2017, 8, 29, 8)
+  current_time = Time.now
+  c_yr = current_time.year
+  c_m = current_time.month
+  c_d = current_time.day
 
-  50.times do
+  start_day = Time.new(c_yr, c_m, c_d, 8)
+
+  70.times do
     Appointment.create!(doctor_id: doctor.id,
                         start_time: start_day.to_datetime)
 
-    start_day += 30 * 60
+    start_day += 60 * 60
     start_day += 14 * 60 * 60 if start_day.hour == 18
   end
 end

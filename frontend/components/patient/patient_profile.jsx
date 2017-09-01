@@ -7,6 +7,10 @@ class PatientProfile extends React.Component {
 
   }
 
+  componentWillMount() {
+    
+  }
+
   render() {
     const apps = this.props.user.appointments;
 

@@ -12,7 +12,7 @@ class BookingForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const appId = this.props.match.params.id;
     this.props.getAppointment(appId);
   }
@@ -49,7 +49,6 @@ class BookingForm extends React.Component {
 
   render() {
     const { appointment, patient } = this.props;
-
     if (appointment) {
       return(
         <form onSubmit={this.handleSubmit} className="booking-form">

@@ -14,7 +14,12 @@ const appointmentsReducer = (state = { errors: [] }, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_DOCTORS_AND_APPOINTMENTS:
+    if (action.appointments) {
+      const errors = { errors: state.errors };
+      return merge({}, errors, action.appointments);
+    } else {
       return merge({}, state, action.appointments);
+    }
     case RECEIVE_DOCTOR_AND_APPOINTMENTS:
       return merge({}, state, action.appointments);
     case RECEIVE_APPOINTMENT:

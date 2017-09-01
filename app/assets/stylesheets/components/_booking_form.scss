@@ -1,3 +1,48 @@
 .booking-form {
-  color: $navy-blue;
+  margin-left: 130px;
+  margin-top: 30px;
+
+  h3, input, div, label, textarea {
+    color: $navy-blue;
+  }
+
+  h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  label {
+    font-size: 24px;
+  }
+
+  div, textarea {
+    border: solid black 1px;
+    background-color: white;
+    width: 600px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  textarea {
+    height: 100px;
+  }
+
+  input[type="submit"] {
+    margin-top: 10px;
+    width: 622px;
+    background-color: $zoc-yellow;
+    padding: 10px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 24px;
+  }
+
+  input[type="submit"]:hover {
+    background-color: $navy-blue;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    cursor: hand;
+  }
 }

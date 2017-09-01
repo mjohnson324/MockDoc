@@ -10,7 +10,7 @@ import BookingForm from './booking_form';
 
 const mapStatetoProps = (state, ownProps) => {
   return {
-    user: state.session.currentUser,
+    patient: state.session.currentUser,
     appointment: state.appointments[ownProps.match.params.id]
   };
 };

@@ -47,7 +47,7 @@ class Doctor < ApplicationRecord
   has_many :certifications,
     through: :doctor_certifications,
     source: :certification
-
+    
   # def average_rating
   #   reviews.average(:rating)
   # end

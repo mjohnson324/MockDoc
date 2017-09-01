@@ -8,10 +8,10 @@ import {
 
 import BookingForm from './booking_form';
 
-const mapStatetoProps = state => {
+const mapStatetoProps = (state, ownProps) => {
   return {
     user: state.session.currentUser,
-    doctors: state.doctors,
+    appointment: state.appointments[ownProps.match.params.id]
   };
 };
 

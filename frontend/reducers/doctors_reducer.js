@@ -8,7 +8,7 @@ const doctorsReducer = (state = {}, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_DOCTORS_AND_APPOINTMENTS:
-      return action.doctors;
+      return merge({}, state, action.doctors);
     case RECEIVE_DOCTOR_AND_APPOINTMENTS:
       newState = { [action.doctor.id]: action.doctor };
       return merge({}, state, newState);

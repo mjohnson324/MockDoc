@@ -1,9 +1,11 @@
 json.extract! doctor, :id, :first_name, :last_name, :degree, :gender, :lat, :lng
 
 json.address Geocoder.address(doctor.to_coordinates)
-
 json.specialties doctor.specialties.pluck(:name)
-
 json.certifications doctor.certifications.pluck(:name)
 
-json.appointments doctor.appointments.where("start_time > ?", DateTime.now).pluck(:id)
+one_week = day_range(6)
+
+json.appointment_ids doctor.appointments
+  .where(start_time: one_week)
+  .pluck(:id)

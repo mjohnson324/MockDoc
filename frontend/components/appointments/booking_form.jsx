@@ -7,7 +7,9 @@ class BookingForm extends React.Component {
 
   render() {
     return(
-      <div>Book your appointment!</div>
+      <form>
+
+      </form>
     );
   }
 }

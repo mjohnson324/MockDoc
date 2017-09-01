@@ -7,6 +7,14 @@
 #   Character.create!(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Appointment.destroy_all
+Doctor.destroy_all
+Certification.destroy_all
+Specialty.destroy_all
+DoctorSpecialty.destroy_all
+DoctorCertification.destroy_all
+
+
 first_names = ["Homer", "Marge", "Ned", "Clancy", "Waylon"]
 last_names = ["Simpson", "Simpson", "Flanders", "Wiggum", "Smithers"]
 emails = ["homer@gmail.com", "marge@yahoo.com", "ned@biblethumpers.com",
@@ -23,7 +31,7 @@ users = []
                         password: passwords[i])
 end
 
-Doctor.destroy_all
+
 doc_first_names = ["Julius", "Nick", "Jane", "Carl", "Donna",
                    "Matt", "Edith", "Eric", "Michelle", "Joe"]
 doc_last_names = ["Hibbert", "Riviera", "Doe", "Johnson", "Edwards",
@@ -125,7 +133,7 @@ end
                             address: random_dental_address.shuffle[0])
 end
 
-Certification.destroy_all
+
 certification_names = ["American Board of Allergy and Immunology",
                        "American Board of Anesthesiology",
                        "American Board of Colon and Rectal Surgery",
@@ -157,7 +165,7 @@ certification_names.each do |name|
   certifications << Certification.create!(name: name)
 end
 
-DoctorCertification.destroy_all
+
 DoctorCertification.create!(certification_id: certifications[5].id, doctor_id: doctors[0].id)
 DoctorCertification.create!(certification_id: certifications[15].id, doctor_id: doctors[0].id)
 
@@ -171,7 +179,7 @@ DoctorCertification.create!(certification_id: certifications[19].id, doctor_id: 
 DoctorCertification.create!(certification_id: certifications[24].id, doctor_id: doctors[8].id)
 DoctorCertification.create!(certification_id: certifications[9].id, doctor_id: doctors[9].id)
 
-Specialty.destroy_all
+
 # generalist, then specialist, then surgery/emergency care, then mental health,
 # then oral care
 specialty_names = ["primary care physician", "family physician",
@@ -205,7 +213,7 @@ specialty_names.each do |name|
   specialties << Specialty.create!(name: name)
 end
 
-DoctorSpecialty.destroy_all
+
 DoctorSpecialty.create!(specialty_id: specialties[1].id, doctor_id: doctors[0].id) # family
 DoctorSpecialty.create!(specialty_id: specialties[0].id, doctor_id: doctors[0].id) # primary
 
@@ -245,7 +253,7 @@ doctors[100..109].each do |doctor|
                           doctor_id: doctor.id)
 end
 
-Appointment.destroy_all
+
 doctors.each do |doctor|
   start_day = Time.new(2017, 8, 29, 8)
 

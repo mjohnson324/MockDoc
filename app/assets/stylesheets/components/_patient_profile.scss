@@ -1,5 +1,5 @@
 .patient-appointments {
-  h1, h2, li {
+  h1, h2, li, button {
     color: $navy-blue;
   }
 
@@ -11,7 +11,7 @@
   h2 {
     margin-top: 20px;
     margin-left: 30px;
-    font-size: 24px; 
+    font-size: 24px;
   }
 
   li {
@@ -21,4 +21,15 @@
     padding: 10px;
   }
 
+  button {
+    background-color: $zoc-yellow;
+    padding: 10px;
+  }
+
+  button:hover {
+    color: white;
+    background-color: $navy-blue;
+    cursor: pointer;
+    cursor: hand;
+  }
 }

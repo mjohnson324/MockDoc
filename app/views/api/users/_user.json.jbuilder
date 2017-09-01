@@ -4,6 +4,7 @@ user_apps = user.appointments
 
 json.appointments do
   json.array! user_apps do |app|
+    json.id app.id
     json.reason app.reason
     json.start_time app.start_time
 

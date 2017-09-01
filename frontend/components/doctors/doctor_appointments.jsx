@@ -1,27 +1,14 @@
 import React from 'react';
 import AppointmentsTable from '../appointments/appointments_table';
-import { sortAppointmentsByDay,
-         getDayRange } from '../appointments/appointment_helpers';
 
 class DoctorAppointments extends React.Component {
   constructor(props) {
     super(props);
-
-    const days = getDayRange();
-
-    this.state = {
-      today: days[0],
-      tomorrow: days[1],
-      dayAfter: days[2],
-      dayFour: days[3],
-    };
   }
 
   render() {
     const { apps } = this.props;
-    const { today, tomorrow, dayAfter, dayFour } = this.state;
-    const displayedApps = sortAppointmentsByDay(apps,
-                [today, tomorrow, dayAfter, dayFour]);
+    const { today, tomorrow, dayAfter, dayFour } = this.props.daysToRender;
 
     return(
       <section className="doc-appointments">
@@ -39,7 +26,7 @@ class DoctorAppointments extends React.Component {
         </section>
 
         <div>
-          <AppointmentsTable appsByDays={displayedApps}/>
+          <AppointmentsTable appsByDays={this.props.apps}/>
         </div>
       </section>
     );

@@ -1,19 +1,28 @@
 import React from 'react';
 import DoctorsMap from '../map/doctors_map';
 import DoctorAppointments from './doctor_appointments';
-// import { isMap } from 'lodash';
+import { getDayRange } from '../appointments/appointment_helpers';
+import { sortAppointmentsByDay } from '../../reducers/selectors';
 
 class Doctor extends React.Component {
   constructor(props) {
     super(props);
+
+    const days = getDayRange();
+
+    this.state = {
+      today: days[0],
+      tomorrow: days[1],
+      dayAfter: days[2],
+      dayFour: days[3],
+    };
 
     this.certList = this.certList.bind(this);
     this.specList = this.specList.bind(this);
   }
 
   componentWillMount () {
-    const doctor = this.props.match.params.id;
-    this.props.getADoctor(doctor);
+    this.props.getADoctor(this.props.match.params.id);
   }
 
   certList(certifications) {
@@ -29,12 +38,14 @@ class Doctor extends React.Component {
   }
 
   render () {
-    const docId = this.props.match.params.id;
-    const doctor = this.props.doctors[docId];
+    const { doctor, appointments } = this.props;
+    const { today, tomorrow, dayAfter, dayFour } = this.state;
 
     if (doctor) {
-      if (typeof doctor.appointments[0] === 'object') {
-        const thisDocApps = doctor.appointments;
+      if (doctor.education) {
+        const daySortedApps = sortAppointmentsByDay(
+          appointments[doctor.id], [today, tomorrow, dayAfter, dayFour]
+        );
         return(
           <section>
             <div className="docTitle">
@@ -77,8 +88,9 @@ class Doctor extends React.Component {
               </section>
 
               <DoctorAppointments
-                apps={thisDocApps}
-                address={`${doctor.address}`} />
+                apps={daySortedApps}
+                address={`${doctor.address}`}
+                daysToRender={this.state} />
             </div>
 
           </section>

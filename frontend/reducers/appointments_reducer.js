@@ -1,6 +1,7 @@
 import {
       SCHEDULE_APPOINTMENT,
-      RECEIVE_APPOINTMENT } from '../actions/appointment_actions';
+      RECEIVE_APPOINTMENT,
+      RECEIVE_APP_ERRORS } from '../actions/appointment_actions';
 
 import {
       RECEIVE_DOCTORS_AND_APPOINTMENTS,
@@ -8,7 +9,7 @@ import {
 
 import { merge } from 'lodash';
 
-const appointmentsReducer = (state = {}, action) => {
+const appointmentsReducer = (state = { errors: [] }, action) => {
   Object.freeze(state);
   let newState;
   switch(action.type) {
@@ -22,6 +23,9 @@ const appointmentsReducer = (state = {}, action) => {
     case SCHEDULE_APPOINTMENT:
       newState = { [action.appointment.id]: action.appointment };
       return merge({}, state, newState);
+    case RECEIVE_APP_ERRORS:
+    const errors = action.errors;
+      return merge({}, state, { errors });
     default:
       return state;
   }

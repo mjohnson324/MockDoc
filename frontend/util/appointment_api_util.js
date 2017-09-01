@@ -2,7 +2,7 @@ export const updateApp = appointment => {
   return $.ajax({
     method: 'PATCH',
     url: `api/appointments/${appointment.id}`,
-    data: appointment
+    data: { appointment: appointment }
   });
 };
 

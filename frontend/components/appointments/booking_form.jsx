@@ -8,6 +8,8 @@ class BookingForm extends React.Component {
     this.state = {
       reason: '',
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -25,24 +27,25 @@ class BookingForm extends React.Component {
     e.preventDefault();
     const data = {
       reason: this.state.reason,
-      patient_id: this.props.currentUser.id
+      patient_id: this.props.patient.id,
+      id: this.props.appointment.id,
     };
 
     this.props.updateAppointment(data)
       .then(() => this.props.history.push('/patient'));
   }
 
-  // renderErrors() {
-  //   return(
-  //     <ul className="error">
-  //       {this.props.errors.map((error, i) => (
-  //         <li key={`error-${i}`}>
-  //           {error}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
+  renderErrors() {
+    return(
+      <ul className="error">
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   render() {
     const { appointment, patient } = this.props;
@@ -74,10 +77,12 @@ class BookingForm extends React.Component {
           <label>Reason for visit:</label>
           <br/>
           <textarea
-            onChange={this.update('body')}
+            onChange={this.update('reason')}
             value={this.state.reason}
             ></textarea>
           <br/>
+
+          {this.renderErrors()}
 
           <input type="submit" value="Book Appointment" />
         </form>

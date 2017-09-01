@@ -3,8 +3,9 @@ class Api::AppointmentsController < ApplicationController
 
   def update
     @appointment = Appointment.find(params[:id])
+    app_info = params[:appointment]
 
-    if @appointment.reason
+    if !app_info[:reason].empty? || app_info[:patient_id].nil?
       @appointment.update(appointment_params)
       render :show
     else

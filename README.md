@@ -1,15 +1,15 @@
 # MockDoc
 -----
-**Link to Site:** [MockDoc on Heroku]: ( https://mockdoc.herokuapp.com/ )
+**Link to Site:** [MockDoc on Heroku](https://mockdoc.herokuapp.com/)
 
 
-MockDoc is a full-stack web application based off *ZocDoc*. I employed *React.js* with *Redux*
-as the architectural framework on the frontend. On the backend I'm using *Ruby on Rails* and a
-*PostgreSQL* database. Styling was accomplished with *Sass*.
+MockDoc is a full-stack web application based off _*ZocDoc*_. I employed _*React.js*_ with _*Redux*_
+as the architectural framework on the frontend. On the backend I'm using _*Ruby on Rails*_ and a
+_*PostgreSQL*_ database. Styling was accomplished with _*Sass*_.
 
-* APIs: [ Google maps API ] ( https://developers.google.com/maps/documentation/javascript/ )
-* Gems: [Ruby Geocoder] ( https://github.com/alexreisner/geocoder )
-* JS Libraries: [moment.js] ( https://momentjs.com/docs/ )
+* APIs: [Google maps API](https://developers.google.com/maps/documentation/javascript/)
+* Gems: [Ruby Geocoder](https://github.com/alexreisner/geocoder)
+* JS Libraries: [moment.js](https://momentjs.com/docs/)
 * Ruby version: 2.3.1
 * Rails version: 5.1.3
 * PostgreSQL version: 9.6
@@ -18,6 +18,8 @@ as the architectural framework on the frontend. On the backend I'm using *Ruby o
 -----
 ### Searching for Doctors:
 Backend:
+
+
 Frontend:
 
 ---
@@ -28,11 +30,13 @@ Specialties and certifications were made into independent tables in spite of the
 
 **Frontend:** Doctors are handled in several places on the frontend. On the search index page each index consists of a miniature profile with links to the doctor's page and available appointments. Google maps is also integrated showing the doctors' location on a map which remains on the page as the user scrolls through search results. The UI is very similar ZocDoc in organization:
 
-![image of MockDoc search index ](./docs/wireframes/search-index.png)
+![image of MockDoc search index](./docs/wireframes/search-index.png)
 
 -----
 ### Scheduling Appointments:
 Backend:
+
+
 Frontend:
 
 -----

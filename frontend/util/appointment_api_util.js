@@ -6,14 +6,6 @@ export const updateApp = appointment => {
   });
 };
 
-export const getApps = data => {
-  return $.ajax({
-    method: 'GET',
-    url: 'api/appointments',
-    data
-  });
-};
-
 export const getApp = appId => {
   return $.ajax({
     method: 'GET',

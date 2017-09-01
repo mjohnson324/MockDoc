@@ -249,7 +249,7 @@ Appointment.destroy_all
 doctors.each do |doctor|
   start_day = Time.new(2017, 8, 29, 8)
 
-  300.times do
+  50.times do
     Appointment.create!(doctor_id: doctor.id,
                         start_time: start_day.to_datetime)
 

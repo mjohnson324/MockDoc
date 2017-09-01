@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { updateAppointment } from '../../actions/appointment_actions';
 
 import PatientProfile from './patient_profile';
 
@@ -9,4 +10,10 @@ const mapStatetoProps = ({ session }) => {
   };
 };
 
-export default withRouter(connect(mapStatetoProps, null)(PatientProfile));
+const mapDispatchToProps = dispatch => {
+  return {
+    updateAppointment: appointment => dispatch(updateAppointment(appointment)),
+  };
+};
+
+export default withRouter(connect(mapStatetoProps, mapDispatchToProps)(PatientProfile));

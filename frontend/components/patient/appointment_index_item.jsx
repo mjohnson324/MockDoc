@@ -9,6 +9,7 @@ const PatientAppointment = (props) => {
         .format("dddd, MMMM Do YYYY, h:mm a")}`}</div>
       <div>Address: {`${props.appointment.address}`}</div>
       <div>Doctor: {`${props.appointment.doctor_name}`}</div>
+      <button onClick={props.callback}>Cancel Appointment</button>
     </li>
   );
 };

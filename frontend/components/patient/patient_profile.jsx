@@ -5,10 +5,22 @@ class PatientProfile extends React.Component {
   constructor(props) {
     super(props);
 
+    this.cancelAppointment = this.cancelAppointment.bind(this);
   }
 
   componentWillMount() {
-    
+
+  }
+
+  cancelAppointment(e, id) {
+    e.preventDefault();
+    const data = {
+      reason: null,
+      patient_id: null,
+      id,
+    };
+
+    this.props.updateAppointment(data);
   }
 
   render() {
@@ -20,10 +32,12 @@ class PatientProfile extends React.Component {
 
         <h2>Your Appointments:</h2>
         <ol>
-          {apps.map((app, idx) => (
-            <PatientAppointment
+          {apps.map((app, idx) => {
+            return(<PatientAppointment
               key={idx}
-              appointment={app} />))}
+              appointment={app}
+              callback={(e) => this.cancelAppointment(e, app.id)} />);
+          })}
         </ol>
       </section>
     );

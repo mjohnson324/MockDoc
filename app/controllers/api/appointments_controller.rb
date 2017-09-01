@@ -1,23 +1,5 @@
 class Api::AppointmentsController < ApplicationController
-  before_action :require_logged_in, only: [:update, :show]
-
-  def index
-    range_start = params[:startTime].to_datetime
-    range_end = params[:endTime].to_datetime
-    time_range = range_start..range_end
-    processed_specialty = params[:specialty].downcase
-
-    doctors = Doctor.near(params[:address], 30).includes(:specialties)
-
-    doc_ids = doctors.select do |doctor|
-      doctor.specialties.pluck(:name).include?(processed_specialty)
-    end.pluck(:id)
-
-    @appointments = Appointment.where(
-                                    doctor_id: doc_ids,
-                                    patient_id: nil,
-                                    start_time: time_range)
-  end
+  before_action :require_logged_in
 
   def update
     @appointment = Appointment.find(params[:id])
@@ -33,7 +15,7 @@ class Api::AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
 
     unless @appointment.patient == nil
-      render json: ["This appointment is already booked"], status: 403 
+      render json: ["This appointment is already booked"], status: 403
     end
   end
 

@@ -31,7 +31,9 @@ class Doctor < ApplicationRecord
     @address = address
   end
 
-  has_many :appointments, dependent: :destroy
+  has_many :appointments,
+  -> {where(patient_id: nil, start_time: DateTime.now..6.days.from_now)}, 
+  dependent: :destroy
   has_many :patients, through: :appointments, source: :patient
 
   has_many :reviews
@@ -47,7 +49,7 @@ class Doctor < ApplicationRecord
   has_many :certifications,
     through: :doctor_certifications,
     source: :certification
-    
+
   # def average_rating
   #   reviews.average(:rating)
   # end

@@ -6,6 +6,4 @@ json.certifications doctor.certifications.pluck(:name)
 
 one_week = day_range(6)
 
-json.appointment_ids doctor.appointments
-  .where(start_time: one_week)
-  .pluck(:id)
+json.appointment_ids doctor.appointments.pluck(:id)

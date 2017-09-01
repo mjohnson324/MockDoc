@@ -10,13 +10,12 @@ one_week = day_range(6)
 
 json.appointments do
   @doctors.each do |doctor|
-    doc_apps = doctor.appointments.where(patient_id: nil, start_time: one_week)
 
-    doc_apps.each do |appointment|
+    doctor.appointments.each do |appointment|
       json.set! appointment.id do
         json.partial! "api/appointments/appointment", appointment: appointment
       end
     end
-    
+
   end
 end

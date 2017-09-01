@@ -32,7 +32,7 @@ class Doctor < ApplicationRecord
   end
 
   has_many :appointments,
-  -> {where(patient_id: nil, start_time: DateTime.now..6.days.from_now)}, 
+  -> {where(patient_id: nil, start_time: DateTime.now..6.days.from_now)},
   dependent: :destroy
   has_many :patients, through: :appointments, source: :patient
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AppointmentsTable from '../appointments/appointments_table';
-import { sortAppointmentsByDay } from '../appointments/appointment_helpers';
+import { sortAppointmentsByDay } from '../../reducers/selectors';
 
 const SearchIndexItem = (docInfo) => {
     const { doc, apps, dates } = docInfo;

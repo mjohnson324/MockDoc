@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { getDayRange,
-         sortAppointmentsByDoctor } from '../appointments/appointment_helpers';
+import { getDayRange } from '../appointments/appointment_helpers';
+import { sortAppointmentsByDoctor } from '../../reducers/selectors';
 
 import SearchIndexItem from './search_index_item';
 import SearchContainer from './search_container';
@@ -28,17 +28,17 @@ class SearchIndex extends React.Component {
     const filters = {
       specialty: searchParams.get('specialty'),
       address: searchParams.get('address'),
-      startTime: this.state.today,
-      endTime: this.state.dayAfter
     };
 
     this.props.getDoctors(filters);
-    this.props.getAppointments(filters);
   }
 
   render() {
     const { doctors, appointments } = this.props;
-    const docSortedAppointments = sortAppointmentsByDoctor(doctors, appointments);
+    const docSortedAppointments = sortAppointmentsByDoctor(
+      doctors, appointments
+    );
+
     const { today, tomorrow, dayAfter }  = this.state;
 
     return(

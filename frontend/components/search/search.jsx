@@ -12,8 +12,6 @@ class Search extends React.Component {
     this.state = {
       specialty: '',
       address: '',
-      startTime: today,
-      endTime: dayAfter
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,7 +30,6 @@ class Search extends React.Component {
     this.props.changeFilter(filter);
 
     if (this.props.match.path !== "/") {
-      this.props.getAppointments(filter);
       this.props.getDoctors(filter)
         .then(() => this.props.history.push(`/search/?${queryURL}`));
     } else {

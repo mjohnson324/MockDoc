@@ -4,10 +4,11 @@ class Api::AppointmentsController < ApplicationController
   def update
     @appointment = Appointment.find(params[:id])
 
-    if @appointment.update(appointment_params)
+    if @appointment.reason
+      @appointment.update(appointment_params)
       render :show
     else
-      render json: @appointment.errors.full_messages, status: 422
+      render json: ["Please explain the reason for your visit"], status: 422
     end
   end
 

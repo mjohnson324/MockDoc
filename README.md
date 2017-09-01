@@ -3,7 +3,7 @@
 **Link to Site:** [MockDoc on Heroku](https://mockdoc.herokuapp.com/)
 
 
-MockDoc is a full-stack web application based off _**ZocDoc**_. I employed _**React.js**_ with _**Redux**_ as the architectural framework on the frontend. On the backend I'm using _**Ruby on Rails**_ and a _**PostgreSQL**_ database. Styling was accomplished with _**Sass**_.
+MockDoc is a full-stack web application based off [ZocDoc](https://www.zocdoc.com). I employed _**React.js**_ with _**Redux**_ as the architectural framework on the frontend. On the backend I'm using _**Ruby on Rails**_ and a _**PostgreSQL**_ database. Styling was accomplished with _**Sass**_.
 
 * APIs: [Google maps API](https://developers.google.com/maps/documentation/javascript/)
 * Gems: [Ruby Geocoder](https://github.com/alexreisner/geocoder)

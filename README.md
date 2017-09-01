@@ -3,9 +3,7 @@
 **Link to Site:** [MockDoc on Heroku](https://mockdoc.herokuapp.com/)
 
 
-MockDoc is a full-stack web application based off _*ZocDoc*_. I employed _*React.js*_ with _*Redux*_
-as the architectural framework on the frontend. On the backend I'm using _*Ruby on Rails*_ and a
-_*PostgreSQL*_ database. Styling was accomplished with _*Sass*_.
+MockDoc is a full-stack web application based off _**ZocDoc**_. I employed _**React.js**_ with _**Redux**_ as the architectural framework on the frontend. On the backend I'm using _**Ruby on Rails**_ and a _**PostgreSQL**_ database. Styling was accomplished with _**Sass**_.
 
 * APIs: [Google maps API](https://developers.google.com/maps/documentation/javascript/)
 * Gems: [Ruby Geocoder](https://github.com/alexreisner/geocoder)
@@ -17,14 +15,14 @@ _*PostgreSQL*_ database. Styling was accomplished with _*Sass*_.
 ## Features & Implementation
 -----
 ### Searching for Doctors:
-Backend:
+**Backend:**
 
 
-Frontend:
+**Frontend:**
 
 ---
 ### Doctor Profiles:
-**Backend** For demo purposes doctors are treated like business profiles on Yelp rather than a second set of users. In the datab ase doctors are stored with several attributes including specialty, education and location. Locations are inputted as postal addresses and stored as geographic coordinates with the aid of the Geocoder gem. Doctors have associations with specialties, certifications, and appointments.
+**Backend** For demo purposes doctors are treated like business profiles on Yelp rather than a second set of users. In the database doctors are stored with several attributes including specialty, education and location. Locations are inputted as postal addresses and stored as geographic coordinates with the aid of the Geocoder gem. Doctors have associations with specialties, certifications, and appointments.
 Specialties and certifications were made into independent tables in spite of their limited nature (only ~30 boards and ~50 specialties are recognized in the US) because of the many-to-many relationship existing between them. Doctors are associated with certifications and specialties via a join table.
 
 
@@ -34,10 +32,10 @@ Specialties and certifications were made into independent tables in spite of the
 
 -----
 ### Scheduling Appointments:
-Backend:
+**Backend:**
 
 
-Frontend:
+**Frontend:**
 
 -----
 ## Next Steps: Future Directions for the Project

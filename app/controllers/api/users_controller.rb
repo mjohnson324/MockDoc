@@ -15,18 +15,6 @@ class Api::UsersController < ApplicationController
     @user = current_user
   end
 
-  def update
-    @user = current_user
-
-    if current_user && @user.update(user_params)
-      render "api/users/show"
-    elsif current_user
-      render json: @user.errors.full_messages
-    else
-      render json: ["Invalid credentials"]
-    end
-  end
-
   def user_params
     params.require(:user).permit(:email, :password, :first_name, :last_name)
   end

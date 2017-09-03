@@ -20,3 +20,10 @@ export const logOut = () => {
     url: '/api/session'
   });
 };
+
+export const getUser = currentUser => {
+  return {
+    method: 'GET',
+    url: `/api/${currentUser.id}`
+  };
+};

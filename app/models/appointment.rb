@@ -22,4 +22,9 @@ class Appointment < ApplicationRecord
     primary_key: :id,
     foreign_key: :patient_id,
     optional: true
+
+  has_one :review,
+    class_name: :Review,
+    foreign_key: :appointment_id,
+    primary_key: :id
 end

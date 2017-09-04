@@ -11,10 +11,11 @@
 #  body           :text
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  appointment_id :integer          not null
 #
 
 class Review < ApplicationRecord
-  validates :doctor_id, :patient_id, presence: true
+  validates :doctor_id, :patient_id, :appointment_id, presence: true
   validates :overall_rating, :bedside_manner, :wait_time, presence: true
   validates :overall_rating, :bedside_manner, :wait_time, numericality: true
 
@@ -24,4 +25,6 @@ class Review < ApplicationRecord
     class_name: :User,
     foreign_key: :patient_id,
     primary_key: :id
+
+  belongs_to :appointment
 end

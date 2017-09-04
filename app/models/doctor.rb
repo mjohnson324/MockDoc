@@ -21,7 +21,7 @@ class Doctor < ApplicationRecord
   validates :lat, numericality: { greater_than_or_equal_to: -90, less_than_or_equal_to: 90 }
   validates :lng, numericality: { greater_than_or_equal_to: -180, less_than_or_equal_to: 180 }
   validates :degree, inclusion: { in: %w(MD DMD DO DDS DPM) }
-  # validates :specialties, specialties.length > 0
+  validates :specialties, !empty?
   geocoded_by :address, latitude: :lat, longitude: :lng
   before_validation :geocode
 
@@ -50,7 +50,7 @@ class Doctor < ApplicationRecord
     through: :doctor_certifications,
     source: :certification
 
-  # def average_rating
-  #   reviews.average(:rating)
-  # end
+  def average_rating
+    reviews.average(:overall_rating)
+  end
 end

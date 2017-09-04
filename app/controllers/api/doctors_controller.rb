@@ -5,7 +5,8 @@ class Api::DoctorsController < ApplicationController
 
   def index
     processed_specialty = params[:specialty].downcase
-    doctors = Doctor.near(params[:address], 30).includes(:specialties, :certifications, :appointments)
+    doctors = Doctor.near(params[:address], 30)
+      .includes(:specialties, :certifications, :appointments, :reviews)
       .joins(:specialties).where(specialties: {name: processed_specialty})
 
     @doctors = doctors.select do |doctor|

@@ -31,4 +31,11 @@ class Api::ReviewsController < ApplicationController
     @review.destroy
     render "api/reviews/show"
   end
+
+  private
+
+  def review_params
+    params.require(:review)
+      .permit(:overall_rating, :wait_time, :bedside_manner, :body)
+  end
 end

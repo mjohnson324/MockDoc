@@ -3,10 +3,8 @@ json.doctor do
   json.extract! @doctor, :education, :professional_statement
 end
 
-one_week = day_range(6)
-
 json.appointments do
-  doc_apps = @doctor.appointments.where(start_time: one_week, patient_id: nil)
+  doc_apps = @doctor.appointments
 
   doc_apps.each do |appointment|
     json.set! appointment.id do
@@ -15,6 +13,12 @@ json.appointments do
   end
 end
 
+json.reviews do
+  doc_revs = @doctor.reviews
 
-
-# json.reviews @doctor.reviews.pluck(:id)
+  doc_revs.each do |review|
+    json.set! review.id do
+      json.partial! "api/reviews/review", review: review
+    end
+  end
+end

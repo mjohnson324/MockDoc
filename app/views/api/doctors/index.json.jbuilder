@@ -6,8 +6,6 @@ json.doctors do
   end
 end
 
-one_week = day_range(6)
-
 json.appointments do
   @doctors.each do |doctor|
 

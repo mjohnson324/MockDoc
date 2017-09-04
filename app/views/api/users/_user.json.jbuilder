@@ -10,7 +10,7 @@ json.appointments do
 
     app_doc = app.doctor
 
-    json.address translate_to_address(app_doc)
+    json.address app_doc.get_address
     json.doctor_name "#{app_doc.first_name} #{app_doc.last_name}"
   end
 end

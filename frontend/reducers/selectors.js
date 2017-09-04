@@ -6,7 +6,6 @@ export const selectDoctors = state => values(state.doctors);
 
 export const sortAppointmentsByDoctor = (doctors, appointments) => {
   const sortedAppointments = {};
-
   if (doctors[0]) {
     doctors.forEach(doctor => {
       sortedAppointments[doctor.id] = filter(
@@ -14,7 +13,6 @@ export const sortAppointmentsByDoctor = (doctors, appointments) => {
       );
     });
   }
-
   return sortedAppointments;
 };
 

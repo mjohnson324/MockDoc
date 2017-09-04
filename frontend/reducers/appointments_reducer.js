@@ -1,7 +1,6 @@
 import {
       SCHEDULE_APPOINTMENT,
-      RECEIVE_APPOINTMENT,
-      RECEIVE_APP_ERRORS } from '../actions/appointment_actions';
+      RECEIVE_APPOINTMENT } from '../actions/appointment_actions';
 
 import {
       RECEIVE_DOCTORS_AND_APPOINTMENTS,
@@ -14,12 +13,7 @@ const appointmentsReducer = (state = { errors: [] }, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_DOCTORS_AND_APPOINTMENTS:
-    if (action.appointments) {
-      const errors = { errors: state.errors };
-      return merge({}, errors, action.appointments);
-    } else {
       return merge({}, state, action.appointments);
-    }
     case RECEIVE_DOCTOR_AND_APPOINTMENTS:
       return merge({}, state, action.appointments);
     case RECEIVE_APPOINTMENT:
@@ -28,9 +22,6 @@ const appointmentsReducer = (state = { errors: [] }, action) => {
     case SCHEDULE_APPOINTMENT:
       newState = { [action.appointment.id]: action.appointment };
       return merge({}, state, newState);
-    case RECEIVE_APP_ERRORS:
-    const errors = action.errors;
-      return merge({}, state, { errors });
     default:
       return state;
   }

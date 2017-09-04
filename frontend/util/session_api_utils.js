@@ -24,6 +24,6 @@ export const logOut = () => {
 export const getUser = currentUser => {
   return {
     method: 'GET',
-    url: `/api/${currentUser.id}`
+    url: `/api/users/${currentUser.id}`
   };
 };

@@ -1,5 +1,5 @@
 import * as APIUtil from '../util/appointment_util';
-import { RECEIVE_ERRORS, receiveErrors } from './error_actions';
+import { receiveErrors } from './error_actions';
 
 export const SCHEDULE_APPOINTMENT = 'SCHEDULE_APPOINTMENT';
 export const RECEIVE_APPOINTMENT = 'RECEIVE_APPOINTMENT';

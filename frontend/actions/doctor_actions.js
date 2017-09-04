@@ -14,11 +14,15 @@ export const receiveDoctorsAndApps = ({ doctors, appointments }) => {
   };
 };
 
-export const receiveDoctorAndAppsAndReviews = doctorAndApps => {
+export const receiveDoctorAndAppsAndReviews = ({ doctor, appointments, reviews }) => {
+  const reviewResults = reviews ? reviews : {};
+  const appResults = appointments ? appointments : {};
+
   return {
     type: RECEIVE_DOCTOR_AND_APPS_AND_REVIEWS,
-    doctor: doctorAndApps.doctor,
-    appointments: doctorAndApps.appointments,
+    doctor,
+    appointments: appResults,
+    reviews: reviewResults,
   };
 };
 

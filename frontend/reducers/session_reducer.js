@@ -4,7 +4,6 @@ import { RECEIVE_CURRENT_USER,
 
 const nullUser = Object.freeze({
   currentUser: null,
-  errors: []
 });
 
 const sessionReducer = (state = nullUser, action) => {

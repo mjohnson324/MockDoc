@@ -51,6 +51,10 @@ class Doctor < ApplicationRecord
     source: :certification
 
   def average_rating
-    reviews.average(:overall_rating)
+    self.reviews.average(:overall_rating)
+  end
+
+  def get_address
+    Geocoder.address(self.to_coordinates)
   end
 end

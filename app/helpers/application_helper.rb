@@ -10,8 +10,4 @@ module ApplicationHelper
     end_time = Time.new(c_yr, c_m, c_d, 23)
     current_time..end_time
   end
-
-  def translate_to_address(doctor)
-    Geocoder.address(doctor.to_coordinates)
-  end
 end

@@ -1,5 +1,7 @@
 json.partial! "api/appointments/appointment", appointment: @appointment
 
+json.extract! @appointment, :reason, :patient_id
+
 app_doc = @appointment.doctor
 
 json.address translate_to_address(app_doc)

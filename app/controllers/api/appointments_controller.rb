@@ -7,7 +7,7 @@ class Api::AppointmentsController < ApplicationController
 
     if !app_info[:reason].empty? || app_info[:patient_id].empty?
       @appointment.update(appointment_params)
-      render :show
+      render :edit
     else
       render json: ["Please explain the reason for your visit"], status: 422
     end

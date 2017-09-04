@@ -1,7 +1,19 @@
-import React from 'react';
 import moment from 'moment';
-import { filter } from 'lodash';
-import { Link } from 'react-router-dom';
+
+export const updateApp = appointment => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/appointments/${appointment.id}`,
+    data: { appointment: appointment }
+  });
+};
+
+export const getApp = appId => {
+  return $.ajax({
+    method: 'GET',
+    url: `api/appointments/${appId}`,
+  });
+};
 
 export const getDayRange = () => {
   const cY = moment().get('year');
@@ -14,17 +26,4 @@ export const getDayRange = () => {
   const dayFour = moment().year(cY).month(cM).date(cD + 3).hour(23);
 
   return [today._d, tomorrow._d, dayAfter._d, dayFour._d];
-};
-
-export const DisplayDayAppointments = ({ day }) => {
-  return(
-    <ul>
-      {day.map(app => (
-        <li key={app.id}>
-          <Link to={`/booking/${app.id}`}>
-            {`${moment(app.start_time).format("h:mm a")}`}
-          </Link>
-        </li>))}
-    </ul>
-  );
 };

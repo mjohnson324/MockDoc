@@ -7,7 +7,7 @@ class MarkerManager {
 
   updateMarkers(doctors){
     const doctorsObj = {};
-    doctors.forEach(doctor => doctorsObj[doctor.id] = doctor);
+    doctors.forEach(doctor => { doctorsObj[doctor.id] = doctor;} );
 
     doctors
       .filter(doctor => !this.markers[doctor.id])

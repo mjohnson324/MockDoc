@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { DisplayDayAppointments } from './appointment_helpers';
+import { AppointmentsDayDisplay } from './appointments_day_display';
 import { sortBy } from 'lodash';
 
 const AppointmentsTable = ({ appsByDays }) => {
@@ -9,7 +9,7 @@ const AppointmentsTable = ({ appsByDays }) => {
   return(
     <section className="doc-schedule">
       {guaranteeTimeOrder.map((thisDay, idx) => (
-        <DisplayDayAppointments key={idx} day={thisDay} /> ))}
+        <AppointmentsDisplayDay key={idx} day={thisDay} /> ))}
     </section>
   );
 };

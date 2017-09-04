@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import { getDayRange } from '../appointments/appointment_helpers';
+import { getDayRange } from '../../util/appointment_util';
 import { sortAppointmentsByDoctor } from '../../reducers/selectors';
 
 import SearchIndexItem from './search_index_item';

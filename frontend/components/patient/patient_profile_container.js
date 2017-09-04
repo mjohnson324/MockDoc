@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { updateAppointment } from '../../actions/appointment_actions';
+import { getUser } from '../../actions/session_actions';
 
 import PatientProfile from './patient_profile';
 

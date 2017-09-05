@@ -17,6 +17,11 @@ class Review < ApplicationRecord
   validates :overall_rating,
             :bedside_manner,
             :wait_time, numericality: { only_integer: true }
+  validate :appointment_took_place
 
   belongs_to :appointment
+
+  def appointment_took_place
+    self.appointment.start_time < self.created_at
+  end
 end

@@ -9,16 +9,14 @@ json.appointments do
   user_apps.each do |app|
     json.set! app.id do
       json.partial! "api/appointments/appointment", appointment: app
+      json.address app.doctor.get_address
+      json.doctor_name "#{app.doctor.first_name} #{app.doctor.last_name}"
     end
-    app_doc = app.doctor
-
-    json.address app_doc.get_address
-    json.doctor_name "#{app_doc.first_name} #{app_doc.last_name}"
   end
 end
 
 json.reviews do
-  user_reviews = @user.reviews.includes(:doctor, :appointment)
+  user_reviews = @user.reviews
 
   user_reviews.each do |review|
     json.set! review.id do

@@ -18,13 +18,10 @@ class Appointment < ApplicationRecord
   belongs_to :doctor
 
   belongs_to :patient,
-    class_name: :User,
-    primary_key: :id,
-    foreign_key: :patient_id,
-    optional: true
+             class_name: :User,
+             primary_key: :id,
+             foreign_key: :patient_id,
+             optional: true
 
-  has_one :review,
-    class_name: :Review,
-    foreign_key: :appointment_id,
-    primary_key: :id
+  has_one :review, dependent: :destroy
 end

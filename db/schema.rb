@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170904032223) do
+ActiveRecord::Schema.define(version: 20170905004309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,8 +66,6 @@ ActiveRecord::Schema.define(version: 20170904032223) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "doctor_id", null: false
-    t.integer "patient_id", null: false
     t.integer "overall_rating", null: false
     t.integer "bedside_manner", null: false
     t.integer "wait_time", null: false
@@ -75,9 +73,7 @@ ActiveRecord::Schema.define(version: 20170904032223) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "appointment_id", null: false
-    t.index ["appointment_id"], name: "index_reviews_on_appointment_id"
-    t.index ["doctor_id"], name: "index_reviews_on_doctor_id"
-    t.index ["patient_id"], name: "index_reviews_on_patient_id"
+    t.index ["appointment_id"], name: "index_reviews_on_appointment_id", unique: true
   end
 
   create_table "specialties", force: :cascade do |t|

@@ -18,10 +18,12 @@
 class Doctor < ApplicationRecord
   validates :first_name, :last_name, :education, presence: true
   validates :gender, inclusion: { in: %w(male female) }
-  validates :lat, numericality: { greater_than_or_equal_to: -90, less_than_or_equal_to: 90 }
-  validates :lng, numericality: { greater_than_or_equal_to: -180, less_than_or_equal_to: 180 }
+  validates :lat, numericality: { greater_than_or_equal_to: -90,
+                                  less_than_or_equal_to: 90 }
+  validates :lng, numericality: { greater_than_or_equal_to: -180,
+                                  less_than_or_equal_to: 180 }
   validates :degree, inclusion: { in: %w(MD DMD DO DDS DPM) }
-  validates :specialties, !empty?
+  validates :specialties, length: { minimum: 1 }
   geocoded_by :address, latitude: :lat, longitude: :lng
   before_validation :geocode
 
@@ -32,23 +34,26 @@ class Doctor < ApplicationRecord
   end
 
   has_many :appointments,
-  -> {where(patient_id: nil, start_time: DateTime.now..6.days.from_now)},
-  dependent: :destroy
+           -> {
+             where(patient_id: nil,
+                   start_time: DateTime.now..6.days.from_now)
+           }
+
   has_many :patients, through: :appointments, source: :patient
 
-  has_many :reviews
+  has_many :reviews, through: :appointments, source: :review
 
   has_many :doctor_specialties
 
   has_many :specialties,
-    through: :doctor_specialties,
-    source: :specialty
+           through: :doctor_specialties,
+           source: :specialty
 
   has_many :doctor_certifications
 
   has_many :certifications,
-    through: :doctor_certifications,
-    source: :certification
+           through: :doctor_certifications,
+           source: :certification
 
   def average_rating
     self.reviews.average(:overall_rating)

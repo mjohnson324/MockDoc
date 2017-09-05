@@ -13,23 +13,19 @@
 #
 
 class User < ApplicationRecord
-  validates :first_name, :last_name, :password_digest, :session_token, :email, presence: true
-  validates :email, uniqueness: true
+  validates :first_name, :last_name, :password_digest, :session_token, presence: true
+  validates :email, uniqueness: true, presence: true
   validates :password, length: { minimum: 12 }, allow_nil: true
 
   after_initialize :ensure_session_token
   attr_reader :password
 
   has_many :appointments,
-    class_name: :Appointment,
-    primary_key: :id,
-    foreign_key: :patient_id
+           class_name: :Appointment,
+           primary_key: :id,
+           foreign_key: :patient_id
 
-  has_many :reviews,
-    class_name: :Review,
-    primary_key: :id,
-    foreign_key: :patient_id,
-    dependent: :destroy
+  has_many :reviews, through: :appointments, source: :review
 
   has_many :doctors, through: :appointments, source: :doctor
 

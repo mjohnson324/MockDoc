@@ -2,19 +2,11 @@ import * as APIUtil from '../util/session_api_utils';
 import { receiveErrors } from './error_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
-export const UPDATE_CURRENT_USER = 'UPDATE_CURRENT_USER';
 
 export const receiveCurrentUser = currentUser => {
   return {
     type: RECEIVE_CURRENT_USER,
     currentUser
-  };
-};
-
-export const updateCurrentUser = currentUser => {
-  return {
-      type: UPDATE_CURRENT_USER,
-      currentUser,
   };
 };
 
@@ -42,6 +34,6 @@ export const signUp = user => dispatch => {
 
 export const getUser = user => dispatch => {
   return APIUtil.getUser(user).then(currentUser => (
-    dispatch(updateCurrentUser(currentUser))
+    dispatch(receiveCurrentUser(currentUser))
   ));
 };

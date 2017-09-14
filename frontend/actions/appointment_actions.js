@@ -1,20 +1,13 @@
 import * as APIUtil from '../util/appointment_util';
 import { receiveErrors } from './error_actions';
 
-export const SCHEDULE_APPOINTMENT = 'SCHEDULE_APPOINTMENT';
+
 export const RECEIVE_APPOINTMENT = 'RECEIVE_APPOINTMENT';
 
 export const receiveAppointment = appointment => {
   return {
     type: RECEIVE_APPOINTMENT,
     appointment,
-  };
-};
-
-export const scheduleAppointment = appointment => {
-  return {
-    type: SCHEDULE_APPOINTMENT,
-    appointment
   };
 };
 
@@ -26,7 +19,7 @@ export const getAppointment = appointment => dispatch => {
 
 export const updateAppointment = appointment => dispatch => {
   return APIUtil.updateApp(appointment).then(app => (
-    dispatch(scheduleAppointment(appointment))
+    dispatch(receiveAppointment(app))
   ), err => (
     dispatch(receiveErrors(err.responseJSON))
   ));

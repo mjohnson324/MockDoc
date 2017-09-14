@@ -1,15 +1,14 @@
 .head-home {
-  width: 1280px;
+
   height: 108px;
-  margin-left: 130px;
-  background-color: transparent;
+  background-color: $sky-blue;
   color: $navy-blue;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 
-  h2 {
+  h1 {
     font-size: 44px;
     text-decoration: none;
     font-weight: bold;
@@ -33,13 +32,35 @@
 }
 
 .home {
-  font-size: 60px;
-  font-weight: bold;
-  position: absolute;
-  width: 1150px;
-  top: 210px;
-  left: 10%;
-  color: $navy-blue;
+  h2 { font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    left: 10%;
+    background-color: $sky-blue;
+    color: $navy-blue;
+    margin-bottom: 100px;
+    padding: 20px;
+  }
+
+  h3 {
+    color: $navy-blue;
+    font-size: 30px;
+    text-align: left;
+    margin: 0 auto;
+    background-color: $sky-blue;
+    padding: 10px;
+    padding-left: 150px;
+  }
+
+  p {
+    color: $navy-blue;
+    margin: 0 auto;
+    padding: 5px;
+    padding-left: 150px;
+    text-align: left;
+    font-size: 20px;
+    background-color: $zoc-yellow;
+  }
 }
 
 
@@ -69,7 +90,7 @@
     cursor: pointer;
     cursor: hand;
   }
-  
+
   .no-extra-blue {
     background-color: transparent;
   }

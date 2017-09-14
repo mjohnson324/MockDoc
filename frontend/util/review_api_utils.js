@@ -19,3 +19,11 @@ export const removeReview = reviewId => {
     url: `api/reviews/${reviewId}`
   });
 };
+
+export const createReview = review => {
+  return $.ajax({
+      method: 'POST',
+      url: 'api/reviews',
+      data: { review: review }
+  });
+};

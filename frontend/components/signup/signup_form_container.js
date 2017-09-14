@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
-import { signUp, clearErrors } from '../../actions/session_actions';
-import SignUpForm from './signup_form';
+import { signUp } from '../../actions/session_actions';
+import { clearErrors } from '../../actions/error_actions';
+import { SignUpForm } from './signup_form';
 import { withRouter } from 'react-router-dom';
 
-const mapStatetoProps = ({ session }) => {
+const mapStatetoProps = (state) => {
   return {
-    errors: session.errors,
+    errors: state.errors,
   };
 };
 

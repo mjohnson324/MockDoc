@@ -29,7 +29,7 @@ class Api::ReviewsController < ApplicationController
     @review = Review.find(params[:id])
 
     @review.destroy
-    render "api/reviews/show"
+    render :nothing
   end
 
   private

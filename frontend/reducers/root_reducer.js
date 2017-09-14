@@ -4,13 +4,15 @@ import sessionReducer from './session_reducer';
 import doctorsReducer from './doctors_reducer';
 import filtersReducer from './filters_reducer';
 import appointmentsReducer from './appointments_reducer';
-import errorsReducer from './erorrs_reducer';
+import reviewsReducer from './reviews_reducer';
+import errorsReducer from './errors_reducer';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   filter: filtersReducer,
   doctors: doctorsReducer,
   appointments: appointmentsReducer,
+  reviews: reviewsReducer,
   errors: errorsReducer,
 });
 

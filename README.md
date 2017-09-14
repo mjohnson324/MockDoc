@@ -1,9 +1,9 @@
 # MockDoc
 -----
-**Link to Site:** [MockDoc on Heroku](https://mockdoc.herokuapp.com/)
+**Link to Site:** [MockDoc](https://www.mockdoc.live/)
 
 
-MockDoc is a full-stack web application based off [ZocDoc](https://www.zocdoc.com). I employed _**React.js**_ with _**Redux**_ as the architectural framework on the frontend. On the backend I'm using _**Ruby on Rails**_ and a _**PostgreSQL**_ database. Styling was accomplished with _**Sass**_.
+MockDoc is a full-stack web application based off ZocDoc, an appointment-booking app. I employed _**React.js**_ with _**Redux**_ as the architectural framework on the frontend. On the backend I'm using _**Ruby on Rails**_ and a _**PostgreSQL**_ database. Styling was accomplished with _**Sass**_.
 
 * APIs: [Google maps API](https://developers.google.com/maps/documentation/javascript/)
 * Gems: [Ruby Geocoder](https://github.com/alexreisner/geocoder)
@@ -28,7 +28,7 @@ Specialties and certifications were made into independent tables in spite of the
 
 **Frontend:** Doctors are handled in several places on the frontend. On the search index page each index consists of a miniature profile with links to the doctor's page and available appointments. Google maps is also integrated showing the doctors' location on a map which remains on the page as the user scrolls through search results. The UI is very similar ZocDoc in organization:
 
-![image of MockDoc search index](./docs/wireframes/search-index.png)
+![image of MockDoc search index](./docs/images/search-index.png)
 
 -----
 ### Scheduling Appointments:
@@ -38,15 +38,16 @@ Specialties and certifications were made into independent tables in spite of the
 **Frontend:**
 
 -----
+### Reviews:
+**Backend:**
+
+
+**Frontend:**
+-----
 ## Next Steps: Future Directions for the Project
 
 Beyond completing the present features and improving the site's performance I intend to implement the
 following features in the near future.
-
-**Reviews**
-
-Leaving reviews is a core feature of ZocDoc and a critical part of the site's appeal. Reviews are heavily vetted to ensure they are impartial, objective, and fair, and only written by patients who've
-seen the doctor in question. I intend to have reviews working in a similar manner.
 
 **Fuzzy Searches**
 

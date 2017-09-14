@@ -9,7 +9,7 @@ const AppointmentsTable = ({ appsByDays }) => {
   return(
     <section className="doc-schedule">
       {guaranteeTimeOrder.map((thisDay, idx) => (
-        <AppointmentsDisplayDay key={idx} day={thisDay} /> ))}
+        <AppointmentsDayDisplay key={idx} day={thisDay} /> ))}
     </section>
   );
 };

@@ -15,6 +15,7 @@ class BookingForm extends React.Component {
   componentWillMount() {
     const appId = this.props.match.params.id;
     this.props.getAppointment(appId);
+    this.props.clearErrors();
   }
 
   update(field) {

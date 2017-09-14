@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { clearErrors } from '../../actions/error_actions.js';
 
 import {
   updateAppointment,
@@ -12,7 +13,7 @@ const mapStatetoProps = (state, ownProps) => {
   return {
     patient: state.session.currentUser,
     appointment: state.appointments[ownProps.match.params.id],
-    errors: state.appointments.errors,
+    errors: state.errors,
   };
 };
 
@@ -20,6 +21,7 @@ const mapDispatchToProps = dispatch => {
   return {
     updateAppointment: appointment => dispatch(updateAppointment(appointment)),
     getAppointment: appointment => dispatch(getAppointment(appointment)),
+    clearErrors: appointment => dispatch(clearErrors()),
   };
 };
 

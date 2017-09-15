@@ -8,6 +8,7 @@
 
 User.destroy_all
 Appointment.destroy_all
+Review.destroy_all
 Doctor.destroy_all
 Certification.destroy_all
 Specialty.destroy_all
@@ -81,19 +82,19 @@ random_last_name = ["Smith", "Jones", "Taylor", "Williams", "Brown",
                     "Turner", "Carter", "Phillips", "Mitchell", "Patel",
                     "Adams", "Campbell", "Anderson"]
 random_gender = ["male", "female"]
-random_school = ["Johns Hopkins University School of Medicine",
-                 "Stanford School of Medicine",
-                 "Yale School of Medicine",
-                 "Washington University School of Medicine",
-                 "Universit of Pennsylvania Perelman School of Medicine",
+random_school = ["Johnny Appleseed University School of Medicine",
+                 "Standup School of Medicine",
+                 "Yodel School of Medicine",
+                 "Washington Online Medical School",
+                 "Hollywood Upstairs Medical College",
                  "UC San Diego School of Medicine",
                  "Vanderbilt School of Medicine",
-                 "Duke School of Medicine",
+                 "Duck School of Medicine",
                  "Michigan Medican School",
                  "Weill Cornell Medical College"]
-random_dental_school = ["Columbia University College of Dental Medicine",
+random_dental_school = ["Clumsy University College of Dental Medicine",
                         "University of Pennsylvania School of Dental Medicine",
-                        "Harvard University School of Dental Medicine",
+                        "Hardly University School of Dental Medicine",
                         "University of Michigan School of Dentistry"]
 random_address = ["462 1st Avenue, New York, NY",
                   "51 W 51st St, New York, NY",
@@ -253,6 +254,7 @@ doctors[60..69].each do |doctor|
                           doctor_id: doctor.id)
 end
 
+rating_range = (1..5).to_a
 
 doctors.each do |doctor|
   current_time = Time.now
@@ -262,11 +264,20 @@ doctors.each do |doctor|
 
   start_day = Time.new(c_yr, c_m, c_d, 8)
 
-  70.times do
-    Appointment.create!(doctor_id: doctor.id,
+  70.times do |i|
+    app = Appointment.create!(doctor_id: doctor.id,
                         start_time: start_day.to_datetime)
 
-    start_day += 60 * 60
+    start_day += 60 * 120
     start_day += 14 * 60 * 60 if start_day.hour == 18
+
+
+    if i % 7 == 0
+      Review.create!(overall_rating: rating_range.shuffle[0],
+                     bedside_manner: rating_range.shuffle[0],
+                     wait_time: rating_range.shuffle[0],
+                     appointment_id: app.id)
+    end
   end
+
 end

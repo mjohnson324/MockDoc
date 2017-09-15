@@ -32,11 +32,13 @@ class Doctor < ApplicationRecord
     @address = address
   end
 
-  has_many :appointments,
-           -> {
-             where(patient_id: nil,
-                   start_time: DateTime.now..6.days.from_now)
-           }
+  has_many :appointments
+
+  def appointments_in_a_week
+    self
+      .appointments
+      .where(patient_id: nil, start_time: DateTime.now..6.days.from_now)
+  end
 
   has_many :patients, through: :appointments, source: :patient
 
@@ -55,7 +57,8 @@ class Doctor < ApplicationRecord
            source: :certification
 
   def average_rating
-    self.reviews.average(:overall_rating)
+    all_review_ratings = self.reviews.pluck(:overall_rating)
+    all_review_ratings.reduce(:+) / all_review_ratings.length.to_f
   end
 
   def get_address

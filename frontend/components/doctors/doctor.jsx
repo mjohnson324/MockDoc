@@ -3,6 +3,7 @@ import DoctorsMap from '../map/doctors_map';
 import DoctorAppointments from './doctor_appointments';
 import { getDayRange } from '../../util/appointment_util';
 import { sortAppointmentsByDay } from '../../reducers/selectors';
+import DoctorReviews from './doctor_reviews';
 
 class Doctor extends React.Component {
   constructor(props) {
@@ -44,7 +45,7 @@ class Doctor extends React.Component {
     if (doctor) {
       if (doctor.education) {
         const daySortedApps = sortAppointmentsByDay(
-          appointments[doctor.id], [today, tomorrow, dayAfter, dayFour]
+          appointments, [today, tomorrow, dayAfter, dayFour]
         );
         return(
           <section>

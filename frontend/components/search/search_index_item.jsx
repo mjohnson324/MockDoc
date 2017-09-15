@@ -18,6 +18,9 @@ const SearchIndexItem = (docInfo) => {
         <div>
           {`${doc.specialties[0]}`}
         </div>
+        <div>
+          {`Rating: ${doc.average_rating}`}
+        </div>
         <section>
           <div>{`${doc.address}`}</div>
         </section>

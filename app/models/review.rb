@@ -16,12 +16,9 @@ class Review < ApplicationRecord
   validates :appointment_id, presence: true, uniqueness: true
   validates :overall_rating,
             :bedside_manner,
-            :wait_time, numericality: { only_integer: true }
-  validate :appointment_took_place
+            :wait_time, numericality: { only_integer: true,
+                                        greater_than_or_equal_to: 1,
+                                        less_than_or_equal_to: 5 }
 
   belongs_to :appointment
-
-  def appointment_took_place
-    self.appointment.start_time < self.created_at
-  end
 end

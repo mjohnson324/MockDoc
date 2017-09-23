@@ -13,12 +13,12 @@ json.appointments do
   end
 end
 
-json.reviews do
-  doc_revs = @doctor.reviews
-
-  doc_revs.each do |review|
-    json.set! review.id do
-      json.partial! "api/reviews/review", review: review
-    end
-  end
-end
+# json.reviews do
+#   doc_revs = @doctor.reviews
+#
+#   doc_revs.each do |review|
+#     json.set! review.id do
+#       json.partial! "api/reviews/review", review: review
+#     end
+#   end
+# end

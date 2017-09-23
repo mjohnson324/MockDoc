@@ -6,4 +6,4 @@ json.certifications doctor.certifications.pluck(:name)
 json.average_rating doctor.average_rating
 
 json.appointment_ids doctor.appointments_in_a_week.pluck(:id)
-json.review_ids doctor.reviews.pluck(:id)
+# json.review_ids doctor.reviews.pluck(:id)

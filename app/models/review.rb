@@ -21,4 +21,6 @@ class Review < ApplicationRecord
                                         less_than_or_equal_to: 5 }
 
   belongs_to :appointment
+
+  # <AuthRoute path="/review/:id" component={ReviewFormContainer} />
 end

@@ -3,7 +3,7 @@ import DoctorsMap from '../map/doctors_map';
 import DoctorAppointments from './doctor_appointments';
 import { getDayRange } from '../../util/appointment_util';
 import { sortAppointmentsByDay } from '../../reducers/selectors';
-import DoctorReviews from './doctor_reviews';
+// import DoctorReviews from './doctor_reviews';
 
 class Doctor extends React.Component {
   constructor(props) {

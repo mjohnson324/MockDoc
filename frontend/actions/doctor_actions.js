@@ -22,7 +22,7 @@ export const receiveDoctorAndAppsAndReviews = ({ doctor, appointments, reviews }
     type: RECEIVE_DOCTOR_AND_APPS_AND_REVIEWS,
     doctor,
     appointments: appResults,
-    reviews: reviewResults,
+    // reviews: reviewResults,
   };
 };
 

@@ -262,9 +262,9 @@ doctors.each do |doctor|
   c_m = current_time.month
   c_d = current_time.day
 
-  start_day = Time.new(c_yr, c_m, c_d, 8)
+  start_day = Time.new(c_yr, c_m, c_d, 8) - 60*60*24*7
 
-  70.times do |i|
+  140.times do |i|
     app = Appointment.create!(doctor_id: doctor.id,
                         start_time: start_day.to_datetime)
 
@@ -272,12 +272,12 @@ doctors.each do |doctor|
     start_day += 14 * 60 * 60 if start_day.hour == 18
 
 
-    if i % 7 == 0
-      Review.create!(overall_rating: rating_range.shuffle[0],
-                     bedside_manner: rating_range.shuffle[0],
-                     wait_time: rating_range.shuffle[0],
-                     appointment_id: app.id)
-    end
+    # if i % 7 == 0
+    #   Review.create!(overall_rating: rating_range.shuffle[0],
+    #                  bedside_manner: rating_range.shuffle[0],
+    #                  wait_time: rating_range.shuffle[0],
+    #                  appointment_id: app.id)
+    # end
   end
 
 end

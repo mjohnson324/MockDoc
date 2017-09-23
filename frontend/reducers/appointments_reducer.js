@@ -6,7 +6,7 @@ import {
 
 import { merge } from 'lodash';
 
-const appointmentsReducer = (state = { errors: [] }, action) => {
+const appointmentsReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState;
   switch(action.type) {

@@ -34,12 +34,6 @@ class Doctor < ApplicationRecord
 
   has_many :appointments
 
-  def appointments_in_a_week
-    self
-      .appointments
-      .where(patient_id: nil, start_time: DateTime.now..6.days.from_now)
-  end
-
   has_many :patients, through: :appointments, source: :patient
 
   has_many :reviews, through: :appointments, source: :review

@@ -3,6 +3,7 @@ import moment from 'moment';
 import { filter } from 'lodash';
 
 export const selectDoctors = state => values(state.doctors);
+export const selectErrors = state => values(state.errors);
 
 export const sortAppointmentsByDoctor = (doctors, appointments) => {
   const sortedAppointments = {};

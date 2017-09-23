@@ -3,10 +3,11 @@ import { logIn } from '../../actions/session_actions';
 import { clearErrors } from '../../actions/error_actions';
 import SessionForm from './session_form';
 import { withRouter } from 'react-router-dom';
+import { selectErrors } from '../../reducers/selectors';
 
-const mapStatetoProps = ({ session }) => {
+const mapStatetoProps = (state) => {
   return {
-    errors: session.errors,
+    errors: selectErrors(state),
   };
 };
 

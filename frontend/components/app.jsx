@@ -9,7 +9,7 @@ import SearchContainer from './search/search_container';
 import SearchIndexContainer from './search/search_index_container';
 import PatientProfileContainer from './patient/patient_profile_container';
 import BookingFormContainer from './appointments/booking_form_container';
-// import ReviewFormContainer from './reviews/review_form_container';
+import ReviewFormContainer from './reviews/review_form_container';
 import { ProtectedRoute, AuthRoute } from '../util/auth_util';
 
 const App = () => {
@@ -22,6 +22,7 @@ return (
     <Route path="/createuser" component={SignupFormContainer} />
     <Route path="/doctor/:id" component={DoctorContainer} />
     <AuthRoute path="/booking/:id" component={BookingFormContainer} />
+    <AuthRoute path="/review/:id" component={ReviewFormContainer} />
     <ProtectedRoute path="/patient" component={PatientProfileContainer} />
   </div>
 );

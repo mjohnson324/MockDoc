@@ -114,6 +114,7 @@ random_dental_address = ["49 W 23rd St, 12th Floor, New York, NY",
                             degree: degrees[i],
                             gender: genders[i],
                             address: addresses[i])
+  sleep(1) if i % 5 == 0
 end
 
 50.times do |i|
@@ -123,6 +124,7 @@ end
                             degree: "MD",
                             gender: random_gender.shuffle[0],
                             address: random_address.shuffle[0])
+  sleep(1) if i % 5 == 0
 end
 
 10.times do |i|
@@ -132,6 +134,7 @@ end
                             degree: ["DMD", "DDS"].shuffle[0],
                             gender: random_gender.shuffle[0],
                             address: random_dental_address.shuffle[0])
+  sleep(1) if i % 5 == 0
 end
 
 
@@ -262,22 +265,19 @@ doctors.each do |doctor|
   c_m = current_time.month
   c_d = current_time.day
 
-  start_day = Time.new(c_yr, c_m, c_d, 8) - 60*60*24*7
+  start_day = Time.new(c_yr, c_m, c_d, 8) - 60 * 60 * 24 * 7
 
-  140.times do |i|
+  150.times do |i|
     app = Appointment.create!(doctor_id: doctor.id,
-                        start_time: start_day.to_datetime)
-
+                              start_time: start_day.to_datetime)
+    if i % 3 == 0 && Time.now < start_day
+      Review.create!(overall_rating: rating_range.shuffle[0],
+                     bedside_manner: rating_range.shuffle[0],
+                     wait_time: rating_range.shuffle[0],
+                     appointment_id: app.id)
+    end
     start_day += 60 * 120
     start_day += 14 * 60 * 60 if start_day.hour == 18
-
-
-    # if i % 7 == 0
-    #   Review.create!(overall_rating: rating_range.shuffle[0],
-    #                  bedside_manner: rating_range.shuffle[0],
-    #                  wait_time: rating_range.shuffle[0],
-    #                  appointment_id: app.id)
-    # end
   end
 
 end

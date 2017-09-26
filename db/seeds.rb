@@ -114,7 +114,8 @@ random_dental_address = ["49 W 23rd St, 12th Floor, New York, NY",
                             degree: degrees[i],
                             gender: genders[i],
                             address: addresses[i])
-  sleep(1) if i % 5 == 0
+
+  sleep(1) if i % 3 == 0
 end
 
 50.times do |i|
@@ -124,7 +125,8 @@ end
                             degree: "MD",
                             gender: random_gender.shuffle[0],
                             address: random_address.shuffle[0])
-  sleep(1) if i % 5 == 0
+
+  sleep(1) if i % 3 == 0
 end
 
 10.times do |i|
@@ -134,7 +136,8 @@ end
                             degree: ["DMD", "DDS"].shuffle[0],
                             gender: random_gender.shuffle[0],
                             address: random_dental_address.shuffle[0])
-  sleep(1) if i % 5 == 0
+
+  sleep(1) if i % 3 == 0
 end
 
 

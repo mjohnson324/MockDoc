@@ -2,6 +2,7 @@ class Api::DoctorsController < ApplicationController
   def show
     @doctor = Doctor.find(params[:id])
   end
+
   def index
     processed_specialty = params[:specialty].downcase
     doctors = Doctor.near(params[:address], 30)

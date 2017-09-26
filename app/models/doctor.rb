@@ -34,6 +34,12 @@ class Doctor < ApplicationRecord
 
   has_many :appointments
 
+  def appointments_in_a_week
+    current_time = Time.now
+    time_span = current_time..(current_time + 6 * 60 * 60 * 24)
+    appointments.where(start_time: time_span)
+  end
+
   has_many :patients, through: :appointments, source: :patient
 
   has_many :reviews, through: :appointments, source: :review

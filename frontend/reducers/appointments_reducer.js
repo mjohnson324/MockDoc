@@ -11,7 +11,9 @@ const appointmentsReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_DOCTORS_AND_APPOINTMENTS:
       return action.appointments;
-    case RECEIVE_DOCTOR_AND_APPS_AND_REVIEWS || RECEIVE_CURRENT_USER:
+    case RECEIVE_DOCTOR_AND_APPS_AND_REVIEWS:
+      return merge({}, state, action.appointments);
+    case RECEIVE_CURRENT_USER:
       return merge({}, state, action.appointments);
     case RECEIVE_APPOINTMENT:
       newState = { [action.appointment.id]: action.appointment };

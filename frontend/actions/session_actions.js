@@ -7,7 +7,7 @@ export const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
 export const receiveCurrentUser = state => {
     return {
       type: RECEIVE_CURRENT_USER,
-      session: state.session,
+      session: { currentUser: state.session},
       appointments: state.appointments,
       doctors: state.doctors,
       reviews: state.reviews

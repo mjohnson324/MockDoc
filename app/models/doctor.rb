@@ -33,9 +33,7 @@ class Doctor < ApplicationRecord
              where(start_time: (Time.now)..(Time.now + 6.day), patient_id: nil)
            }
 
-  has_many :patients, through: :appointments, source: :patient
-
-  has_many :reviews, through: :appointments, source: :review
+  has_many :reviews
 
   has_many :doctor_specialties
 

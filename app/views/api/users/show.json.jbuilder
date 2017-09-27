@@ -5,7 +5,7 @@ json.session do
   json.review_ids @user.reviews.pluck(:id)
 end
 
-user_apps = @user.appointments.includes(:doctor, :reviews)
+user_apps = @user.appointments.includes(:doctor, :review)
 
 json.appointments do
   user_apps.each do |app|
@@ -18,7 +18,7 @@ json.appointments do
 end
 
 json.reviews do
-  user_reviews.each do |review|
+  @user.reviews.each do |review|
     json.set! review.id do
       json.partial! "api/reviews/review", review: review
     end
@@ -26,7 +26,7 @@ json.reviews do
 end
 
 json.doctors do
-  @doctors.each do |doctor|
+  @user.doctors.each do |doctor|
     json.set! doctor.id do
       json.partial! "api/doctors/doctor", doctor: doctor
     end

@@ -11,6 +11,7 @@ const mapStatetoProps = (state) => {
     user: user,
     reviews: getReviews(state.reviews, user.review_ids),
     appointments: getAppointments(state.appointments, user.appointment_ids),
+    doctors: state.doctors,
   };
 };
 

@@ -12,6 +12,15 @@ export const getReviews = (reviews, ids) => {
       }));
 };
 
+export const getReviewsByAppointment = (reviews, ids) => {
+  const appReviews = {};
+  ids.forEach(id => {
+    let review = reviews[id];
+    appReviews[review.appointment_id] = review;
+  });
+  return appReviews;
+};
+
 export const getAppointments = (appointments, ids) => {
   return(
     ids.map(id => {

@@ -5,6 +5,20 @@ import { filter } from 'lodash';
 export const selectDoctors = state => values(state.doctors);
 export const selectErrors = state => values(state.errors);
 
+export const getUserReviews = (reviews, ids) => {
+  return(
+    ids.map(id => {
+        return reviews[id];
+      }));
+};
+
+export const getUserAppointments = (appointments, ids) => {
+  return(
+    ids.map(id => {
+        return appointments[id];
+      }));
+};
+
 export const sortAppointmentsByDoctor = (doctors, appointments) => {
   const sortedAppointments = {};
   if (doctors[0]) {

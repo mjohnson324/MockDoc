@@ -24,11 +24,11 @@ class PatientProfile extends React.Component {
   }
 
   render() {
-    const apps = this.props.user.appointments;
+    const { apps, reviews, user } = this.props;
 
     return(
       <section className="patient-appointments">
-        <h1>Welcome, {this.props.user.first_name}!</h1>
+        <h1>Welcome, {user.first_name}!</h1>
 
         <h2>Your Appointments:</h2>
         <ol>

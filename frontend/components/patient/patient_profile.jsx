@@ -1,5 +1,5 @@
 import React from 'react';
-import PatientAppointment from './appointment_index_item';
+import PatientIndexItem from './patient_index_item';
 
 class PatientProfile extends React.Component {
   constructor(props) {
@@ -19,24 +19,28 @@ class PatientProfile extends React.Component {
       patient_id: null,
       id,
     };
-
     this.props.updateAppointment(data);
   }
 
-  render() {
-    const { apps, reviews, user } = this.props;
+  createReview(e, id) {
+    e.preventDefault();
+  }
 
+  render() {
+    const { doctors, appointments, reviews, user } = this.props;
     return(
       <section className="patient-appointments">
         <h1>Welcome, {user.first_name}!</h1>
 
         <h2>Your Appointments:</h2>
         <ol>
-          {apps.map((app, idx) => {
-            return(<PatientAppointment
+          {appointments.map((app, idx) => {
+            return(<PatientIndexItem
               key={idx}
               appointment={app}
-              callback={(e) => this.cancelAppointment(e, app.id)} />);
+              doctor={doctors[app.doctor_id]}
+              review={reviews[app.id]}
+              cancel={(e) => this.cancelAppointment(e, app.id)} />);
           })}
         </ol>
       </section>

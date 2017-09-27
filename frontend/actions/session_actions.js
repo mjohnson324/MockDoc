@@ -2,14 +2,21 @@ import * as APIUtil from '../util/session_api_utils';
 import { receiveErrors } from './error_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
+export const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
 
 export const receiveCurrentUser = state => {
+    return {
+      type: RECEIVE_CURRENT_USER,
+      session: state.session,
+      appointments: state.appointments,
+      doctors: state.doctors,
+      reviews: state.reviews
+    };
+};
+
+export const removeCurrentUser = () => {
   return {
-    type: RECEIVE_CURRENT_USER,
-    session: state.session,
-    appointments: state.appointments,
-    doctors: state.doctors,
-    reviews: state.reviews
+    type: REMOVE_CURRENT_USER
   };
 };
 
@@ -23,7 +30,7 @@ export const logIn = user => dispatch => {
 
 export const logOut = () => dispatch => {
   return APIUtil.logOut().then(user => {
-      dispatch(receiveCurrentUser(null));
+      dispatch(removeCurrentUser());
     });
 };
 

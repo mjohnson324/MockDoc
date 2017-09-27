@@ -2,8 +2,9 @@ class Api::ReviewsController < ApplicationController
   before_action :require_logged_in
 
   def create
-    @review = Review.new(review_params)
-
+    @review = Review.new(review_params,
+                         params[:review][:appointment_id],
+                         params[:review][:doctor_id])
     if @review.save
       render "api/reviews/show"
     else

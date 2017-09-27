@@ -1,5 +1,6 @@
 json.extract! review, :id,
               :appointment_id,
+              :doctor_id,
               :overall_rating,
               :bedside_manner,
               :wait_time,

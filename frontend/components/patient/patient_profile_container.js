@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom';
 import { updateAppointment } from '../../actions/appointment_actions';
 import { getUser } from '../../actions/session_actions';
 import { changeReview,
-         createReview,
          deleteReview } from '../../actions/review_actions';
 import { getReviewsByAppointment,
          getAppointments } from '../../reducers/selectors';
@@ -24,7 +23,6 @@ const mapDispatchToProps = dispatch => {
     updateAppointment: appointment => dispatch(updateAppointment(appointment)),
     getUser: id => dispatch(getUser(id)),
     changeReview: review => dispatch(updateAppointment(review)),
-    createReview: review => dispatch(updateAppointment(review)),
     deleteReview: id => dispatch(updateAppointment(id)),
   };
 };

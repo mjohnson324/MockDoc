@@ -40,7 +40,10 @@ class PatientProfile extends React.Component {
               appointment={app}
               doctor={doctors[app.doctor_id]}
               review={reviews[app.id]}
-              cancel={(e) => this.cancelAppointment(e, app.id)} />);
+              cancel={(e) => this.cancelAppointment(e, app.id)}
+              writeReview={(e) => this.createReview(e, app.id)}
+              editReview={(e) => this.cancelAppointment(e, app.id)}
+              removeReview={(e) => this.cancelAppointment(e, app.id)} />);
           })}
         </ol>
       </section>

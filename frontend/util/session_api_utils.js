@@ -21,9 +21,9 @@ export const logOut = () => {
   });
 };
 
-export const getUser = currentUser => {
+export const getUser = id => {
   return {
     method: 'GET',
-    url: `/api/users/${currentUser.id}`
+    url: `/api/users/${id}`
   };
 };

@@ -6,7 +6,7 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const receiveCurrentUser = currentUser => {
   return {
     type: RECEIVE_CURRENT_USER,
-    currentUser
+    session: { currentUser: currentUser },
   };
 };
 

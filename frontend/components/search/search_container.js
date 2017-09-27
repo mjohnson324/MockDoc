@@ -4,10 +4,10 @@ import { changeFilter } from '../../actions/filter_actions';
 import { getDoctors } from '../../actions/doctor_actions';
 import  Search from './search';
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ filter }) => {
   return {
-    specialty: state.filter.specialty,
-    address: state.filter.address,
+    specialty: filter.specialty,
+    address: filter.address,
   };
 };
 

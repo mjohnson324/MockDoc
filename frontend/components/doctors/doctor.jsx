@@ -3,7 +3,7 @@ import DoctorsMap from '../map/doctors_map';
 import DoctorAppointments from './doctor_appointments';
 import { getDayRange } from '../../util/appointment_util';
 import { sortAppointmentsByDay } from '../../reducers/selectors';
-// import DoctorReviews from './doctor_reviews';
+import DoctorReviews from './doctor_reviews';
 
 class Doctor extends React.Component {
   constructor(props) {
@@ -54,6 +54,9 @@ class Doctor extends React.Component {
                 {`Dr. ${doctor.first_name} ${doctor.last_name}, ${doctor.degree}`}
               </h1>
               <div>{`${doctor.specialties[0]}`}</div>
+              <div>
+                {`Rating: ${parseFloat(doctor.average_rating.toFixed(2))}`}
+              </div>
             </div>
 
             <div className="docMap">
@@ -87,11 +90,11 @@ class Doctor extends React.Component {
                 <p>
                 </p>
               </section>
-
               <DoctorAppointments
                 apps={daySortedApps}
                 address={`${doctor.address}`}
                 daysToRender={this.state} />
+              <DoctorReviews reviews={ this.props.reviews }/>
             </div>
 
           </section>

@@ -11,7 +11,7 @@ const mapStatetoProps = (state, ownProps) => {
   return {
     doctor: thisDoc,
     appointments: sortAppointmentsByDoctor([thisDoc], state.appointments),
-    // reviews: state.reviews,
+    reviews: state.reviews,
   };
 };
 

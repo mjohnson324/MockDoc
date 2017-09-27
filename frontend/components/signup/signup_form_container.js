@@ -3,10 +3,11 @@ import { signUp } from '../../actions/session_actions';
 import { clearErrors } from '../../actions/error_actions';
 import SignUpForm from './signup_form';
 import { withRouter } from 'react-router-dom';
+import { selectErrors } from '../../reducers/selectors';
 
 const mapStatetoProps = (state) => {
   return {
-    errors: state.errors,
+    errors: selectErrors(state),
   };
 };
 

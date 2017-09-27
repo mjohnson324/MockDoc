@@ -3,10 +3,13 @@ import { receiveErrors } from './error_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 
-export const receiveCurrentUser = currentUser => {
+export const receiveCurrentUser = state => {
   return {
     type: RECEIVE_CURRENT_USER,
-    session: { currentUser: currentUser },
+    session: state.session,
+    appointments: state.appointments,
+    doctors: state.doctors,
+    reviews: state.reviews
   };
 };
 

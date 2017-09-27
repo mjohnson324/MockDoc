@@ -22,7 +22,7 @@ class Review < ApplicationRecord
                                         greater_than_or_equal_to: 1,
                                         less_than_or_equal_to: 5 }
   validate :patient_is_present
-  after_validation :check_review_time
+  after_create :check_review_time
 
   belongs_to :appointment
   belongs_to :doctor

@@ -26,19 +26,12 @@ class Doctor < ApplicationRecord
   geocoded_by :address, latitude: :lat, longitude: :lng
   before_validation :geocode
 
-  attr_reader :address
+  attr_accessor :address
 
-  def address=(address)
-    @address = address
-  end
-
-  has_many :appointments
-
-  def appointments_in_a_week
-    current_time = Time.now
-    time_span = current_time..(current_time + 6 * 60 * 60 * 24)
-    appointments.where(start_time: time_span)
-  end
+  has_many :appointments,
+           -> {
+             where(start_time: (Time.now)..(Time.now + 6.day), patient_id: nil)
+           }
 
   has_many :patients, through: :appointments, source: :patient
 

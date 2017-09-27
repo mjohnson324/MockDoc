@@ -29,6 +29,13 @@ class SessionForm extends React.Component {
       .then(() => this.props.history.push('/patient'));
   }
 
+  handleDemo(e) {
+    e.preventDefault();
+    const user = { email: "homer@gmail.com", password: "long_password" };
+    this.props.logIn({user})
+      .then(() => this.props.history.push('/patient'));
+  }
+
   renderErrors() {
     return(
       <ul className="error">
@@ -69,6 +76,7 @@ class SessionForm extends React.Component {
           <h4>New to MockDoc?</h4>
         </form>
         <Link to="/createuser">Create an account</Link>
+        <button onClick={this.handleDemo} to="/createuser">Demo Login</button>
       </div>
     );
   }

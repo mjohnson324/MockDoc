@@ -2,11 +2,19 @@ import * as APIUtil from '../util/review_api_utils';
 import { receiveErrors } from './error_actions';
 
 export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
+export const REMOVE_REVIEW  = 'REMOVE_REVIEW';
 
 export const receiveReview = review => {
   return {
     type: RECEIVE_REVIEW,
     review
+  };
+};
+
+export const removeReview = id => {
+  return {
+    type: REMOVE_REVIEW,
+    id
   };
 };
 
@@ -32,6 +40,8 @@ export const getReview = id => dispatch => {
   ));
 };
 
-export const deleteReview = id => dispatch => {
-  return APIUtil.removeReview(id);
+export const deleteReview = reviewId => dispatch => {
+  return APIUtil.removeReview(reviewId).then(id => (
+    dispatch(removeReview(id))
+  ));
 };

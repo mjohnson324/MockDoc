@@ -42,8 +42,8 @@ export const signUp = user => dispatch => {
   ));
 };
 
-export const getUser = user => dispatch => {
-  return APIUtil.getUser(user).then(currentUser => (
+export const getUser = id => dispatch => {
+  return APIUtil.getUser(id).then(currentUser => (
     dispatch(receiveCurrentUser(currentUser))
   ));
 };

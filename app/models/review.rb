@@ -25,6 +25,7 @@ class Review < ApplicationRecord
   after_validation :check_review_time
 
   belongs_to :appointment
+  belongs_to :doctor
 
   def patient_is_present
     unless self.appointment.patient_id

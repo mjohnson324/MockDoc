@@ -49,7 +49,7 @@ class Header extends React.Component {
             <nav>{this.navLink()}</nav>
           </header>
           <h2>Search for doctors, book appointments, get free healthcare. Simple.*</h2>
-          <p>*This app is for demo purposes only. Any and all doctors listed are purely fictional.</p>
+          <p className="home-disclaimer">*This app is for demo purposes only. Any and all doctors listed are purely fictional.</p>
         </div>
       );
     } else {

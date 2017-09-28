@@ -54,15 +54,16 @@
 
   p {
     color: $navy-blue;
+    height: 600px;
     margin: 0 auto;
     padding: 5px;
     padding-left: 150px;
     text-align: left;
+    vertical-align: bottom;
     font-size: 20px;
-    background-color: $zoc-yellow;
+    background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 0%,#ffffff 100%,#ffffff 100%);
   }
 }
-
 
 .head {
   height: 66px;
@@ -108,4 +109,8 @@ a:hover {
   background-color: $navy-blue;
   color: white;
   padding: 10px;
+}
+
+.home-disclaimer {
+
 }

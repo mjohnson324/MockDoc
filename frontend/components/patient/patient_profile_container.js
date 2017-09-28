@@ -6,13 +6,28 @@ import { deleteReview } from '../../actions/review_actions';
 import { getReviewsByAppointment,
          getAppointments } from '../../reducers/selectors';
 import PatientProfile from './patient_profile';
+import { isEmpty } from 'lodash';
 
 const mapStatetoProps = (state) => {
   const user = state.session.currentUser;
+
+  let userReviews;
+  let userAppointments;
+  if (isEmpty(state.appointments)) {
+    userAppointments = [];
+  } else {
+    userAppointments = getAppointments(state.appointments, user.appointment_ids);
+  }
+  if (isEmpty(state.reviews)) {
+    userReviews = {};
+  } else {
+    userReviews = getReviewsByAppointment(state.reviews, user.review_ids);
+  }
+
   return {
     user: user,
-    reviews: getReviewsByAppointment(state.reviews, user.review_ids),
-    appointments: getAppointments(state.appointments, user.appointment_ids),
+    reviews: userReviews,
+    appointments: userAppointments,
     doctors: state.doctors,
   };
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 const PatientIndexItem = (props) => {
   const { appointment, doctor, review, cancel, removeReview } = props;
@@ -13,7 +14,7 @@ const PatientIndexItem = (props) => {
         <div>Doctor: {`${doctor.first_name} ${doctor.last_name}`}</div>
         <button onClick={cancel}>Cancel Appointment</button>
       </div>
-      reviewPortion(review, removeReview, appointment)
+      {reviewPortion(review, removeReview, appointment)}
     </li>
   );
 };
@@ -25,11 +26,17 @@ const reviewPortion = (review, removeReview, appointment) => {
         <div>Overall: {`${review.overall_rating}`}</div>
         <div>Bedside Manner: {`${review.bedside_manner}`}</div>
         <div>Wait-Time: {`${review.wait_time}`}</div>
-        <p>Body: {`${review.body}`}</p>
+        {reviewBody(review.body)}
         <Link to={`/review/appointment-${appointment.id}`}>Edit Review</Link>
         <button onClick={removeReview}>Delete Review</button>
       </div>
     );
+  }
+};
+
+const reviewBody = body => {
+  if (body !== null) {
+    return <p>Body: {`${body}`}</p>;
   }
 };
 

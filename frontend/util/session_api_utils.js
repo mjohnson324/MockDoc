@@ -22,8 +22,8 @@ export const logOut = () => {
 };
 
 export const getUser = id => {
-  return {
+  return $.ajax({
     method: 'GET',
     url: `/api/users/${id}`
-  };
+  });
 };

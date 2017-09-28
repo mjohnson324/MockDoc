@@ -7,13 +7,13 @@ import Doctor from './doctor';
 
 const mapStatetoProps = (state, ownProps) => {
   let thisDoc = state.doctors[ownProps.match.params.id];
-  const appointmentIds = thisDoc === null ? [] : thisDoc.appointment_ids;
-  const reviewIds = thisDoc === null ? [] : thisDoc.review_ids;
-
+  const appointmentIds = thisDoc === undefined ? [] : thisDoc.appointment_ids;
+  const reviewIds = thisDoc === undefined ? [] : thisDoc.review_ids;
+  
   return {
     doctor: thisDoc,
-    appointments: getAppointments(appointmentIds, state.appointments),
-    reviews: getReviews(reviewIds, state.reviews),
+    appointments: getAppointments(state.appointments, appointmentIds),
+    reviews: getReviews(state.reviews, reviewIds),
   };
 };
 

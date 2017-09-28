@@ -1,10 +1,9 @@
 import React from 'react';
-
-import DoctorReviewsItem from './doctor_reviews_item';
+import { DoctorReviewsItem } from './doctor_reviews_item';
 
 export const DoctorReviews = ({ reviews }) => {
   return(
-    <ul>
+    <ul className="docReviews">
       {reviews.map(review => {
         return(
           <DoctorReviewsItem

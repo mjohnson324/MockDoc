@@ -2,14 +2,18 @@ import React from 'react';
 
 export const DoctorReviewsItem = (props) => {
   const { review } = props;
+  let reviewParagraph = review.body;
+  if (review.body === null) {
+    reviewParagraph = '';
+  }
   return(
     <li>
       <div>
-        <span>{`${review.overal_rating}`}</span>
-        <span>{`${review.wait_time}`}</span>
-        <span>{`${review.bedside_manner}`}</span>
+        <span>Overall Rating: {`${review.overall_rating}`}</span>
+        <span>Wait Time: {`${review.wait_time}`}</span>
+        <span>Bedside Manner: {`${review.bedside_manner}`}</span>
       </div>
-      <p>{`${review.body}`}</p>
+      <p>{`${reviewParagraph}`}</p>
     </li>
   );
 };

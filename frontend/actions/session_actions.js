@@ -10,12 +10,17 @@ export const clearState = () => {
 };
 
 export const receiveCurrentUser = state => {
+    let {doctors, reviews, appointments } = state;
+    let userDocs = doctors === undefined ? {} : doctors;
+    let userApps = appointments === undefined ? {} : appointments;
+    let userReviews = reviews === undefined ? {} : reviews;
+
     return {
       type: RECEIVE_CURRENT_USER,
       session: { currentUser: state.session},
-      appointments: state.appointments,
-      doctors: state.doctors,
-      reviews: state.reviews
+      appointments: userApps,
+      doctors: userDocs,
+      reviews: userReviews,
     };
 };
 

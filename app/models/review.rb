@@ -34,7 +34,7 @@ class Review < ApplicationRecord
   end
 
   def check_review_time
-    if self.created_at < self.appointment.start_time - 1.hour
+    if self.created_at < self.appointment.start_time + 1.hour
       errors.add(:created_at, "Please review the appointment after it's over")
       self.destroy
     end

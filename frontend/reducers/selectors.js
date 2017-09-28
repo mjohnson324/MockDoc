@@ -16,7 +16,9 @@ export const getReviewsByAppointment = (reviews, ids) => {
   const appReviews = {};
   ids.forEach(id => {
     let review = reviews[id];
-    appReviews[review.appointment_id] = review;
+    if (review) {
+      appReviews[review.appointment_id] = review;
+    }
   });
   return appReviews;
 };

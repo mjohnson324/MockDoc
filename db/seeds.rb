@@ -38,11 +38,11 @@ random_dental_address = ["49 W 23rd St, 12th Floor, New York, NY", "220 W 26th S
 end
 50.times do |i|
   doctors << Doctor.create!(first_name: random_first_name.shuffle[0], last_name: random_last_name.shuffle[0], education: random_school.shuffle[0], degree: "MD", gender: random_gender.shuffle[0], address: random_address.shuffle[0])
-  sleep(1) if i % 3 == 0
+  sleep(2) if i % 3 == 0
 end
 10.times do |i|
   doctors << Doctor.create!(first_name: random_first_name.shuffle[0], last_name: random_last_name.shuffle[0], education: random_dental_school.shuffle[0], degree: ["DMD", "DDS"].shuffle[0], gender: random_gender.shuffle[0], address: random_dental_address.shuffle[0])
-  sleep(1) if i % 3 == 0
+  sleep(2) if i % 3 == 0
 end
 
 certification_names = ["American Board of Allergy and Immunology", "American Board of Anesthesiology", "American Board of Colon and Rectal Surgery", "American Board of Dermatology", "American Board of Emergency Medicine", "American Board of Family Medicine", "American Board of Internal Medicine", "American Board of Medical Genetics and Genomics", "American Board of Neurological Surgery", "American Board of Nuclear Medicine", "American Board of Obstetrics and Gynecology", "American Board of Opthalmology", "American Board of Orthopaedic Surgery", "American Board of Otolaryngology", "American Board of Pathology", "American Board of Pediatrics", "American Board of Physical Medicine and Rehabilitation", "American Board of Plastic Surgery", "American Board of Preventive Medicine", "American Board of Psychiatry and Neurology", "American Board of Radiology", "American Board of Surgery", "American Board of Thoracic Surgery", "American Board of Urology", "American Board of Podiatric Medicine"]
@@ -95,8 +95,9 @@ doctors.each do |doctor|
 
   150.times do |i|
     app = Appointment.create!(doctor_id: doctor.id, start_time: start_day.to_datetime)
-    if i % 5 == 0 && Time.now < start_day
-      app.update(reason: "ow", patient_id: users.shuffle[0].id)
+    if i % 5 == 0 && Time.now > start_day
+      user = users.shuffle[0]
+      app.update(reason: "it hurts", patient_id: user.id)
       Review.create!(overall_rating: rating_range.shuffle[0], bedside_manner: rating_range.shuffle[0], wait_time: rating_range.shuffle[0], appointment_id: app.id, doctor_id: app.doctor_id)
     end
     start_day += 2.hour

@@ -28,7 +28,7 @@
 .docProfile {
   color: $navy-blue;
   width: 820px;
-  height: 900px;
+  height: 700px;
   display: inline-block;
 
   h2 {
@@ -121,4 +121,31 @@
 
 .doc-inline {
   white-space: nowrap;
+}
+
+.doc-reviews {
+  width: 820px;
+}
+
+.review-container {
+  border-top: solid black 1px;
+  min-height: 50px;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+
+.review-container-date {
+  width: 30%;
+  padding-left: 20px;
+  display: inline-block;
+}
+
+.review-container-data {
+  width: 60%;
+  display: inline-block;
+}
+
+.review-container-ratings {
+  display: flex;
+  justify-content: space-around;
 }

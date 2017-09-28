@@ -4,4 +4,5 @@ json.extract! review, :id,
               :overall_rating,
               :bedside_manner,
               :wait_time,
-              :body
+              :body,
+              :updated_at

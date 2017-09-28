@@ -3,7 +3,7 @@ user_apps = @user.appointments.includes(:doctor,
                                         doctor: [:specialties,
                                                  :certifications,
                                                  :appointments,
-                                                 :reviews]).limit(10)
+                                                 :reviews])
 user_revs = []
 user_docs = []
 

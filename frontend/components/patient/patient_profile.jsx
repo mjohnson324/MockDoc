@@ -9,7 +9,8 @@ class PatientProfile extends React.Component {
   }
 
   componentWillMount() {
-
+    const { user } = this.props;
+    this.props.getUser(user.id);
   }
 
   cancelAppointment(e, id) {
@@ -22,8 +23,9 @@ class PatientProfile extends React.Component {
     this.props.updateAppointment(data);
   }
 
-  createReview(e, id) {
+  deleteReview(e, review) {
     e.preventDefault();
+    this.props.deleteReview(review.id);
   }
 
   render() {
@@ -39,11 +41,9 @@ class PatientProfile extends React.Component {
               key={idx}
               appointment={app}
               doctor={doctors[app.doctor_id]}
-              review={reviews[app.id]}
               cancel={(e) => this.cancelAppointment(e, app.id)}
-              writeReview={(e) => this.createReview(e, app.id)}
-              editReview={(e) => this.cancelAppointment(e, app.id)}
-              removeReview={(e) => this.cancelAppointment(e, app.id)} />);
+              review={reviews[app.id]}
+              removeReview={(e) => this.deleteReview(e, reviews[app.id])} />);
           })}
         </ol>
       </section>

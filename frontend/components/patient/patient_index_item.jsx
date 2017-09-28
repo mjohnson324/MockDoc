@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 const PatientIndexItem = (props) => {
-  const { appointment, doctor, review } = props;
+  const { appointment, doctor, review, cancel, removeReview } = props;
   return(
     <li>
       <div>Appointment:
@@ -13,16 +13,24 @@ const PatientIndexItem = (props) => {
         <div>Doctor: {`${doctor.first_name} ${doctor.last_name}`}</div>
         <button onClick={cancel}>Cancel Appointment</button>
       </div>
+      reviewPortion(review, removeReview, appointment)
+    </li>
+  );
+};
+
+const reviewPortion = (review, removeReview, appointment) => {
+  if (review !== undefined) {
+    return(
       <div>Review:
         <div>Overall: {`${review.overall_rating}`}</div>
         <div>Bedside Manner: {`${review.bedside_manner}`}</div>
-          <div>Wait-Time: {`${review.wait_time}`}</div>
+        <div>Wait-Time: {`${review.wait_time}`}</div>
         <p>Body: {`${review.body}`}</p>
-        <button onClick={cancel}>Edit Review</button>
-        <button onClick={cancel}>Delete Review</button>
+        <Link to={`/review/appointment-${appointment.id}`}>Edit Review</Link>
+        <button onClick={removeReview}>Delete Review</button>
       </div>
-    </li>
-  );
+    );
+  }
 };
 
 export default PatientIndexItem;

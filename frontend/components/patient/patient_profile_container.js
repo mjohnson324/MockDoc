@@ -2,8 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { updateAppointment } from '../../actions/appointment_actions';
 import { getUser } from '../../actions/session_actions';
-import { changeReview,
-         deleteReview } from '../../actions/review_actions';
+import { deleteReview } from '../../actions/review_actions';
 import { getReviewsByAppointment,
          getAppointments } from '../../reducers/selectors';
 import PatientProfile from './patient_profile';
@@ -22,8 +21,7 @@ const mapDispatchToProps = dispatch => {
   return {
     updateAppointment: appointment => dispatch(updateAppointment(appointment)),
     getUser: id => dispatch(getUser(id)),
-    changeReview: review => dispatch(updateAppointment(review)),
-    deleteReview: id => dispatch(updateAppointment(id)),
+    deleteReview: id => dispatch(deleteReview(id)),
   };
 };
 

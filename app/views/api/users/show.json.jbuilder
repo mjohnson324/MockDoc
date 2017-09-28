@@ -1,4 +1,3 @@
-
 json.session do
   json.partial! "api/users/user", user: @user
   json.appointment_ids @user.appointments.pluck(:id)

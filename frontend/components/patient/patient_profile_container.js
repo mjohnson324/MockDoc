@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { updateAppointment } from '../../actions/appointment_actions';
-import { getUser } from '../../actions/session_actions';
+import { getUser,
+         clearState } from '../../actions/session_actions';
 import { deleteReview } from '../../actions/review_actions';
 import { getReviewsByAppointment,
          getAppointments } from '../../reducers/selectors';
@@ -37,6 +38,7 @@ const mapDispatchToProps = dispatch => {
     updateAppointment: appointment => dispatch(updateAppointment(appointment)),
     getUser: id => dispatch(getUser(id)),
     deleteReview: id => dispatch(deleteReview(id)),
+    clearState: () => dispatch(clearState()),
   };
 };
 

@@ -3,6 +3,11 @@ import { receiveErrors } from './error_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
+export const CLEAR_STATE = 'CLEAR_STATE';
+
+export const clearState = () => {
+  return { type: CLEAR_STATE };
+};
 
 export const receiveCurrentUser = state => {
     return {

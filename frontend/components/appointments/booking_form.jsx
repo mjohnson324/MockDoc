@@ -18,6 +18,10 @@ class BookingForm extends React.Component {
     this.props.clearErrors();
   }
 
+  componentWillUnmount () {
+    this.props.clearState();
+  }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value

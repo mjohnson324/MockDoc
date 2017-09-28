@@ -21,7 +21,7 @@ class SearchIndex extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const queryString = "?".concat(window.location.href.split('?')[1]);
     const searchParams = new URLSearchParams(queryString);
 
@@ -33,6 +33,10 @@ class SearchIndex extends React.Component {
     this.props.getDoctors(filters);
   }
 
+  componentWillUnmount() {
+    this.props.clearState();
+  }
+
   render() {
     const { doctors, appointments } = this.props;
     const docSortedAppointments = sortAppointmentsByDoctor(
@@ -40,7 +44,6 @@ class SearchIndex extends React.Component {
     );
 
     const { today, tomorrow, dayAfter }  = this.state;
-
     return(
       <div className="search-master">
         <SearchContainer />

@@ -1,6 +1,7 @@
 import { RECEIVE_REVIEW, REMOVE_REVIEW } from '../actions/review_actions';
 import { RECEIVE_DOCTOR_AND_APPS_AND_REVIEWS } from '../actions/doctor_actions';
-import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER,
+         CLEAR_STATE } from '../actions/session_actions';
 import { merge } from 'lodash';
 
 const reviewsReducer = (state = {}, action) => {
@@ -18,6 +19,8 @@ const reviewsReducer = (state = {}, action) => {
       newState = state;
       delete newState[action.id];
       return newState;
+    case CLEAR_STATE:
+      return {};
     default:
       return state;
   }

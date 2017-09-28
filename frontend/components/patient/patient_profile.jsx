@@ -13,6 +13,10 @@ class PatientProfile extends React.Component {
     this.props.getUser(user.id);
   }
 
+  componentWillUnmount() {
+    this.props.clearState();
+  }
+
   cancelAppointment(e, id) {
     e.preventDefault();
     const data = {

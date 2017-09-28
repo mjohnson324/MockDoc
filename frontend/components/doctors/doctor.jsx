@@ -22,8 +22,12 @@ class Doctor extends React.Component {
     this.specList = this.specList.bind(this);
   }
 
-  componentWillMount () {
+  componentWillMount() {
     this.props.getADoctor(this.props.match.params.id);
+  }
+
+  componentWillUnmount () {
+    this.props.clearState();
   }
 
   certList(certifications) {

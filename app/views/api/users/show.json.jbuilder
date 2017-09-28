@@ -10,6 +10,7 @@ json.appointments do
   user_apps.each do |app|
     json.set! app.id do
       json.partial! "api/appointments/appointment", appointment: app
+      json.reason app.reason
     end
   end
 end

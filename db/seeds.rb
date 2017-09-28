@@ -95,8 +95,9 @@ doctors.each do |doctor|
 
   150.times do |i|
     app = Appointment.create!(doctor_id: doctor.id, start_time: start_day.to_datetime)
-    if i % 3 == 0 && Time.now < start_day
-      Review.create!(overall_rating: rating_range.shuffle[0], bedside_manner: rating_range.shuffle[0], wait_time: rating_range.shuffle[0], appointment_id: app.id)
+    if i % 5 == 0 && Time.now < start_day
+      app.update(reason: "ow", patient_id: users.shuffle[0].id)
+      Review.create!(overall_rating: rating_range.shuffle[0], bedside_manner: rating_range.shuffle[0], wait_time: rating_range.shuffle[0], appointment_id: app.id, doctor_id: app.doctor_id)
     end
     start_day += 2.hour
     start_day += 14.hour if start_day.hour == 18

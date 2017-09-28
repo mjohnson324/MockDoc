@@ -23,13 +23,14 @@ json.appointments do
     end
   end
 end
-
 json.reviews do
   user_revs.each do |review|
-    json.set! review.id do
-      json.partial! "api/reviews/review", review: review
+    if review
+      json.set! review.id do
+          json.partial! "api/reviews/review", review: review
+        end
+      end
     end
-  end
 end
 
 json.doctors do

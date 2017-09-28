@@ -6,7 +6,10 @@ import { sortAppointmentsByDay } from '../../reducers/selectors';
 const SearchIndexItem = (docInfo) => {
     const { doc, apps, dates } = docInfo;
     const daySortedApps = sortAppointmentsByDay(apps, dates);
-
+    let averageRating = doc.average_rating;
+    if (typeof averageRating !== "string") {
+      averageRating = parseFloat(doc.average_rating.toFixed(2));
+    }
     return (
     <li className="index-item">
       <div className="doc-pic"></div>
@@ -19,7 +22,7 @@ const SearchIndexItem = (docInfo) => {
           {`${doc.specialties[0]}`}
         </div>
         <div>
-          {`Rating: ${parseFloat(doc.average_rating.toFixed(2))}`}
+          {`Rating: ${averageRating}`}
         </div>
         <section>
           <div>{`${doc.address}`}</div>

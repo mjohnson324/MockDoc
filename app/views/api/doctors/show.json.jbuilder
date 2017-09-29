@@ -1,10 +1,14 @@
+doc_apps = @doctor.appointments.where(
+  start_time: (Time.now)..(Time.now + 6.day),
+  patient_id: nil)
+
 json.doctor do
   json.partial! "api/doctors/doctor", doctor: @doctor
+  json.appointment_ids doc_apps.to_a.map(&:id)
   json.extract! @doctor, :education, :professional_statement
 end
 
 json.appointments do
-  doc_apps = @doctor.appointments
 
   doc_apps.each do |appointment|
     json.set! appointment.id do

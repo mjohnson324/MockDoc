@@ -113,6 +113,7 @@ On the search index page each index consists of a miniature profile with links t
 
 ##### ** Implementing reviews did not come without challenges. At this point I learned I had set model associations in such a way that I wasn't retrieving the right information for doctors, forcing me to rethink all my associations.
 
+
 **Backend:**
 
 

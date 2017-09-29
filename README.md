@@ -19,14 +19,13 @@ MockDoc is a full-stack web application based off ZocDoc, an appointment-booking
 ### Searching for Doctors:
 **Backend:**
 
-
-**Frontend:**
+**Frontend:** Users can start searching for doctors before logging in. By default the search feature looks for primary care doctors in New York, but users can search for doctors anywhere based on specialty. A _filter_ slice of state manages the current search query and is updated based on the inputs to the search bar.
 
 ---
 ### Doctor Profiles:
-**Backend** For demo purposes, doctors are treated like business profiles on Yelp rather than a second set of users. Doctors have associations with specialties, certifications, reviews, and appointments. Each doctor is stored with several attributes including specialty, education and location.
+**Backend:** For demo purposes, doctors are treated like business profiles on Yelp rather than a second set of users. Doctors have associations with specialties, certifications, reviews, and appointments. Each doctor is stored with several attributes including specialty, education and location.
 - Locations are inputted as postal addresses and stored as geographic coordinates with the aid of the _Geocoder_ gem.
-- Geocoder is also used get addresses from coordinates for display purposes on the frontend.
+- Geocoder is also used get addresses from coordinates to display to users on the frontend.
 
 Specialties and certifications were made into independent tables in spite of their limited nature (only ~30 boards and ~50 specialties are recognized in the US) because of the _many-to-many_ relationship existing between them. Doctors are associated with certifications and specialties via join tables.
 

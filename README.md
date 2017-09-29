@@ -20,6 +20,8 @@ MockDoc is a full-stack web application based off ZocDoc, an appointment-booking
 ## Features & Implementation
 -----
 ### Authentication:
+** - Users can log in and out of the site, and access to features is restricted based on login status.**
+
 **Backend:** Basic auth is handled for users with _BCRypt_ to store securely store password digests in the database. New session tokens are created on login and logout to protect users against _CSRF_ attacks.
 
 **Frontend:** Site access is restricted based on login status. Users are directed away from pages for booking appointments and writing reviews until they have signed in.
@@ -39,6 +41,8 @@ const Auth = ({ component: Component, path, loggedIn }) => {
 
 ---
 ### Doctor Profiles:
+** - Users can view a doctor's information on that doctor's profile page along with past reviews and upcoming open appointments.**
+
 **Backend:** For demo purposes, doctors are treated like business profiles on Yelp rather than a second set of users.
 - Doctors have associations with specialties, certifications, reviews, and appointments. Each doctor's data is stored with several attributes including specialty, education and location.
 - Locations are inputted as postal addresses and stored as geographic coordinates with the aid of the _Geocoder_ gem.
@@ -54,6 +58,8 @@ Specialties and certifications were made into independent tables in spite of the
 
 -----
 ### Searching for Doctors:
+** - Site users can search for doctors by location and specialty.**
+
 **Backend:** Search filter parameters are sent as data in _GET_ requests for doctors. The app searches for doctors in a given area around the specified location, then filters the results by the specialty indicated by the user.
 
 ```
@@ -81,6 +87,13 @@ On the search index page each index consists of a miniature profile with links t
 
 -----
 ### Scheduling Appointments:
+** - Book appointments by selecting from a doctor's available upcoming appointments. **
+
+##### ** This was by far the most challenging portion of the app to implement. Rendering appointments was difficult for several reasons:
+
+- Appointments need to be sorted and displayed by start time, but making comparisons with _Date_ objects in JS (and formatting them) is difficult.
+- Initially the sorting process was also very slow.
+
 **Backend:**
 
 
@@ -88,6 +101,11 @@ On the search index page each index consists of a miniature profile with links t
 
 -----
 ### Reviews:
+
+##### ** Implementing reviews did not come without challenges. At this point I learned I had set model associations in such a way that I wasn't retrieving the right information for doctors, forcing me to rethink all my associations.
+
+- By separating concerns (keeping)
+
 **Backend:**
 
 
@@ -95,8 +113,7 @@ On the search index page each index consists of a miniature profile with links t
 -----
 ## Next Steps: Future Directions for the Project
 
-Beyond completing the present features and improving the site's performance I intend to implement the
-following features in the near future.
+Beyond improving the site's performance I intend to implement the following features in the near future:
 
 **Fuzzy Searches**
 

@@ -67,7 +67,12 @@ def index
   processed_specialty = params[:specialty].downcase
   doctors = Doctor.near(params[:address], 30)
     .includes(:specialties, :certifications, :reviews, :appointments)
-    .joins(:specialties).where(specialties: { name: processed_specialty })
+    .joins(:specialties, :appointments).where(
+      specialties: { name: processed_specialty },
+      appointments: {
+        start_time: (Time.now)..(Time.now + 6.day),
+        patient_id: nil
+        })
 
   @doctors = doctors.select do |doctor|
     doctor.specialties.pluck(:name).include?(processed_specialty)
@@ -76,7 +81,7 @@ end
 ```
 - Geocoder simplifies the process of searching for doctors near a given address (up to 30 miles away by default)
 - To improve runtime speed the app applies _eager loading_, retrieving all associated information for all doctors in _one_ query to the database.
-- To reduce loading time only appointments a week in advance of the current date are retrieved for each doctor. Doctors can potentially schedule appointments months in advance which could result in significant loading times.
+- To reduce loading time only appointments a week in advance of the current date are retrieved for each doctor as doctors can potentially schedule appointments months in advance which could result in significant loading times.
 
 **Frontend:** Users can start searching for doctors before logging in. By default the search feature looks for primary care doctors in New York, but users can search for doctors anywhere based on specialty.
 - A _filter_ slice of state manages the current search query and is updated based on the inputs to the search bar.
@@ -94,17 +99,19 @@ On the search index page each index consists of a miniature profile with links t
 - Appointments need to be sorted and displayed by start time, but making comparisons with _Date_ objects in JS (and formatting them) is difficult.
 - Initially the sorting process was also very slow.
 
-**Backend:**
+**Backend:** Initially I sped up the app with custom _SQL_ applied in a scope argument to the appointments association for doctors:
 
+- Essentially, Only the next week of unbooked appointments was retrieved in the association.
+  + This approach permitted eager loading for doctors without having to retrieve all the doctor's appointments.
+  + The downside was its inflexibility; only appointments up to a week in advance of the current date could ever be seen.
+  + This dilemna was easily solved with an additional join on the appointments table, filtering by time ranges.
 
-**Frontend:**
+**Frontend:** Sorting, formatting and displaying of appointment times is simplified with the _moment.js_ library.
 
 -----
 ### Reviews:
 
 ##### ** Implementing reviews did not come without challenges. At this point I learned I had set model associations in such a way that I wasn't retrieving the right information for doctors, forcing me to rethink all my associations.
-
-- By separating concerns (keeping)
 
 **Backend:**
 

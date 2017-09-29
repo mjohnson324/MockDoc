@@ -7,7 +7,12 @@ class Api::DoctorsController < ApplicationController
     processed_specialty = params[:specialty].downcase
     doctors = Doctor.near(params[:address], 30)
       .includes(:specialties, :certifications, :reviews, :appointments)
-      .joins(:specialties).where(specialties: { name: processed_specialty })
+      .joins(:specialties, :appointments).where(
+        specialties: { name: processed_specialty },
+        appointments: {
+          start_time: (Time.now)..(Time.now + 6.day),
+          patient_id: nil
+        })
 
     @doctors = doctors.select do |doctor|
       doctor.specialties.pluck(:name).include?(processed_specialty)

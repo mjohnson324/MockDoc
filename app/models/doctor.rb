@@ -28,10 +28,7 @@ class Doctor < ApplicationRecord
 
   attr_accessor :address
 
-  has_many :appointments,
-           -> {
-             where(start_time: (Time.now)..(Time.now + 6.day), patient_id: nil)
-           }
+  has_many :appointments
 
   has_many :reviews
 

@@ -24,8 +24,11 @@ MockDoc is a full-stack web application based off ZocDoc, an appointment-booking
 
 ---
 ### Doctor Profiles:
-**Backend** For demo purposes doctors are treated like business profiles on Yelp rather than a second set of users. In the database doctors are stored with several attributes including specialty, education and location. Locations are inputted as postal addresses and stored as geographic coordinates with the aid of the Geocoder gem. Doctors have associations with specialties, certifications, and appointments.
-Specialties and certifications were made into independent tables in spite of their limited nature (only ~30 boards and ~50 specialties are recognized in the US) because of the many-to-many relationship existing between them. Doctors are associated with certifications and specialties via a join table.
+**Backend** For demo purposes, doctors are treated like business profiles on Yelp rather than a second set of users. Doctors have associations with specialties, certifications, reviews, and appointments. Each doctor is stored with several attributes including specialty, education and location.
+- Locations are inputted as postal addresses and stored as geographic coordinates with the aid of the _Geocoder_ gem.
+- Geocoder is also used get addresses from coordinates for display purposes on the frontend.
+
+Specialties and certifications were made into independent tables in spite of their limited nature (only ~30 boards and ~50 specialties are recognized in the US) because of the _many-to-many_ relationship existing between them. Doctors are associated with certifications and specialties via join tables.
 
 
 **Frontend:** Doctors are handled in several places on the frontend. On the search index page each index consists of a miniature profile with links to the doctor's page and available appointments. Google maps is also integrated showing the doctors' location on a map which remains on the page as the user scrolls through search results. The UI is very similar ZocDoc in organization:

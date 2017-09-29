@@ -33,13 +33,31 @@ MockDoc is a full-stack web application based off ZocDoc, an appointment-booking
 
 Specialties and certifications were made into independent tables in spite of their limited nature (only ~30 boards and ~50 specialties are recognized in the US) because of the _many-to-many_ relationship existing between them and doctors. Doctors are associated with certifications and specialties via join tables.
 
-**Frontend:** When a doctor's profile is loaded
+**Frontend:** When a doctor's profile is loaded their associated appointments, reviews, specialties and certifications are loaded along with them. Google maps displays their work address for the patient.
+- Appointments and reviews are stored in separate slices of state.
+- Doctors have arrays of review and appointment IDs used to retrieve relevant appointments and reviews to render.
 
 ![image of MockDoc doctor profile](./docs/images/doctor-profile.png)
 
 -----
 ### Searching for Doctors:
-**Backend:** Search filter parameters are sent as data in _GET_ requests for doctors. The app searches
+**Backend:** Search filter parameters are sent as data in _GET_ requests for doctors. The app searches for doctors in a given area around the specified location, then filters the results by the specialty indicated by the user.
+
+```
+def index
+  processed_specialty = params[:specialty].downcase
+  doctors = Doctor.near(params[:address], 30)
+    .includes(:specialties, :certifications, :reviews, :appointments)
+    .joins(:specialties).where(specialties: { name: processed_specialty })
+
+  @doctors = doctors.select do |doctor|
+    doctor.specialties.pluck(:name).include?(processed_specialty)
+  end
+end
+```
+- Geocoder simplifies the process of searching for doctors near a given address (up to 30 miles away by default)
+- To improve runtime speed the app applies _eager loading_, retrieving all associated information for all doctors in _one_ query to the database.
+- To reduce loading time only appointments a week in advance of the current date are retrieved for each doctor. Doctors can potentially schedule appointments months in advance which could result in significant loading times.
 
 **Frontend:** Users can start searching for doctors before logging in. By default the search feature looks for primary care doctors in New York, but users can search for doctors anywhere based on specialty.
 - A _filter_ slice of state manages the current search query and is updated based on the inputs to the search bar.

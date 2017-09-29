@@ -20,9 +20,22 @@ MockDoc is a full-stack web application based off ZocDoc, an appointment-booking
 ## Features & Implementation
 -----
 ### Authentication:
-**Backend:**
+**Backend:** Basic auth is handled for users with _BCRypt_ to store securely store password digests in the database. New session tokens are created on login and logout to protect users against _CSRF_ attacks.
 
-**Frontend:**
+**Frontend:** Site access is restricted based on login status. Users are directed away from pages for booking appointments and writing reviews until they have signed in.
+- _Bootstrapping_ is applied to preserve a user's login status by loading the current user to the window and using it to configure the _Redux store_, promptly deleting user information from the window afterwards.
+
+```
+const Auth = ({ component: Component, path, loggedIn }) => {
+  return(<Route path={path} render={(props) => (
+    !loggedIn ? (
+      <Redirect to="/signin" />
+    ) : (
+      <Component {...props} />
+    )
+  )} />);
+};
+```
 
 ---
 ### Doctor Profiles:

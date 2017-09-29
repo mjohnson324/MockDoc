@@ -3,14 +3,16 @@
 **Link to Site:** [MockDoc](https://www.mockdoc.live/)
 
 
-MockDoc is a full-stack web application based off ZocDoc, an appointment-booking app. I employed _**React.js**_ with _**Redux**_ as the architectural framework on the frontend. On the backend I'm using _**Ruby on Rails**_ and a _**PostgreSQL**_ database. Styling was accomplished with _**Sass**_.
+MockDoc is a full-stack web application based off ZocDoc, an appointment-booking app. I employed **React.js** with **Redux** as the architectural framework on the frontend. On the backend I'm using **Ruby on Rails** and a **PostgreSQL** database. Styling was accomplished with **Sass**.
 
-* APIs: [Google maps API](https://developers.google.com/maps/documentation/javascript/)
-* Gems: [Ruby Geocoder](https://github.com/alexreisner/geocoder)
-* JS Libraries: [moment.js](https://momentjs.com/docs/)
-* Ruby version: 2.3.1
-* Rails version: 5.1.3
-* PostgreSQL version: 9.6
+* **APIs:** [Google maps API](https://developers.google.com/maps/documentation/javascript/)
+* **Gems:** [Ruby Geocoder](https://github.com/alexreisner/geocoder)
+* **JS Libraries:** [moment.js](https://momentjs.com/docs/)
+* **Ruby version:** 2.3.1
+* **Rails version:** 5.1.3
+* **PostgreSQL version:** 9.6
+
+* **Additional Technologies:** webpack, node.js, lodash.js
 
 ## Features & Implementation
 -----

@@ -12,25 +12,39 @@ MockDoc is a full-stack web application based off ZocDoc, an appointment-booking
 * **Rails version:** 5.1.3
 * **PostgreSQL version:** 9.6
 
-* **Additional Technologies:** webpack, node.js, lodash.js
+* **Additional Technologies:**
+  - webpack, for bundling files and managing transpilation
+  - node.js, for managing JS packages
+  - lodash.js, for various helper functions
 
 ## Features & Implementation
 -----
-### Searching for Doctors:
+### Authentication:
 **Backend:**
 
-**Frontend:** Users can start searching for doctors before logging in. By default the search feature looks for primary care doctors in New York, but users can search for doctors anywhere based on specialty. A _filter_ slice of state manages the current search query and is updated based on the inputs to the search bar.
+**Frontend:**
 
 ---
 ### Doctor Profiles:
-**Backend:** For demo purposes, doctors are treated like business profiles on Yelp rather than a second set of users. Doctors have associations with specialties, certifications, reviews, and appointments. Each doctor is stored with several attributes including specialty, education and location.
+**Backend:** For demo purposes, doctors are treated like business profiles on Yelp rather than a second set of users.
+- Doctors have associations with specialties, certifications, reviews, and appointments. Each doctor's data is stored with several attributes including specialty, education and location.
 - Locations are inputted as postal addresses and stored as geographic coordinates with the aid of the _Geocoder_ gem.
 - Geocoder is also used get addresses from coordinates to display to users on the frontend.
 
-Specialties and certifications were made into independent tables in spite of their limited nature (only ~30 boards and ~50 specialties are recognized in the US) because of the _many-to-many_ relationship existing between them. Doctors are associated with certifications and specialties via join tables.
+Specialties and certifications were made into independent tables in spite of their limited nature (only ~30 boards and ~50 specialties are recognized in the US) because of the _many-to-many_ relationship existing between them and doctors. Doctors are associated with certifications and specialties via join tables.
 
+**Frontend:** When a doctor's profile is loaded
 
-**Frontend:** Doctors are handled in several places on the frontend. On the search index page each index consists of a miniature profile with links to the doctor's page and available appointments. Google maps is also integrated showing the doctors' location on a map which remains on the page as the user scrolls through search results. The UI is very similar ZocDoc in organization:
+![image of MockDoc doctor profile](./docs/images/doctor-profile.png)
+
+-----
+### Searching for Doctors:
+**Backend:** Search filter parameters are sent as data in _GET_ requests for doctors. The app searches
+
+**Frontend:** Users can start searching for doctors before logging in. By default the search feature looks for primary care doctors in New York, but users can search for doctors anywhere based on specialty.
+- A _filter_ slice of state manages the current search query and is updated based on the inputs to the search bar.
+
+On the search index page each index consists of a miniature profile with links to the doctor's page and available appointments. Google maps is also integrated showing the doctors' location on a map which remains on the page as the user scrolls through search results. The UI is very similar to  ZocDoc in organization:
 
 ![image of MockDoc search index](./docs/images/search-index.png)
 

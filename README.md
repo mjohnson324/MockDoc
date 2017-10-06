@@ -106,7 +106,7 @@ On the search index page each index consists of a miniature profile with links t
   + The downside was its inflexibility; only appointments up to a week in advance of the current date could ever be seen.
   + This dilemna was easily solved with an additional join on the appointments table, filtering by time ranges.
 
-**Frontend:** Sorting, formatting and displaying of appointment times is simplified with the _moment.js_ library.
+**Frontend:** Sorting, formatting and displaying of appointment times is simplified with the _moment.js_ library. In search results appointments are first sorted by doctor 
 
 -----
 ### Reviews:
@@ -126,6 +126,10 @@ Beyond improving the site's performance I intend to implement the following feat
 **Fuzzy Searches**
 
 Right now the search functionality is limited in what it accepts and provides no hints as to how to make successful queries. I intend to change that, implementing more robust search functionality that will enable patients to find doctors more easily.
+
+**Appointment Scrolling**
+
+ZocDoc has a feature where users can appointment availability over the next three-day time span for a doctor with just the click of a button. I intend to implement a similar feature by manipulating the state of the search index and doctor profiles.
 
 **Other Potential Directions:**
 * Responsive design: make it mobile-friendly.

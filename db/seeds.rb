@@ -94,10 +94,10 @@ doctors.each do |doctor|
   start_day = Time.new(c_yr, c_m, c_d, 8) - 7.day
 
   150.times do |i|
+    user = users[0]
     app = Appointment.create!(doctor_id: doctor.id, start_time: start_day.to_datetime)
     if i % 5 == 0 && Time.now > start_day
-      user = users.shuffle[0]
-      app.update(reason: "it hurts", patient_id: user.id)
+      app.update(reason: "I'm sick", patient_id: user.id) unless user.appointments.count > 10
       Review.create!(overall_rating: rating_range.shuffle[0], bedside_manner: rating_range.shuffle[0], wait_time: rating_range.shuffle[0], appointment_id: app.id, doctor_id: app.doctor_id)
     end
     start_day += 2.hour

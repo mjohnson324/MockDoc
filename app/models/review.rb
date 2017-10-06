@@ -21,17 +21,10 @@ class Review < ApplicationRecord
             :wait_time, numericality: { only_integer: true,
                                         greater_than_or_equal_to: 1,
                                         less_than_or_equal_to: 5 }
-  validate :patient_is_present
   after_create :check_review_time
 
   belongs_to :appointment
   belongs_to :doctor
-
-  def patient_is_present
-    unless self.appointment.patient_id
-      errors.add(:appointment_id, "Appointment must have a patient")
-    end
-  end
 
   def check_review_time
     if self.created_at < self.appointment.start_time + 1.hour

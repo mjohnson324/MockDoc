@@ -27,7 +27,7 @@ MockDoc is a full-stack web application based off ZocDoc, an appointment-booking
 **Frontend:** Site access is restricted based on login status. Users are directed away from pages for booking appointments and writing reviews until they have signed in.
 - _Bootstrapping_ is applied to preserve a user's login status by loading the current user to the window and using it to configure the _Redux store_, promptly deleting user information from the window afterwards.
 
-```
+```javascript
 const Auth = ({ component: Component, path, loggedIn }) => {
   return(<Route path={path} render={(props) => (
     !loggedIn ? (
@@ -62,7 +62,7 @@ Specialties and certifications were made into independent tables in spite of the
 
 **Backend:** Search filter parameters are sent as data in _GET_ requests for doctors. The app searches for doctors in a given area around the specified location, then filters the results by the specialty indicated by the user.
 
-```
+```ruby
 def index
   processed_specialty = params[:specialty].downcase
   doctors = Doctor.near(params[:address], 30)
@@ -106,7 +106,7 @@ On the search index page each index consists of a miniature profile with links t
   + The downside was its inflexibility; only appointments up to a week in advance of the current date could ever be seen.
   + This dilemna was easily solved with an additional join on the appointments table, filtering by time ranges.
 
-**Frontend:** Sorting, formatting and displaying of appointment times is simplified with the _moment.js_ library. In search results appointments are first sorted by doctor 
+**Frontend:** Sorting, formatting and displaying of appointment times is simplified with the _moment.js_ library. In search results appointments are first sorted by doctor
 
 -----
 ### Reviews:

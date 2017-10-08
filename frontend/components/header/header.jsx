@@ -45,7 +45,7 @@ class Header extends React.Component {
       return(
         <div className="home">
           <header className="head-home">
-            <h1>MockDoc: You get what you pay for</h1>
+            <h1>MockDoc</h1>
             <nav>{this.navLink()}</nav>
           </header>
           <h2>Search for doctors, book appointments, get free healthcare. Simple.*</h2>

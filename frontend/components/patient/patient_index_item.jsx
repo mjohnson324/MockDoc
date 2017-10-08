@@ -12,7 +12,7 @@ const PatientIndexItem = (props) => {
             .format("dddd, MMMM Do YYYY, h:mm a")}`}</div>
           <div>Address: {`${appointment.address}`}</div>
         <div>Doctor: {`${appointment.doctor_name}`}</div>
-        {cancelButton(appointment, cancel)}
+        {appointmentButtons(appointment, review, cancel)}
       </div>
       {reviewPortion(review, removeReview, appointment)}
     </li>
@@ -40,10 +40,14 @@ const reviewBody = body => {
   }
 };
 
-const cancelButton = (appointment, callback) => {
+const appointmentButtons = (appointment, review, callback) => {
   const startTime = moment(appointment.start_time);
   if (startTime._d > new Date()) {
     return <button onClick={callback}>Cancel Appointment</button>;
+  } else if (review === undefined) {
+    return <Link to={`/review/appointment-${appointment.id}`}>
+             Write Review
+           </Link>;
   }
 };
 

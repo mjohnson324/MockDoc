@@ -37,12 +37,12 @@ random_dental_address = ["49 W 23rd St, 12th Floor, New York, NY", "220 W 26th S
   doctors << Doctor.create!(first_name: doc_first_names[i], last_name: doc_last_names[i], education: education[i], degree: degrees[i], gender: genders[i], address: addresses[i])
 end
 50.times do |i|
-  doctors << Doctor.create!(first_name: random_first_name.shuffle[0], last_name: random_last_name.shuffle[0], education: random_school.shuffle[0], degree: "MD", gender: random_gender.shuffle[0], address: random_address.shuffle[0])
   sleep(2) if i % 3 == 0
+  doctors << Doctor.create!(first_name: random_first_name.shuffle[0], last_name: random_last_name.shuffle[0], education: random_school.shuffle[0], degree: "MD", gender: random_gender.shuffle[0], address: random_address.shuffle[0])
 end
 10.times do |i|
-  doctors << Doctor.create!(first_name: random_first_name.shuffle[0], last_name: random_last_name.shuffle[0], education: random_dental_school.shuffle[0], degree: ["DMD", "DDS"].shuffle[0], gender: random_gender.shuffle[0], address: random_dental_address.shuffle[0])
   sleep(2) if i % 3 == 0
+  doctors << Doctor.create!(first_name: random_first_name.shuffle[0], last_name: random_last_name.shuffle[0], education: random_dental_school.shuffle[0], degree: ["DMD", "DDS"].shuffle[0], gender: random_gender.shuffle[0], address: random_dental_address.shuffle[0])
 end
 
 certification_names = ["American Board of Allergy and Immunology", "American Board of Anesthesiology", "American Board of Colon and Rectal Surgery", "American Board of Dermatology", "American Board of Emergency Medicine", "American Board of Family Medicine", "American Board of Internal Medicine", "American Board of Medical Genetics and Genomics", "American Board of Neurological Surgery", "American Board of Nuclear Medicine", "American Board of Obstetrics and Gynecology", "American Board of Opthalmology", "American Board of Orthopaedic Surgery", "American Board of Otolaryngology", "American Board of Pathology", "American Board of Pediatrics", "American Board of Physical Medicine and Rehabilitation", "American Board of Plastic Surgery", "American Board of Preventive Medicine", "American Board of Psychiatry and Neurology", "American Board of Radiology", "American Board of Surgery", "American Board of Thoracic Surgery", "American Board of Urology", "American Board of Podiatric Medicine"]

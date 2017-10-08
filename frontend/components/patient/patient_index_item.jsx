@@ -10,8 +10,8 @@ const PatientIndexItem = (props) => {
         <div>Reason: {`${appointment.reason}`}</div>
         <div>Time: {`${moment(appointment.start_time)
             .format("dddd, MMMM Do YYYY, h:mm a")}`}</div>
-        <div>Address: {`${doctor.address}`}</div>
-        <div>Doctor: {`${doctor.first_name} ${doctor.last_name}`}</div>
+          <div>Address: {`${appointment.address}`}</div>
+        <div>Doctor: {`${appointment.doctor_name}`}</div>
         {cancelButton(appointment, cancel)}
       </div>
       {reviewPortion(review, removeReview, appointment)}

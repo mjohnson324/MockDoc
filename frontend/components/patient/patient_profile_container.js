@@ -29,7 +29,6 @@ const mapStatetoProps = (state) => {
     user: user,
     reviews: userReviews,
     appointments: userAppointments,
-    doctors: state.doctors,
   };
 };
 

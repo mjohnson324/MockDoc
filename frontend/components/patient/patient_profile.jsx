@@ -44,7 +44,6 @@ class PatientProfile extends React.Component {
             return(<PatientIndexItem
               key={idx}
               appointment={app}
-              doctor={doctors[app.doctor_id]}
               cancel={(e) => this.cancelAppointment(e, app.id)}
               review={reviews[app.id]}
               removeReview={(e) => this.deleteReview(e, reviews[app.id])} />);

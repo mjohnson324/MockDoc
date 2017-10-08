@@ -4,25 +4,34 @@ import PatientIndexItem from './patient_index_item';
 class PatientProfile extends React.Component {
   constructor(props) {
     super(props);
-
+    const { appointments, reviews } = this.props;
+    this.state = {
+      appointments,
+      reviews,
+    };
     this.cancelAppointment = this.cancelAppointment.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const { user } = this.props;
     this.props.getUser(user.id);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { appointments, reviews } = nextProps;
+    this.setState({ appointments, reviews, });
   }
 
   componentWillUnmount() {
     this.props.clearState();
   }
 
-  cancelAppointment(e, id) {
+  cancelAppointment(e, appointment) {
     e.preventDefault();
     const data = {
       reason: null,
       patient_id: null,
-      id,
+      id: appointment.id,
     };
     this.props.updateAppointment(data);
   }
@@ -33,10 +42,11 @@ class PatientProfile extends React.Component {
   }
 
   render() {
-    const { doctors, appointments, reviews, user } = this.props;
+    const { appointments, reviews } = this.state;
+
     return(
       <section className="patient-appointments">
-        <h1>Welcome, {user.first_name}!</h1>
+        <h1>Welcome, {this.props.user.first_name}!</h1>
 
         <h2>Your Appointments:</h2>
         <ol>
@@ -44,7 +54,7 @@ class PatientProfile extends React.Component {
             return(<PatientIndexItem
               key={idx}
               appointment={app}
-              cancel={(e) => this.cancelAppointment(e, app.id)}
+              cancel={(e) => this.cancelAppointment(e, app)}
               review={reviews[app.id]}
               removeReview={(e) => this.deleteReview(e, reviews[app.id])} />);
           })}

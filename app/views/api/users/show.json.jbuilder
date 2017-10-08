@@ -13,6 +13,7 @@ json.appointments do
     json.set! app.id do
       json.partial! "api/appointments/appointment", appointment: app
       json.reason app.reason
+      json.patient_id app.patient_id
       json.doctor_name "#{app.doctor.first_name} #{app.doctor.last_name}"
     end
   end

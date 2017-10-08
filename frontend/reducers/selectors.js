@@ -33,8 +33,8 @@ export const getAppointments = (appointments, ids) => {
 export const getPatientAppointments = (appointments, ids) => {
   let validIds = [];
   ids.forEach(id => {
-    if (appointments[id].reason !== null) {
-      return validIds << id;
+    if (appointments[id].patient_id !== null) {
+      validIds.push(id);
     }
   });
   return(

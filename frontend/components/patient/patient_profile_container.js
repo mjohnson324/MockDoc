@@ -5,7 +5,7 @@ import { getUser,
          clearState } from '../../actions/session_actions';
 import { deleteReview } from '../../actions/review_actions';
 import { getReviewsByAppointment,
-         getAppointments } from '../../reducers/selectors';
+         getPatientAppointments } from '../../reducers/selectors';
 import PatientProfile from './patient_profile';
 import { isEmpty } from 'lodash';
 
@@ -17,7 +17,7 @@ const mapStatetoProps = (state) => {
   if (isEmpty(state.appointments)) {
     userAppointments = [];
   } else {
-    userAppointments = getAppointments(state.appointments, user.appointment_ids);
+    userAppointments = getPatientAppointments(state.appointments, user.appointment_ids);
   }
   if (isEmpty(state.reviews)) {
     userReviews = {};

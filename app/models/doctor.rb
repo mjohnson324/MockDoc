@@ -20,7 +20,6 @@ class Doctor < ApplicationRecord
   validates :gender, inclusion: { in: %w(male female) }
   validates :degree, inclusion: { in: %w(MD DMD DO DDS DPM) }
   geocoded_by :address, latitude: :lat, longitude: :lng
-  after_validation :geocode
 
   attr_accessor :address
 

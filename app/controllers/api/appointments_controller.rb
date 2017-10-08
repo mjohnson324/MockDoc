@@ -4,9 +4,12 @@ class Api::AppointmentsController < ApplicationController
   def update
     @appointment = Appointment.find(params[:id])
     app_info = params[:appointment]
+    reason = app_info[:reason].empty? ? nil : app_info[:reason]
 
-    if !app_info[:reason].empty? || app_info[:patient_id].empty?
-      @appointment.update(appointment_params)
+    if !reason.nil? || app_info[:patient_id].empty?
+      app_params = { "reason" => reason,
+                     "patient_id" => app_info[:patient_id] }
+      @appointment.update(app_params)
       render :edit
     else
       render json: ["Please explain the reason for your visit"], status: 422
@@ -19,11 +22,5 @@ class Api::AppointmentsController < ApplicationController
     unless @appointment.patient == nil
       render json: ["This appointment is already booked"], status: 403
     end
-  end
-
-  private
-
-  def appointment_params
-    params.require(:appointment).permit(:reason, :patient_id)
   end
 end

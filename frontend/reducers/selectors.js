@@ -27,7 +27,20 @@ export const getAppointments = (appointments, ids) => {
   return(
     ids.map(id => {
         return appointments[id];
-      }));
+  }));
+};
+
+export const getPatientAppointments = (appointments, ids) => {
+  let validIds = [];
+  ids.forEach(id => {
+    if (appointments[id].reason !== null) {
+      return validIds << id;
+    }
+  });
+  return(
+    validIds.map(id => {
+        return appointments[id];
+  }));
 };
 
 export const sortAppointmentsByDoctor = (doctors, appointments) => {

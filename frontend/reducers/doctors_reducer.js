@@ -1,8 +1,7 @@
 import {
   RECEIVE_DOCTORS_AND_APPOINTMENTS,
   RECEIVE_DOCTOR_AND_APPS_AND_REVIEWS } from '../actions/doctor_actions';
-import { RECEIVE_CURRENT_USER,
-         CLEAR_STATE } from '../actions/session_actions';
+import { CLEAR_STATE } from '../actions/session_actions';
 import { merge } from 'lodash';
 
 const doctorsReducer = (state = {}, action) => {
@@ -10,8 +9,6 @@ const doctorsReducer = (state = {}, action) => {
   let newState;
   switch(action.type) {
     case RECEIVE_DOCTORS_AND_APPOINTMENTS:
-      return action.doctors;
-    case RECEIVE_CURRENT_USER:
       return action.doctors;
     case RECEIVE_DOCTOR_AND_APPS_AND_REVIEWS:
       newState = { [action.doctor.id]: action.doctor };

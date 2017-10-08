@@ -37,10 +37,12 @@ random_dental_address = ["49 W 23rd St, 12th Floor, New York, NY", "220 W 26th S
   doctors << [Doctor.create!(first_name: doc_first_names[i], last_name: doc_last_names[i], education: education[i], degree: degrees[i], gender: genders[i], address: addresses[i]), addresses[i]]
 end
 50.times do |i|
+  sleep(1)
   address = random_address.shuffle[0]
   doctors << [Doctor.create!(first_name: random_first_name.shuffle[0], last_name: random_last_name.shuffle[0], education: random_school.shuffle[0], degree: "MD", gender: random_gender.shuffle[0], address: address), address]
 end
 10.times do |i|
+  sleep(1)
   address = random_dental_address.shuffle[0]
   doctors << [Doctor.create!(first_name: random_first_name.shuffle[0], last_name: random_last_name.shuffle[0], education: random_dental_school.shuffle[0], degree: ["DMD", "DDS"].shuffle[0], gender: random_gender.shuffle[0], address: address), address]
 end

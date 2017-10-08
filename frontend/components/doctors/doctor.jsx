@@ -22,7 +22,7 @@ class Doctor extends React.Component {
     this.specList = this.specList.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getADoctor(this.props.match.params.id);
   }
 

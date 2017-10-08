@@ -21,7 +21,7 @@ class SearchIndex extends React.Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const queryString = "?".concat(window.location.href.split('?')[1]);
     const searchParams = new URLSearchParams(queryString);
 

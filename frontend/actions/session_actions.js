@@ -16,7 +16,7 @@ export const receiveCurrentUser = state => {
 
     return {
       type: RECEIVE_CURRENT_USER,
-      session: { currentUser: state.session},
+      session: { currentUser: state.session },
       appointments: userApps,
       reviews: userReviews,
     };

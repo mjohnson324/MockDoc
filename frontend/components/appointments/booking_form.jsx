@@ -12,7 +12,7 @@ class BookingForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const appId = this.props.match.params.id;
     this.props.getAppointment(appId);
     this.props.clearErrors();

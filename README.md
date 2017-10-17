@@ -106,7 +106,9 @@ On the search index page each index consists of a miniature profile with links t
   + The downside was its inflexibility; only appointments up to a week in advance of the current date could ever be seen.
   + This dilemna was easily solved with an additional join on the appointments table, filtering by time ranges.
 
-**Frontend:** Sorting, formatting and displaying of appointment times is simplified with the _moment.js_ library. In search results appointments are first sorted by doctor
+**Frontend:** Sorting, formatting and displaying of appointment times is simplified with the _moment.js_ library. In search results appointments are first sorted by doctor, then by day. This way, appointments are displayed such that appointments for a given day and doctor appear in order:
+
+![image of MockDoc appointments layout](./docs/images/appointments.png)
 
 -----
 ### Reviews:

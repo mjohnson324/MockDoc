@@ -6,10 +6,10 @@ export const updateReview = review => {
   });
 };
 
-export const getReview = reviewId => {
+export const getReview = appId => {
   return $.ajax({
     method: 'GET',
-    url: `api/reviews/${reviewId}`,
+    url: `api/reviews/${appId}`,
   });
 };
 

@@ -34,8 +34,8 @@ export const createReview = review => dispatch => {
   ));
 };
 
-export const getReview = id => dispatch => {
-  return APIUtil.getReview(id).then(rev => (
+export const getReview = appId => dispatch => {
+  return APIUtil.getReview(appId).then(rev => (
     dispatch(receiveReview(rev))
   ));
 };

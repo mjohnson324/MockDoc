@@ -23,7 +23,8 @@ class Api::ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find(params[:id])
+    @review = Review.where(appointment_id: params[:id])
+    render :show
   end
 
   def destroy

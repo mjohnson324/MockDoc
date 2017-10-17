@@ -30,7 +30,7 @@ class Api::ReviewsController < ApplicationController
     @review = Review.find(params[:id])
 
     @review.destroy
-    render :nothing
+    render json: @review.id
   end
 
   private

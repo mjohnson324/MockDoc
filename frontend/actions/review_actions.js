@@ -14,7 +14,7 @@ export const receiveReview = review => {
 export const removeReview = id => {
   return {
     type: REMOVE_REVIEW,
-    id
+    id: parseInt(id, 10),
   };
 };
 

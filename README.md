@@ -116,8 +116,11 @@ On the search index page each index consists of a miniature profile with links t
 ##### ** Implementing reviews did not come without challenges. At this point I learned I had set model associations in such a way that I wasn't retrieving the right information for doctors, forcing me to rethink all my associations.
 
 
-**Backend:**
-
+**Backend:** Reviews are retrieved with doctors much in the same manner as appointments.
+  - To keep the state normalized appointments, reviews and doctors are sent as independent JSON objects built using jbuilder.
+  - Doctors maintain references to their appointments and reviews with arrays of ids that can be used to retrieve them for display on the frontend.
+  - Patient reviews and appointments are retrieved in much the same way.
+Additionally an average rating is computed from all of a doctor's reviews based on the average of the overall rating score.
 
 **Frontend:**
 -----

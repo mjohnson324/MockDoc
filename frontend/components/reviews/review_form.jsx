@@ -20,6 +20,10 @@ class ReviewForm extends React.Component {
     this.props.getAppointment(appointmentId);
   }
 
+  componentWillUnmount () {
+    this.props.clearState();
+  }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -49,7 +53,7 @@ class ReviewForm extends React.Component {
     const { appointment, review } = this.props;
     if (appointment) {
       return(
-        <form>
+        <form onSubmit={this.handleSubmit} className="review-form">
           <h3>Leave a Review</h3>
           <label>Overall Rating:</label>
           <input type="text"
@@ -78,7 +82,8 @@ class ReviewForm extends React.Component {
             value={this.state.body}
             ></textarea>
           <br/>
-          <input onSubmit={this.handleSubmit}/>
+          {this.renderErrors()}
+          <input type="submit" value="Submit Review"/>
         </form>
       );
     } else {

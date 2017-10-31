@@ -18,9 +18,5 @@ class Api::AppointmentsController < ApplicationController
 
   def show
     @appointment = Appointment.find(params[:id])
-
-    unless @appointment.patient == nil
-      render json: ["This appointment is already booked"], status: 403
-    end
   end
 end

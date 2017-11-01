@@ -34,12 +34,6 @@ export const createReview = review => dispatch => {
   ));
 };
 
-export const getReview = appId => dispatch => {
-  return APIUtil.getReview(appId).then(rev => (
-    dispatch(receiveReview(rev))
-  ));
-};
-
 export const deleteReview = reviewId => dispatch => {
   return APIUtil.removeReview(reviewId).then(id => (
     dispatch(removeReview(id))

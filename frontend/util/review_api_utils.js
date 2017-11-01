@@ -6,13 +6,6 @@ export const updateReview = review => {
   });
 };
 
-export const getReview = appId => {
-  return $.ajax({
-    method: 'GET',
-    url: `api/reviews/${appId}`,
-  });
-};
-
 export const removeReview = reviewId => {
   return $.ajax({
     method: 'DELETE',

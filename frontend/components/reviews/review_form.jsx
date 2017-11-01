@@ -3,22 +3,13 @@ import React from 'react';
 class ReviewForm extends React.Component {
   constructor(props) {
     super (props);
-    const review = this.props.review;
-    if (review) {
-      this.state = {
-        overall_rating: `${review.overall_rating}`,
-        wait_time: `${review.wait_time}`,
-        bedside_manner: `${review.bedside_manner}`,
-        body: `${review.body}`,
-      };
-    } else {
       this.state = {
         overall_rating: '',
         wait_time: '',
         bedside_manner: '',
         body: '',
       };
-    }
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -26,7 +17,6 @@ class ReviewForm extends React.Component {
     this.props.clearErrors();
     const appointmentId = window.location.href.split('-')[1];
     this.props.getAppointment(appointmentId);
-    this.props.getReview(appointmentId);
   }
 
   componentWillUnmount () {

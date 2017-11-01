@@ -2,12 +2,15 @@ import * as APIUtil from '../util/appointment_util';
 import { receiveErrors } from './error_actions';
 
 
-export const RECEIVE_APPOINTMENT = 'RECEIVE_APPOINTMENT';
+export const RECEIVE_APPOINTMENT_AND_REVIEW = 'RECEIVE_APPOINTMENT_AND_REVIEW';
 
-export const receiveAppointment = appointment => {
+export const receiveAppointment = ({appointment, review}) => {
+  const reviewResults = review ? review : {};
+
   return {
-    type: RECEIVE_APPOINTMENT,
+    type: RECEIVE_APPOINTMENT_AND_REVIEW,
     appointment,
+    review: reviewResults
   };
 };
 

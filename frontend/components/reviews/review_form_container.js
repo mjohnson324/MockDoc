@@ -6,6 +6,7 @@ import {
 import { clearErrors } from '../../actions/error_actions';
 import { selectErrors } from '../../reducers/selectors';
 import { getAppointment } from '../../actions/appointment_actions';
+import { selectReview } from '../../reducers/selectors';
 import ReviewForm from './review_form';
 import { clearState } from '../../actions/session_actions';
 
@@ -14,6 +15,7 @@ const mapStatetoProps = (state) => {
   return {
     errors: selectErrors(state),
     appointment: state.appointments[appointmentId],
+    review: selectReview(state.reviews, appointmentId)
   };
 };
 

@@ -23,6 +23,17 @@ export const getReviewsByAppointment = (reviews, ids) => {
   return appReviews;
 };
 
+export const selectReview = (reviews, appointmentId) => {
+  let review;
+  for (const revId in reviews) {
+    if (revId !== appointmentId) {
+      review = reviews[revId];
+      break;
+    }
+  }
+  return review;
+};
+
 export const getAppointments = (appointments, ids) => {
   return(
     ids.map(id => {

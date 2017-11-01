@@ -8,6 +8,6 @@ end
 review = Review.where(appointment_id: @appointment.id)[0]
 unless review.nil?
   json.review do
-    json.partial! "api/doctors/doctor", review: @review
+    json.partial! "api/reviews/review", review: review
   end
 end

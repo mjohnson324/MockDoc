@@ -1,8 +1,1 @@
-json.extract! review, :id,
-              :appointment_id,
-              :doctor_id,
-              :overall_rating,
-              :bedside_manner,
-              :wait_time,
-              :body,
-              :updated_at
+json.extract! review, :id, :appointment_id, :doctor_id, :overall_rating, :bedside_manner, :wait_time, :body, :updated_at

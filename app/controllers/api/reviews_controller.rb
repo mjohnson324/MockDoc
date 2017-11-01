@@ -2,9 +2,7 @@ class Api::ReviewsController < ApplicationController
   before_action :require_logged_in
 
   def create
-    @review = Review.new(review_params,
-                         params[:review][:appointment_id],
-                         params[:review][:doctor_id])
+    @review = Review.new(review_params)
     if @review.save
       render "api/reviews/show"
     else
@@ -38,6 +36,11 @@ class Api::ReviewsController < ApplicationController
 
   def review_params
     params.require(:review)
-      .permit(:overall_rating, :wait_time, :bedside_manner, :body)
+      .permit(:overall_rating,
+              :wait_time,
+              :bedside_manner,
+              :body,
+              :appointment_id,
+              :doctor_id)
   end
 end

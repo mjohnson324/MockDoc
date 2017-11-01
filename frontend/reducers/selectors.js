@@ -24,9 +24,9 @@ export const getReviewsByAppointment = (reviews, ids) => {
 };
 
 export const selectReview = (reviews, appointmentId) => {
-  let review;
+  let review = undefined;
   for (const revId in reviews) {
-    if (revId !== appointmentId) {
+    if (reviews[revId]["appointment_id"] === parseInt(appointmentId)) {
       review = reviews[revId];
       break;
     }

@@ -22,6 +22,7 @@ const mapDispatchToProps = dispatch => {
   return {
     createReview: review => dispatch(createReview(review)),
     getReview: reviewAppId => dispatch(getReview(reviewAppId)),
+    updateReview: review => dispatch(updateReview(review)),
     getAppointment: appointmentId => dispatch(getAppointment(appointmentId)),
     clearErrors: () => dispatch(clearErrors()),
     clearState: () => dispatch(clearState()),

@@ -3,14 +3,22 @@ import React from 'react';
 class ReviewForm extends React.Component {
   constructor(props) {
     super (props);
-
-    this.state = {
-      overall_rating: 0,
-      wait_time: 0,
-      bedside_manner: 0,
-      body: ''
-    };
-
+    const review = this.props.review;
+    if (review) {
+      this.state = {
+        overall_rating: `${review.overall_rating}`,
+        wait_time: `${review.wait_time}`,
+        bedside_manner: `${review.bedside_manner}`,
+        body: `${review.body}`,
+      };
+    } else {
+      this.state = {
+        overall_rating: '',
+        wait_time: '',
+        bedside_manner: '',
+        body: '',
+      };
+    }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -18,6 +26,7 @@ class ReviewForm extends React.Component {
     this.props.clearErrors();
     const appointmentId = window.location.href.split('-')[1];
     this.props.getAppointment(appointmentId);
+    this.props.getReview(appointmentId);
   }
 
   componentWillUnmount () {
@@ -33,7 +42,9 @@ class ReviewForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const review = this.state;
-    this.props.createReview({review})
+    review["appointment_id"] = this.props.appointment.id;
+    review["doctor_id"] = this.props.appointment.doctor_id;
+    this.props.createReview(review)
       .then(() => this.props.history.push('/patient'));
   }
 
@@ -50,7 +61,7 @@ class ReviewForm extends React.Component {
   }
 
   render() {
-    const { appointment, review } = this.props;
+    const { appointment } = this.props;
     if (appointment) {
       return(
         <form onSubmit={this.handleSubmit} className="review-form">

@@ -19,6 +19,18 @@ class ReviewForm extends React.Component {
     this.props.getAppointment(appointmentId);
   }
 
+  componentWillReceiveProps(nextProps) {
+    const review = nextProps.review;
+    if (review !== undefined) {
+      this.setState({
+        overall_rating: review.overall_rating,
+        wait_time: review.wait_time,
+        bedside_manner: review.bedside_manner,
+        body: (review.body === null ? '' : review.body),
+      });
+    }
+  }
+
   componentWillUnmount () {
     this.props.clearState();
   }
@@ -34,8 +46,14 @@ class ReviewForm extends React.Component {
     const review = this.state;
     review["appointment_id"] = this.props.appointment.id;
     review["doctor_id"] = this.props.appointment.doctor_id;
-    this.props.createReview(review)
+    if (this.props.review !== undefined) {
+      review["id"] = this.props.review.id;
+      this.props.changeReview(review)
       .then(() => this.props.history.push('/patient'));
+    } else {
+      this.props.createReview(review)
+      .then(() => this.props.history.push('/patient'));
+    }
   }
 
   renderErrors() {

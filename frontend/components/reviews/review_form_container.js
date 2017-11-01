@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {
   createReview,
-  updateReview } from '../../actions/review_actions';
+  changeReview } from '../../actions/review_actions';
 import { clearErrors } from '../../actions/error_actions';
 import { selectErrors } from '../../reducers/selectors';
 import { getAppointment } from '../../actions/appointment_actions';
@@ -22,7 +22,7 @@ const mapStatetoProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     createReview: review => dispatch(createReview(review)),
-    updateReview: review => dispatch(updateReview(review)),
+    changeReview: review => dispatch(changeReview(review)),
     getAppointment: appointmentId => dispatch(getAppointment(appointmentId)),
     clearErrors: () => dispatch(clearErrors()),
     clearState: () => dispatch(clearState()),

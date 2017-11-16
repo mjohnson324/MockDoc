@@ -5,20 +5,26 @@
 
 MockDoc is a full-stack web application based off ZocDoc, an appointment-booking app.
 
-##### Technologies:
+## Technologies:
 * Frontend Framework: **React** 15.X.X & **ReduX** 3.X.X
 * Backend: **Ruby on Rails** 5.1.3 as an API (**Ruby** 2.3.1)
 * Database: **PostgresQL** 9.6
 * Styling: **Sass** preprocessor
 * **Other APIs:** [Google maps API](https://developers.google.com/maps/documentation/javascript/)
-
 * **Gems:** [Ruby Geocoder](https://github.com/alexreisner/geocoder)
 * **JS Libraries:** [Moment.js](https://momentjs.com/docs/), [Lodash.js](https://lodash.com), [React Router](https://github.com/ReactTraining/react-router)
-
 * **Webpack 2**, for bundling files and managing transpilation
 * **Node 6.10.1**, for package management
 
 ## Features & Implementation
+**TL;DR Summary:**
+  - MockDoc implements some of the core features of ZocDoc:
+    1. User authentication
+    2. Doctor profiles
+    3. Search functionality
+    4. Appointment scheduling
+    5. Appointment reviews
+
 -----
 ### Authentication:
 ** - Users can log in and out of the site, and access to features is restricted based on login status.**

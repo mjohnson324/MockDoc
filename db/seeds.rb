@@ -109,7 +109,7 @@ doctors.each do |doctor|
     app = Appointment.create!(doctor_id: doctor[0].id, start_time: start_day.to_datetime, address: doctor[1])
     if i % 5 == 0 && Time.now > start_day
       app.update(reason: "I'm sick", patient_id: user.id) unless user.appointments.count > 10
-      Review.create!(overall_rating: rating_range.shuffle[0], bedside_manner: rating_range.shuffle[0], wait_time: rating_range.shuffle[0], appointment_id: app.id, doctor_id: app.doctor_id)
+      Review.create!(overall_rating: rating_range.shuffle[0], bedside_manner: rating_range.shuffle[0], wait_time: rating_range.shuffle[0], appointment_id: app.id)
     end
     start_day += 2.hour
     start_day += 14.hour if start_day.hour == 18

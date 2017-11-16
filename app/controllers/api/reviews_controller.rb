@@ -35,7 +35,6 @@ class Api::ReviewsController < ApplicationController
               :wait_time,
               :bedside_manner,
               :body,
-              :appointment_id,
-              :doctor_id)
+              :appointment_id)
   end
 end

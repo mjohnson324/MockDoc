@@ -10,12 +10,11 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  appointment_id :integer          not null
-#  doctor_id      :integer          not null
+
 #
 
 class Review < ApplicationRecord
-  validates :appointment_id, :doctor_id, presence: true
-  validates :appointment_id, uniqueness: true
+  validates :appointment_id, presence: true, uniqueness: true
   validates :overall_rating,
             :bedside_manner,
             :wait_time, numericality: { only_integer: true,
@@ -24,7 +23,6 @@ class Review < ApplicationRecord
   validate :check_review_time
 
   belongs_to :appointment
-  belongs_to :doctor
 
   def check_review_time
     if Time.new < self.appointment.start_time + 1.hour

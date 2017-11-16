@@ -45,7 +45,6 @@ class ReviewForm extends React.Component {
     e.preventDefault();
     const review = this.state;
     review["appointment_id"] = this.props.appointment.id;
-    review["doctor_id"] = this.props.appointment.doctor_id;
     if (this.props.review !== undefined) {
       review["id"] = this.props.review.id;
       this.props.changeReview(review)

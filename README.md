@@ -38,10 +38,12 @@ MockDoc is a full-stack web application based off ZocDoc, an appointment-booking
 
 ### Authentication:
 
-**Backend:** Basic auth is handled for users with _BCRypt_ to store securely store password digests in the database. New session tokens are created on login and logout to protect users against _CSRF_ attacks.
+**Backend:** Passwords are encrypted with  _**BCRypt**_ prior to storage. New session tokens are created on login and logout to protect users against _**CSRF**_ attacks.
 
-**Frontend:** Site access is restricted based on login status. Users are directed away from pages for booking appointments and writing reviews until they have signed in.
-- _Bootstrapping_ is applied to preserve a user's login status by loading the current user to the window and using it to configure the _Redux store_, promptly deleting user information from the window afterwards.
+**Frontend:** A user's login status is preserved via _**bootstrapping**_.
+  - User information is added to the _**Redux store**_,
+  - This information is then deleted from the window.
+  - Site access is restricted until users log in with the following code:
 
 ```javascript
 const Auth = ({ component: Component, path, loggedIn }) => {
@@ -55,9 +57,8 @@ const Auth = ({ component: Component, path, loggedIn }) => {
 };
 ```
 
----
 ### Doctor Profiles:
-** - Users can view a doctor's information on that doctor's profile page along with past reviews and upcoming open appointments.**
+- Users can view a doctor's information on that doctor's profile page along with past reviews and upcoming open appointments.**
 
 **Backend:** For demo purposes, doctors are treated like business profiles on Yelp rather than a second set of users.
 - Doctors have associations with specialties, certifications, reviews, and appointments. Each doctor's data is stored with several attributes including specialty, education and location.

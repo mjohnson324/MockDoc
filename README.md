@@ -23,8 +23,11 @@ MockDoc is a full-stack web application based off ZocDoc, an appointment-booking
     1. User _**authentication**_
     2. Doctor _**profiles**_: Displays doctor information including reviews and open appointments.
     3. _**Search**_ functionality: Search for doctors by specialty and location
+      - Google Maps allows displaying doctor offices near a patient's home
+      - Geocoder enables searching for doctors a given distance (default 30 miles) from the search address
     4. _**Appointment**_ scheduling
     5. Appointment _**reviews**_: Leave a review after an appointment has taken place.
+  * The redux store is kept normalized at all times with separate slices of state for Doctors, Reviews, Appointments, and login credentials. This prevents the state from becoming too complex over time.
 
 
 ### Database Layout:
@@ -58,26 +61,16 @@ const Auth = ({ component: Component, path, loggedIn }) => {
 ```
 
 ### Doctor Profiles:
-- Users can view a doctor's information on that doctor's profile page along with past reviews and upcoming open appointments.**
 
-**Backend:** For demo purposes, doctors are treated like business profiles on Yelp rather than a second set of users.
-- Doctors have associations with specialties, certifications, reviews, and appointments. Each doctor's data is stored with several attributes including specialty, education and location.
-- Locations are inputted as postal addresses and stored as geographic coordinates with the aid of the _Geocoder_ gem.
-- Geocoder is also used get addresses from coordinates to display to users on the frontend.
+**Backend:** For demo purposes, doctors are treated like business profiles instead of users.
 
-Specialties and certifications were made into independent tables in spite of their limited nature (only ~30 boards and ~50 specialties are recognized in the US) because of the _many-to-many_ relationship existing between them and doctors. Doctors are associated with certifications and specialties via join tables.
-
-**Frontend:** When a doctor's profile is loaded their associated appointments, reviews, specialties and certifications are loaded along with them. Google maps displays their work address for the patient.
-- Appointments and reviews are stored in separate slices of state.
-- Doctors have arrays of review and appointment IDs used to retrieve relevant appointments and reviews to render.
+**Frontend:** Doctors have arrays of review and appointment IDs used to look up related data for rendering while keeping the state normalized.
 
 ![image of MockDoc doctor profile](./docs/images/doctor-profile.png)
 
------
 ### Searching for Doctors:
-** - Site users can search for doctors by location and specialty.**
 
-**Backend:** Search filter parameters are sent as data in _GET_ requests for doctors. The app searches for doctors in a given area around the specified location, then filters the results by the specialty indicated by the user.
+**Backend:** To reduce loading time only a limited number of appointments are retrieved for each doctor returned in a search request, specifically unbooked appointments up to a week from the initial start day:
 
 ```ruby
 def index
@@ -96,14 +89,12 @@ def index
   end
 end
 ```
-- Geocoder simplifies the process of searching for doctors near a given address (up to 30 miles away by default)
-- To improve runtime speed the app applies _eager loading_, retrieving all associated information for all doctors in _one_ query to the database.
-- To reduce loading time only appointments a week in advance of the current date are retrieved for each doctor as doctors can potentially schedule appointments months in advance which could result in significant loading times.
 
-**Frontend:** Users can start searching for doctors before logging in. By default the search feature looks for primary care doctors in New York, but users can search for doctors anywhere based on specialty.
-- A _filter_ slice of state manages the current search query and is updated based on the inputs to the search bar.
+- To improve runtime speed the app also applies _**eager loading**_, retrieving all associated information for all doctors in _**one**_ query to the database.
 
-On the search index page each index consists of a miniature profile with links to the doctor's page and available appointments. Google maps is also integrated showing the doctors' location on a map which remains on the page as the user scrolls through search results. The UI is very similar to  ZocDoc in organization:
+**Frontend:** Users can search for doctors of many specialties anywhere (default search area New York).
+
+- A _filter_ slice of state manages the current search query and is updated based on the inputs to the search bar. The search results UI is very similar to  ZocDoc in organization:
 
 ![image of MockDoc search index](./docs/images/search-index.png)
 

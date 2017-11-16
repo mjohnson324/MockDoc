@@ -3,19 +3,20 @@
 **Link to Site:** [MockDoc](https://www.mockdoc.live/)
 
 
-MockDoc is a full-stack web application based off ZocDoc, an appointment-booking app. I employed **React.js** with **Redux** as the architectural framework on the frontend. On the backend I'm using **Ruby on Rails** and a **PostgreSQL** database. Styling was accomplished with **Sass**.
+MockDoc is a full-stack web application based off ZocDoc, an appointment-booking app.
 
-* **APIs:** [Google maps API](https://developers.google.com/maps/documentation/javascript/)
+##### Technologies:
+* Frontend Framework: **React** 15.X.X & **ReduX** 3.X.X
+* Backend: **Ruby on Rails** 5.1.3 as an API (**Ruby** 2.3.1)
+* Database: **PostgresQL** 9.6
+* Styling: **Sass** preprocessor
+* **Other APIs:** [Google maps API](https://developers.google.com/maps/documentation/javascript/)
+
 * **Gems:** [Ruby Geocoder](https://github.com/alexreisner/geocoder)
-* **JS Libraries:** [moment.js](https://momentjs.com/docs/)
-* **Ruby version:** 2.3.1
-* **Rails version:** 5.1.3
-* **PostgreSQL version:** 9.6
+* **JS Libraries:** [Moment.js](https://momentjs.com/docs/), [Lodash.js](https://lodash.com), [React Router](https://github.com/ReactTraining/react-router)
 
-* **Additional Technologies:**
-  - webpack, for bundling files and managing transpilation
-  - node.js, for managing JS packages
-  - lodash.js, for various helper functions
+* **Webpack 2**, for bundling files and managing transpilation
+* **Node 6.10.1**, for package management
 
 ## Features & Implementation
 -----

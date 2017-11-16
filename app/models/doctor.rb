@@ -25,7 +25,9 @@ class Doctor < ApplicationRecord
 
   has_many :appointments
 
-  has_many :reviews
+  has_many :reviews,
+           through: :appointments,
+           source: :review
 
   has_many :doctor_specialties
 

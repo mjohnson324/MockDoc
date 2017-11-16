@@ -21,15 +21,14 @@ class Review < ApplicationRecord
             :wait_time, numericality: { only_integer: true,
                                         greater_than_or_equal_to: 1,
                                         less_than_or_equal_to: 5 }
-  after_create :check_review_time
+  validate :check_review_time
 
   belongs_to :appointment
   belongs_to :doctor
 
   def check_review_time
-    if self.created_at < self.appointment.start_time + 1.hour
+    if Time.new < self.appointment.start_time + 1.hour
       errors.add(:created_at, "Please review the appointment after it's over")
-      self.destroy
     end
   end
 end

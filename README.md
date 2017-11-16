@@ -29,7 +29,12 @@ MockDoc is a full-stack web application based off ZocDoc, an appointment-booking
 
 ### Database Layout:
 
+* [DB schema][schema]
+[schema]: docs/schema.md
 
+**Key Takeaways:**
+ - Join tables exist between doctors & specialties and doctors & certifications because doctors can have more than one of each.
+ - Doctor addresses are stored as latitude and longitude (lat and lng, respectively) to interface with Google Maps API and Ruby Geocoder.
 
 ### Authentication:
 

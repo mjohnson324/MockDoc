@@ -139,17 +139,15 @@ Beyond improving the site's performance and refactoring code I intend to impleme
 
 **Appointment Scrolling**
 
-ZocDoc has a feature where users can appointment availability over the next three-day time span for a doctor with just the click of a button. I intend to implement a similar feature by manipulating the state of the search index and doctor profiles.
+ZocDoc has a feature where users can check appointment availability over the next three-day time span for a doctor with just the click of a button, indicating many appointments are retrieved at once. I intend to implement a similar feature by manipulating the state of the search index and doctor profiles.
 
 **Fuzzy Searches**
 
-Right now the search functionality is limited in what it accepts and provides no hints as to how to make successful queries. I intend to change that, implementing more robust search functionality that will enable patients to find doctors more easily.
+Right now the search functionality is limited in what queries it accept. I intend to change that, implementing more robust search functionality that will enable patients to find doctors more easily.
+- Elastisearch is one possibility I've considered.
 
 **Other Potential Directions:**
 * Responsive design: make it mobile-friendly.
 * Multiple users: doctors are paid users with a different set of privileges than patients.
-* Photographed insurance: Patients can take photos of their insurance ID for faster booking.
-* Online form fill-out: Patients can fill out forms for doctors ahead of the appointment online.
-* Wellness plans: Healthcare guidelines are provided to the user based on demographics.
-
-##### ** Implementing reviews did not come without challenges. At this point I learned I had set model associations in such a way that I wasn't retrieving the right information for doctors, forcing me to rethink all my associations.
+* Photos: Doctors have profile pictures on ZocDoc. AWS will help in the implementation for storing photos.
+* Wellness plans: Healthcare guidelines are provided to the user based on demographic information.

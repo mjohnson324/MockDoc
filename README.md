@@ -29,10 +29,13 @@ MockDoc is a full-stack web application based off ZocDoc, an appointment-booking
     5. Appointment _**reviews**_: Leave a review after an appointment has taken place.
   * The redux store is kept normalized at all times with separate slices of state for Doctors, Reviews, Appointments, and login credentials. This prevents the state from becoming too complex over time.
 
+  * [API Endpoints][API Endpoints]
 
+  [API Endpoints]: docs/api-endpoints.md
 ### Database Layout:
 
 * [DB schema][schema]
+
 [schema]: docs/schema.md
 
 **Key Details:**

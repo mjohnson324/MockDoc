@@ -10,9 +10,13 @@ MockDoc is a full-stack web application based off ZocDoc, an appointment-booking
 * Backend: **Ruby on Rails** 5.1.3 as an API (**Ruby** 2.3.1)
 * Database: **PostgresQL** 9.6
 * Styling: **Sass** preprocessor
+
+
 * **Other APIs:** [Google maps API](https://developers.google.com/maps/documentation/javascript/)
 * **Gems:** [Ruby Geocoder](https://github.com/alexreisner/geocoder)
 * **JS Libraries:** [Moment.js](https://momentjs.com/docs/), [Lodash.js](https://lodash.com), [React Router](https://github.com/ReactTraining/react-router)
+
+
 * **Webpack 2**, for bundling files and managing transpilation
 * **Node 6.10.1**, for package management
 
@@ -29,12 +33,18 @@ MockDoc is a full-stack web application based off ZocDoc, an appointment-booking
     5. Appointment _**reviews**_: Leave a review after an appointment has taken place.
   * The redux store is kept normalized at all times with separate slices of state for Doctors, Reviews, Appointments, and login credentials. This prevents the state from becoming too complex over time.
 
+
   * [API Endpoints][API Endpoints]
+  * [Component Hierarchy][hierarchy]
+  * [Sample State][state]
 
   [API Endpoints]: docs/api-endpoints.md
+  [hierarchy]: docs/component-hierarchy.md
+  [state]: docs/sample-state.md
+
 ### Database Layout:
 
-* [DB schema][schema]
+[DB schema][schema]
 
 [schema]: docs/schema.md
 

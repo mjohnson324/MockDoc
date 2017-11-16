@@ -27,8 +27,10 @@ MockDoc is a full-stack web application based off ZocDoc, an appointment-booking
     5. Appointment _**reviews**_: Leave a review after an appointment has taken place.
 
 
-### Database Layout: 
------
+### Database Layout:
+
+
+
 ### Authentication:
 
 **Backend:** Basic auth is handled for users with _BCRypt_ to store securely store password digests in the database. New session tokens are created on login and logout to protect users against _CSRF_ attacks.

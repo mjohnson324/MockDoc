@@ -17,19 +17,11 @@ last_name              | string     | not null
 degree                 | string     | not null
 gender                 | string     | not null
 education              | text       | not null
-lat                    | float      | not null
-lng                    | float      | not null
+lat                    | float      |
+lng                    | float      |
 professional_statement | text       |
 
-## patient_doctor_relationships
-column name  | data type | details
--------------|-----------|------------------
-id           | integer   | not null, primary key
-patient_id   | integer   | not null, foreign key (references users)
-doctor_id    | integer   | not null, foreign key (references doctors)
-- [doctor_id, patient_id], indexed, unique
-
-## doctor_specialties
+## doctor_specialties (join table)
 column name      | data type | details
 -----------------|-----------|------------------
 id               | integer   | not null, primary key
@@ -43,7 +35,7 @@ column name  | data type | details
 id           | integer   | not null, primary key
 name         | string    | not null, indexed, unique
 
-## doctor_certifications
+## doctor_certifications (join table)
 column name      | data type | details
 -----------------|-----------|------------------
 id               | integer   | not null, primary key
@@ -51,7 +43,7 @@ doctor_id        | integer   | not null, foreign key (references doctors)
 certification_id | integer   | not null, foreign key (references board_certifications)
 - [doctor_id, certification_id], indexed, unique
 
-## board_certifications
+## certifications
 column name | data type | details
 ------------|-----------|------------------
 id          | integer   | not null, primary key
@@ -62,15 +54,16 @@ column name         | data type | details
 --------------------|-----------|-----------------------
 id                  | integer   | not null, primary key
 patient_id          | integer   | not null, foreign key (references patients), indexed
-doctor_id           | integer   | not null, foreign key (references doctors), indexed
+doctor_id           | integer   | not null, foreign key (references doctors)
 start_time          | timestamp | not null
 reason              | text      | not null
+- [start_time, doctor_id], indexed, unique
 
 ## reviews
 column name    | data type | details
 ---------------|-----------|-----------------------
 id             | integer   | not null, primary key
-patient_id     | text      | not null, foreign key (references patients), indexed
+appointment_id | text      | not null, foreign key (references patients), indexed
 doctor_id      | integer   | not null, foreign key (references doctors), indexed
 overall_rating | integer   | not null
 bedside_manner | integer   | not null

@@ -63,7 +63,7 @@ reason              | text      | not null
 column name    | data type | details
 ---------------|-----------|-----------------------
 id             | integer   | not null, primary key
-appointment_id | text      | not null, foreign key (references patients), indexed
+appointment_id | text      | not null, foreign key (references patients), indexed, unique
 doctor_id      | integer   | not null, foreign key (references doctors), indexed
 overall_rating | integer   | not null
 bedside_manner | integer   | not null

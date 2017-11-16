@@ -1,10 +1,10 @@
 # MockDoc
------
-**Link to Site:** [MockDoc](https://www.mockdoc.live/)
 
+**Link to Site:** [MockDoc](https://www.mockdoc.live/)
 
 MockDoc is a full-stack web application based off ZocDoc, an appointment-booking app.
 
+---
 ## Technologies:
 * Frontend Framework: **React** 15.X.X & **ReduX** 3.X.X
 * Backend: **Ruby on Rails** 5.1.3 as an API (**Ruby** 2.3.1)
@@ -16,18 +16,20 @@ MockDoc is a full-stack web application based off ZocDoc, an appointment-booking
 * **Webpack 2**, for bundling files and managing transpilation
 * **Node 6.10.1**, for package management
 
+---
 ## Features & Implementation
 **TL;DR Summary:**
   - MockDoc implements some of the core features of ZocDoc:
-    1. User authentication
-    2. Doctor profiles
-    3. Search functionality
-    4. Appointment scheduling
-    5. Appointment reviews
+    1. User _**authentication**_
+    2. Doctor _**profiles**_: Displays doctor information including reviews and open appointments.
+    3. _**Search**_ functionality: Search for doctors by specialty and location
+    4. _**Appointment**_ scheduling
+    5. Appointment _**reviews**_: Leave a review after an appointment has taken place.
 
+
+### Database Layout: 
 -----
 ### Authentication:
-** - Users can log in and out of the site, and access to features is restricted based on login status.**
 
 **Backend:** Basic auth is handled for users with _BCRypt_ to store securely store password digests in the database. New session tokens are created on login and logout to protect users against _CSRF_ attacks.
 

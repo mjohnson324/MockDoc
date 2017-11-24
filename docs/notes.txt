@@ -1,35 +1,4 @@
-// var geocoder = new google.maps.Geocoder;
-//   var infowindow = new google.maps.InfoWindow;
-//
-//   document.getElementById('submit').addEventListener('click', function() {
-//     geocodeLatLng(geocoder, map, infowindow);
-//   });
-// }
-//
-// function geocodeLatLng(geocoder, map, infowindow) {
-//   var input = document.getElementById('latlng').value;
-//   var latlngStr = input.split(',', 2);
-//   var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
-//   geocoder.geocode({'location': latlng}, function(results, status) {
-//     if (status === 'OK') {
-//       if (results[0]) {
-//         map.setZoom(11);
-//         var marker = new google.maps.Marker({
-//           position: latlng,
-//           map: map
-//         });
-//         infowindow.setContent(results[0].formatted_address);
-//         infowindow.open(map, marker);
-
-
-//  registerListeners() {
-//   google.maps.event.addListener(this.map, 'idle', () => {
-//     const { north, south, east, west } = this.map.getBounds().toJSON();
-//     const bounds = {
-//       northEast: { lat:north, lng: east }, // calculate using map center
-//       southWest: { lat: south, lng: west } }; // calculate using map center
-//     this.props.updateFilter('bounds', bounds);
-//   });
-// }
-
-// this.registerListeners();
+ZocDoc Fonts:
+slab-book (text-boxes & paragraphs)
+kievit-sans-bold (other text)
+sharp-sans-bold (titles), also -medium and -semibold (links)

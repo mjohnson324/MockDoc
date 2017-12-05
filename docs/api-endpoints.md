@@ -5,17 +5,17 @@
 
 - GET / - loads React web app
 
-### Users
+### API Users
 
 - POST /api/users
 - GET /api/users/:id
 
-### Session
+### API Session
 
 - POST /api/session
 - DELETE /api/session
 
-### Doctors
+### API Doctor
 
 - GET /api/doctors/
   - Doctors /search:
@@ -23,12 +23,12 @@
   - accepts specialty query param to find doctors by specialty
 - GET /api/doctors/:id
 
-### Appointments
+### API Appointments
 
 - GET /api/appointments/:id
 - PATCH /api/appointments/:id
 
-### Reviews
+### API Reviews
 
 - POST /api/reviews
 - PATCH  /api/reviews/:id

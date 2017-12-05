@@ -1,8 +1,7 @@
 ## Component Hierarchy:
 
-**Header**
-
-**Footer**
+**HeaderContainer**
+  - Header
 
 **AuthFormContainer**
 - AuthForm
@@ -36,6 +35,9 @@
 **BookingFormContainer**
 - BookingForm
 
+- AppointmentsTable
+  - AppointmentsDayDisplay
+
 **ReviewFormContainer**
 - ReviewForm
 
@@ -43,12 +45,11 @@
 
 | Path                         | Component                        |
 |------------------------------|----------------------------------|
-| "/"                          | "Search"                         |
-| "/createUser"                | "AuthFormContainer"              |
-| "/signIn"                    | "AuthFormContainer"              |
-| "/user/editProfile"          | "PatientProfileContainer"        |
-| "/user/pastAppointments"     | "PatientAppointmentsContainer"   |
+| "/"                          | "SearchContainer"                |
+| "/search"                    | "SearchIndexContainer"           |
+| "/createuser"                | "SignupFormContainer"            |
+| "/signin"                    | "SessionFormContainer"           |
+| "/patient"                   | "PatientProfileContainer"        |
 | "/doctor/:id"                | "DoctorProfileContainer"         |
-| "/search/results"            | "SearchResultsContainer"         |
 | "/booking/:id"               | "BookingFormContainer"           |
 | "/review/:id"                | "ReviewFormContainer"            |

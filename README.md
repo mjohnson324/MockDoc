@@ -37,10 +37,12 @@ MockDoc is a full-stack web application based off ZocDoc, an appointment-booking
   * [API Endpoints][API Endpoints]
   * [Component Hierarchy][hierarchy]
   * [Sample State][state]
+  + [Schema][schema]
 
   [API Endpoints]: docs/api-endpoints.md
   [hierarchy]: docs/component-hierarchy.md
   [state]: docs/sample-state.md
+  [schema]: docs/schema.md
 
 ### Database Layout:
 

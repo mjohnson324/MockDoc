@@ -15,7 +15,7 @@
 - POST /api/session
 - DELETE /api/session
 
-### API Doctor
+### API Doctors
 
 - GET /api/doctors/
   - Doctors /search:

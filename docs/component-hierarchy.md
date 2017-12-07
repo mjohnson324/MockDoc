@@ -3,34 +3,31 @@
 **HeaderContainer**
   - Header
 
-**AuthFormContainer**
-- AuthForm
+**SessionFormContainer**
+  - SessionForm
+
+**SignupFormContainer**
+  - SignupForm
 
 **PatientProfileContainer**
-- PatientProfile
-
-**PatientAppointmentsContainer**
-- AppointmentsIndex
-  + AppointmentsIndexItem
+  - PatientProfile
+    + PatientIndexItem
 
 **DoctorProfileContainer**
-- DoctorProfileHeader
-- DoctorProfile
+  - DoctorProfileHeader
+  - DoctorProfile
   - DoctorAppointmentsIndex
     + DoctorAppointmentsIndexItem
-- ReviewsIndex
+    - ReviewsIndex
   + ReviewsIndexItem
 
 **SearchContainer**
-- Search
+  - Search
 
-**SearchResultsContainer**
+**SearchIndexContainer**
 - Search
-- Search Parameter
-- AppointmentsIndex
-  + AppointmentsIndexItem
--DoctorsIndex
-  + DoctorsIndexItem
+- SearchIndex
+
 
 **BookingFormContainer**
 - BookingForm

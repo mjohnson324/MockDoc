@@ -69,8 +69,6 @@ class ReviewForm extends React.Component {
 
   render() {
     const { appointment, review } = this.props;
-    // review.overall_rating, review.bedside_manner, review.wait_time,
-    // (review.body === null ? '' : review.body)
     if (appointment) {
       return(
         <form onSubmit={this.handleSubmit} className="review-form">

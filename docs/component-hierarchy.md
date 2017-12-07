@@ -13,30 +13,32 @@
   - PatientProfile
     + PatientIndexItem
 
-**DoctorProfileContainer**
-  - DoctorProfileHeader
-  - DoctorProfile
-  - DoctorAppointmentsIndex
-    + DoctorAppointmentsIndexItem
-    - ReviewsIndex
-  + ReviewsIndexItem
+**DoctorContainer**
+  - Doctor
+    + DoctorsMap
+    + DoctorReviews
+      + DoctorReviewsItem
+    + DoctorAppointments
+      + AppointmentsTable
+        + AppointmentsDayDisplay
 
 **SearchContainer**
-  - Search
+  - Search (This is the search bar)
 
 **SearchIndexContainer**
-- Search
-- SearchIndex
-
+- SearchIndex (This displays search results)
+  + DoctorsMap (Google Maps Display)
+  + SearchContainer
+    + Search
+  + SearchIndexItem
+      + AppointmentsTable (Holds Lists of Appointments sorted by day)
+        + AppointmentsDayDisplay (Each is a list of appointments)
 
 **BookingFormContainer**
-- BookingForm
-
-- AppointmentsTable
-  - AppointmentsDayDisplay
+  - BookingForm
 
 **ReviewFormContainer**
-- ReviewForm
+  - ReviewForm
 
 ## Routes:
 

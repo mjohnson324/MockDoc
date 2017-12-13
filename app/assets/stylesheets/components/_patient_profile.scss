@@ -23,6 +23,7 @@
     background-color: $zoc-yellow;
     padding: 10px;
     margin-top: 20px;
+    margin-right: 20px;
   }
 
   button:hover {
@@ -39,8 +40,28 @@
   }
 }
 
-.patient-appointment-info {
+.patient-review-info {
   display: inline-block;
-  margin-left: 50px;
+
   vertical-align: top;
+}
+
+.patient-appointment-info {
+  @extend .patient-review-info;
+  width: 350px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.review-body {
+  display: inline-block;
+}
+
+.review-buttons {
+  @extend .review-body;
+  margin-left: 20px;
+
+  button, a {
+    display: block;
+  }
 }

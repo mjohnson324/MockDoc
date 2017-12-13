@@ -48,7 +48,7 @@ class PatientProfile extends React.Component {
         <h1>Welcome, {this.props.user.first_name}!</h1>
 
         <h2>Your Appointments:</h2>
-        <ol>
+        <ul>
           {appointments.map((app, idx) => {
             return(<PatientIndexItem
               key={idx}
@@ -57,7 +57,7 @@ class PatientProfile extends React.Component {
               review={reviews[app.id]}
               removeReview={(e) => this.deleteReview(e, reviews[app.id])} />);
           })}
-        </ol>
+        </ul>
       </section>
     );
   }

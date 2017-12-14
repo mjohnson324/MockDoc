@@ -18,7 +18,7 @@
 class Doctor < ApplicationRecord
   validates :first_name, :last_name, :education, presence: true
   validates :gender, inclusion: { in: %w(male female) }
-  validates :degree, inclusion: { in: %w(MD DMD DO DDS DPM) }
+  validates :degree, inclusion: { in: %w(MD DMD DO DDS DPM PhD) }
   geocoded_by :address, latitude: :lat, longitude: :lng
 
   attr_accessor :address

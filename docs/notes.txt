@@ -2,3 +2,16 @@ ZocDoc Fonts:
 slab-book (text-boxes & paragraphs)
 kievit-sans-bold (other text)
 sharp-sans-bold (titles), also -medium and -semibold (links)
+
+Doctor Heroku ids: 698 to 807
+
+docs = Doctor.all
+doc_ids = []
+docs.each { |doc| doc_ids << doc.id }
+
+app_addresses = {}
+
+doc_ids.each do |id|
+  app = Appointment.where(doctor_id: id).limit(1)
+  app_addresses[id] = app.address
+end

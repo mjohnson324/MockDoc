@@ -13,5 +13,5 @@ app_addresses = {}
 
 doc_ids.each do |id|
   app = Appointment.where(doctor_id: id).limit(1)
-  app_addresses[id] = app.address
+  app_addresses[id] = app[0].address
 end

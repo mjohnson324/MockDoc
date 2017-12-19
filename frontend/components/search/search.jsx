@@ -75,7 +75,7 @@ class Search extends React.Component {
     return(
       <form className={searchClass} onSubmit={this.handleSubmit}>
         <input type="text"
-          placeholder="Specialty"
+          placeholder="Specialist"
           value={this.state.specialty}
           onChange={this.update('specialty')} />
 

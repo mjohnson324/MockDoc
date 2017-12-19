@@ -10,7 +10,10 @@ json.appointments do
   @doctors.each do |doctor|
     doctor.appointments.each do |appointment|
       json.set! appointment.id do
-        json.partial! "api/appointments/appointment", appointment: appointment
+        json.extract! appointment, :id,
+                                   :doctor_id,
+                                   :start_time,
+                                   :address
       end
     end
   end

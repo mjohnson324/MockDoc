@@ -5,17 +5,46 @@ class Api::DoctorsController < ApplicationController
 
   def index
     processed_specialty = params[:specialty].downcase
-    doctors = Doctor.near(params[:address], 30)
-      .includes(:specialties, :certifications, :reviews, :appointments)
-      .joins(:specialties, :appointments).where(
-        specialties: { name: processed_specialty },
-        appointments: {
-          start_time: (Time.now)..(Time.now + 6.day),
-          patient_id: nil
-        })
+    @doctors = Doctor.near(params[:address], 30)
+      .includes(:specialties, :certifications)
+      .where(specialties: { name: processed_specialty }).
+      references(:specialties)
 
-    @doctors = doctors.select do |doctor|
-      doctor.specialties.pluck(:name).include?(processed_specialty)
+    @doctor_appointments = get_apps_from_doctors(@doctors)
+    @average_ratings = get_doctor_ratings(@doctors)
+  end
+
+  private
+
+  def get_apps_from_doctors(doctors)
+    doctor_appointments = {}
+    doctors.each do |doctor|
+      appointments = doctor.appointments
+        .where(
+          start_time: (Time.now)..(Time.now + 6.day),
+          patient_id: nil)
+      doctor_appointments[doctor.id] = appointments
+    end
+    doctor_appointments
+  end
+
+  def get_doctor_ratings(doctors)
+    average_ratings = {}
+    doctors.each do |doctor|
+      doctor_reviews = doctor.reviews
+      all_review_ratings = doctor_reviews.to_a.map(&:overall_rating)
+      average_ratings[doctor.id] = process_ratings(
+                                    doctor_reviews,
+                                    all_review_ratings)
+    end
+    average_ratings
+  end
+
+  def process_ratings(doctor_reviews, ratings)
+    if doctor_reviews.empty?
+      "Not rated"
+    else
+      ratings.reduce(:+) / ratings.length.to_f
     end
   end
 end

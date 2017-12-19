@@ -20,10 +20,10 @@ json.doctor do
                          :lng,
                          :education,
                          :professional_statement
-  json.address doctor.get_address
+  json.address @doctor.get_address
   json.average_rating average_rating
-  json.specialties doctor.specialties.to_a.map(&:name)
-  json.certifications doctor.certifications.to_a.map(&:name)
+  json.specialties @doctor.specialties.to_a.map(&:name)
+  json.certifications @doctor.certifications.to_a.map(&:name)
   json.appointment_ids doc_apps.to_a.map(&:id)
   json.review_ids doctor_reviews.to_a.map(&:id)
 end

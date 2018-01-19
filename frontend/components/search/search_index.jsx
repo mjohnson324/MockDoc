@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import moment from 'moment';
 import { getDayRange } from '../../util/appointment_util';
 import { sortAppointmentsByDoctor } from '../../reducers/selectors';
 
@@ -11,9 +10,7 @@ import DoctorsMap from '../map/doctors_map';
 class SearchIndex extends React.Component {
   constructor(props) {
     super(props);
-
     const days = getDayRange();
-
     this.state = {
       today: days[0],
       tomorrow: days[1],

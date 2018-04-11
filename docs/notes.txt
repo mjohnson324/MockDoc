@@ -3,23 +3,35 @@ slab-book (text-boxes & paragraphs)
 kievit-sans-bold (other text)
 sharp-sans-bold (titles), also -medium and -semibold (links)
 
+Script to Update Doctor Addresses Correctly:
 Doctor Heroku ids: 698 to 807
-
 docs = Doctor.all
 doc_ids = []
 docs.each { |doc| doc_ids << doc.id }
-
 app_addresses = {}
-
 doc_ids.each do |id|
   app = Appointment.where(doctor_id: id).limit(1)
   app_addresses[id] = app[0].address
 end
-
 doc_ids.each { |id| Doctor.find(id).update(address: app_addresses[id]) }
-
 u = User.first
 d1 = Doctor.find(1325)
 d2 = Doctor.find(1326)
 apps1 = d1.appointments
 apps2 = d2.appointments
+
+CSS To Display Stars:
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}

@@ -1,5 +1,5 @@
 {
-  "name": "ZocDocClone",
+  "name": "MockDoc",
   "private": true,
   "dependencies": {
     "babel-core": "^6.26.0",
@@ -38,7 +38,7 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "webpack --watch",
+    "start": "npx webpack --watch",
     "postinstall": "webpack"
   },
   "keywords": [],

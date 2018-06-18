@@ -2,14 +2,14 @@
 #
 # Table name: appointments
 #
-#  id         :integer          not null, primary key
+#  id         :bigint(8)        not null, primary key
+#  address    :string
+#  start_time :datetime         not null
+#  reason     :text
 #  patient_id :integer
 #  doctor_id  :integer          not null
-#  reason     :text
-#  start_time :datetime         not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#
 
 class Appointment < ApplicationRecord
   validates :doctor_id, :start_time, presence: true

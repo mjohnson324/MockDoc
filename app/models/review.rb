@@ -2,16 +2,14 @@
 #
 # Table name: reviews
 #
-#  id             :integer          not null, primary key
+#  id             :bigint(8)        not null, primary key
 #  overall_rating :integer          not null
 #  bedside_manner :integer          not null
 #  wait_time      :integer          not null
 #  body           :text
+#  appointment_id :integer          not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#  appointment_id :integer          not null
-
-#
 
 class Review < ApplicationRecord
   validates :appointment_id, presence: true, uniqueness: true

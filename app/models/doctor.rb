@@ -2,23 +2,20 @@
 #
 # Table name: doctors
 #
-#  id                     :integer          not null, primary key
-#  gender                 :string           not null
-#  education              :text             not null
-#  lat                    :float            not null
-#  lng                    :float            not null
-#  professional_statement :text
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
-#  first_name             :string           not null
-#  last_name              :string           not null
-#  degree                 :string           not null
+#  id         :bigint(8)        not null, primary key
+#  first_name :string           not null
+#  last_name  :string           not null
+#  education  :text
+#  degree     :string
+#  quote      :text
+#  lat        :float
+#  lng        :float
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 class Doctor < ApplicationRecord
   validates :first_name, :last_name, :education, presence: true
-  validates :gender, inclusion: { in: %w(male female) }
-  validates :degree, inclusion: { in: %w(MD DMD DO DDS DPM PhD) }
   geocoded_by :address, latitude: :lat, longitude: :lng
   after_validation :geocode
 
@@ -35,12 +32,6 @@ class Doctor < ApplicationRecord
   has_many :specialties,
            through: :doctor_specialties,
            source: :specialty
-
-  has_many :doctor_certifications
-
-  has_many :certifications,
-           through: :doctor_certifications,
-           source: :certification
 
   def get_address
     Geocoder.address(self.to_coordinates)

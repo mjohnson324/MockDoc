@@ -2,12 +2,11 @@
 #
 # Table name: doctor_specialties
 #
-#  id           :integer          not null, primary key
+#  id           :bigint(8)        not null, primary key
 #  specialty_id :integer          not null
 #  doctor_id    :integer          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#
 
 class DoctorSpecialty < ApplicationRecord
   validates :specialty_id, :doctor_id, presence: true

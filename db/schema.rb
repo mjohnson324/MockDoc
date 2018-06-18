@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171214020555) do
+ActiveRecord::Schema.define(version: 20180618155433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,22 +28,6 @@ ActiveRecord::Schema.define(version: 20171214020555) do
     t.index ["start_time", "doctor_id"], name: "index_appointments_on_start_time_and_doctor_id", unique: true
   end
 
-  create_table "certifications", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_certifications_on_name", unique: true
-  end
-
-  create_table "doctor_certifications", force: :cascade do |t|
-    t.integer "certification_id", null: false
-    t.integer "doctor_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["certification_id"], name: "index_doctor_certifications_on_certification_id"
-    t.index ["doctor_id", "certification_id"], name: "index_doctor_certifications_on_doctor_id_and_certification_id", unique: true
-  end
-
   create_table "doctor_specialties", force: :cascade do |t|
     t.integer "specialty_id", null: false
     t.integer "doctor_id", null: false
@@ -54,16 +38,15 @@ ActiveRecord::Schema.define(version: 20171214020555) do
   end
 
   create_table "doctors", force: :cascade do |t|
-    t.string "gender", null: false
-    t.text "education", null: false
+    t.text "education"
     t.float "lat"
     t.float "lng"
-    t.text "professional_statement"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "degree", null: false
+    t.string "degree"
+    t.text "quote"
   end
 
   create_table "reviews", force: :cascade do |t|

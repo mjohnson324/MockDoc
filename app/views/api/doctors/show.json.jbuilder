@@ -15,21 +15,18 @@ json.doctor do
                          :first_name,
                          :last_name,
                          :degree,
-                         :gender,
                          :lat,
                          :lng,
                          :education,
-                         :professional_statement
+                         :quote
   json.address @doctor.get_address
   json.average_rating average_rating
   json.specialties @doctor.specialties.to_a.map(&:name)
-  json.certifications @doctor.certifications.to_a.map(&:name)
   json.appointment_ids doc_apps.to_a.map(&:id)
   json.review_ids doctor_reviews.to_a.map(&:id)
 end
 
 json.appointments do
-
   doc_apps.each do |appointment|
     json.set! appointment.id do
       json.extract! appointment, :id,
@@ -41,9 +38,7 @@ json.appointments do
 end
 
 json.reviews do
-  doc_revs = @doctor.reviews
-
-  doc_revs.each do |review|
+  doctor_reviews.each do |review|
     json.set! review.id do
       json.extract! review, :id,
                             :appointment_id,

@@ -5,13 +5,11 @@ json.doctors do
                             :first_name,
                             :last_name,
                             :degree,
-                            :gender,
                             :lat,
                             :lng
       json.address doctor.get_address
       json.average_rating @average_ratings[doctor.id]
       json.specialties doctor.specialties.to_a.map(&:name)
-      json.certifications doctor.certifications.to_a.map(&:name)
       json.appointment_ids @doctor_appointments[doctor.id].to_a.map(&:id)
     end
   end

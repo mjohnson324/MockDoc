@@ -4,12 +4,11 @@ class Api::DoctorsController < ApplicationController
   end
 
   def index
-    processed_specialty = params[:specialty].downcase
     @doctors = Doctor.near(params[:address], 30)
-      .includes(:specialties, :certifications)
-      .where(specialties: { name: processed_specialty }).
-      references(:specialties)
-
+      .includes(:specialties)
+      .where(specialties: { name: params[:specialty] })
+      .references(:specialties)
+    # params[:timeframe]
     @doctor_appointments = get_apps_from_doctors(@doctors)
     @average_ratings = get_doctor_ratings(@doctors)
   end

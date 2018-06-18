@@ -23,7 +23,7 @@ plugins = plugins.concat(
 
 module.exports = {
   context: __dirname,
-  entry: './frontend/zocdoc.jsx',
+  entry: './frontend/mockdoc.jsx',
   output: {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
     filename: 'bundle.js'
@@ -36,10 +36,10 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015']
+          presets: ['react', 'env']
         }
       }
     ]

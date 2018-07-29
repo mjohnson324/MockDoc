@@ -5,11 +5,8 @@ import { filter } from 'lodash';
 export const selectDoctors = state => values(state.doctors);
 export const selectErrors = state => values(state.errors);
 
-export const getReviews = (reviews, ids) => {
-  return(
-    ids.map(id => {
-        return reviews[id];
-      }));
+export const getItems = (items, itemIds) => {
+  return itemIds.map(id => items[id]);
 };
 
 export const getReviewsByAppointment = (reviews, ids) => {
@@ -34,13 +31,6 @@ export const selectReview = (reviews, appointmentId) => {
   return review;
 };
 
-export const getAppointments = (appointments, ids) => {
-  return(
-    ids.map(id => {
-        return appointments[id];
-  }));
-};
-
 export const getPatientAppointments = (appointments, ids) => {
   let validIds = [];
   ids.forEach(id => {
@@ -58,7 +48,7 @@ export const sortAppointmentsByDoctor = (doctors, appointments) => {
   const sortedAppointments = {};
   if (doctors[0]) {
     doctors.forEach(doctor => {
-      sortedAppointments[doctor.id] = getAppointments(
+      sortedAppointments[doctor.id] = getItems(
         appointments, doctor.appointment_ids
       );
     });
@@ -74,4 +64,22 @@ export const sortAppointmentsByDay = (apps, dates) => {
     }));
   });
   return appsByDays;
+};
+
+export const renderStars = (rating) => {
+  if (rating === "Not rated") {
+    return rating;
+  } else {
+    let ratingNumber = Math.round(rating);
+    let starRating = '';
+    for (let i = 0; i < 5; i ++) {
+      if (ratingNumber > 0) {
+        starRating += '\u2605';
+        ratingNumber -= 1;
+      }  else {
+        starRating += '\u2606';
+      }
+    }
+    return starRating;
+  }
 };

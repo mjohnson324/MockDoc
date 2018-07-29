@@ -11,22 +11,23 @@ import PatientProfileContainer from './patient/patient_profile_container';
 import BookingFormContainer from './appointments/booking_form_container';
 import ReviewFormContainer from './reviews/review_form_container';
 import { ProtectedRoute, AuthRoute } from '../util/auth_util';
+import Footer from './header/footer';
 
 const App = () => {
-return (
-  <div>
-    <HeaderContainer />
-    <Route exact path="/" component={SearchContainer} />
-    <Route path="/search" component={SearchIndexContainer} />
-    <Route path="/signin" component={SessionFormContainer}/>
-    <Route path="/createuser" component={SignupFormContainer} />
-    <Route path="/doctor/:id" component={DoctorContainer} />
-    <AuthRoute path="/booking/:id" component={BookingFormContainer} />
-    <AuthRoute path="/review/:id" component={ReviewFormContainer} />
-    <ProtectedRoute path="/patient" component={PatientProfileContainer} />
-  </div>
-);
-
+  return (
+    <React.Fragment>
+      <HeaderContainer />
+      <SearchContainer />
+      <Route path="/search" component={SearchIndexContainer} />
+      <Route path="/signin" component={SessionFormContainer}/>
+      <Route path="/createuser" component={SignupFormContainer} />
+      <Route path="/doctor/:id" component={DoctorContainer} />
+      <AuthRoute path="/booking/:id" component={BookingFormContainer} />
+      <AuthRoute path="/review/:id" component={ReviewFormContainer} />
+      <ProtectedRoute path="/patient" component={PatientProfileContainer} />
+      <Footer />
+    </React.Fragment>
+  );
 };
 
 export default App;

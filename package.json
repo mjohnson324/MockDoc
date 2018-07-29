@@ -1,11 +1,13 @@
 {
-  "name": "MockDoc",
+  "name": "mockdoc",
   "private": true,
   "dependencies": {
     "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "file-loader": "^1.1.11",
     "jquery-ujs": "^1.2.2",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
@@ -18,9 +20,8 @@
     "webpack": "^3.5.5"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.6",
     "babel-jest": "^21.2.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
     "jest": "^22.1.3",
     "react-test-renderer": "^16.2.0",
     "redux-logger": "^3.0.6"

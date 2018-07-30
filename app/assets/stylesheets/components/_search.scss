@@ -1,38 +1,54 @@
+main { // needed to dynamically resize search on home page
+  display: flex;
+  flex-direction: column;
+}
+
 .search-home {
   font-size: 20px;
-  position: absolute;
-  top: 210px;
-  left: 10%;
   color: $navy-blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: auto; // Expands element to fill home page between header and footer
 
-  input {
-    height: 50px;
-    line-height: 40px;
-    margin-left: 10px;
-    border: solid black 2px;
+  label {
+    margin: 10px;
+    background-color: white;
+    padding: 10px;
   }
 
-  input[placeholder="Specialty"] {
-    width: 450px;
+  input, select {
+    height: 50px;
+    line-height: 40px;
+    margin: 10px;
+    border: solid black 2px;
+    background-color: white;
+  }
+
+  #specialty-select {
+    width: 200px;
     padding-left: 30px;
   }
 
-  input[placeholder="Address"] {
+  #address {
     padding-left: 30px;
     width: 360px;
   }
 
   input[type="submit"] {
     background-color: $zoc-yellow;
+    text-align: center;
+    font-weight: bold;
     height: 54px;
+    width: 54px;
     padding: 5px;
-    cursor: pointer;
-    cursor: hand;
   }
 
   input[type="submit"]:hover {
     background-color: $navy-blue;
     color: white;
+    cursor: pointer;
+    cursor: hand;
   }
 }
 
@@ -56,7 +72,6 @@
   input[type="submit"] {
     background-color: $navy-blue;
     color: white;
-    cursor: pointer;
     cursor: hand;
   }
 }

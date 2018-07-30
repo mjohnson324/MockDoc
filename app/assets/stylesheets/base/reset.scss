@@ -17,13 +17,29 @@ ul {
 }
 
 img {
-  display: block;
-  width: 100%;
+  width: auto;
   height: auto;
 }
 
 body {
   background-color: $general-background-gray;
+}
+
+html, body {
+  height: 100%;
+}
+
+#root {
+  min-height: calc(100% - 83px);
+  position: relative;
+  padding-bottom: 83px;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .error {

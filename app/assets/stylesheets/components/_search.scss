@@ -11,17 +11,20 @@ main { // needed to dynamically resize search on home page
   align-items: center;
   flex: auto; // Expands element to fill home page between header and footer
 
+  background-image: image-url("health.jpeg");
+  background-size: cover;
+
   label {
-    margin: 10px;
     background-color: white;
     padding: 10px;
+    height: 30px;
   }
 
   input, select {
     height: 50px;
     line-height: 40px;
-    margin: 10px;
-    border: solid black 2px;
+    margin-right: 10px;
+
     background-color: white;
   }
 
@@ -39,8 +42,8 @@ main { // needed to dynamically resize search on home page
     background-color: $zoc-yellow;
     text-align: center;
     font-weight: bold;
-    height: 54px;
-    width: 54px;
+    height: 50px;
+    width: 50px;
     padding: 5px;
   }
 
@@ -50,6 +53,8 @@ main { // needed to dynamically resize search on home page
     cursor: pointer;
     cursor: hand;
   }
+
+
 }
 
 .search-bar {

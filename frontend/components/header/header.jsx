@@ -33,7 +33,7 @@ class Header extends React.Component {
 
   isHomePage() {
     if (this.props.location.pathname === "/") {
-      return <img id="logo" alt={"logo"} />;
+      return <img id="logo" alt="logo" />;
     } else {
       return <Link className="no-extra-blue" to="/"><h1>MockDoc</h1></Link>;
     }

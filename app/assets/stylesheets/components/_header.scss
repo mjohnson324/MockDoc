@@ -44,7 +44,6 @@
 //   padding-left: 150px;
 // }
 
-
 .head {
   height: 66px;
   background-color: $zoc-yellow;
@@ -101,10 +100,16 @@ footer {
 
   a {
     font-size: 20px;
+    line-height: 40px;
     background-color: $zoc-yellow;
     color: $navy-blue;
     margin-right: 20px;
     padding: 10px;
+    height: 40px;
+    min-width: 50px;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
   }
 
   a:hover {
@@ -117,4 +122,12 @@ footer {
 
 #logo {
   content: image-url("MockDocLogo.png");
+}
+
+#my-github {
+  content: image-url("GitHub-Mark-32px.png");
+}
+
+#my-linkedin {
+  content: image-url("In-2C-34px-R.png");
 }

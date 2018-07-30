@@ -1,15 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AppointmentsTable from '../appointments/appointments_table';
-import { sortAppointmentsByDay } from '../../reducers/selectors';
+import { sortAppointmentsByDay, renderStars } from '../../reducers/selectors';
 
 const SearchIndexItem = (docInfo) => {
     const { doc, apps, dates } = docInfo;
     const daySortedApps = sortAppointmentsByDay(apps, dates);
-    let averageRating = doc.average_rating;
-    if (typeof averageRating !== "string") {
-      averageRating = parseFloat(doc.average_rating.toFixed(2));
-    }
     return (
     <li className="index-item">
       <div className="doc-pic"></div>
@@ -21,8 +17,8 @@ const SearchIndexItem = (docInfo) => {
         <div>
           {`${doc.specialties[0]}`}
         </div>
-        <div>
-          {`Rating: ${averageRating}`}
+        <div className="stars">
+          {renderStars(doc.average_rating)}
         </div>
         <section>
           <div>{`${doc.address}`}</div>

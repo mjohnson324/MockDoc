@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import renderStars from '../../reducers/selectors';
 
 export const DoctorReviewsItem = (props) => {
   const { review } = props;
@@ -14,9 +15,9 @@ export const DoctorReviewsItem = (props) => {
       </div>
       <div className="review-container-data">
         <div className="review-container-ratings">
-          <p>Overall Rating: {`${review.overall_rating}`}</p>
-          <p>Wait Time: {`${review.wait_time}`}</p>
-          <p>Bedside Manner: {`${review.bedside_manner}`}</p>
+          <p className="stars">Overall Rating: {renderStars(review.overall_rating)}</p>
+          <p className="stars">Wait Time: {renderStars(review.wait_time)}</p>
+          <p className="stars">Bedside Manner: {renderStars(review.bedside_manner)}</p>
         </div>
         <p>{`${reviewParagraph}`}</p>
       </div>

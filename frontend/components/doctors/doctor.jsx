@@ -2,7 +2,7 @@ import React from 'react';
 import DoctorsMap from '../map/doctors_map';
 import DoctorAppointments from './doctor_appointments';
 import { getDayRange } from '../../util/appointment_util';
-import { sortAppointmentsByDay } from '../../reducers/selectors';
+import { sortAppointmentsByDay, renderStars } from '../../reducers/selectors';
 import { DoctorReviews } from './doctor_reviews';
 
 class Doctor extends React.Component {
@@ -18,22 +18,11 @@ class Doctor extends React.Component {
       dayFour: days[3],
     };
 
-    this.certList = this.certList.bind(this);
     this.specList = this.specList.bind(this);
   }
 
   componentDidMount() {
     this.props.getADoctor(this.props.match.params.id);
-  }
-
-  componentWillUnmount () {
-    this.props.clearState();
-  }
-
-  certList(certifications) {
-    return certifications.map((certification, idx) => {
-      return(<li key={idx}>{`${certification}`}</li>);
-    });
   }
 
   specList(specialties) {
@@ -58,8 +47,8 @@ class Doctor extends React.Component {
                 {`Dr. ${doctor.first_name} ${doctor.last_name}, ${doctor.degree}`}
               </h1>
               <div>{`${doctor.specialties[0]}`}</div>
-              <div>
-                {`Rating: ${parseFloat(doctor.average_rating.toFixed(2))}`}
+              <div className="stars">
+                {renderStars(doctor.average_rating)}
               </div>
             </div>
 
@@ -77,10 +66,6 @@ class Doctor extends React.Component {
                   <ol>
                     <label>Education:</label>
                     <ul>{`${doctor.education}`}</ul>
-                  </ol>
-                  <ol>
-                    <label>Board Certifications:</label>
-                    <ul>{this.certList(doctor.certifications)}</ul>
                   </ol>
                   <ol>
                     <label>Specialties:</label>

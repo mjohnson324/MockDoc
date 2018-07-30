@@ -8,62 +8,42 @@
   justify-content: space-around;
   align-items: center;
 
-  h1 {
-    font-size: 44px;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
   button, a {
     font-size: 20px;
     background-color: $zoc-yellow;
     color: $navy-blue;
-    margin-right: 130px;
     padding: 10px;
+    margin-right: 20px;
   }
 
   button:hover, a:hover {
     text-decoration: underline;
     color: white;
     background-color: $navy-blue;
-    cursor: pointer;
     cursor: hand;
   }
 }
 
-.home {
-  h2 { font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-    left: 10%;
-    background-color: $sky-blue;
-    color: $navy-blue;
-    margin-bottom: 100px;
-    padding: 20px;
-  }
+// .slogan-home { Keep for future use on home page
+//   font-size: 36px;
+//   font-weight: bold;
+//   text-align: center;
+//   left: 10%;
+//   background-color: $sky-blue;
+//   color: $navy-blue;
+//   padding: 20px;
+// }
 
-  h3 {
-    color: $navy-blue;
-    font-size: 30px;
-    text-align: left;
-    margin: 0 auto;
-    background-color: $sky-blue;
-    padding: 10px;
-    padding-left: 150px;
-  }
+// h3 { Keep in case of use by other components
+//   color: $navy-blue;
+//   font-size: 30px;
+//   text-align: left;
+//   margin: 0 auto;
+//   background-color: $sky-blue;
+//   padding: 10px;
+//   padding-left: 150px;
+// }
 
-  p {
-    color: $navy-blue;
-    height: 600px;
-    margin: 0 auto;
-    padding: 5px;
-    padding-left: 150px;
-    text-align: left;
-    vertical-align: bottom;
-    font-size: 20px;
-    background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 0%,#ffffff 100%,#ffffff 100%);
-  }
-}
 
 .head {
   height: 66px;
@@ -88,7 +68,6 @@
     background-color: $navy-blue;
     color: white;
     padding: 10px;
-    cursor: pointer;
     cursor: hand;
   }
 
@@ -111,6 +90,31 @@ a:hover {
   padding: 10px;
 }
 
-.home-disclaimer {
+footer {
+  color: white;
+  padding: 20px;
+  font-size: 16px;
+  background-color: $navy-blue;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
+  a {
+    font-size: 20px;
+    background-color: $zoc-yellow;
+    color: $navy-blue;
+    margin-right: 20px;
+    padding: 10px;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    background-color: white;
+    cursor: pointer;
+    cursor: hand;
+  }
+}
+
+#logo {
+  content: image-url("MockDocLogo.png");
 }

@@ -7,14 +7,14 @@ class DoctorAppointments extends React.Component {
   }
 
   render() {
-    const { apps } = this.props;
+    const { apps, address } = this.props;
     const { today, tomorrow, dayAfter, dayFour } = this.props.daysToRender;
 
     return(
       <section className="doc-appointments">
         <h3>Book an Appointment</h3>
 
-        <p>Address: {`${this.props.address}`}</p>
+        <p>Address: {`${address}`}</p>
 
         <section className="doc-scroll-bar">
           <button>L</button>
@@ -26,7 +26,7 @@ class DoctorAppointments extends React.Component {
         </section>
 
         <div>
-          <AppointmentsTable appsByDays={this.props.apps}/>
+          <AppointmentsTable appsByDays={apps}/>
         </div>
       </section>
     );

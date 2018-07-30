@@ -1,7 +1,7 @@
 import React from 'react';
 import { DoctorReviewsItem } from './doctor_reviews_item';
 
-export const DoctorReviews = ({ reviews }) => {
+const DoctorReviews = ({ reviews }) => {
   return(
     <ul className="doc-reviews">
       {reviews.map(review => {
@@ -14,3 +14,5 @@ export const DoctorReviews = ({ reviews }) => {
     </ul>
   );
 };
+
+export default DoctorReviews;

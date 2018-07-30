@@ -8,7 +8,6 @@ import { selectErrors } from '../../reducers/selectors';
 import { getAppointment } from '../../actions/appointment_actions';
 import { selectReview } from '../../reducers/selectors';
 import ReviewForm from './review_form';
-import { clearState } from '../../actions/session_actions';
 
 const mapStatetoProps = (state) => {
   const appointmentId = window.location.href.split('-')[1];
@@ -25,7 +24,6 @@ const mapDispatchToProps = dispatch => {
     changeReview: review => dispatch(changeReview(review)),
     getAppointment: appointmentId => dispatch(getAppointment(appointmentId)),
     clearErrors: () => dispatch(clearErrors()),
-    clearState: () => dispatch(clearState()),
   };
 };
 

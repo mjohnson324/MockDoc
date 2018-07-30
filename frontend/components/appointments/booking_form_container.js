@@ -6,7 +6,6 @@ import {
   updateAppointment,
   getAppointment,
         } from '../../actions/appointment_actions';
-import { clearState } from '../../actions/session_actions';
 
 import BookingForm from './booking_form';
 
@@ -22,8 +21,7 @@ const mapDispatchToProps = dispatch => {
   return {
     updateAppointment: appointment => dispatch(updateAppointment(appointment)),
     getAppointment: appointment => dispatch(getAppointment(appointment)),
-    clearErrors: appointment => dispatch(clearErrors()),
-    clearState: () => dispatch(clearState()),
+    clearErrors: () => dispatch(clearErrors()),
   };
 };
 

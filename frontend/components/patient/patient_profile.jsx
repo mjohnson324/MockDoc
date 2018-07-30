@@ -17,14 +17,10 @@ class PatientProfile extends React.Component {
     this.props.getUser(user.id);
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { appointments, reviews } = nextProps;
-    this.setState({ appointments, reviews, });
-  }
-
-  componentWillUnmount() {
-    this.props.clearState();
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   const { appointments, reviews } = nextProps;
+  //   this.setState({ appointments, reviews, });
+  // }
 
   cancelAppointment(e, appointment) {
     e.preventDefault();

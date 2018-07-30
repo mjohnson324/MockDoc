@@ -19,21 +19,17 @@ class ReviewForm extends React.Component {
     this.props.getAppointment(appointmentId);
   }
 
-  componentWillReceiveProps(nextProps) {
-    const review = nextProps.review;
-    if (review !== undefined) {
-      this.setState({
-        overall_rating: review.overall_rating,
-        wait_time: review.wait_time,
-        bedside_manner: review.bedside_manner,
-        body: (review.body === null ? '' : review.body),
-      });
-    }
-  }
-
-  componentWillUnmount () {
-    this.props.clearState();
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   const review = nextProps.review;
+  //   if (review !== undefined) {
+  //     this.setState({
+  //       overall_rating: review.overall_rating,
+  //       wait_time: review.wait_time,
+  //       bedside_manner: review.bedside_manner,
+  //       body: (review.body === null ? '' : review.body),
+  //     });
+  //   }
+  // }
 
   update(field) {
     return e => this.setState({
@@ -68,9 +64,7 @@ class ReviewForm extends React.Component {
   }
 
   render() {
-    const { appointment, review } = this.props;
-    // review.overall_rating, review.bedside_manner, review.wait_time,
-    // (review.body === null ? '' : review.body)
+    const { appointment } = this.props;
     if (appointment) {
       return(
         <form onSubmit={this.handleSubmit} className="review-form">

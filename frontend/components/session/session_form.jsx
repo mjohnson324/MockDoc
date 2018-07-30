@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -51,34 +50,27 @@ class SessionForm extends React.Component {
 
   render() {
     return(
-      <div className="session">
-        <h3>Sign In</h3>
-        <br/>
-
-        <form onSubmit={this.handleSubmit}>
-
+      <React.Fragment>
+        <form className ="session" onSubmit={this.handleSubmit}>
+          <h3>Sign In</h3>
+          <br/>
           <input type="text"
             placeholder="Email address"
             value={this.state.email}
             onChange={this.update('email')}
           />
           <br/>
-
           <input type="password"
             placeholder="password"
             value={this.state.password}
             onChange={this.update('password')}
           />
           <br/>
-
           {this.renderErrors()}
-
           <input type="submit" value="Sign in" />
-          <h4>New to MockDoc?</h4>
         </form>
-        <Link to="/createuser">Create an account</Link>
         <button onClick={this.handleDemo} to="/createuser">Demo Login</button>
-      </div>
+      </React.Fragment>
     );
   }
 }

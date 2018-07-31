@@ -1,3 +1,4 @@
+/* global google */
 import React from 'react';
 
 class Search extends React.Component {
@@ -8,6 +9,28 @@ class Search extends React.Component {
       address: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    window.initAutocomplete = this.initAutocomplete;
+    this.loadGoogleMapsAPI("https://maps.googleapis.com/maps/api/js?key=AIzaSyAlQpAcsp-Hrf3d9oABqzInGNs7n82pXvA&libraries=places&callback=initAutocomplete");
+  }
+
+  loadGoogleMapsAPI(url) {
+    const ref = window.document.getElementsByTagName("script")[0];
+    const script = window.document.createElement("script");
+    script.src = url;
+    script.charset = "utf-8";
+    script.async = true;
+    script.defer = true;
+    ref.parentNode.insertBefore(script, ref);
+  }
+
+  initAutocomplete() {
+    return new google.maps.places.Autocomplete(
+      (document.getElementById('address')),
+      {types: ['geocode']}
+    );
   }
 
   update(field) {

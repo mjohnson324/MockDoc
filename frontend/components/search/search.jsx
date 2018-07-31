@@ -5,9 +5,10 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      specialty: '',
+      specialty: 'none',
       address: '',
     };
+    this.location = React.createRef();
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -54,10 +55,10 @@ class Search extends React.Component {
   }
 
   checkParams(filter) {
-    if (filter.specialty === '') {
+    if (filter.specialty === 'none') {
       filter.specialty = "primary care";
     }
-
+    filter.address = this.location.current.value;
     if (filter.address === '') {
       filter.address = 'New York';
     }
@@ -87,13 +88,12 @@ class Search extends React.Component {
 
   render () {
     const searchClass = this.isHomePage();
-
     return(
       <form className={searchClass} onSubmit={this.handleSubmit}>
         <label htmlFor="specialty-select">Specialty:</label>
         <select id="specialty-select" 
         onChange={this.update('specialty')}
-        defaultValue="none">
+        value={this.state.specialty}>
           <option value="none" disabled>Please Choose</option>
           <option value="primary care">Primary Care</option>
           <option value="pediatrics">Pediatrics</option>
@@ -112,10 +112,10 @@ class Search extends React.Component {
           <option value="dentist">Dentist</option>
         </select>
         <label htmlFor="address">Address:</label>
-        <input id="address" 
+        <input id="address"
+          defaultValue={this.state.address} 
           type="text"
-          value={this.state.address}
-          onChange={this.update('address')} />
+          ref={this.location} />
 
         <input type="submit" value="&#x1F50D;"/>
       </form>

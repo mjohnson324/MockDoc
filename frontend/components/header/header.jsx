@@ -16,18 +16,28 @@ class Header extends React.Component {
         </React.Fragment>
       );
     } else {
-      return( 
-        <React.Fragment>
-          <Link to="/signin">Sign In</Link>
-          <Link to="/createuser">Sign Up</Link>
-        </React.Fragment>
-      );
+      return this.checkSignIn(location.pathname);
     }
   }
-
+  
   isNotProfile(path) {
-    if (path !== '/patient') {
+    if (path !== "/patient") {
       return <Link className="header-profile" to="/patient">Profile</Link>;
+    }
+  }
+  
+  checkSignIn(path) {
+    if (path === "/signin") {
+      return <Link to="/signup">Sign Up</Link>;
+    } else if (path === "/signup") {
+      return <Link to="/signin">Sign In</Link>;
+    } else {
+      return(
+        <React.Fragment>
+          <Link to="/signup">Sign Up</Link>
+          <Link to="/signin">Sign In</Link>
+        </React.Fragment>
+      );
     }
   }
 

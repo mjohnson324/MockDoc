@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -46,29 +45,22 @@ class SignupForm extends React.Component {
     return(
       <div className="sign-up">
         <h3>Create an Account</h3>
-        <Link to="/signin">Already have one? Sign in.</Link>
-
         <form onSubmit={this.handleSubmit}>
           <br/>
-
-          <h4>Enter your email Address:</h4>
+          <h4>Email:</h4>
           <input type="text"
-            placeholder="Email address"
             value={this.state.email}
             onChange={this.update('email')}
           />
           <br/>
-
-          <h4>Create a Password:</h4>
+          <h4>Password:</h4>
           <input type="password"
-            placeholder="At least 12 characters long"
+            placeholder="At least 8 characters long"
             value={this.state.password}
             onChange={this.update('password')}
           />
           <br/>
-
-          <h4>Enter your Name:</h4>
-
+          <h4>Name:</h4>
           <span>
             <input type="text"
               placeholder="First"
@@ -81,10 +73,8 @@ class SignupForm extends React.Component {
               onChange={this.update('last_name')}
               />
           </span>
-
           <br/>
           {this.renderErrors()}
-
           <input type="submit" value="Sign Up" />
         </form>
       </div>

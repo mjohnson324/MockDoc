@@ -69,7 +69,7 @@ class SessionForm extends React.Component {
           {this.renderErrors()}
           <input type="submit" value="Sign in" />
         </form>
-        <button onClick={this.handleDemo} to="/createuser">Demo Login</button>
+        <button id="demo" onClick={this.handleDemo} to="/signup">Demo Login</button>
       </React.Fragment>
     );
   }

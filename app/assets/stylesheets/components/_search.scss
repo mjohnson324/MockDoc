@@ -60,6 +60,7 @@ main { // needed to dynamically resize search on home page
 
 .search-bar {
   @extend .search-home;
+  flex: none;
   height: 75px;
   background-color: $zoc-yellow;
   position: sticky;

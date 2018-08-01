@@ -20,7 +20,7 @@ const App = () => {
       <SearchContainer />
       <Route path="/search" component={SearchIndexContainer} />
       <Route path="/signin" component={SessionFormContainer}/>
-      <Route path="/createuser" component={SignupFormContainer} />
+      <Route path="/signup" component={SignupFormContainer} />
       <Route path="/doctor/:id" component={DoctorContainer} />
       <AuthRoute path="/booking/:id" component={BookingFormContainer} />
       <AuthRoute path="/review/:id" component={ReviewFormContainer} />

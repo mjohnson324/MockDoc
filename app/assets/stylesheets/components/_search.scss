@@ -49,8 +49,8 @@ main { // needed to dynamically resize search on home page
   }
 
   input[type="submit"]:hover {
-    background-color: $navy-blue;
-    color: white;
+    background-color: white;
+    color: $navy-blue;
     cursor: pointer;
     cursor: hand;
   }
@@ -62,21 +62,10 @@ main { // needed to dynamically resize search on home page
   @extend .search-home;
   flex: none;
   height: 75px;
-  background-color: $zoc-yellow;
   position: sticky;
   top: 0px;
   white-space: nowrap;
   z-index: 5;
-
-  input[placeholder="Specialty"] {
-    margin-left: 130px;
-  }
-
-  input[type="submit"] {
-    background-color: $navy-blue;
-    color: white;
-    cursor: hand;
-  }
 }
 
 .search-master {

@@ -15,11 +15,11 @@
 #
 
 class Doctor < ApplicationRecord
-  validates :first_name, :last_name, :education, presence: true
-  geocoded_by :address, latitude: :lat, longitude: :lng
+  validates :first_name, :last_name, :education, :address, presence: true
+  geocoded_by :location, latitude: :lat, longitude: :lng
   after_validation :geocode
 
-  attr_accessor :address
+  attr_accessor :location
 
   has_many :appointments
 
@@ -32,8 +32,4 @@ class Doctor < ApplicationRecord
   has_many :specialties,
            through: :doctor_specialties,
            source: :specialty
-
-  def get_address
-    Geocoder.address(self.to_coordinates)
-  end
 end

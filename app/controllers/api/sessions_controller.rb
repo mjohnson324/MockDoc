@@ -5,7 +5,7 @@ class Api::SessionsController < ApplicationController
       params[:user][:password]
     )
 
-    if @user
+    if @user != nil
       log_in(@user)
       render "api/users/show"
     else
@@ -16,7 +16,7 @@ class Api::SessionsController < ApplicationController
   def destroy
     @user = current_user
 
-    if @user
+    if @user != nil
       log_out
       render json: [""]
     else

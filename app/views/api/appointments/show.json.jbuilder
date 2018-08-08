@@ -4,9 +4,9 @@ json.appointment do
                               :start_time,
                               :address,
                               :reason,
-                              :patient_id
-  app_doc = @appointment.doctor
-  json.doctor_name "#{app_doc.first_name} #{app_doc.last_name}"
+                              :patient_id,
+                              :first_name,
+                              :last_name
 end
 
 review = Review.where(appointment_id: @appointment.id)[0]

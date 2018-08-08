@@ -19,7 +19,7 @@ json.doctor do
                          :lng,
                          :education,
                          :quote
-  json.address @doctor.get_address
+  json.address @doctor.address
   json.average_rating average_rating
   json.specialties @doctor.specialties.to_a.map(&:name)
   json.appointment_ids doc_apps.to_a.map(&:id)
@@ -32,7 +32,9 @@ json.appointments do
       json.extract! appointment, :id,
                                  :doctor_id,
                                  :start_time,
-                                 :address
+                                 :address,
+                                 :first_name,
+                                 :last_name
     end
   end
 end

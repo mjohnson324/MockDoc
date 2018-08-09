@@ -4,11 +4,6 @@ import PatientIndexItem from './patient_index_item';
 class PatientProfile extends React.Component {
   constructor(props) {
     super(props);
-    const { appointments, reviews } = this.props;
-    this.state = {
-      appointments,
-      reviews,
-    };
     this.cancelAppointment = this.cancelAppointment.bind(this);
   }
 
@@ -16,11 +11,6 @@ class PatientProfile extends React.Component {
     const { user } = this.props;
     this.props.getUser(user.id);
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   const { appointments, reviews } = nextProps;
-  //   this.setState({ appointments, reviews, });
-  // }
 
   cancelAppointment(e, appointment) {
     e.preventDefault();
@@ -38,11 +28,10 @@ class PatientProfile extends React.Component {
   }
 
   render() {
-    const { appointments, reviews } = this.state;
+    const { user, reviews, appointments } = this.props;
     return(
       <section className="patient-appointments">
-        <h1>Welcome, {this.props.user.first_name}!</h1>
-
+        <h1>Welcome, {user.first_name}!</h1>
         <h2>Your Appointments:</h2>
         <ul>
           {appointments.map((app, idx) => {

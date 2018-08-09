@@ -3,7 +3,7 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 
 const PatientIndexItem = (props) => {
-  const { appointment, doctor, review, cancel, removeReview } = props;
+  const { appointment, review, cancel, removeReview } = props;
   return(
     <li>
       <div className="patient-appointment-info">Appointment:
@@ -11,7 +11,7 @@ const PatientIndexItem = (props) => {
         <div>Time: {`${moment(appointment.start_time)
             .format("dddd, MMMM Do YYYY, h:mm a")}`}</div>
           <div>Address: {`${appointment.address}`}</div>
-        <div>Doctor: {`${appointment.doctor_name}`}</div>
+        <div>Doctor: {`${appointment.first_name} ${appointment.last_name}`}</div>
       </div>
       {appointmentButtons(appointment, review, cancel)}
       {reviewPortion(review, removeReview, appointment)}

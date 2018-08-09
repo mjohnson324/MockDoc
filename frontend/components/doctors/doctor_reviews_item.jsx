@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import renderStars from '../../reducers/selectors';
+import { renderStars } from '../../reducers/selectors';
 
 export const DoctorReviewsItem = (props) => {
   const { review } = props;

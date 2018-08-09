@@ -5,9 +5,9 @@ import SessionForm from './session_form';
 import { withRouter } from 'react-router-dom';
 import { selectErrors } from '../../reducers/selectors';
 
-const mapStatetoProps = (state) => {
+const mapStatetoProps = ({ errors }) => {
   return {
-    errors: selectErrors(state),
+    errors: selectErrors(errors),
   };
 };
 

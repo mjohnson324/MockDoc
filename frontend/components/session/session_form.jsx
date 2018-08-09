@@ -1,4 +1,5 @@
 import React from 'react';
+import { Errors } from '../header/shared_components';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class SessionForm extends React.Component {
     this.handleDemo = this.handleDemo.bind(this);
   }
 
-  componentDidMount() {
+  componentWillUnmount() {
     this.props.clearErrors();
   }
 
@@ -36,18 +37,6 @@ class SessionForm extends React.Component {
       .then(() => this.props.history.push('/patient'));
   }
 
-  renderErrors() {
-    return(
-      <ul className="error">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-
   render() {
     return(
       <React.Fragment>
@@ -66,7 +55,7 @@ class SessionForm extends React.Component {
             onChange={this.update('password')}
           />
           <br/>
-          {this.renderErrors()}
+          <Errors errors={this.props.errors} />
           <input type="submit" value="Sign in" />
         </form>
         <button id="demo" onClick={this.handleDemo} to="/signup">Demo Login</button>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Errors } from '../header/shared_components';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class SignupForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
+  componentWillUnmount() {
     this.props.clearErrors();
   }
 
@@ -27,18 +28,6 @@ class SignupForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.signUp(user).then(() => this.props.history.push('/patient'));
-  }
-
-  renderErrors() {
-    return(
-      <ul className="error">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
   }
 
   render() {
@@ -74,7 +63,7 @@ class SignupForm extends React.Component {
               />
           </span>
           <br/>
-          {this.renderErrors()}
+          <Errors errors={this.props.errors} />
           <input type="submit" value="Sign Up" />
         </form>
       </div>

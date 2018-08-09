@@ -5,8 +5,8 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      specialty: 'none',
-      address: '',
+      specialty: this.props.specialty,
+      address: this.props.address,
     };
     this.location = React.createRef();
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,14 +44,11 @@ class Search extends React.Component {
     e.preventDefault();
     const filter = this.checkParams(this.state);
     const queryURL = this.toQueryString(filter);
+    filter.status = "loading";
     this.props.changeFilter(filter);
-
-    if (this.props.match.path !== "/") {
-      this.props.getDoctors(filter)
-        .then(() => this.props.history.push(`/search/?${queryURL}`));
-    } else {
-      this.props.history.push(`/search/?${queryURL}`);
-    }
+    this.props.clearDoctors()
+    this.props.getDoctors(filter)
+      .then(this.props.history.push(`/search/?${queryURL}`));
   }
 
   checkParams(filter) {
@@ -62,7 +59,6 @@ class Search extends React.Component {
     if (filter.address === '') {
       filter.address = 'New York';
     }
-
     return filter;
   }
 
@@ -116,7 +112,6 @@ class Search extends React.Component {
           defaultValue={this.state.address} 
           type="text"
           ref={this.location} />
-
         <input type="submit" value="&#x1F50D;"/>
       </form>
     );

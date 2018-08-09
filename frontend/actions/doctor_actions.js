@@ -1,16 +1,30 @@
 import * as APIUtil from '../util/doctor_api_utils';
 
-export const RECEIVE_DOCTORS_AND_APPOINTMENTS = 'RECEIVE_DOCTORS_AND_APPOINTMENTS';
+export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS';
 export const RECEIVE_DOCTOR_AND_APPS_AND_REVIEWS = 'RECEIVE_DOCTOR_AND_APPS_AND_REVIEWS';
+export const CLEAR_DOCTORS = 'CLEAR_DOCTORS';
 
-export const receiveDoctorsAndApps = ({ doctors, appointments }) => {
-  const docResults = doctors ? doctors : {};
-  const appResults = appointments ? appointments : {};
-
+export const clearDoctors = () => {
   return {
-    type: RECEIVE_DOCTORS_AND_APPOINTMENTS,
+    type: CLEAR_DOCTORS
+  };
+};
+
+export const receiveSearchResults = ({ doctors, appointments }) => {
+  let docResults, status;
+  if(doctors === undefined) {
+    docResults = {};
+    status = 'failure';
+  } else {
+    docResults = doctors;
+    status = 'success';
+  } 
+  const appResults = appointments === undefined ? {} : appointments;
+  return {
+    type: RECEIVE_SEARCH_RESULTS,
     doctors: docResults,
-    appointments: appResults,
+    appointments: appResults, 
+    status
   };
 };
 
@@ -28,7 +42,7 @@ export const receiveDoctorAndAppsAndReviews = ({ doctor, appointments, reviews }
 
 export const getDoctors = filters => dispatch => {
   return APIUtil.getDocs(filters).then(docs => (
-    dispatch(receiveDoctorsAndApps(docs))
+    dispatch(receiveSearchResults(docs))
   ));
 };
 

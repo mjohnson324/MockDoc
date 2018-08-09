@@ -1,17 +1,23 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { getItems } from '../../reducers/selectors';
 import { getADoctor } from '../../actions/doctor_actions';
 import Doctor from './doctor';
+import { getItems } from '../../reducers/selectors';
+import { isDoctorDataLoaded } from '../../util/doctor_api_utils';
 
 const mapStatetoProps = (state, ownProps) => {
-  let thisDoc = state.doctors[ownProps.match.params.id];
-  const appointmentIds = thisDoc === undefined ? [] : thisDoc.appointment_ids;
-  const reviewIds = thisDoc === undefined ? [] : thisDoc.review_ids;
+  let doctor = state.doctors[ownProps.match.params.id];
+  let docAppointments = [];
+  let docReviews = [];
+  if(isDoctorDataLoaded(doctor)) {
+    docAppointments = getItems(state.appointments, doctor.appointment_ids);
+    docReviews = getItems(state.reviews, doctor.review_ids);
+  }
+  doctor = doctor === undefined ? defaultDoc : doctor;
   return {
-    doctor: thisDoc,
-    appointments: getItems(state.appointments, appointmentIds),
-    reviews: getItems(state.reviews, reviewIds),
+    doctor: doctor,
+    appointments: docAppointments,
+    reviews: docReviews,
   };
 };
 
@@ -19,6 +25,16 @@ const mapDispatchToProps = dispatch => {
   return {
     getADoctor: doctor => dispatch(getADoctor(doctor)),
  };
+};
+
+const defaultDoc = {
+  address: '',
+  last_name: '',
+  first_name: '',
+  degree: '',
+  education: '',
+  specialties: [],
+  average_rating: 0
 };
 
 export default withRouter(connect(mapStatetoProps, mapDispatchToProps)(Doctor));

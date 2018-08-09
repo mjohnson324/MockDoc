@@ -1,3 +1,4 @@
+/* global $ */
 import moment from 'moment';
 
 export const updateApp = appointment => {

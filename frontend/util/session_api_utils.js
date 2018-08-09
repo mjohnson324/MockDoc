@@ -1,3 +1,5 @@
+/* global $ */
+
 export const signUp = user => {
   return $.ajax({
     method: 'POST',
@@ -26,4 +28,11 @@ export const getUser = id => {
     method: 'GET',
     url: `/api/users/${id}`
   });
+};
+
+export const userDataIsPresent = (user) => {
+  if (user.appointment_ids === undefined) {
+    return false;
+  }
+  return true;
 };

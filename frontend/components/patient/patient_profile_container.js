@@ -3,31 +3,23 @@ import { withRouter } from 'react-router-dom';
 import { updateAppointment } from '../../actions/appointment_actions';
 import { getUser } from '../../actions/session_actions';
 import { deleteReview } from '../../actions/review_actions';
-import { getReviewsByAppointment,
-         getPatientAppointments } from '../../reducers/selectors';
 import PatientProfile from './patient_profile';
-import { isEmpty } from 'lodash';
+import { getReviewsByAppointment,
+  getPatientAppointments } from '../../reducers/selectors';
+import { userDataIsPresent } from '../../util/session_api_utils';
 
-const mapStatetoProps = (state) => {
-  const user = state.session.currentUser;
-
-  let userReviews;
-  let userAppointments;
-  if (isEmpty(state.appointments)) {
-    userAppointments = [];
-  } else {
-    userAppointments = getPatientAppointments(state.appointments, user.appointment_ids);
+const mapStatetoProps = ({ session, reviews, appointments }) => {
+  const user = session.currentUser;
+  let patientApps = [];
+  let patientReviews = {};
+  if (userDataIsPresent(user)) {
+    patientApps = getPatientAppointments(appointments, user.appointment_ids);
+    patientReviews = getReviewsByAppointment(reviews, user.review_ids);
   }
-  if (isEmpty(state.reviews)) {
-    userReviews = {};
-  } else {
-    userReviews = getReviewsByAppointment(state.reviews, user.review_ids);
-  }
-
   return {
-    user: user,
-    reviews: userReviews,
-    appointments: userAppointments,
+    user: session.currentUser,
+    reviews: patientReviews,
+    appointments: patientApps,
   };
 };
 

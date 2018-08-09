@@ -28,7 +28,7 @@ class DoctorsMap extends React.Component {
       if (status === google.maps.GeocoderStatus.OK) {
         const coordinates = results[0].geometry.location;
         this.map.setCenter(coordinates);
-        this.map.setZoom(11);
+        this.map.setZoom(12);
       } else {
         alert("Geocode failed: " + status);
       }

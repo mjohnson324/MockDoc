@@ -1,3 +1,5 @@
+/* global $ */
+
 export const updateReview = review => {
   return $.ajax({
     method: 'PATCH',

@@ -1,24 +1,25 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { selectDoctors } from '../../reducers/selectors';
-import { getDoctors } from '../../actions/doctor_actions';
-
 import SearchIndex from './search_index';
+import { 
+  sortAppointmentsByDoctor,
+  selectDoctors } from '../../reducers/selectors';
 
-const mapStateToProps = (state) => {
-
-
+const mapStateToProps = ({ filter, doctors, appointments }) => {
+  let sortedDoctors = [];
+  let docSortedAppointments = {};
+  if (filter.status === "success") {
+    sortedDoctors = selectDoctors(doctors);
+    docSortedAppointments = sortAppointmentsByDoctor(
+      sortedDoctors, appointments
+    );
+  }
   return {
-    doctors: selectDoctors(state),
-    appointments: state.appointments,
-    filters: state.filter,
+    doctors: sortedDoctors,
+    appointments: docSortedAppointments,
+    address: filter.address,
+    status: filter.status,
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getDoctors: (filters) => dispatch(getDoctors(filters)),
-  };
-};
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchIndex));
+export default withRouter(connect(mapStateToProps)(SearchIndex));

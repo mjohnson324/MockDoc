@@ -2,8 +2,9 @@ import { values } from 'lodash';
 import moment from 'moment';
 import { filter } from 'lodash';
 
-export const selectDoctors = state => values(state.doctors);
-export const selectErrors = state => values(state.errors);
+export const selectDoctors = doctors => values(doctors);
+
+export const selectErrors = errors => values(errors);
 
 export const getItems = (items, itemIds) => {
   return itemIds.map(id => items[id]);
@@ -13,7 +14,7 @@ export const getReviewsByAppointment = (reviews, ids) => {
   const appReviews = {};
   ids.forEach(id => {
     let review = reviews[id];
-    if (review) {
+    if (review !== undefined) {
       appReviews[review.appointment_id] = review;
     }
   });
@@ -21,8 +22,13 @@ export const getReviewsByAppointment = (reviews, ids) => {
 };
 
 export const selectReview = (reviews, appointmentId) => {
-  let review = undefined;
-  for (const revId in reviews) {
+  let review = {
+    overall_rating: '',
+    wait_time: '',
+    bedside_manner: '',
+    body: '',
+  };
+  for (let revId in reviews) {
     if (reviews[revId]["appointment_id"] === parseInt(appointmentId)) {
       review = reviews[revId];
       break;
@@ -46,13 +52,11 @@ export const getPatientAppointments = (appointments, ids) => {
 
 export const sortAppointmentsByDoctor = (doctors, appointments) => {
   const sortedAppointments = {};
-  if (doctors[0]) {
-    doctors.forEach(doctor => {
-      sortedAppointments[doctor.id] = getItems(
-        appointments, doctor.appointment_ids
-      );
-    });
-  }
+  doctors.forEach(doctor => {
+    sortedAppointments[doctor.id] = getItems(
+      appointments, doctor.appointment_ids
+    );
+  });
   return sortedAppointments;
 };
 

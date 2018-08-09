@@ -1,3 +1,5 @@
+/* global $ */
+
 export const getDoc = doctorId => {
   return $.ajax({
     method: 'GET',
@@ -12,3 +14,10 @@ export const getDocs = data => {
     data
   });
 };
+
+export const isDoctorDataLoaded = (doctor) => {
+  if (doctor === undefined || doctor.review_ids === undefined) {
+    return false;
+  }
+  return true;
+}

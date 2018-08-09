@@ -4,15 +4,14 @@ import {
   createReview,
   changeReview } from '../../actions/review_actions';
 import { clearErrors } from '../../actions/error_actions';
-import { selectErrors } from '../../reducers/selectors';
 import { getAppointment } from '../../actions/appointment_actions';
-import { selectReview } from '../../reducers/selectors';
+import { selectReview, selectErrors } from '../../reducers/selectors';
 import ReviewForm from './review_form';
 
 const mapStatetoProps = (state) => {
   const appointmentId = window.location.href.split('-')[1];
   return {
-    errors: selectErrors(state),
+    errors: selectErrors(state.errors),
     appointment: state.appointments[appointmentId],
     review: selectReview(state.reviews, appointmentId)
   };

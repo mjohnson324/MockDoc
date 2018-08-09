@@ -1,20 +1,22 @@
 import React from 'react';
 import moment from 'moment';
+import { Errors } from '../header/shared_components';
 
 class BookingForm extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       reason: '',
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
     const appId = this.props.match.params.id;
     this.props.getAppointment(appId);
+  }
+  
+  componentWillUnmount() {
     this.props.clearErrors();
   }
 
@@ -36,60 +38,37 @@ class BookingForm extends React.Component {
       .then(() => this.props.history.push('/patient'));
   }
 
-  renderErrors() {
-    return(
-      <ul className="error">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-
   render() {
     const { appointment, patient } = this.props;
-    if (appointment) {
-      return(
-        <form onSubmit={this.handleSubmit} className="booking-form">
-          <h3>Review and Book</h3>
-
-          <label>Name:</label>
-          <div>{`${patient.first_name} ${patient.last_name}`}</div>
-          <br/>
-
-          <label>Time:</label>
-          <div>
-            {`${moment(appointment.start_time)
-              .format("dddd, MMMM Do YYYY, h:mm a")}`}
-          </div>
-          <br/>
-
-          <label>Address:</label>
-          <div>{`${appointment.address}`}</div>
-          <br/>
-
-          <label>Doctor:</label>
-          <div>{`${appointment.doctor_name}`}</div>
-          <br/>
-
-          <label>Reason for visit:</label>
-          <br/>
-          <textarea
-            onChange={this.update('reason')}
-            value={this.state.reason}
-            ></textarea>
-          <br/>
-
-          {this.renderErrors()}
-
-          <input type="submit" value="Book Appointment" />
-        </form>
-      );
-    } else {
-      return <section/>;
-    }
+    return(
+      <form onSubmit={this.handleSubmit} className="booking-form">
+        <h3>Review and Book</h3>
+        <label>Name:</label>
+        <div>{`${patient.first_name} ${patient.last_name}`}</div>
+        <br/>
+        <label>Time:</label>
+        <div>
+          {`${moment(appointment.start_time)
+            .format("dddd, MMMM Do YYYY, h:mm a")}`}
+        </div>
+        <br/>
+        <label>Address:</label>
+        <div>{`${appointment.address}`}</div>
+        <br/>
+        <label>Doctor:</label>
+        <div>{`${appointment.first_name} ${appointment.last_name}`}</div>
+        <br/>
+        <label>Reason for visit:</label>
+        <br/>
+        <textarea
+          onChange={this.update('reason')}
+          value={this.state.reason}
+          ></textarea>
+        <br/>
+        <Errors errors={this.props.errors} />
+        <input type="submit" value="Book Appointment" />
+      </form>
+    );
   }
 }
 

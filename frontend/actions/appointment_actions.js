@@ -4,25 +4,24 @@ import { receiveErrors } from './error_actions';
 
 export const RECEIVE_APPOINTMENT_AND_REVIEW = 'RECEIVE_APPOINTMENT_AND_REVIEW';
 
-export const receiveAppointment = ({appointment, review}) => {
-  const reviewResults = review ? review : {};
-
+export const receiveAppointment = (data) => {
+  const reviewResults = data.review === undefined ? {} : data.review;
   return {
     type: RECEIVE_APPOINTMENT_AND_REVIEW,
-    appointment,
+    appointment: data.appointment,
     review: reviewResults
   };
 };
 
 export const getAppointment = appointment => dispatch => {
-  return APIUtil.getApp(appointment).then(app => (
-    dispatch(receiveAppointment(app))
+  return APIUtil.getApp(appointment).then(data => (
+    dispatch(receiveAppointment(data))
   ));
 };
 
 export const updateAppointment = appointment => dispatch => {
-  return APIUtil.updateApp(appointment).then(app => (
-    dispatch(receiveAppointment(app))
+  return APIUtil.updateApp(appointment).then(data => (
+    dispatch(receiveAppointment(data))
   ), err => (
     dispatch(receiveErrors(err.responseJSON))
   ));

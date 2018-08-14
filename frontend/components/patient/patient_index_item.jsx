@@ -39,7 +39,7 @@ const reviewPortion = (review, removeReview, appointment) => {
 };
 
 const reviewBody = body => {
-  if (body !== null) {
+  if (body !== null && body !== '') {
     return <p>Body: {`${body}`}</p>;
   }
 };

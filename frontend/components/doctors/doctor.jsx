@@ -1,5 +1,5 @@
 import React from 'react';
-import DoctorsMap from '../map/doctors_map';
+import DoctorsMapWrapper from '../map/doctors_map';
 import DoctorAppointments from './doctor_appointments';
 import { getDayRange } from '../../util/appointment_util';
 import { sortAppointmentsByDay, 
@@ -30,7 +30,7 @@ class Doctor extends React.Component {
   }
 
   render () {
-    const { doctor, reviews, appointments } = this.props;
+    const { doctor, reviews, appointments, googleLoaded } = this.props;
     const { today, tomorrow, dayAfter, dayFour } = this.state;
     const daySortedApps = sortAppointmentsByDay(
       appointments, [today, tomorrow, dayAfter, dayFour]
@@ -46,9 +46,10 @@ class Doctor extends React.Component {
           </div>
         </div>
         <div className="docMap">
-          <DoctorsMap
+          <DoctorsMapWrapper
             doctors={[doctor]}
             address={doctor.address}
+            googleLoaded={googleLoaded}
             />
         </div>
         <div className="doc-inline">

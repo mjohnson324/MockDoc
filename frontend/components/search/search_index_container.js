@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import SearchIndex from './search_index';
+import { getDoctors } from '../../actions/doctor_actions';
+import { changeFilter } from '../../actions/filter_actions';
 import { 
   sortAppointmentsByDoctor,
   selectDoctors } from '../../reducers/selectors';
@@ -17,9 +19,15 @@ const mapStateToProps = ({ filter, doctors, appointments }) => {
   return {
     doctors: sortedDoctors,
     appointments: docSortedAppointments,
-    address: filter.address,
-    status: filter.status,
+    filter,
   };
 };
 
-export default withRouter(connect(mapStateToProps)(SearchIndex));
+const mapDispatchToProps = dispatch => {
+  return {
+    getDoctors: (filter) => dispatch(getDoctors(filter)),
+    changeFilter: (filter) => dispatch(changeFilter(filter)),
+  };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchIndex));

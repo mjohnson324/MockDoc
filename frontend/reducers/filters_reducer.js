@@ -5,7 +5,8 @@ import { RECEIVE_SEARCH_RESULTS } from '../actions/doctor_actions';
 const defaultFilters = Object.freeze({
   specialty: "none",
   address: "",
-  status: "loading"
+  status: "loading",
+  googleLoaded: false,
 });
 
 const filtersReducer = (state = defaultFilters, action) => {

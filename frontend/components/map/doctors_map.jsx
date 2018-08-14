@@ -39,21 +39,41 @@ class DoctorsMap extends React.Component {
     return this.props.history.push(`/doctor/${doctor.id}`);
   }
   
-  docSearchToggle() {
-    if (this.props.location.pathname.includes("/doctor/")) {
-      return ["map-doc-canvas", "map-doc-container"];
-    } else {
-      return ["map-search-canvas", "map-search-container"];
-    }
-  }
-  
   render () {
+    const [canvasId, containerId] = this.props.mapIds;
     return(
-      <div id={this.docSearchToggle()[1]}>
-        <div id={this.docSearchToggle()[0]} ref={this.mapRef}></div>
+      <div id={containerId}>
+        <div id={canvasId} ref={this.mapRef}></div>
       </div>
     );
   }
 }
 
-export default withRouter(DoctorsMap);
+const docSearchToggle = (pathname) => {
+  if (pathname.includes("/doctor/")) {
+    return ["map-doc-canvas", "map-doc-container"];
+  } else {
+    return ["map-search-canvas", "map-search-container"];
+  }
+};
+
+const DoctorsMapWrapper = (props) => {
+  const displayIds = docSearchToggle(props.location.pathname);
+  if (props.googleLoaded) {
+    return(
+      <DoctorsMap 
+        doctors={props.doctors} 
+        address={props.address}
+        history={props.history}
+        mapIds={displayIds} />
+    );
+  } else {
+    return(
+      <div id={displayIds[1]}>
+        <div id={displayIds[0]}></div>
+      </div>
+    );
+  }
+};
+
+export default withRouter(DoctorsMapWrapper);

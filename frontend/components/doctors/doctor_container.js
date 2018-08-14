@@ -18,6 +18,7 @@ const mapStatetoProps = (state, ownProps) => {
     doctor: doctor,
     appointments: docAppointments,
     reviews: docReviews,
+    googleLoaded: state.filter.googleLoaded,
   };
 };
 

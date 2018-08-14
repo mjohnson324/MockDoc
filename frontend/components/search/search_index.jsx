@@ -1,7 +1,7 @@
 import React from 'react';
 import { getDayRange } from '../../util/appointment_util';
 import SearchIndexItem from './search_index_item';
-import DoctorsMap from '../map/doctors_map';
+import DoctorsMapWrapper from '../map/doctors_map';
 import { Loading, NoResultsFound } from '../header/shared_components';
 
 class SearchIndex extends React.Component {
@@ -15,14 +15,26 @@ class SearchIndex extends React.Component {
     };
   }
 
-  render() {
-    const { status } = this.props;
+  componentDidMount() {
+    const queryString = "?".concat(window.location.href.split('?')[1]);
+    const searchParams = new URLSearchParams(queryString);
+    const filter = {
+      specialty: searchParams.get('specialty'),
+      address: searchParams.get('address'),
+      status: this.props.filter.status,
+    };
+    this.props.changeFilter(filter);
+    this.props.getDoctors(filter);
+  }
+  
+  render() {   
+    const { status, address, googleLoaded } = this.props.filter;
     if (status === "loading") {
       return <Loading />;
     } else if (status === "failure"){
         return <NoResultsFound />;
     } else {
-      const { appointments, address, doctors } = this.props;
+      const { appointments, doctors } = this.props;
       const { today, tomorrow, dayAfter }  = this.state;
       return(
         <div className="search-master">
@@ -43,9 +55,10 @@ class SearchIndex extends React.Component {
                   dates={[today, tomorrow, dayAfter]} />))}
             </ul>
           </section>
-          <DoctorsMap
+          <DoctorsMapWrapper
             doctors={doctors}
             address={address}
+            googleLoaded={googleLoaded}
           />
         </div>
       );

@@ -10,6 +10,7 @@ class Search extends React.Component {
     };
     this.location = React.createRef();
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.initAutocomplete = this.initAutocomplete.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +29,7 @@ class Search extends React.Component {
   }
 
   initAutocomplete() {
+    this.props.changeFilter({ googleLoaded: true });
     return new google.maps.places.Autocomplete(
       (document.getElementById('address')),
       {types: ['geocode']}

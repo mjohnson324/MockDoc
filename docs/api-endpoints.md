@@ -1,21 +1,22 @@
 # API Endpoints
----
 
-### Root
+All api endpoints deliver json-formatted data to the frontend.
+
+## Root
 
 - GET / - loads React web app
 
-### API Users
+## API Users
 
 - POST /api/users
 - GET /api/users/:id
 
-### API Session
+## API Session
 
 - POST /api/session
 - DELETE /api/session
 
-### API Doctors
+## API Doctors
 
 - GET /api/doctors/
   - Doctors /search:
@@ -23,13 +24,13 @@
   - accepts specialty query param to find doctors by specialty
 - GET /api/doctors/:id
 
-### API Appointments
+## API Appointments
 
 - GET /api/appointments/:id
-- PATCH /api/appointments/:id
+- PATCH/PUT /api/appointments/:id
 
-### API Reviews
+## API Reviews
 
 - POST /api/reviews
-- PATCH  /api/reviews/:id
+- PATCH/PUT  /api/reviews/:id
 - DELETE /api/reviews/:id

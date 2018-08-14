@@ -1,54 +1,52 @@
-## Component Hierarchy:
+# Component Hierarchy
 
-**HeaderContainer**
-  - Header
+- **Provider**
+  - **HashRouter**
+    - **HeaderContainer**
+      - Header
+    - **SearchContainer**
+      - Search (the search bar)
+    - **SessionFormContainer**
+      - SessionForm
+        - Errors
+    - **SignupFormContainer**
+      - SignupForm
+        - Errors
+    - **BookingFormContainer**
+      - BookingForm
+        - Errors
+    - **ReviewFormContainer**
+      - ReviewForm
+        - Errors
+    - **PatientProfileContainer**
+      - PatientProfile
+        - PatientIndexItem
+    - **DoctorContainer**
+      - Doctor
+        - DoctorsMapWrapper
+          -DoctorsMap (Google Map)
+        - DoctorReviews
+          - DoctorReviewsItem
+        - DoctorAppointments
+          - AppointmentsTable
+            - AppointmentsDayDisplay
+    - **SearchIndexContainer**
+      - SearchIndex (Search results)
+        - DoctorsMapWrapper
+          - DoctorsMap (Google Map)
+        - SearchIndexItem
+          - AppointmentsTable (Holds Lists of Appointments sorted by day)
+            - AppointmentsDayDisplay (Each is a list of appointments)
 
-**SessionFormContainer**
-  - SessionForm
+## Routes
 
-**SignupFormContainer**
-  - SignupForm
-
-**PatientProfileContainer**
-  - PatientProfile
-    + PatientIndexItem
-
-**DoctorContainer**
-  - Doctor
-    + DoctorsMap
-    + DoctorReviews
-      + DoctorReviewsItem
-    + DoctorAppointments
-      + AppointmentsTable
-        + AppointmentsDayDisplay
-
-**SearchContainer**
-  - Search (This is the search bar)
-
-**SearchIndexContainer**
-- SearchIndex (This displays search results)
-  + DoctorsMap (Google Maps Display)
-  + SearchContainer
-    + Search
-  + SearchIndexItem
-      + AppointmentsTable (Holds Lists of Appointments sorted by day)
-        + AppointmentsDayDisplay (Each is a list of appointments)
-
-**BookingFormContainer**
-  - BookingForm
-
-**ReviewFormContainer**
-  - ReviewForm
-
-## Routes:
-
-| Path                         | Component                        |
+| Path                         | Component (s)                        |
 |------------------------------|----------------------------------|
-| "/"                          | "SearchContainer"                |
+| "/"                          | "SearchContainer", "HeaderContainer, Footer                |
 | "/search"                    | "SearchIndexContainer"           |
-| "/createuser"                | "SignupFormContainer"            |
+| "/signup"                | "SignupFormContainer"            |
 | "/signin"                    | "SessionFormContainer"           |
 | "/patient"                   | "PatientProfileContainer"        |
-| "/doctor/:id"                | "DoctorProfileContainer"         |
+| "/doctor/:id"                | "DoctorContainer"         |
 | "/booking/:id"               | "BookingFormContainer"           |
 | "/review/:id"                | "ReviewFormContainer"            |

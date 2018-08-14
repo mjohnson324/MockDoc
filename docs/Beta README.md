@@ -9,7 +9,7 @@
 
 ## Minimum Viable Product
 
-MockDoc is a web application inspired by ZocDoc built using Ruby on Rails and React/Redux. By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
+MockDoc is a web application inspired by ZocDoc built using Ruby on Rails and React/Redux. Initially this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
@@ -20,11 +20,12 @@ MockDoc is a web application inspired by ZocDoc built using Ruby on Rails and Re
 - [ ] Production README
 
 ## Design Docs
-* [View Wireframes][wireframes]
-* [React Components][components]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
-* [Sample State][sample-state]
+
+- [View Wireframes][wireframes]
+- [React Components][components]
+- [API endpoints][api-endpoints]
+- [DB schema][schema]
+- [Sample State][sample-state]
 
 [wireframes]: wireframes
 [components]: component-hierarchy.md
@@ -55,6 +56,7 @@ MockDoc is a web application inspired by ZocDoc built using Ruby on Rails and Re
 **Objective:** After an appointment patients can review doctors. Reviews can be created and read. Reviews belong to a patient and a doctor.
 
 ### Bonus Features (TBD)
+
 - [ ] Search for doctors by accepted insurance
 - [ ] Practices
 - [ ] Insurance card photos

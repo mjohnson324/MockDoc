@@ -3,7 +3,8 @@ import DoctorsMapWrapper from '../map/doctors_map';
 import DoctorAppointments from './doctor_appointments';
 import { getDayRange } from '../../util/appointment_util';
 import { sortAppointmentsByDay, 
-         renderStars } from '../../reducers/selectors';
+         renderStars,
+         degreeCheck } from '../../reducers/selectors';
 import DoctorReviews from './doctor_reviews';
 
 class Doctor extends React.Component {
@@ -39,7 +40,7 @@ class Doctor extends React.Component {
       <section>
         <div className="docTitle">
           <h1>
-            {`Dr. ${doctor.first_name} ${doctor.last_name}, ${doctor.degree}`}
+            {`Dr. ${doctor.first_name} ${doctor.last_name}, ${degreeCheck(doctor.degree)}`}
           </h1>
           <div className="stars">
             {renderStars(doctor.average_rating)}

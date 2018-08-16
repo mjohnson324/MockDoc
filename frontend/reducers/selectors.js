@@ -87,3 +87,7 @@ export const renderStars = (rating) => {
     return starRating;
   }
 };
+
+export const degreeCheck = (degree) => {
+  return degree === null ? "none" : degree;
+};

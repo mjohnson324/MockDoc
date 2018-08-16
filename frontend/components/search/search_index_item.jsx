@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AppointmentsTable from '../appointments/appointments_table';
-import { sortAppointmentsByDay, renderStars } from '../../reducers/selectors';
+import { sortAppointmentsByDay, 
+         renderStars, 
+         degreeCheck } from '../../reducers/selectors';
 
 const SearchIndexItem = (docInfo) => {
     const { doc, apps, dates } = docInfo;
@@ -12,7 +14,7 @@ const SearchIndexItem = (docInfo) => {
 
       <div className="doc-info">
         <Link to={`/doctor/${doc.id}`}>
-          {`${doc.first_name} ${doc.last_name}, ${doc.degree}`}
+          {`${doc.first_name} ${doc.last_name}, ${degreeCheck(doc.degree)}`}
         </Link>
         <div>
           {`${doc.specialties[0]}`}

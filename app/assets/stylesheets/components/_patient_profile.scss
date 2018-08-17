@@ -1,6 +1,12 @@
 .patient-appointments {
-  h1, h2, li, button {
+  margin-bottom: 30px;
+
+  h1, h2, li {
     color: $navy-blue;
+  }
+  
+  button {
+    color: white;
   }
 
   h1 {
@@ -15,53 +21,64 @@
   }
 
   li {
-    margin: 10px;
-    padding: 10px;
+    height: 120px;
+    margin: 20px;
   }
 
   button {
-    background-color: $zoc-yellow;
+    background-color: $navy-blue;
     padding: 10px;
-    margin-top: 20px;
-    margin-right: 20px;
   }
 
   button:hover {
-    color: white;
-    background-color: $navy-blue;
+    color: $navy-blue;
+    background-color: white;
     cursor: pointer;
     cursor: hand;
+    border: solid 1px $navy-blue;
   }
 
   a {
     @extend button;
+    display: inline-block;
     font-size: 16px;
-    margin-right: 20px;
   }
 }
 
-.patient-review-info {
-  display: inline-block;
+.info-title {
+  font-weight: bold;
+}
 
+.patient-review-info {
+  padding: 10px;
+  display: inline-block;
   vertical-align: top;
+  height: 100px;
+  background-color: $zoc-yellow;
 }
 
 .patient-appointment-info {
   @extend .patient-review-info;
-  width: 350px;
-  margin: 10px;
-  padding: 10px;
+  width: 340px;
+  background-color: $sky-blue;
 }
 
 .review-body {
   display: inline-block;
+  height: 100%;
 }
 
 .review-buttons {
   @extend .review-body;
+  vertical-align: top;
   margin-left: 20px;
 
-  button, a {
-    display: block;
+  div {
+    display: flex;
+    flex-direction: column;
   }
+}
+
+.remove-review-margin {
+  margin-bottom: 20px;
 }

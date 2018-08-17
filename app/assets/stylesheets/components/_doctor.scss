@@ -28,36 +28,23 @@
 .docProfile {
   color: $navy-blue;
   width: 820px;
-  height: 700px;
   display: inline-block;
 
   h2 {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: 700;
-    margin-top: 60px;
+    margin-top: 30px;
     margin-bottom: 30px;
-    margin-left: 130px;
+    margin-left: 80px;
   }
 
-
-  ol {
-    margin-left: 130px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    border-top: solid 1px $input-border-gray;
-    text-align: top;
-
-    label, ul {
-      display: inline-block;
-    }
-
-    li {margin-bottom: 10px;}
-
-    label {
-      width: 210px;
-      font-weight: bold;
-      vertical-align: top;
-    }
+  label {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  div, ul li {
+    margin: 10px;
   }
 }
 
@@ -119,7 +106,7 @@
   }
 }
 
-.doc-inline {
+.doc-inline { // prevents element from wrapping around
   white-space: nowrap;
 }
 
@@ -135,13 +122,13 @@
 }
 
 .review-container-date {
-  width: 30%;
+  width: 20%;
   padding-left: 20px;
   display: inline-block;
 }
 
 .review-container-data {
-  width: 60%;
+  width: 75%;
   display: inline-block;
 }
 

@@ -31,7 +31,7 @@
 
 .doc-appointments {
   position: sticky;
-  top: 0;
+  top: 75px;
   display: inline-block;
   margin-left: 20px;
   width: 480px;
@@ -49,7 +49,6 @@
   p {
     margin: 10px;
     font-size: 20px;
-
   }
 
   .doc-scroll-bar {
@@ -59,16 +58,8 @@
     justify-content: space-around;
   }
 
-  section div {
-    width: 98px;
-    margin-right: 10px;
-    margin-left:10px;
-    line-height: 40px;
-    font-weight: bold;
-  }
-
-  div section {
-    height: 360px;
+  h3, p {
+    text-align: center;
   }
 
   button {
@@ -76,4 +67,12 @@
     color: white;
     padding: 10px;
   }
+}
+
+.doc-appointments-days {
+    width: 98px;
+    margin-right: 10px;
+    margin-left:10px;
+    line-height: 40px;
+    font-weight: bold;
 }

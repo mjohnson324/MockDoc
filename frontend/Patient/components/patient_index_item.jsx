@@ -6,7 +6,8 @@ const PatientIndexItem = (props) => {
   const { appointment, review, cancel, removeReview } = props;
   return(
     <li>
-      <div className="patient-appointment-info">Appointment:
+      <div className="patient-appointment-info">
+        <div className="info-title">Appointment:</div>
         <div>Reason: {`${appointment.reason}`}</div>
         <div>Time: {`${moment(appointment.start_time)
             .format("dddd, MMMM Do YYYY, h:mm a")}`}</div>
@@ -23,15 +24,18 @@ const reviewPortion = (review, removeReview, appointment) => {
   if (review !== undefined) {
     return(
       <div className="patient-review-info">
-        <div className="review-body">Review:
+        <div className="review-body">
+          <div className="info-title">Review:</div>
           <div>Overall: {`${review.overall_rating}`}</div>
           <div>Bedside Manner: {`${review.bedside_manner}`}</div>
           <div>Wait-Time: {`${review.wait_time}`}</div>
           {reviewBody(review.body)}
         </div>
         <div className="review-buttons">
-          <button onClick={removeReview}>Delete Review</button>
-          <Link to={`/review/appointment-${appointment.id}`}>Edit Review</Link>
+          <div>
+            <button className="remove-review-margin" onClick={removeReview}>Delete Review</button>
+            <Link to={`/review/appointment-${appointment.id}`}>Edit Review</Link>
+          </div>
         </div>
       </div>
     );

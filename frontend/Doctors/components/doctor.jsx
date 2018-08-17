@@ -29,7 +29,7 @@ class Doctor extends React.Component {
     });
   }
 
-  render () {
+  render() {
     const { doctor, reviews, appointments, googleLoaded } = this.props;
     const { today, tomorrow, dayAfter, dayFour } = this.state;
     const daySortedApps = sortAppointmentsByDay(
@@ -50,7 +50,7 @@ class Doctor extends React.Component {
             doctors={[doctor]}
             address={doctor.address}
             googleLoaded={googleLoaded}
-            />
+          />
         </div>
         <div className="doc-inline">
           <div className="docProfile">
@@ -68,7 +68,7 @@ class Doctor extends React.Component {
               </div>
               <div>
                 <label>Address:</label>
-                <ul><li>{`${doctor.address}`}</li></ul>
+                <div>{`${doctor.address}`}</div>
               </div>
             </div>
           </div>

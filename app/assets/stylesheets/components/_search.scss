@@ -94,3 +94,37 @@ main { // needed to dynamically resize search on home page
     height: 210px;
   }
 }
+
+#loading {
+  margin: auto;
+
+  p {
+    text-align: center;
+    margin: 40px 0 0 0;
+    font-size: 24px;
+  }
+}
+
+#no-results {
+  @extend #loading;
+
+  svg {
+    width: 350px;
+    display: block;
+    margin: auto;
+  }
+
+  p {
+    margin: 10px 0 10px 0;
+  }
+}
+
+.animate-logo {
+  animation: logo 3s linear infinite;
+}
+
+@keyframes logo {
+  0% {
+    transform: rotate(-360deg);
+  }
+}

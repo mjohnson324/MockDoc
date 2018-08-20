@@ -10,7 +10,7 @@ const Footer = () => {
                 <img id="my-linkedin" alt="linkedin" />
             </a>
             <a rel="noopener noreferrer" target="_blank" href="https://www.michael-w-johnson.com">Portfolio</a>
-            <div>{'\u00A9'} Copyright 2017, Michael Johnson</div>
+            <p>{'\u00A9'} Copyright 2017, Michael Johnson</p>
         </footer>
     );
 };

@@ -43,7 +43,14 @@ class Header extends React.Component {
 
   isHomePage() {
     if (this.props.location.pathname === "/") {
-      return <img id="logo" alt="logo" />;
+    return(
+      <React.Fragment>
+        <div className="landing-logo">
+          <img id="logo" alt="logo" />
+          <h1>MockDoc</h1>
+        </div>
+      </React.Fragment>
+    );
     } else {
       return <Link className="no-extra-blue" to="/"><h1>MockDoc</h1></Link>;
     }
@@ -52,8 +59,10 @@ class Header extends React.Component {
   render() {
     return(
       <header className="head-home">
-        {this.isHomePage()}
-        <nav>{this.navLinks()}</nav>
+        <div className="home-display">
+          {this.isHomePage()}
+          <nav>{this.navLinks()}</nav>
+        </div>
       </header>
     );
   }

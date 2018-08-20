@@ -2,7 +2,7 @@
 
 **Link to Site:** [MockDoc](https://www.mockdoc.live/)
 
-MockDoc is a full-stack web application based off ZocDoc, an appointment-booking app. It imitates the site's core features (searching for doctors, scheduling appointments, leaving reviews) with a light satirical spin: fake doctors of questionable qualifications offering free services to the public.
+MockDoc is a full-stack web application based off ZocDoc, an appointment-booking app. It imitates the site's core features (searching for doctors, scheduling appointments, leaving reviews), except the doctors aren't real and may have questionable qualifications, but offer their services freely.
 
 Hosted on Heroku.
 

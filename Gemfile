@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 # Use postgresql as the database for Active Record
@@ -34,6 +33,7 @@ gem 'figaro'
 # AWS S3 for image storage
 gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
+gem 'sprockets', '~> 3.7.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

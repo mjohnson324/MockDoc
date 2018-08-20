@@ -1,48 +1,58 @@
 .head-home {
-
-  height: 108px;
   background-color: $sky-blue;
   color: $navy-blue;
+  padding: 10px;
 
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  .home-display {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
-  button, a {
-    font-size: 20px;
-    background-color: $zoc-yellow;
-    color: $navy-blue;
-    padding: 10px;
-    margin-right: 20px;
-  }
-
-  button:hover, a:hover {
-    text-decoration: underline;
-    color: white;
-    background-color: $navy-blue;
-    cursor: hand;
+    h1 {
+      font-size: 60px;
+      font-weight: bold;
+    }
+  
+    button, a {
+      font-size: 20px;
+      background-color: $zoc-yellow;
+      color: $navy-blue;
+      padding: 10px;
+      margin-right: 20px;
+    }
+  
+    button:hover, a:hover {
+      text-decoration: underline;
+      color: white;
+      background-color: $navy-blue;
+      cursor: hand;
+    }
   }
 }
 
-// .slogan-home { Keep for future use on home page
-//   font-size: 36px;
-//   font-weight: bold;
-//   text-align: center;
-//   left: 10%;
-//   background-color: $sky-blue;
-//   color: $navy-blue;
-//   padding: 20px;
-// }
+.home-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $sky-blue;
+  
+  .slogan {
+    font-size: 24px;
+  }
 
-// h3 { Keep in case of use by other components
-//   color: $navy-blue;
-//   font-size: 30px;
-//   text-align: left;
-//   margin: 0 auto;
-//   background-color: $sky-blue;
-//   padding: 10px;
-//   padding-left: 150px;
-// }
+  p {
+    margin: 5px;
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+.landing-logo {
+  img, h1 { 
+    display: inline-block;
+    vertical-align: bottom;
+  }
+}
 
 .head {
   height: 66px;

@@ -21,7 +21,6 @@
   }
 
   li {
-    height: 120px;
     margin: 20px;
   }
 
@@ -49,23 +48,48 @@
   font-weight: bold;
 }
 
+.appointment-data {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
 .patient-review-info {
   padding: 10px;
-  display: inline-block;
   vertical-align: top;
-  height: 100px;
   background-color: $zoc-yellow;
+  width: 350px;
 }
 
 .patient-appointment-info {
   @extend .patient-review-info;
-  width: 340px;
   background-color: $sky-blue;
+}
+
+.doctor-links {
+  margin-left: 10px;
+
+  a {
+    margin: 20px;
+  }
 }
 
 .review-body {
   display: inline-block;
-  height: 100%;
+  text-align: right;
+}
+
+.top-margin {
+  margin-top: 10px;
+}
+
+.left-align {
+  text-align: left;
+}
+
+.write-review-button {
+  align-self: center;
+  margin-left: 30px;
 }
 
 .review-buttons {

@@ -17,15 +17,14 @@ puts("User added")
 
 doc_hibbert_simpsons = Doctor.create!(first_name: "Julius", last_name: "Hibbert", education: "Johns Hopkins University School of Medicine", degree: "MD", address: "51 W 51st St, New York, NY", location: "51 W 51st St, New York, NY", quote: "Probably the only qualified doctor on this site")
 doc_nick_simpsons = Doctor.create!(first_name: "Nick", last_name: "Riviera", education: "Hollywood Upstairs Medical College", address: "51 W 42nd St, New York, NY", location: "51 W 42nd St, New York, NY", quote: "Hello Everybody!")
-
 # doc_munroe_simpsons = Doctor.create!(first_name: "Nick", last_name: "Riviera", education: "Hollywood Upstairs Medical College", address: "51 W 42nd St, New York, NY", location: "51 W 42nd St, New York, NY", quote: "Hello Everybody!")
-# doc_house = Doctor.create!(first_name: "Nick", last_name: "Riviera", education: "Hollywood Upstairs Medical College", address: "51 W 42nd St, New York, NY", location: "51 W 42nd St, New York, NY", quote: "Hello Everybody!")
 # doc_who = Doctor.create!(first_name: "Nick", last_name: "Riviera", education: "Hollywood Upstairs Medical College", address: "51 W 42nd St, New York, NY", location: "51 W 42nd St, New York, NY", quote: "Hello Everybody!")
 # doc_frankenstein = Doctor.create!(first_name: "Nick", last_name: "Riviera", education: "Hollywood Upstairs Medical College", address: "51 W 42nd St, New York, NY", location: "51 W 42nd St, New York, NY", quote: "Hello Everybody!")
 # doc_jekyll = Doctor.create!(first_name: "Nick", last_name: "Riviera", education: "Hollywood Upstairs Medical College", address: "51 W 42nd St, New York, NY", location: "51 W 42nd St, New York, NY", quote: "Hello Everybody!")
-# doc_house = Doctor.create!(first_name: "Nick", last_name: "Riviera", education: "Hollywood Upstairs Medical College", address: "51 W 42nd St, New York, NY", location: "51 W 42nd St, New York, NY", quote: "Hello Everybody!")
-# doc_strange = Doctor.create!(first_name: "Nick", last_name: "Riviera", education: "Hollywood Upstairs Medical College", address: "51 W 42nd St, New York, NY", location: "51 W 42nd St, New York, NY", quote: "Hello Everybody!")
-# doc_farnsworth = Doctor.create!(first_name: "Nick", last_name: "Riviera", education: "Hollywood Upstairs Medical College", address: "51 W 42nd St, New York, NY", location: "51 W 42nd St, New York, NY", quote: "Hello Everybody!")
+# doc_house_house = Doctor.create!(first_name: "Nick", last_name: "Riviera", education: "Hollywood Upstairs Medical College", address: "51 W 42nd St, New York, NY", location: "51 W 42nd St, New York, NY", quote: "Hello Everybody!")
+# doc_strange_marvel = Doctor.create!(first_name: "Nick", last_name: "Riviera", education: "Hollywood Upstairs Medical College", address: "51 W 42nd St, New York, NY", location: "51 W 42nd St, New York, NY", quote: "Hello Everybody!")
+# doc_farnsworth_futurama = Doctor.create!(first_name: "Nick", last_name: "Riviera", education: "Hollywood Upstairs Medical College", address: "51 W 42nd St, New York, NY", location: "51 W 42nd St, New York, NY", quote: "Hello Everybody!")
+# doc_zoidberg_futurama = Doctor.create!(first_name: "Nick", last_name: "Riviera", education: "Hollywood Upstairs Medical College", address: "51 W 42nd St, New York, NY", location: "51 W 42nd St, New York, NY", quote: "Hello Everybody!")
 
 # 40 first names, 40 last names, 9 schools + 1 dentistry
 random_first_name = ["Sharie", "Eric", "Leonardo", "Katina", "German", "Narcisa", "Lorilee", "Phylicia", "Michael", "Derek", "Edward", "Erick", "James", "Stephen", "Jeffrey", "Jose", "Orlando", "Joseph", "Lyndsey", "Raisa", "Althea", "Melony", "Ezequiel", "Keren", "Lizeth", "Lacey", "Vivienne", "Jeniffer", "Misti", "Darnell", "Lise", "Tyler", "Matthew", "Thomas", "Brendan", "David", "Victor", "Candice", "Enriqueta", "Lucas"]
@@ -102,11 +101,11 @@ doctors.each_with_index do |doctor, j|
     app = Appointment.create!(doctor_id: doctor.id, start_time: start_day.to_datetime, address: doctor.address, first_name: doctor.first_name, last_name: doctor.last_name)
     if i % 5 == 0 && Time.now > start_day
       Review.create!(overall_rating: rand(4) + 1, bedside_manner: rand(4) + 1, wait_time: rand(4) + 1, appointment_id: app.id)
-      # Makes _ reviews per doctor
+      # Makes 19 reviews per doctor
     end
     puts(8 - (i / 100)) if i % 100 == 0
     start_day += 2.hour
-    start_day += 18.hour if start_day.hour > 18
+    start_day += 14.hour if start_day.hour > 18
   end
   puts("#{num_doctors - j} doctors remaining")
 end

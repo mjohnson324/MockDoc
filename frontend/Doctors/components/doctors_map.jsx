@@ -59,7 +59,7 @@ const docSearchToggle = (pathname) => {
 
 const DoctorsMapWrapper = (props) => {
   const displayIds = docSearchToggle(props.location.pathname);
-  if (props.googleLoaded) {
+  if (props.googleLoaded && props.address !== "") {
     return(
       <DoctorsMap 
         doctors={props.doctors} 

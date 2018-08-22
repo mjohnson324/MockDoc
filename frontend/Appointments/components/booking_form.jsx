@@ -43,23 +43,11 @@ class BookingForm extends React.Component {
     return(
       <form onSubmit={this.handleSubmit} className="booking-form">
         <h3>Review and Book</h3>
-        <label>Name:</label>
-        <div>{`${patient.first_name} ${patient.last_name}`}</div>
-        <br/>
-        <label>Time:</label>
-        <div>
-          {`${moment(appointment.start_time)
-            .format("dddd, MMMM Do YYYY, h:mm a")}`}
-        </div>
-        <br/>
-        <label>Address:</label>
-        <div>{`${appointment.address}`}</div>
-        <br/>
-        <label>Doctor:</label>
-        <div>{`${appointment.first_name} ${appointment.last_name}`}</div>
-        <br/>
+        <p><b>Name:</b> {`${patient.first_name} ${patient.last_name}`}</p>
+        <p><b>Time:</b> {`${moment(appointment.start_time).format("dddd, MMMM Do YYYY, h:mm a")}`}</p>
+        <p><b>Address:</b> {`${appointment.address}`}</p>
+        <p><b>Doctor:</b> {`${appointment.first_name} ${appointment.last_name}`}</p>
         <label>Reason for visit:</label>
-        <br/>
         <textarea
           onChange={this.update('reason')}
           value={this.state.reason}

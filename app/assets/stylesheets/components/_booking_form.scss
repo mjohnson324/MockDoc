@@ -1,36 +1,34 @@
 .booking-form {
-  margin-left: 130px;
-  margin-top: 30px;
-
-  h3, input, div, label, textarea {
-    color: $navy-blue;
-  }
+  margin: auto;
+  background-color: white;
+  color: $navy-blue;
+  max-width: 600px;
 
   h3 {
     font-size: 30px;
-    margin-bottom: 20px;
+    margin: 10px;
     font-weight: bold;
   }
 
-  label {
+  p, label {
     font-size: 24px;
+    margin: 10px;
   }
 
-  div, textarea {
-    border: solid black 1px;
-    background-color: white;
-    width: 600px;
-    padding: 10px;
-    margin-top: 10px;
+  label {
+    font-weight: bold;
   }
 
   textarea {
     height: 100px;
+    width: 95%;
+    border: solid black 1px;
+    margin: 10px 0 0 10px;
   }
 
   input[type="submit"] {
-    margin-top: 10px;
-    width: 622px;
+    margin: 10px 0 10px 0;
+    width: 100%;
     background-color: $zoc-yellow;
     padding: 10px;
     text-align: center;
@@ -44,5 +42,23 @@
     text-decoration: none;
     cursor: pointer;
     cursor: hand;
+  }
+}
+
+.review-form {
+  @extend .booking-form;
+
+  .radio-display { 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .radio-label {
+    font-size: 18px;
+  }
+
+  div {
+    margin: 5px;
   }
 }

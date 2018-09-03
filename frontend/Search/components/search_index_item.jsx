@@ -10,7 +10,6 @@ const SearchIndexItem = (docInfo) => {
     return (
     <li className="index-item">
       <div className="doc-pic"></div>
-
       <div className="doc-info">
         <Link to={`/doctor/${doc.id}`}>
           {`${doc.first_name} ${doc.last_name}, ${degreeCheck(doc.degree)}`}
@@ -25,7 +24,6 @@ const SearchIndexItem = (docInfo) => {
           <div>{`${doc.address}`}</div>
         </section>
       </div>
-
       <div className="doc-search-schedule">
         <AppointmentsTable appsByDays={daySortedApps} />
       </div>

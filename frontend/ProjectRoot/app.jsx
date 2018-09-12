@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { ProtectedRoute, AuthRoute } from './auth_util';
-import HeaderContainer from '../Session/components/header_container';
-import Footer from '../Session/components/footer';
-import HomeText from '../Session/components/landing_page_expo';
+import HeaderContainer from './components/header_container';
+import Footer from './components/footer';
+import HomeText from './components/landing_page_expo';
 import SessionFormContainer from '../Session/components/session_form_container';
 import SignupFormContainer from '../Session/components/signup_form_container';
 import SearchContainer from '../Search/components/search_container';

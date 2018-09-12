@@ -135,13 +135,16 @@ footer {
 }
 
 #logo {
-  content: image-url("MockDocLogo.png");
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  background: url("MockDocLogo.png") no-repeat center;
 }
 
 #my-github {
-  content: image-url("GitHub-Mark-32px.png");
+  background: $zoc-yellow url("GitHub-Mark-32px.png") no-repeat center;
 }
 
 #my-linkedin {
-  content: image-url("In-2C-34px-R.png");
+  background: $zoc-yellow url("In-2C-34px-R.png") no-repeat center;
 }

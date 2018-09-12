@@ -46,7 +46,7 @@ class Header extends React.Component {
     return(
       <React.Fragment>
         <div className="landing-logo">
-          <img id="logo" alt="logo" />
+          <div id="logo" />
           <h1>MockDoc</h1>
         </div>
       </React.Fragment>

@@ -40,11 +40,11 @@ class SearchIndex extends React.Component {
         <div className="search-master">
           <section className="search-results">
             <div className="appointment-scroll">
-              <button>{'\u{1f844}'}</button>
+              <button>&#129092;</button>
               <div>{`${today}`.slice(0, 10)}</div>
               <div>{`${tomorrow}`.slice(0, 10)}</div>
               <div>{`${dayAfter}`.slice(0, 10)}</div>
-              <button className="right-button">{'\u{1f846}'}</button>
+              <button className="right-button">&#129094;</button>
             </div>       
             <ul>
               {doctors.map(doctor => (

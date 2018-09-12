@@ -27,6 +27,7 @@
   button {
     background-color: $navy-blue;
     padding: 10px;
+    border: solid 1px $navy-blue;
   }
 
   button:hover {
@@ -34,7 +35,6 @@
     background-color: white;
     cursor: pointer;
     cursor: hand;
-    border: solid 1px $navy-blue;
   }
 
   a {

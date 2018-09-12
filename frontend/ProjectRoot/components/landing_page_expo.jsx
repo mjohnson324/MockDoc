@@ -6,10 +6,10 @@ const HomeText = () => {
     <p className="disclaimer">
       This app is a demo. None of the doctors are real; it is only meant to showcase my abilities.</p>
     <p>
-      &nbsp;&nbsp;&nbsp;&nbsp;On this hypothetical platform people can book appointmentments for free care from bad doctors, the idea being that unlike many patients today they won&apos;t struggle to pay for care that isn&apos;t worth the cost. After all, if the service is lousy why pay for it?
+      &nbsp;&nbsp;&nbsp;&nbsp;On this hypothetical platform people can book appointmentments for free care from bad doctors. This site was built around the idea of patients seeking free care in the same way many consumers attempt to access media on the internet.
     </p>
     <p>
-      &nbsp;&nbsp;&nbsp;&nbsp;I designed this site based off what I&apos;ve learned about the healthcare industry, including the disturbing statistic that medical errors are the <a href="https://www.bmj.com/content/353/bmj.i2139">3rd highest cause of death in the US</a>. This site was built around the idea of people seeking free care the same way they seek free content on the internet even at the cost of quality. Hence the idea for this site&apos;s theme and its slogan:
+      &nbsp;&nbsp;&nbsp;&nbsp;Some might ask why anyone would request bad care, or point out that patients normally don't shop for healthcare this way. I would counter with a simple question: if you need care but can&apos;t influence quality and the service will be lousy no matter what, why pay for it? Hence the idea for this site&apos;s theme and its slogan:       
     </p>
     <p className="slogan">
       MockDoc: get what you pay for in healthcare.

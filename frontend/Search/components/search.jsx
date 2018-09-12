@@ -55,7 +55,7 @@ class Search extends React.Component {
 
   checkParams(filter) {
     if (filter.specialty === 'none') {
-      filter.specialty = "primary care";
+      filter.specialty = "Primary Care";
     }
     filter.address = this.location.current.value;
     if (filter.address === '') {
@@ -93,21 +93,21 @@ class Search extends React.Component {
         onChange={this.update('specialty')}
         value={this.state.specialty}>
           <option value="none" disabled>Please Choose</option>
-          <option value="primary care">Primary Care</option>
-          <option value="pediatrics">Pediatrics</option>
-          <option value="chiropractor">Chiropractor</option>
-          <option value="gynecology">Gynecology</option>
-          <option value="oncology">Oncology</option>
-          <option value="cardiology">Cardiology</option>
-          <option value="dermatology">Dermatology</option>
-          <option value="gastroenterology">Digestion</option>
-          <option value="neurology">Neurology</option>
-          <option value="radiology">Radiology</option>
-          <option value="opthalmology">Eye Doctor</option>
-          <option value="surgery">Surgery</option>
-          <option value="plastic surgery">Plastic Surgery</option>
-          <option value="psychiatry">Mental Health</option>
-          <option value="dentist">Dentist</option>
+          <option value="Primary Care">Primary Care</option>
+          <option value="Pediatrics">Pediatrics</option>
+          <option value="Chiropractor">Chiropractor</option>
+          <option value="Gynecology">Gynecology</option>
+          <option value="Oncology">Oncology</option>
+          <option value="Cardiology">Cardiology</option>
+          <option value="Dermatology">Dermatology</option>
+          <option value="Gastroenterology">Digestion</option>
+          <option value="Neurology">Neurology</option>
+          <option value="Radiology">Radiology</option>
+          <option value="Opthalmology">Eye Doctor</option>
+          <option value="Surgery">Surgery</option>
+          <option value="Plastic Surgery">Plastic Surgery</option>
+          <option value="Psychiatry">Mental Health</option>
+          <option value="Dentist">Dentist</option>
         </select>
         <label htmlFor="address">Address:</label>
         <input id="address"

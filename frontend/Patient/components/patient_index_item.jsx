@@ -52,7 +52,7 @@ const reviewBody = body => {
 const appointmentButtons = (appointment, review, callback) => {
   const startTime = moment(appointment.start_time);
   if (startTime._d > new Date()) {
-    return <button onClick={callback}>Cancel Appointment</button>;
+    return <button className="write-review-button" onClick={callback}>Cancel Appointment</button>;
   } else if (review === undefined) {
     return <Link className="write-review-button" to={`/review/appointment-${appointment.id}`}>
              Write Review

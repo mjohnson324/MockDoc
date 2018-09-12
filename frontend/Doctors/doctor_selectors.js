@@ -6,7 +6,7 @@ export const isDoctorDataLoaded = (doctor) => {
 };
 
 export const degreeCheck = (degree) => {
-  return degree === null ? "none" : degree;
+  return degree === null ? "no degree" : degree;
 };
 
 export const getDoctorItems = (items, itemIds) => {

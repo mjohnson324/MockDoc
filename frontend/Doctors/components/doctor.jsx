@@ -41,8 +41,8 @@ class Doctor extends React.Component {
           <h1>
             {`Dr. ${doctor.first_name} ${doctor.last_name}, ${degreeCheck(doctor.degree)}`}
           </h1>
-          <div className="stars">
-            {renderStars(doctor.average_rating)}
+          <div>
+            Overall Rating: <span className="stars">{renderStars(doctor.average_rating)}</span>
           </div>
         </div>
         <div className="docMap">

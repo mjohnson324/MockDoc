@@ -32,6 +32,50 @@ Hosted on Heroku.
 
 ---
 
+## Getting Started:
+
+You will need the following to setup the project:
+
+- Ruby > 2.3.1
+- Node (suggested to manage via [nvm](https://github.com/creationix/nvm/blob/master/README.md))
+- Postgresql 10
+
+Assuming these are installed you can get set up with the following commands in Unix-based systems. I don't have familiarity with Windows environments:
+
+ ```bash
+cd directory-with-the-project
+bundle install
+rails db:create
+rails db:setup # Will take time; a lot of dummy data gets initialized here!
+npm install
+```
+
+To run the project:
+```bash
+bundle exec rails server
+npm start # to update JavaScript files
+```
+
+### Potential Issues:
+
+1. Missing dependencies for pg:
+
+-Make sure you have libpq-dev	or postgresql-server-dev-10 installed in addition to PostgreSQL itself
+
+2. **rails db:create** fails with a warning such as 'FATAL:  role "USERNAME" does not exist':
+
+-I've run into this issue on Ubuntu with fresh installations and have found the following workaround:
+```bash
+sudo -u postgres psql # to access postgres from the command line
+```
+Once in PostgreSQL run the following sql command:
+
+```SQL
+  CREATE USER "MISSING_ROLE";
+  ALTER USER "MISSING_ROLE" CREATEDB;
+```
+This will allow you to create a database as intended to test the project on your machine.
+
 ## Features & Implementation
 
 **TL;DR Summary:**

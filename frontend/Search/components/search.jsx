@@ -1,5 +1,6 @@
 /* global google */
 import React from 'react';
+import testKey from '../api_key';
 
 class Search extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class Search extends React.Component {
 
   componentDidMount() {
     window.initAutocomplete = this.initAutocomplete;
-    this.loadGoogleMapsAPI("https://maps.googleapis.com/maps/api/js?key=AIzaSyAlQpAcsp-Hrf3d9oABqzInGNs7n82pXvA&libraries=places&callback=initAutocomplete");
+    this.loadGoogleMapsAPI(`https://maps.googleapis.com/maps/api/js?key=${testKey}&libraries=places&callback=initAutocomplete`);
   }
 
   loadGoogleMapsAPI(url) {

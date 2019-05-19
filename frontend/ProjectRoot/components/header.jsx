@@ -8,7 +8,7 @@ class Header extends React.Component {
 
   navLinks() {
     const { currentUser, location, logOut } = this.props;
-    if (currentUser !== null) { 
+    if (currentUser !== null) {
       return(
         <React.Fragment>
           {this.isNotProfile(location.pathname)}
@@ -19,13 +19,13 @@ class Header extends React.Component {
       return this.checkSignIn(location.pathname);
     }
   }
-  
+
   isNotProfile(path) {
     if (path !== "/patient") {
       return <Link className="header-profile" to="/patient">Profile</Link>;
     }
   }
-  
+
   checkSignIn(path) {
     if (path === "/signin") {
       return <Link to="/signup">Sign Up</Link>;

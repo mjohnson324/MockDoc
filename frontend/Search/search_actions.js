@@ -25,12 +25,12 @@ export const receiveSearchResults = ({ doctors, appointments }) => {
   } else {
     docResults = doctors;
     status = 'success';
-  } 
+  }
   const appResults = appointments === undefined ? {} : appointments;
   return {
     type: RECEIVE_SEARCH_RESULTS,
     doctors: docResults,
-    appointments: appResults, 
+    appointments: appResults,
     status
   };
 };

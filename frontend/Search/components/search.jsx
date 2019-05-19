@@ -1,6 +1,5 @@
 /* global google */
 import React from 'react';
-import testKey from '../api_key';
 
 class Search extends React.Component {
   constructor(props) {
@@ -16,7 +15,7 @@ class Search extends React.Component {
 
   componentDidMount() {
     window.initAutocomplete = this.initAutocomplete;
-    this.loadGoogleMapsAPI(`https://maps.googleapis.com/maps/api/js?key=${testKey}&libraries=places&callback=initAutocomplete`);
+    this.loadGoogleMapsAPI("https://maps.googleapis.com/maps/api/js?key=AIzaSyCijy98aehpyPc_k52gAm-GmRWvSPkGxoA&libraries=places&callback=initAutocomplete");
   }
 
   loadGoogleMapsAPI(url) {
@@ -90,7 +89,7 @@ class Search extends React.Component {
     return(
       <form className={searchClass} onSubmit={this.handleSubmit}>
         <label htmlFor="specialty-select">Specialty:</label>
-        <select id="specialty-select" 
+        <select id="specialty-select"
         onChange={this.update('specialty')}
         value={this.state.specialty}>
           <option value="none" disabled>Please Choose</option>
@@ -112,7 +111,7 @@ class Search extends React.Component {
         </select>
         <label htmlFor="address">Address:</label>
         <input id="address"
-          defaultValue={this.state.address} 
+          defaultValue={this.state.address}
           type="text"
           ref={this.location} />
         <input type="submit" value="&#x1F50D;"/>

@@ -26,4 +26,3 @@ npm-debug.log
 .vscode/
 # Ignore encrypted secrets key file.
 config/secrets.yml.key
-api_key.js

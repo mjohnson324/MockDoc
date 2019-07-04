@@ -1,5 +1,7 @@
 # Sample State
 
+The redux store is kept normalized at all times with separate slices of state for Doctors, Reviews, Appointments, and login credentials. This prevents the state from becoming too complex over time.
+
 ```javascript
 {
   session: {

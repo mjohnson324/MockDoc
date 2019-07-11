@@ -57,5 +57,5 @@ Finally, you must set up rails secrets to run Geocoder and Google Maps. You will
 From there you can add the appropriate keys to rails. To view secrets:
 
 ```bash
-  rails runner 'puts Rails.applications.secrets[.key_name]'
+  rails runner 'puts Rails.application.secrets[.key_name]'
 ```

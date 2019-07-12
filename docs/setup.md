@@ -44,7 +44,7 @@ Once in PostgreSQL run the following sql command adding your username in the quo
   ALTER USER "MISSING_ROLE" CREATEDB;
 ```
 
-This will allow you to create a database as intended to run the project on your machine.
+This will allow you to create a database as intended to run the project on your machine. On Ubuntu you will additionally need to setup your user with a password via `bash ALTER USER MISSING_ROLE PASSWORD _user_password_` to set up the database.
 
 Finally, you must set up rails secrets to run Geocoder and Google Maps. You will need the secrets.yml.key to add API keys. To add secrets:
 

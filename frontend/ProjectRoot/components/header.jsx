@@ -45,7 +45,7 @@ class Header extends React.Component {
     if (this.props.location.pathname === "/") {
     return(
       <React.Fragment>
-        <div className="landing-logo">
+        <div id="landing-logo">
           <div id="logo" />
           <h1>MockDoc</h1>
         </div>

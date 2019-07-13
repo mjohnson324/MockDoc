@@ -10,18 +10,18 @@ main { // needed to dynamically resize search on home page
   justify-content: center;
   align-items: center;
   flex: auto; // Expands element to fill home page between header and footer
-
   background: url("health.jpeg");
   background-size: cover;
 
   input, label, select {
     margin: 10px 0 10px 0;
+    height: 30px;
   }
 
   label {
     background-color: white;
-    padding: 10px;
-    height: 30px;
+    padding: 10px 0 10px 0;
+
     line-height: 30px;
   }
 
@@ -34,12 +34,12 @@ main { // needed to dynamically resize search on home page
 
   #specialty-select {
     width: 200px;
-    padding-left: 30px;
+    padding-left: 10px;
   }
 
   #address {
-    padding-left: 30px;
-    width: 360px;
+    padding-left: 10px;
+    width: 350px;
   }
 
   input[type="submit"] {
@@ -56,6 +56,41 @@ main { // needed to dynamically resize search on home page
     color: $navy-blue;
     cursor: pointer;
     cursor: hand;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .search-home {
+    display: block;
+    :first-child {
+      margin-top: 10px;
+    }
+
+    #specialty-select, #address, label {
+      margin: 0 auto;
+    }
+
+    #specialty-select {
+      width: 310px;
+    }
+
+    #address {
+      width: 300px;
+    }
+
+    label, input[type="submit"], #address, #specialty-select {
+      display: block;
+    }
+
+    label {
+      width: 300px;
+      padding-left: 10px;
+    }
+
+    input[type="submit"] {
+      margin: 10px auto;
+      width: 310px;
+    }
   }
 }
 

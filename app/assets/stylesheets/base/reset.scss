@@ -49,3 +49,10 @@ footer {
 b {
   font-weight: bold;
 }
+
+a, button {
+  cursor: pointer;
+  cursor: hand;
+  padding: 10px;
+  border-radius: 10px;
+}

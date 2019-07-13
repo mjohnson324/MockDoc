@@ -31,30 +31,22 @@
 }
 
 .home-text {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
+  padding: 10px;
   background-color: $sky-blue;
-
-  .disclaimer {
-    text-align: center;
-  }
-
-  .slogan {
-    @extend .disclaimer;
-    font-size: 24px;
-  }
-
-  p {
-    margin: 5px;
-    font-size: 16px;
-  }
+  text-align: center;
+  font-size: 16px;
 }
 
-.landing-logo {
+#landing-logo {
   img, h1 {
     display: inline-block;
     vertical-align: bottom;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #landing-logo h1 {
+    display: none;
   }
 }
 
@@ -67,9 +59,6 @@
   align-items: center;
 
   button, a {
-    cursor: pointer;
-    cursor: hand;
-    padding: 10px;
     background-color: $navy-blue;
     color: white;
     margin-left: 100px;
@@ -139,12 +128,4 @@ footer {
   width: 100px;
   display: inline-block;
   background: url("MockDocLogo.png") no-repeat center;
-}
-
-#my-github {
-  background: $zoc-yellow url("GitHub-Mark-32px.png") no-repeat center;
-}
-
-#my-linkedin {
-  background: $zoc-yellow url("In-2C-34px-R.png") no-repeat center;
 }

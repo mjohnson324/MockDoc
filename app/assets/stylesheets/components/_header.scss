@@ -9,16 +9,16 @@
     align-items: center;
 
     h1 {
-      font-size: 60px;
+      font-size: 30px;
       font-weight: bold;
     }
 
     button, a {
-      font-size: 20px;
+      font-size: 16px;
       background-color: $zoc-yellow;
       color: $navy-blue;
       padding: 10px;
-      margin-right: 20px;
+      margin-right: 10px;
     }
 
     button:hover, a:hover {
@@ -41,12 +41,6 @@
   img, h1 {
     display: inline-block;
     vertical-align: bottom;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  #landing-logo h1 {
-    display: none;
   }
 }
 
@@ -95,21 +89,16 @@ a:hover {
 footer {
   color: white;
   padding: 20px;
-  font-size: 16px;
+  height: 60px;
   background-color: $navy-blue;
   display: flex;
   justify-content: space-around;
   align-items: center;
 
   a {
-    font-size: 20px;
-    line-height: 40px;
+    font-size: 16px;
     background-color: $zoc-yellow;
     color: $navy-blue;
-    margin-right: 20px;
-    padding: 10px;
-    height: 40px;
-    min-width: 50px;
     display: flex;
     justify-content: center;
     vertical-align: middle;
@@ -121,11 +110,32 @@ footer {
     cursor: pointer;
     cursor: hand;
   }
+
+  #copyright-mobile {
+    display: none;
+  }
 }
 
 #logo {
-  height: 100px;
-  width: 100px;
+  height: 60px;
+  width: 60px;
   display: inline-block;
-  background: url("MockDocLogo.png") no-repeat center;
+  background-image: url("MockDocLogo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60px 60px;
+}
+
+@media screen and (max-width: 767px) {
+  #logo {
+    display: none;
+  }
+
+  #copyright-desktop {
+    display: none;
+  }
+
+  footer #copyright-mobile {
+    display: block;
+  }
 }

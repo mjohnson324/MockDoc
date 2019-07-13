@@ -12,7 +12,8 @@ const Footer = () => {
             <a rel="noopener noreferrer"
                target="_blank"
                href="https://www.michael-w-johnson.com">Portfolio</a>
-            <p>Copyright 2018, Michael W Johnson</p>
+            <p id="copyright-desktop">Copyright 2018, Michael W Johnson</p>
+            <p id="copyright-mobile">&copy;</p>
         </footer>
     );
 };

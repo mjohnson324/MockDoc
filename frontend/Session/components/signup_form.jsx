@@ -32,41 +32,35 @@ class SignupForm extends React.Component {
 
   render() {
     return(
-      <div className="sign-up">
+      <form className ="session" onSubmit={this.handleSubmit}>
         <h3>Create an Account</h3>
-        <form onSubmit={this.handleSubmit}>
-          <br/>
-          <h4>Email:</h4>
-          <input type="text"
-            value={this.state.email}
-            onChange={this.update('email')}
+        <label htmlfor="email">Email:</label>
+        <input id="email"
+          type="text"
+          value={this.state.email}
+          onChange={this.update('email')}
+        />
+        <label htmlfor="password">Password:</label>
+        <input id="password"
+          type="password"
+          value={this.state.password}
+          onChange={this.update('password')}
+        />
+        <label htmlfor="first-name">First Name:</label>
+        <input id="first-name"
+          type="text"
+          value={this.state.first_name}
+          onChange={this.update('first_name')}
           />
-          <br/>
-          <h4>Password:</h4>
-          <input type="password"
-            placeholder="At least 8 characters long"
-            value={this.state.password}
-            onChange={this.update('password')}
+        <label htmlfor="last-name">Last Name:</label>
+        <input id="last-name"
+          type="text"
+          value={this.state.last_name}
+          onChange={this.update('last_name')}
           />
-          <br/>
-          <h4>Name:</h4>
-          <span>
-            <input type="text"
-              placeholder="First"
-              value={this.state.first_name}
-              onChange={this.update('first_name')}
-              />
-            <input type="text"
-              placeholder="Last"
-              value={this.state.last_name}
-              onChange={this.update('last_name')}
-              />
-          </span>
-          <br/>
-          <Errors errors={this.props.errors} />
-          <input type="submit" value="Sign Up" />
-        </form>
-      </div>
+        <Errors errors={this.props.errors} />
+        <input type="submit" value="Sign Up" />
+      </form>
     );
   }
 }

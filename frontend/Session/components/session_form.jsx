@@ -39,27 +39,24 @@ class SessionForm extends React.Component {
 
   render() {
     return(
-      <React.Fragment>
-        <form className ="session" onSubmit={this.handleSubmit}>
-          <h3>Sign In</h3>
-          <br/>
-          <input type="text"
-            placeholder="Email address"
-            value={this.state.email}
-            onChange={this.update('email')}
-          />
-          <br/>
-          <input type="password"
-            placeholder="password"
-            value={this.state.password}
-            onChange={this.update('password')}
-          />
-          <br/>
-          <Errors errors={this.props.errors} />
-          <input type="submit" value="Sign in" />
-        </form>
+      <form className ="session" onSubmit={this.handleSubmit}>
+        <h3>Sign In</h3>
+        <label htmlFor="email">email:</label>
+        <input id="email"
+          type="text"
+          value={this.state.email}
+          onChange={this.update('email')}
+        />
+        <label htmlFor="password">Password:</label>
+        <input id="password"
+          type="password"
+          value={this.state.password}
+          onChange={this.update('password')}
+        />
+        <Errors errors={this.props.errors} />
+        <input id="password" type="submit" value="Sign in" />
         <button id="demo" onClick={this.handleDemo} to="/signup">Demo Login</button>
-      </React.Fragment>
+      </form>
     );
   }
 }

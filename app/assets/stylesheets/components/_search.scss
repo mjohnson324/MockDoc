@@ -20,8 +20,7 @@ main { // needed to dynamically resize search on home page
 
   label {
     background-color: white;
-    padding: 10px 0 10px 0;
-
+    padding: 10px 0 10px 10px;
     line-height: 30px;
   }
 
@@ -56,41 +55,6 @@ main { // needed to dynamically resize search on home page
     color: $navy-blue;
     cursor: pointer;
     cursor: hand;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .search-home {
-    display: block;
-    :first-child {
-      margin-top: 10px;
-    }
-
-    #specialty-select, #address, label {
-      margin: 0 auto;
-    }
-
-    #specialty-select {
-      width: 310px;
-    }
-
-    #address {
-      width: 300px;
-    }
-
-    label, input[type="submit"], #address, #specialty-select {
-      display: block;
-    }
-
-    label {
-      width: 300px;
-      padding-left: 10px;
-    }
-
-    input[type="submit"] {
-      margin: 10px auto;
-      width: 310px;
-    }
   }
 }
 
@@ -162,5 +126,45 @@ main { // needed to dynamically resize search on home page
 @keyframes logo {
   0% {
     transform: rotate(-360deg);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .search-home {
+    flex-direction: column;
+
+    :first-child {
+      margin-top: 10px;
+    }
+
+    #specialty-select, #address, label {
+      margin: 0 auto;
+    }
+
+    #specialty-select, #address, input[type="submit"] {
+      height: 40px;
+    }
+
+    #specialty-select {
+      width: 310px;
+    }
+
+    #address {
+      width: 300px;
+    }
+
+    label {
+      width: 300px;
+      padding: 10px 0 0 10px;
+    }
+
+    input[type="submit"] {
+      margin: 10px auto;
+      width: 310px;
+    }
+  }
+
+  .search-bar {
+    height: 220px;
   }
 }

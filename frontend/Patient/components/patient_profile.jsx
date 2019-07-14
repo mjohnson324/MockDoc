@@ -55,11 +55,11 @@ class PatientProfile extends React.Component {
     const { user, reviews, appointments } = this.props;
     return(
       <section className="patient-appointments">
-        <h1>Welcome, {user.first_name}!</h1>
-        <h2>Your Doctors:</h2>
+        <h2>Welcome, {user.first_name}!</h2>
+        <h3>Your Doctors:</h3>
           {this.listDoctors(appointments)}
-        <h2>Your Appointments:</h2>
-        <ul>
+        <h3>Your Appointments:</h3>
+        <ul className="appointments-list">
           {appointments.map((app, idx) => {
             return(<PatientIndexItem
               key={idx}

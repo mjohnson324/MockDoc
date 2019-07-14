@@ -1,33 +1,31 @@
 .patient-appointments {
   margin-bottom: 30px;
 
-  h1, h2, li {
+  h2, h3, li {
     color: $navy-blue;
   }
-  
-  button {
-    color: white;
-  }
 
-  h1 {
-    font-size: 40px;
-    margin: 30px;
+  h2, h3 {
+    margin-top: 20px;
+    margin-left: 20px;
   }
 
   h2 {
-    margin-top: 20px;
-    margin-left: 30px;
     font-size: 24px;
   }
 
+  h3 {
+    font-size: 20px;
+  }
+
   li {
-    margin: 20px;
+    margin: 10px;
   }
 
   button {
+    color: white;
     background-color: $navy-blue;
     padding: 10px;
-    border: solid 1px $navy-blue;
   }
 
   button:hover {
@@ -44,6 +42,16 @@
   }
 }
 
+.appointments-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+}
+
 .info-title {
   font-weight: bold;
 }
@@ -51,36 +59,38 @@
 .appointment-data {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
 }
 
-.patient-review-info {
+.patient-info {
   padding: 10px;
-  vertical-align: top;
   background-color: $zoc-yellow;
-  width: 350px;
+  width: 300px;
 }
 
-.patient-appointment-info {
-  @extend .patient-review-info;
-  background-color: $sky-blue;
+.unreviewed-appointment {
+  @extend .patient-info;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .doctor-links {
   margin-left: 10px;
 
   a {
-    margin: 20px;
+    margin: 10px;
   }
 }
 
 .review-body {
   display: inline-block;
   text-align: right;
+  margin-bottom: 10px;
 }
 
-.top-margin {
-  margin-top: 10px;
+.review-body-margin {
+  margin-bottom: 10px;
 }
 
 .left-align {
@@ -93,16 +103,13 @@
 }
 
 .review-buttons {
-  @extend .review-body;
-  vertical-align: top;
-  margin-left: 20px;
-
-  div {
-    display: flex;
-    flex-direction: column;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
-.remove-review-margin {
-  margin-bottom: 20px;
+@media screen and (max-width: 641px) {
+  .appointment-data {
+    flex-direction: column;
+  }
 }

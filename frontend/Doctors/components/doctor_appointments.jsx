@@ -8,12 +8,12 @@ const DoctorAppointments = ({ apps, address, daysToRender }) => {
       <h3>Book an Appointment</h3>
       <p>Address: {`${address}`}</p>
       <div className="doc-scroll-bar">
-        <button>&#129092;</button>
+        <button>&#8592;</button>
         <div className="doc-appointments-days">{`${today}`.slice(0, 10)}</div>
         <div className="doc-appointments-days">{`${tomorrow}`.slice(0, 10)}</div>
         <div className="doc-appointments-days">{`${dayAfter}`.slice(0, 10)}</div>
         <div className="doc-appointments-days">{`${dayFour}`.slice(0,10)}</div>
-        <button>&#129094;</button>
+        <button>&#8594;</button>
       </div>
       <div>
         <AppointmentsTable appsByDays={apps} />

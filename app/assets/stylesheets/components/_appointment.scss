@@ -29,8 +29,8 @@
 }
 
 .doc-appointments {
-  position: sticky;
-  top: 75px;
+  // position: sticky;
+  // top: 75px;
   display: inline-block;
   margin-left: 20px;
   width: 480px;
@@ -55,6 +55,10 @@
     display: flex;
     height: 40px;
     justify-content: space-around;
+
+    button {
+      border-radius: 0;
+    }
   }
 
   h3, p {

@@ -1,11 +1,10 @@
 .docTitle {
-  height: 200px;
+  margin: 20px;
   color: $navy-blue;
-  padding-left: 500px;
   background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
 
   h1 {
     font-size: 40px;
@@ -42,7 +41,7 @@
     font-size: 20px;
     font-weight: bold;
   }
-  
+
   div, ul li {
     margin: 10px;
   }

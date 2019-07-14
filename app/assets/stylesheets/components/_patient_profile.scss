@@ -30,7 +30,7 @@
 
   button:hover {
     color: $navy-blue;
-    background-color: white;
+    background-color: $zoc-yellow;
     cursor: pointer;
     cursor: hand;
   }
@@ -59,6 +59,11 @@
 .appointment-data {
   display: flex;
   flex-direction: row;
+
+  button:hover {
+    background-color: white;
+    color: $navy-blue;
+  }
 }
 
 .patient-info {

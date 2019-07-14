@@ -60,6 +60,4 @@ Hosted live on Heroku.
 
 [] **Appointment Scrolling:** ZocDoc has a feature where users can check appointment availability over the next three-day time span for a doctor with just the click of a button, indicating many appointments are retrieved at once. I intend to implement a similar feature by manipulating the state of the search index and doctor profiles.
 
-[] **Responsive Design:** Make the website presentable on smartphones, at least on Chrome and Firefox.
-
 [] **Photos for Doctors:** Doctors have profile pictures on ZocDoc. AWS will help in the implementation for storing photos.

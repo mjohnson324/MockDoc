@@ -3,6 +3,9 @@
   background-color: white;
   color: $navy-blue;
   max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   h3 {
     font-size: 30px;
@@ -21,14 +24,14 @@
 
   textarea {
     height: 100px;
-    width: 95%;
+    width: 90%;
     border: solid black 1px;
-    margin: 10px 0 0 10px;
+    margin: 10px auto;
   }
 
   input[type="submit"] {
-    margin: 10px 0 10px 0;
-    width: 100%;
+    margin: 10px auto;
+    width: 90%;
     background-color: $zoc-yellow;
     padding: 10px;
     text-align: center;
@@ -48,7 +51,7 @@
 .review-form {
   @extend .booking-form;
 
-  .radio-display { 
+  .radio-display {
     display: flex;
     justify-content: space-around;
     align-items: center;

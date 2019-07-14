@@ -51,9 +51,9 @@ class ReviewForm extends React.Component {
         {[1, 2, 3, 4, 5].map((num, idx) => {
           return(
             <div key={idx}>
-              <input type="radio" 
-                id={`${field}-${num}`} 
-                value={num} 
+              <input type="radio"
+                id={`${field}-${num}`}
+                value={num}
                 onChange={this.update(field)}
                 checked={this.isCurrentValue(field, num)} />
               <label className="radio-label" htmlFor={`${field}-${num}`}>{`${num}`}</label>
@@ -78,7 +78,7 @@ class ReviewForm extends React.Component {
         {this.generateFields("bedside_manner")}
         <label>Wait Time:</label>
         {this.generateFields("wait_time")}
-        <label>Leave a Detailed Review Here (optional):</label>
+        <label>Detailed Review (optional):</label>
         <textarea
           onChange={this.update('body')}
           value={this.state.body}

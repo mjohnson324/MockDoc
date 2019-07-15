@@ -3,7 +3,7 @@ import { DoctorReviewsItem } from './doctor_reviews_item';
 
 const DoctorReviews = ({ reviews }) => {
   return(
-    <ul>
+    <ul className="reviews-container">
       {reviews.map(review => {
         return(
           <DoctorReviewsItem

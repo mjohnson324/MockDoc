@@ -51,18 +51,20 @@ class Doctor extends React.Component {
           />
         </div>
         <div>
-          <DoctorAppointments
-            apps={daySortedApps}
-            address={`${doctor.address}`}
-            daysToRender={this.state} />
-          <div className="docProfile">
-            <h3>Qualifications and Expertise</h3>
-            <label>Education:</label>
-            <div>{`${doctor.education}`}</div>
-            <label>Specialties:</label>
-            <div>{this.specList(doctor.specialties)}</div>
-            <label>Address:</label>
-            <div>{`${doctor.address}`}</div>
+          <div className="doc-flex">
+            <DoctorAppointments
+              apps={daySortedApps}
+              address={`${doctor.address}`}
+              daysToRender={this.state} />
+            <div className="docProfile">
+              <h3>Qualifications and Expertise</h3>
+              <label>Education:</label>
+              <div>{`${doctor.education}`}</div>
+              <label>Specialties:</label>
+              <div>{this.specList(doctor.specialties)}</div>
+              <label>Address:</label>
+              <div>{`${doctor.address}`}</div>
+            </div>
           </div>
           <h3 className="review-title">Reviews:</h3>
           <DoctorReviews reviews={reviews} />

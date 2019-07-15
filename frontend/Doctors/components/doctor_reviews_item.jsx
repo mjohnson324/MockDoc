@@ -4,7 +4,7 @@ import { renderStars } from '../doctor_selectors';
 
 const reviewParagraph = paragraph => {
   if (paragraph !== null && paragraph !== '') {
-    return <p>{`${paragraph}`}</p>;
+    return <p className="review-paragraph">{`${paragraph}`}</p>;
   }
 };
 

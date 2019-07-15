@@ -29,40 +29,41 @@
 }
 
 .doc-appointments {
-  // position: sticky;
-  // top: 75px;
-  display: inline-block;
-  margin-left: 20px;
-  width: 480px;
-  vertical-align: top;
+  margin: 10px;
+  width: 560px;
+  height: 330px;
   background-color: white;
   border: solid black 2px;
 
+  h3, p {
+    text-align: center;
+  }
+
   h3 {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
     color: $navy-blue;
-    padding: 10px;
+    margin: 10px;
   }
 
   p {
-    margin: 10px;
-    font-size: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
   }
 
   .doc-scroll-bar {
     border-top: solid black 1px;
-    display: flex;
     height: 40px;
-    justify-content: space-around;
+
+    div {
+      display: inline-block;
+    }
 
     button {
       border-radius: 0;
+      width: 40px;
+      display: inline-block;
     }
-  }
-
-  h3, p {
-    text-align: center;
   }
 
   button {
@@ -73,7 +74,7 @@
 }
 
 .doc-appointments-days {
-    width: 98px;
+    width: 100px;
     margin-right: 10px;
     margin-left:10px;
     line-height: 40px;

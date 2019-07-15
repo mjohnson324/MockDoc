@@ -2,28 +2,34 @@ import React from 'react';
 import moment from 'moment';
 import { renderStars } from '../doctor_selectors';
 
-export const DoctorReviewsItem = (props) => {
-  const { review } = props;
-  let reviewParagraph = review.body;
-  if (review.body === null) {
-    reviewParagraph = '';
+const reviewParagraph = paragraph => {
+  if (paragraph !== null && paragraph !== '') {
+    return <p>{`${paragraph}`}</p>;
   }
+};
+
+export const DoctorReviewsItem = ({ review }) => {
   return(
     <li className="review-container">
-      <div className="review-container-date">
-        {`${moment(review.updated_at).format("MMMM Do, YYYY")}`}
-      </div>
-      <div className="review-container-data">
-        <div className="review-container-ratings">
-          <p>Overall Rating: </p>
+      <div className="review-container-ratings">
+        <div>
+          <label>Date:</label>
+          <p>{`${moment(review.updated_at).format("MMMM Do, YYYY")}`}</p>
+        </div>
+        <div>
+          <label>Overall Rating:</label>
           <p className="stars">{renderStars(review.overall_rating)}</p>
-          <p>Wait Time: </p>
+        </div>
+        <div>
+          <label>Wait Time:</label>
           <p className="stars">{renderStars(review.wait_time)}</p>
-          <p>Bedside Manner: </p>
+        </div>
+        <div>
+          <label>Bedside Manner:</label>
           <p className="stars">{renderStars(review.bedside_manner)}</p>
         </div>
-        <p>{`${reviewParagraph}`}</p>
       </div>
+      {reviewParagraph(review.body)}
     </li>
   );
 };

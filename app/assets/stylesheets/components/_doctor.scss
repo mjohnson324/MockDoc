@@ -6,14 +6,14 @@
   flex-direction: column;
   align-items: center;
 
-  h1 {
-    font-size: 40px;
+  h2 {
+    font-size: 24px;
     font-weight: bold;
+    margin: 10px;
   }
 
-  div {
-    font-size: 24px;
-    margin-top: 10px;
+  h3 {
+    font-size: 20px;
     margin-bottom: 10px;
   }
 }
@@ -26,25 +26,32 @@
 
 .docProfile {
   color: $navy-blue;
-  width: 820px;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  height: 330px;
+  margin: 10px;
 
-  h2 {
-    font-size: 30px;
-    font-weight: 700;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: 80px;
-  }
-
-  label {
+  h3 {
+    margin: 20px 10px;
     font-size: 20px;
     font-weight: bold;
   }
 
-  div, ul li {
+  label {
     margin: 10px;
+    font-size: 18px;
+    font-weight: bold;
   }
+
+  div {
+    margin: 10px 20px;
+  }
+}
+
+.review-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 10px;
 }
 
 .doc-pic {
@@ -105,35 +112,22 @@
   }
 }
 
-.doc-inline { // prevents element from wrapping around
-  white-space: nowrap;
-}
-
-.doc-reviews {
-  width: 820px;
-}
-
 .review-container {
   border-top: solid black 1px;
-  min-height: 50px;
-  margin-top: 20px;
-  padding-top: 10px;
-}
-
-.review-container-date {
-  width: 20%;
-  padding-left: 20px;
-  display: inline-block;
-}
-
-.review-container-data {
-  width: 75%;
-  display: inline-block;
+  margin-top: 10px;
 }
 
 .review-container-ratings {
   display: flex;
   justify-content: space-around;
+
+  div {
+    margin: 10px;
+  }
+
+  label, p {
+    margin: 0 10px;
+  }
 }
 
 .stars {

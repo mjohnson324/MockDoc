@@ -24,9 +24,7 @@ class Doctor extends React.Component {
   }
 
   specList(specialties) {
-    return specialties.map((specialty, idx) => {
-      return(<li key={idx}>{`${specialty}`}</li>);
-    });
+    return specialties.join(', ');
   }
 
   render() {
@@ -38,12 +36,12 @@ class Doctor extends React.Component {
     return(
       <section>
         <div className="docTitle">
-          <h1>
+          <h2>
             {`Dr. ${doctor.first_name} ${doctor.last_name}, ${degreeCheck(doctor.degree)}`}
-          </h1>
-          <div>
+          </h2>
+          <h3>
             Overall Rating: <span className="stars">{renderStars(doctor.average_rating)}</span>
-          </div>
+          </h3>
         </div>
         <div className="docMap">
           <DoctorsMapWrapper
@@ -52,30 +50,21 @@ class Doctor extends React.Component {
             googleLoaded={googleLoaded}
           />
         </div>
-        <div className="doc-inline">
-          <div className="docProfile">
-            <h2>Qualifications and Expertise</h2>
-            <div>
-              <div>
-                <label>Education:</label>
-                <div>{`${doctor.education}`}</div>
-              </div>
-              <div>
-                <label>Specialties:</label>
-                <ul>
-                  {this.specList(doctor.specialties)}
-                </ul>
-              </div>
-              <div>
-                <label>Address:</label>
-                <div>{`${doctor.address}`}</div>
-              </div>
-            </div>
-          </div>
+        <div>
           <DoctorAppointments
             apps={daySortedApps}
             address={`${doctor.address}`}
             daysToRender={this.state} />
+          <div className="docProfile">
+            <h3>Qualifications and Expertise</h3>
+            <label>Education:</label>
+            <div>{`${doctor.education}`}</div>
+            <label>Specialties:</label>
+            <div>{this.specList(doctor.specialties)}</div>
+            <label>Address:</label>
+            <div>{`${doctor.address}`}</div>
+          </div>
+          <h3 className="review-title">Reviews:</h3>
           <DoctorReviews reviews={reviews} />
         </div>
       </section>

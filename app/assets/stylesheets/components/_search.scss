@@ -44,9 +44,7 @@ main { // needed to dynamically resize search on home page
   input[type="submit"] {
     background-color: $zoc-yellow;
     text-align: center;
-    font-weight: bold;
     height: 50px;
-    width: 50px;
     padding: 5px;
   }
 
@@ -161,6 +159,7 @@ main { // needed to dynamically resize search on home page
     input[type="submit"] {
       margin: 10px auto;
       width: 310px;
+      line-height: 30px;
     }
   }
 

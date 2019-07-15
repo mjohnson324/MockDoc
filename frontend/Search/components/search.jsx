@@ -114,7 +114,7 @@ class Search extends React.Component {
           defaultValue={this.state.address}
           type="text"
           ref={this.location} />
-        <input type="submit" value="&#x1F50D;"/>
+        <input type="submit" value="Search"/>
       </form>
     );
   }

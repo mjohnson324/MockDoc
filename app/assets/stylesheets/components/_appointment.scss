@@ -30,8 +30,8 @@
 
 .doc-appointments {
   margin: 10px;
-  width: 560px;
-  height: 330px;
+  width: 540px;
+  height: 340px;
   background-color: white;
   border: solid black 2px;
 
@@ -40,6 +40,7 @@
   }
 
   h3 {
+    height: 30px;
     font-size: 20px;
     font-weight: bold;
     color: $navy-blue;
@@ -49,6 +50,7 @@
   p {
     margin-bottom: 10px;
     font-size: 16px;
+    height: 20px;
   }
 
   .doc-scroll-bar {
@@ -61,15 +63,17 @@
 
     button {
       border-radius: 0;
-      width: 40px;
+      width: 30px;
+      height: 40px;
       display: inline-block;
+      text-align: center;
+      padding: 0;
     }
   }
 
   button {
     background-color: $navy-blue;
     color: white;
-    padding: 10px;
   }
 }
 
@@ -79,4 +83,5 @@
     margin-left:10px;
     line-height: 40px;
     font-weight: bold;
+    text-align: center;
 }

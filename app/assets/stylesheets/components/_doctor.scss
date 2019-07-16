@@ -126,6 +126,7 @@
 .doc-schedule {
   height: 220px;
   background-color: $zoc-yellow;
+  vertical-align: top;
 
   ul:first-of-type {
     margin-left: 40px;
@@ -137,8 +138,10 @@
 
   ul {
     width: 100px;
+    height: 200px;
     margin: 10px;
     display: inline-block;
+    vertical-align: top;
 
     li {
       background-color: $navy-blue;
@@ -150,6 +153,18 @@
       margin-top: 5px;
       margin-bottom: 5px;
       font-size: 16px;
+    }
+
+    div {
+      background-color: #8C0000;
+      color: white;
+      height: 20px;
+      text-align: center;
+      vertical-align: center;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 5px;
+      margin-bottom: 5px;
     }
   }
 }

@@ -69,12 +69,18 @@
   border: dotted $navy-blue 1px;
 }
 
+.review-date {
+  display: inline-block;
+  padding: 10px;
+}
+
 .review-container-ratings {
   display: flex;
   justify-content: space-around;
 
   div {
     margin: 10px;
+    width: 150px;
   }
 
   label, p {
@@ -166,5 +172,41 @@
       margin-top: 5px;
       margin-bottom: 5px;
     }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .doc-schedule {
+    ul:last-of-type {
+      display: none;
+    }
+
+    ul:nth-last-of-type(1) {
+      margin-right: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .doc-schedule {
+    ul:nth-last-of-type(2) {
+      display: none;
+    }
+
+    ul:nth-last-of-type(3) {
+      margin-right: 40px;
+    }
+  }
+
+  .doc-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .review-container-ratings {
+    flex-direction: column;
+    align-items: center;
   }
 }

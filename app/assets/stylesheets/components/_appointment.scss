@@ -85,3 +85,27 @@
     font-weight: bold;
     text-align: center;
 }
+
+@media screen and (max-width: 960px) {
+  .doc-appointments {
+    width: 420px;
+
+    .doc-scroll-bar {
+      div:last-of-type {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .doc-appointments {
+    width: 300px;
+
+    .doc-scroll-bar {
+      div:nth-last-of-type(2) {
+        display: none;
+      }
+    }
+  }
+}

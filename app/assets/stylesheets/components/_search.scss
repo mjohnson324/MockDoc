@@ -60,8 +60,6 @@ main { // needed to dynamically resize search on home page
   @extend .search-home;
   flex: none;
   height: 75px;
-  position: sticky;
-  top: 0px;
   white-space: nowrap;
   z-index: 5;
 }

@@ -11,11 +11,8 @@ const reviewParagraph = paragraph => {
 export const DoctorReviewsItem = ({ review }) => {
   return(
     <li className="review-container">
+      <label className="review-date">Date: {`${moment(review.updated_at).format("MMMM Do, YYYY")}`}</label>
       <div className="review-container-ratings">
-        <div>
-          <label>Date:</label>
-          <p>{`${moment(review.updated_at).format("MMMM Do, YYYY")}`}</p>
-        </div>
         <div>
           <label>Overall Rating:</label>
           <p className="stars">{renderStars(review.overall_rating)}</p>

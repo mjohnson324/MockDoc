@@ -15,7 +15,7 @@ class Search extends React.Component {
 
   componentDidMount() {
     window.initAutocomplete = this.initAutocomplete;
-    this.loadGoogleMapsAPI("https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initAutocomplete");
+    this.loadGoogleMapsAPI("https://maps.googleapis.com/maps/api/js?key=AIzaSyDo0WEgWNKsD3iprnP7O8AC-7K14s-gxQc&libraries=places&callback=initAutocomplete");
   }
 
   loadGoogleMapsAPI(url) {

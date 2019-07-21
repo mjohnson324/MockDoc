@@ -8,7 +8,7 @@ The idea behind the platform is that users can request free service from lousy d
 
 Hosted live on Heroku.
 
----
+![MockDoc](./docs/images/mockdoc.png)
 
 ## Stack
 
@@ -49,14 +49,7 @@ Hosted live on Heroku.
   [schema]: docs/schema.md
   [choices]: docs/choices.md
 
-<!-- ## Screenshots (coming soon) -->
-<!-- ![image of MockDoc doctor profile](./docs/images/doctor-profile.png) -->
-<!-- ![image of MockDoc search index](./docs/images/search-index.png) -->
-<!-- ![image of MockDoc appointments layout] (./docs/images/appointments.png) -->
-
----
-
-## Next Steps: Future Directions for the Project
+## Next Steps:
 
 [] **Appointment Scrolling:** ZocDoc has a feature where users can check appointment availability over the next three-day time span for a doctor with just the click of a button, indicating many appointments are retrieved at once. I intend to implement a similar feature by manipulating the state of the search index and doctor profiles.
 

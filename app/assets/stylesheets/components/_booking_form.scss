@@ -2,19 +2,19 @@
   margin: auto;
   background-color: white;
   color: $navy-blue;
-  max-width: 600px;
+  width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   h3 {
-    font-size: 30px;
+    font-size: 20px;
     margin: 10px;
     font-weight: bold;
   }
 
   p, label {
-    font-size: 24px;
+    font-size: 16px;
     margin: 10px;
   }
 
@@ -37,6 +37,7 @@
     text-align: center;
     line-height: 30px;
     font-size: 24px;
+    border-radius: 10px;
   }
 
   input[type="submit"]:hover {
@@ -63,5 +64,11 @@
 
   div {
     margin: 5px;
+  }
+}
+
+@media screen and (max-width: 501px) {
+  .booking-form {
+    width: 100%;
   }
 }

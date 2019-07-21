@@ -15,7 +15,7 @@ class BookingForm extends React.Component {
     const appId = this.props.match.params.id;
     this.props.getAppointment(appId);
   }
-  
+
   componentWillUnmount() {
     this.props.clearErrors();
   }
@@ -52,7 +52,6 @@ class BookingForm extends React.Component {
           onChange={this.update('reason')}
           value={this.state.reason}
           ></textarea>
-        <br/>
         <Errors errors={this.props.errors} />
         <input type="submit" value="Book Appointment" />
       </form>

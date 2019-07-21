@@ -1,4 +1,0 @@
-ZocDoc Fonts:
-slab-book (text-boxes & paragraphs)
-kievit-sans-bold (other text)
-sharp-sans-bold (titles), also -medium and -semibold (links)

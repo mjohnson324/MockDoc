@@ -20,9 +20,7 @@ const SearchIndexItem = (docInfo) => {
         <div>
           Overall Rating: <span className="stars">{renderStars(doc.average_rating)}</span>
         </div>
-        <section>
-          <div>{`${doc.address}`}</div>
-        </section>
+        <div>{`${doc.address}`}</div>
       </div>
       <div className="doc-search-schedule">
         <AppointmentsTable appsByDays={daySortedApps} />

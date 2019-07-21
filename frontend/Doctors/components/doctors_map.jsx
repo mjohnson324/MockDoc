@@ -18,27 +18,27 @@ class DoctorsMap extends React.Component {
     this.markerManager = new MarkerManager(this.map, this.handleMarkerClick);
     this.markerManager.updateMarkers(this.props.doctors);
   }
-  
+
   componentDidUpdate () {
     return this.markerManager.updateMarkers(this.props.doctors);
   }
-  
+
   setTheCenter() {
     this.geocoder.geocode({address: `${this.props.address}`}, (results, status) => {
       if (status === google.maps.GeocoderStatus.OK) {
         const coordinates = results[0].geometry.location;
         this.map.setCenter(coordinates);
-        this.map.setZoom(12);
+        this.map.setZoom(13);
       } else {
         alert("Geocode failed: " + status);
       }
     });
   }
-  
+
   handleMarkerClick(doctor) {
     return this.props.history.push(`/doctor/${doctor.id}`);
   }
-  
+
   render () {
     const [canvasId, containerId] = this.props.mapIds;
     return(
@@ -61,8 +61,8 @@ const DoctorsMapWrapper = (props) => {
   const displayIds = docSearchToggle(props.location.pathname);
   if (props.googleLoaded && props.address !== "") {
     return(
-      <DoctorsMap 
-        doctors={props.doctors} 
+      <DoctorsMap
+        doctors={props.doctors}
         address={props.address}
         history={props.history}
         mapIds={displayIds} />

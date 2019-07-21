@@ -15,7 +15,7 @@ const DoctorAppointments = ({ apps, address, daysToRender }) => {
         <div className="doc-appointments-days">{`${dayFour}`.slice(0,10)}</div>
         <button>&#8594;</button>
       </div>
-      <div>
+      <div className="doc-profile-schedule">
         <AppointmentsTable appsByDays={apps} />
       </div>
     </div>

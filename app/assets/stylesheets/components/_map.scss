@@ -1,19 +1,27 @@
 #map-search-canvas {
   margin: 0;
   padding: 0;
-  height: 630px;
-  width: 320px;
+  height: 100%;
+  width: 100%;
 }
 
 #map-search-container {
   position: sticky;
   display: inline-block;
-  top: 75px;
-  margin-left: 20px;
+  top: 0;
+  margin-left: 5%;
+  width: 30%;
+  height: calc(100vh - 150px);
 }
 
 #map-doc-canvas {
   @extend #map-search-canvas;
   height: 150px;
   width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .search-master #map-search-canvas {
+    display: none;
+  }
 }

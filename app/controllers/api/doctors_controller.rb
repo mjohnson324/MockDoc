@@ -4,7 +4,7 @@ class Api::DoctorsController < ApplicationController
   end
 
   def index
-    @doctors = Doctor.near(params[:address], 30)
+    @doctors = Doctor.near(params[:address], 15)
       .includes(:specialties)
       .where(specialties: { name: params[:specialty] })
       .references(:specialties)

@@ -1,31 +1,33 @@
 .appointment-scroll {
   display: flex;
   justify-content: flex-end;
-  text-align: center;
   background-color: white;
+  border-bottom: dotted black 1px;
   position: sticky;
-  top: 75px;
+  top: 0;
+
+  div, button {
+    text-align: center;
+  }
 
   div {
-    height: 60px;
+    height: 40px;
     width: 98px;
     margin-right: 10px;
     margin-left:10px;
     border-left: solid black 1px;
     border-right: solid black 1px;
-    line-height: 60px;
+    line-height: 40px;
     font-weight: bold;
   }
 
   button {
-    width: 40px;
+    width: 30px;
+    padding: 0;
+    border-radius: 0;
     background-color: $navy-blue;
     color: white;
   }
-}
-
-.right-button {
-    margin-right: 7px;
 }
 
 .doc-appointments {
@@ -98,7 +100,7 @@
   }
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 840px) {
   .doc-appointments {
     width: 300px;
 
@@ -106,6 +108,20 @@
       div:nth-last-of-type(2) {
         display: none;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .appointment-scroll {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .appointment-scroll {
+    div:last-of-type {
+      display: none;
     }
   }
 }

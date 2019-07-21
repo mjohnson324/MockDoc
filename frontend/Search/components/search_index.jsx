@@ -26,8 +26,8 @@ class SearchIndex extends React.Component {
     this.props.changeFilter(filter);
     this.props.getDoctors(filter);
   }
-  
-  render() {   
+
+  render() {
     const { status, address, googleLoaded } = this.props.filter;
     if (status === "loading") {
       return <Loading />;
@@ -40,12 +40,12 @@ class SearchIndex extends React.Component {
         <div className="search-master">
           <section className="search-results">
             <div className="appointment-scroll">
-              <button>&#129092;</button>
+              <button>&#8592;</button>
               <div>{`${today}`.slice(0, 10)}</div>
               <div>{`${tomorrow}`.slice(0, 10)}</div>
               <div>{`${dayAfter}`.slice(0, 10)}</div>
-              <button className="right-button">&#129094;</button>
-            </div>       
+              <button>&#8594;</button>
+            </div>
             <ul>
               {doctors.map(doctor => (
                 <SearchIndexItem

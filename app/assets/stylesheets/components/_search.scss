@@ -69,26 +69,21 @@ main { // needed to dynamically resize search on home page
 }
 
 .search-results {
-  margin-left: 70px;
-  width: 960px;
+  width: 60%;
   display: inline-block;
   vertical-align: top;
 }
 
 .index-item {
-  height: 210px;
-  margin: 10px;
   background-color: white;
   display: flex;
   justify-content: flex-end;
+  margin: 10px 0;
 }
 
 .doc-search-schedule {
   width: 420px;
-
-  section {
-    height: 210px;
-  }
+  background-color: $zoc-yellow;
 }
 
 #loading {
@@ -163,5 +158,37 @@ main { // needed to dynamically resize search on home page
 
   .search-bar {
     height: 220px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .index-item {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .search-results {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .doc-search-schedule {
+    width: 100%;
+  }
+
+  .doc-search-schedule .doc-schedule {
+    display: flex;
+    justify-content: center;
+
+    ul:first-of-type {
+      margin-left: 10px;
+    }
+
+    ul:last-of-type {
+      display: none;
+    }
   }
 }

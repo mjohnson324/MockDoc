@@ -59,7 +59,7 @@ class Search extends React.Component {
     }
     filter.address = this.location.current.value;
     if (filter.address === '') {
-      filter.address = 'New York';
+      filter.address = 'Union Square, New York, New York';
     }
     return filter;
   }

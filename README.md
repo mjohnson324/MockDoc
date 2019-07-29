@@ -49,8 +49,8 @@ Hosted live on Heroku.
   [schema]: docs/schema.md
   [choices]: docs/choices.md
 
-## Next Steps:
+## Next Steps
 
-[] **Appointment Scrolling:** ZocDoc has a feature where users can check appointment availability over the next three-day time span for a doctor with just the click of a button, indicating many appointments are retrieved at once. I intend to implement a similar feature by manipulating the state of the search index and doctor profiles.
+- [ ] **Appointment Scrolling:** Patients should be able to scroll through a given doctor's available appointments once loaded.
 
-[] **Photos for Doctors:** Doctors have profile pictures on ZocDoc. AWS will help in the implementation for storing photos.
+- [ ] **Photos for Doctors:** Doctors will have profile pictures via AWS and S3.

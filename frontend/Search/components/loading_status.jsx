@@ -3,7 +3,7 @@ import React from 'react';
 export const Loading = () => {
   return(
       <div id="loading">
-        <svg className="animate-logo" version="1.1" viewBox="0.0 0.0 100.0 100.0" fill="none" stroke="none" strokeLinecap="square" strokeMiterlimit="10">
+        <svg className="animate-logo" version="1.1" viewBox="0.0 0.0 100.0 100.0" width="200" fill="none" stroke="none" strokeLinecap="square" strokeMiterlimit="10">
           <clipPath id="p.0">
             <path d="m0 0l100.879265 0l0 100.0l-100.879265 0l0 -100.0z" clipRule="nonzero"/>
           </clipPath>

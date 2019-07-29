@@ -10,9 +10,7 @@ main { // needed to dynamically resize search on home page
   justify-content: center;
   align-items: center;
   flex: auto; // Expands element to fill home page between header and footer
-  background: url("health.jpeg");
-  background-size: cover;
-
+  background-image: radial-gradient($shape-color, $navy-blue 70%);
   input, label, select {
     margin: 10px 0 10px 0;
     height: 30px;
@@ -61,7 +59,6 @@ main { // needed to dynamically resize search on home page
   flex: none;
   height: 75px;
   white-space: nowrap;
-  z-index: 5;
 }
 
 .search-master {

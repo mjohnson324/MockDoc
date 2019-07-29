@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Logo from './logo';
 
 class Header extends React.Component {
   constructor(props){
@@ -46,7 +47,7 @@ class Header extends React.Component {
     return(
       <React.Fragment>
         <div id="landing-logo">
-          <div id="logo" />
+          <Logo />
           <h1>MockDoc</h1>
         </div>
       </React.Fragment>

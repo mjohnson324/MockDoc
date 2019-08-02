@@ -9,7 +9,7 @@ import DoctorReviews from './doctor_reviews';
 class Doctor extends React.Component {
   constructor(props) {
     super(props);
-    const days = getDayRange();
+    const days = getDayRange(0);
     this.state = {
       today: days[0],
       tomorrow: days[1],

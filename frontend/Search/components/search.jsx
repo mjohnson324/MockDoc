@@ -1,5 +1,6 @@
 /* global google */
 import React from 'react';
+import { getDay } from '../../Doctors/doctor_utils';
 
 class Search extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class Search extends React.Component {
 
   componentDidMount() {
     window.initAutocomplete = this.initAutocomplete;
-    this.loadGoogleMapsAPI("https://maps.googleapis.com/maps/api/js?key=AIzaSyAVfnTXGkL1X_Dm9KBn5wfF3N7kJJo5W_U&libraries=places&callback=initAutocomplete");
+    this.loadGoogleMapsAPI("https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initAutocomplete");
   }
 
   loadGoogleMapsAPI(url) {
@@ -47,6 +48,7 @@ class Search extends React.Component {
     const filter = this.checkParams(this.state);
     const queryURL = this.toQueryString(filter);
     filter.status = "loading";
+    filter.day = getDay(0);
     this.props.changeFilter(filter);
     this.props.clearDoctors()
     this.props.getDoctors(filter)

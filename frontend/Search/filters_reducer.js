@@ -1,10 +1,12 @@
 import { merge } from 'lodash';
 import { UPDATE_FILTER, RECEIVE_SEARCH_RESULTS } from './search_actions';
+import moment from 'moment';
 
 const defaultFilters = Object.freeze({
   specialty: "none",
   address: "",
   status: "loading",
+  day: moment().get('date'),
   googleLoaded: false,
 });
 

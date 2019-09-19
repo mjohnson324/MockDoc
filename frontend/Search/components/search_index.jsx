@@ -67,7 +67,7 @@ class SearchIndex extends React.Component {
 
   // disables checking earlier days if the earliest day on display is today
   checkDate() {
-    return getDay(0).slice(0, 15) === this.state.firstDay.slice(0, 15);
+    return getDay(0).toString().slice(0, 15) === this.state.firstDay.toString().slice(0, 15);
   }
 
   render() {

@@ -54,3 +54,17 @@ Finally, you must set up rails secrets to run Geocoder and Google Maps. You will
 ```
 
 From there you can add and update the appropriate keys to rails. You can view secrets from the rails console with `ruby Rails.application.secrets[.key_name]'`.
+
+## Maintenance
+
+To keep costs down the database is kept small, but demoing the full features of the app requires displaying appointment data that's up to date. To that end I've created a rake task that resets all appointments to display appointments for several weeks after the current day. The command is as follows:
+
+```bash
+bundle exec rake reset_appointments
+```
+
+Adding additional doctors is done with a similar task:
+
+```bash
+bundle exec rake new_doctor
+```

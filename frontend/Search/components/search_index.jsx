@@ -19,26 +19,35 @@ class SearchIndex extends React.Component {
     this.moveLeft = this.moveLeft.bind(this);
     this.moveRight = this.moveRight.bind(this);
     this.checkDate = this.checkDate.bind(this);
+    this.getFilter = this.getFilter.bind(this);
   }
 
   componentDidMount() {
+    const filter = this.getFilter();
+    this.props.changeFilter(filter);
+    this.props.getDoctors(filter);
+  }
+
+  getFilter(offset = 0) {
     const queryString = "?".concat(window.location.href.split('?')[1]);
     const searchParams = new URLSearchParams(queryString);
-    const filter = {
+    return({
       specialty: searchParams.get('specialty'),
       address: searchParams.get('address'),
       status: this.props.filter.status,
-    };
-    this.props.changeFilter(filter);
-    this.props.getDoctors(filter);
+      day: getDay(offset),
+    });
   }
 
   moveLeft() {
     const newOffset = this.state.currentOffset - 3;
     let baseOffset = this.state.baseOffset;
     const days = getDayRange(newOffset);
-    if (newOffset <= this.state.currentOffset - 12) {
+    if (newOffset < this.state.currentOffset) {
       baseOffset -= 12;
+      const filter = this.getFilter(-12);
+      this.props.changeFilter(filter);
+      this.props.getDoctors(filter);
     }
     this.setState({
       baseOffset: baseOffset,
@@ -55,6 +64,9 @@ class SearchIndex extends React.Component {
     const days = getDayRange(newOffset);
     if (newOffset >= this.state.originalOffset + 12) {
       baseOffset += 12;
+      const filter = this.getFilter(12);
+      this.props.changeFilter(filter);
+      this.props.getDoctors(filter);
     }
     this.setState({
       currentOffset: newOffset,

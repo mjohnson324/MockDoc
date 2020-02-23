@@ -1,12 +1,8 @@
 # MockDoc
 
-[View Site](https://www.mockdoc.live/)
-
 MockDoc is a demo full-stack web application for booking appointments. Features include searching for doctors, scheduling appointments, and leaving reviews.
 
 The idea behind the platform is that users can request free service from lousy doctors, offering a "fairer" bargain than what most US patients have to put up with.
-
-Hosted live on Heroku.
 
 ![MockDoc](./docs/images/mockdoc.png)
 
@@ -48,9 +44,3 @@ Hosted live on Heroku.
   [state]: docs/sample-state.md
   [schema]: docs/schema.md
   [choices]: docs/choices.md
-
-## Next Steps
-
-- [ ] **Appointment Scrolling:** Patients should be able to scroll through a given doctor's available appointments once loaded.
-
-- [ ] **Photos for Doctors:** Doctors will have profile pictures via AWS and S3.

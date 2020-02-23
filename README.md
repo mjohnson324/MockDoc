@@ -18,8 +18,6 @@ The idea behind the platform is that users can request free service from lousy d
 
 * **Gems:**
   * [Ruby Geocoder](https://github.com/alexreisner/geocoder)
-  * [Paperclip](https://github.com/thoughtbot/paperclip)
-  * [AWS-SDK-Ruby](https://github.com/aws/aws-sdk-ruby)
 
 * **JS Libraries:**
   * [Moment.js](https://momentjs.com/docs/)

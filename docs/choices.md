@@ -5,7 +5,6 @@ Project details outlining library and design choices are listed here.
 ## Backend
 
 * Passwords are encrypted with  _**BCRypt**_ prior to storage. New session tokens are created on login and logout to protect users against _**CSRF**_ attacks.
-* **Paperclip** and **AWS-SDK** are integrated to store and load images from AWS S3 buckets.
 * API keys are encrypted via **Rails secrets** to prevent malicious users from stealing keys.
 * Geocoder was chosen to handle GPS queries on the backend. Doctor addresses are stored as GPS coordinates and decoded on the frontend via **Google Maps**
 
